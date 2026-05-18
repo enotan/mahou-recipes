@@ -1,0 +1,19 @@
+name = "font-bitstream-type1"
+version = "1.0.4"
+description = "Bitstream Type1 fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-bitstream-type1-1.0.4.tar.xz"
+sha256 = "de2f238b4cd72db4228a0ba67829d76a2b7c039e22993d66a722ee385248c628"
+source_dir = "font-bitstream-type1-1.0.4"
+deps = ["font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-bitstream-type1-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-bitstream-type1-{version}.tar.xz"
+source_dir_template = "font-bitstream-type1-{version}"

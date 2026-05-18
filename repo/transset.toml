@@ -1,0 +1,19 @@
+name = "transset"
+version = "1.0.4"
+description = "Set opacity properties on X11 windows"
+source = "https://www.x.org/releases/individual/app/transset-1.0.4.tar.xz"
+sha256 = "81a9ab74af137733aa8cb6a37f8292948526fe7ef06b859fc0ff272c437c0b38"
+source_dir = "transset-1.0.4"
+deps = ["libX11", "libXcomposite", "libXdamage", "libXrender", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "transset-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/transset-{version}.tar.xz"
+source_dir_template = "transset-{version}"

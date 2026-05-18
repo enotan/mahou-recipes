@@ -1,0 +1,14 @@
+name = "gnome-usage"
+version = "48.0"
+description = "GNOME system resource monitor"
+source = "https://download.gnome.org/sources/gnome-usage/48/gnome-usage-48.0.tar.xz"
+sha256 = "501de3c6d4d653d59ce0d707758dccf83dc3ea81a2ed1492d2f333162fee0a17"
+source_dir = "gnome-usage-48.0"
+deps = ["glib", "gtk4", "libadwaita", "libgtop"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-usage/48/"
+version_pattern = "gnome-usage-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-usage/48/gnome-usage-{version}.tar.xz"
+source_dir_template = "gnome-usage-{version}"

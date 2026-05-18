@@ -1,0 +1,19 @@
+name = "glproto"
+version = "1.4.17"
+description = "OpenGL extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/glproto-1.4.17.tar.gz"
+sha256 = "9d8130fec2b98bd032db7730fa092dd9dec39f3de34f4bb03ceb43b9903dbc96"
+source_dir = "glproto-1.4.17"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "glproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/glproto-{version}.tar.gz"
+source_dir_template = "glproto-{version}"

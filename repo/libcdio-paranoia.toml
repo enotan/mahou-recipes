@@ -1,0 +1,14 @@
+name = "libcdio-paranoia"
+version = "10.2+2.0.2"
+description = "CD paranoia library from GNU libcdio"
+source = "https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.2.tar.gz"
+sha256 = "99488b8b678f497cb2e2f4a1a9ab4a6329c7e2537a366d5e4fef47df52907ff6"
+source_dir = "libcdio-paranoia-10.2+2.0.2"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/libcdio/"
+version_pattern = "libcdio-paranoia-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-{version}.tar.gz"
+source_dir_template = "libcdio-paranoia-{version}"

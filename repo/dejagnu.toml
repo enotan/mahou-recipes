@@ -1,0 +1,19 @@
+name = "dejagnu"
+version = "1.6.3"
+description = "Framework for testing programs"
+source = "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.3.tar.gz"
+sha256 = "87daefacd7958b4a69f88c6856dbd1634261963c414079d0c371f589cd66a2e3"
+source_dir = "dejagnu-1.6.3"
+deps = ["expect"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/dejagnu/"
+version_pattern = "dejagnu-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/dejagnu/dejagnu-{version}.tar.gz"
+source_dir_template = "dejagnu-{version}"

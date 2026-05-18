@@ -1,0 +1,19 @@
+name = "xnee"
+version = "3.19"
+description = "Record, replay, and distribute X11 input events"
+source = "https://ftp.gnu.org/gnu/xnee/xnee-3.19.tar.gz"
+sha256 = "52a41e5cf62f81b7a3e5b58124eb3565e1e12028abda63f547fbbe0d98a2c212"
+source_dir = "xnee-3.19"
+deps = ["libX11", "libXi", "libXtst", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/xnee/"
+version_pattern = "xnee-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/xnee/xnee-{version}.tar.gz"
+source_dir_template = "xnee-{version}"

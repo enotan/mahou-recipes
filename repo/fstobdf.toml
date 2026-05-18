@@ -1,0 +1,19 @@
+name = "fstobdf"
+version = "1.0.8"
+description = "Generate BDF fonts from an X font server"
+source = "https://www.x.org/releases/individual/app/fstobdf-1.0.8.tar.xz"
+sha256 = "69be41c4d5093bbc3f04c9af6fa9497ad8e931e8d3f687412a66885fe81aa46d"
+source_dir = "fstobdf-1.0.8"
+deps = ["libFS", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "fstobdf-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/fstobdf-{version}.tar.xz"
+source_dir_template = "fstobdf-{version}"

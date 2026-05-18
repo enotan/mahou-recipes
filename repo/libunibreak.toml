@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/adah1972/libunibreak/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"libunibreak_([0-9]+_[0-9]+)\""
+check_url = "https://github.com/adah1972/libunibreak/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/adah1972/libunibreak/releases/download/libunibreak_{version}/libunibreak-{version}.tar.gz"
 source_dir_template = "libunibreak-{version}"

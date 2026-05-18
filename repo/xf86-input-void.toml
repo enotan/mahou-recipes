@@ -1,0 +1,14 @@
+name = "xf86-input-void"
+version = "1.4.2"
+description = "X.Org null input driver"
+source = "https://www.x.org/releases/individual/driver/xf86-input-void-1.4.2.tar.xz"
+sha256 = "a211d8e21ce0e2ed8af5b8a2e8d4409d70c9c7e5ee528f5e6002ad279bf07885"
+source_dir = "xf86-input-void-1.4.2"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-input-void-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-input-void-{version}.tar.xz"
+source_dir_template = "xf86-input-void-{version}"

@@ -1,0 +1,14 @@
+name = "gnome-console"
+version = "50.0"
+description = "GNOME terminal emulator"
+source = "https://download.gnome.org/sources/gnome-console/50/gnome-console-50.0.tar.xz"
+sha256 = "e4950207f0547e6a6c0f18eebfcf6e1a10461eab0f2fae0aae512b1044c7ac6e"
+source_dir = "gnome-console-50.0"
+deps = ["glib", "gtk4", "libadwaita", "vte"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-console/50/"
+version_pattern = "gnome-console-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-console/50/gnome-console-{version}.tar.xz"
+source_dir_template = "gnome-console-{version}"

@@ -1,0 +1,19 @@
+name = "xfwp"
+version = "1.0.3"
+description = "X firewall proxy"
+source = "https://www.x.org/releases/individual/app/xfwp-1.0.3.tar.gz"
+sha256 = "6fe243bde0374637e271a3f038b5d6d79a04621fc18162727782392069c5c04d"
+source_dir = "xfwp-1.0.3"
+deps = ["libICE", "libX11", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xfwp-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/xfwp-{version}.tar.gz"
+source_dir_template = "xfwp-{version}"

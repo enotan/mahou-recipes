@@ -1,0 +1,14 @@
+name = "xfce4-notifyd"
+version = "0.9.7"
+description = "Notification daemon for Xfce"
+source = "https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.7.tar.bz2"
+sha256 = "170d18fd5f40cce823ffc7ae3d7e21644007c3f45808ab4835f0401d21b3516a"
+source_dir = "xfce4-notifyd-0.9.7"
+deps = ["glib", "gtk+", "libxfce4ui", "libnotify"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/"
+version_pattern = "xfce4-notifyd-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-{version}.tar.bz2"
+source_dir_template = "xfce4-notifyd-{version}"

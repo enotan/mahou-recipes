@@ -1,0 +1,14 @@
+name = "cfengine"
+version = "2.0.6"
+description = "GNU cfengine configuration management tool"
+source = "https://ftp.gnu.org/gnu/cfengine/cfengine-2.0.6.tar.gz"
+sha256 = "c5e308a30e004b505c3f948bad774bb837581ad1edab1885e9c05f60fe723d79"
+source_dir = "cfengine-2.0.6"
+deps = ["openssl"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/cfengine/"
+version_pattern = "cfengine-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/cfengine/cfengine-{version}.tar.gz"
+source_dir_template = "cfengine-{version}"

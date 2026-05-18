@@ -1,0 +1,14 @@
+name = "xfce4-panel"
+version = "4.21.1"
+description = "Panel for the Xfce desktop"
+source = "https://archive.xfce.org/src/xfce/xfce4-panel/4.21/xfce4-panel-4.21.1.tar.xz"
+sha256 = "c940dae515bef4af08a126011d2fd873ce99e815157ba8cef5332195bb60e51e"
+source_dir = "xfce4-panel-4.21.1"
+deps = ["glib", "gtk+", "libxfce4ui", "exo"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/xfce4-panel/4.21/"
+version_pattern = "xfce4-panel-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/xfce/xfce4-panel/4.21/xfce4-panel-{version}.tar.xz"
+source_dir_template = "xfce4-panel-{version}"

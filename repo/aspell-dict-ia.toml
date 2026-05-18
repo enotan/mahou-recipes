@@ -1,0 +1,13 @@
+name = "aspell-dict-ia"
+version = "0.50-1"
+description = "Aspell Interlingua dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ia/aspell-ia-0.50-1.tar.bz2"
+sha256 = "5797cb59606d007cf8fe5b9ec435de0d63b2d0e0d391ed8850ef8aa3f4bb0c2f"
+source_dir = "aspell-ia-0.50-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ia/"
+version_pattern = "aspell-ia-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ia/aspell-ia-{version}.tar.bz2"
+source_dir_template = "aspell-ia-{version}"

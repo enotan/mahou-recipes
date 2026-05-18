@@ -1,0 +1,14 @@
+name = "seahorse"
+version = "47.0"
+description = "GNOME password and encryption key manager"
+source = "https://download.gnome.org/sources/seahorse/47/seahorse-47.0.tar.xz"
+sha256 = "9fcdd03890ce86caae5c4bfac13d15bde6c9f6c8ae4700591f9fc88c54919813"
+source_dir = "seahorse-47.0"
+deps = ["glib", "gtk4", "gcr", "libsecret"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/seahorse/47/"
+version_pattern = "seahorse-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/seahorse/47/seahorse-{version}.tar.xz"
+source_dir_template = "seahorse-{version}"

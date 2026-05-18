@@ -14,7 +14,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/astrand/xclip/tags"
-version_pattern = "\"name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/astrand/xclip/tags"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/astrand/xclip/archive/refs/tags/{version}.tar.gz"
 source_dir_template = "xclip-{version}"

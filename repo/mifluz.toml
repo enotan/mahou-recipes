@@ -1,0 +1,19 @@
+name = "mifluz"
+version = "0.26.0"
+description = "Full-text inverted index library"
+source = "https://ftp.gnu.org/gnu/mifluz/mifluz-0.26.0.tar.gz"
+sha256 = "e220ad4a23a972acfffedb05d63e8c7b13a422f9008bd6af95fdb4339f94b6a4"
+source_dir = "mifluz-0.26.0"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr --disable-static",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/mifluz/"
+version_pattern = "mifluz-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/mifluz/mifluz-{version}.tar.gz"
+source_dir_template = "mifluz-{version}"

@@ -1,0 +1,19 @@
+name = "xvinfo"
+version = "1.1.5"
+description = "Print X-Video extension adaptor information"
+source = "https://www.x.org/releases/individual/app/xvinfo-1.1.5.tar.xz"
+sha256 = "3ede71ecb26d9614ccbc6916720285e95a2c7e0c5e19b8570eaaf72ad7c5c404"
+source_dir = "xvinfo-1.1.5"
+deps = ["libX11", "libXv", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xvinfo-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xvinfo-{version}.tar.xz"
+source_dir_template = "xvinfo-{version}"

@@ -1,0 +1,19 @@
+name = "gengen"
+version = "1.4.2"
+description = "Parameterized text generator"
+source = "https://ftp.gnu.org/gnu/gengen/gengen-1.4.2.tar.gz"
+sha256 = "f49bde616c09156cf7a91f40cb37b476fcd20fe899be15ecd194ca8ed40798e9"
+source_dir = "gengen-1.4.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gengen/"
+version_pattern = "gengen-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gengen/gengen-{version}.tar.gz"
+source_dir_template = "gengen-{version}"

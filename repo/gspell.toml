@@ -1,0 +1,14 @@
+name = "gspell"
+version = "1.14.3"
+description = "Spell-checking library for GTK"
+source = "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.3.tar.xz"
+sha256 = "e8b39c67556f75495362952f81ca241b5a3c17c75960b77fc93fa702c612a5a4"
+source_dir = "gspell-1.14.3"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gspell/1.14/"
+version_pattern = "gspell-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gspell/1.14/gspell-{version}.tar.xz"
+source_dir_template = "gspell-{version}"

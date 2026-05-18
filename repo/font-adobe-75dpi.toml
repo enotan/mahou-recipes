@@ -1,0 +1,19 @@
+name = "font-adobe-75dpi"
+version = "1.0.4"
+description = "Adobe 75 DPI bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-adobe-75dpi-1.0.4.tar.xz"
+sha256 = "1281a62dbeded169e495cae1a5b487e1f336f2b4d971d92911c59c103999b911"
+source_dir = "font-adobe-75dpi-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-adobe-75dpi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-adobe-75dpi-{version}.tar.xz"
+source_dir_template = "font-adobe-75dpi-{version}"

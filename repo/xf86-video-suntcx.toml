@@ -1,0 +1,14 @@
+name = "xf86-video-suntcx"
+version = "1.1.3"
+description = "X.Org Sun TCX video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-suntcx-1.1.3.tar.xz"
+sha256 = "3fed96df4af3e92bf1357bdaf143a2992d1947fdc94ce7fca869f0b518141505"
+source_dir = "xf86-video-suntcx-1.1.3"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-suntcx-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-suntcx-{version}.tar.xz"
+source_dir_template = "xf86-video-suntcx-{version}"

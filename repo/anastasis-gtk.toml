@@ -1,0 +1,14 @@
+name = "anastasis-gtk"
+version = "0.4.1"
+description = "GTK interface for GNU Anastasis"
+source = "https://ftp.gnu.org/gnu/anastasis/anastasis-gtk-0.4.1.tar.gz"
+sha256 = "8f40f7e200ff287114bfe4cc46068f30c44f5640b48e6b43058a06cd77ec3b38"
+source_dir = "anastasis-gtk-0.4.1"
+deps = ["glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/anastasis/"
+version_pattern = "anastasis-gtk-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/anastasis/anastasis-gtk-{version}.tar.gz"
+source_dir_template = "anastasis-gtk-{version}"

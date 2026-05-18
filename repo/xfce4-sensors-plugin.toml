@@ -1,0 +1,14 @@
+name = "xfce4-sensors-plugin"
+version = "1.5.0"
+description = "Hardware sensors panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-sensors-plugin/1.5/xfce4-sensors-plugin-1.5.0.tar.xz"
+sha256 = "840442b87fdddcd8595bd9f83ea8b81f771fe296bb9d2abf0e1979e208727ae9"
+source_dir = "xfce4-sensors-plugin-1.5.0"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-sensors-plugin/1.5/"
+version_pattern = "xfce4-sensors-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-sensors-plugin/1.5/xfce4-sensors-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-sensors-plugin-{version}"

@@ -1,0 +1,13 @@
+name = "aspell-dict-ga"
+version = "4.5-0"
+description = "Aspell Irish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ga/aspell5-ga-4.5-0.tar.bz2"
+sha256 = "455fdbbca24cecb4667fbcf9544d84ae83e5b2505caae79afa6b2cb76b4d0679"
+source_dir = "aspell5-ga-4.5-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ga/"
+version_pattern = "aspell5-ga-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ga/aspell5-ga-{version}.tar.bz2"
+source_dir_template = "aspell5-ga-{version}"

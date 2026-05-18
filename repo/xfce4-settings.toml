@@ -1,0 +1,14 @@
+name = "xfce4-settings"
+version = "4.21.1"
+description = "Settings manager for Xfce"
+source = "https://archive.xfce.org/src/xfce/xfce4-settings/4.21/xfce4-settings-4.21.1.tar.xz"
+sha256 = "e57a33d0bb9d63d0ef6f469c2d42cbf66e37d9127cc204de411b7385274e26d0"
+source_dir = "xfce4-settings-4.21.1"
+deps = ["glib", "gtk+", "libxfce4ui", "xfconf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/xfce4-settings/4.21/"
+version_pattern = "xfce4-settings-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/xfce/xfce4-settings/4.21/xfce4-settings-{version}.tar.xz"
+source_dir_template = "xfce4-settings-{version}"

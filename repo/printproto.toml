@@ -1,0 +1,19 @@
+name = "printproto"
+version = "1.0.5"
+description = "X Print extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/printproto-1.0.5.tar.gz"
+sha256 = "e8b6f405fd865f0ea7a3a2908dfbf06622f57f2f91359ec65d13b955e49843fc"
+source_dir = "printproto-1.0.5"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "printproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/printproto-{version}.tar.gz"
+source_dir_template = "printproto-{version}"

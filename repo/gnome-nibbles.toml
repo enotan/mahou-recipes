@@ -1,0 +1,14 @@
+name = "gnome-nibbles"
+version = "4.5.2"
+description = "GNOME Nibbles game"
+source = "https://download.gnome.org/sources/gnome-nibbles/4.5/gnome-nibbles-4.5.2.tar.xz"
+sha256 = "76729d3b562cd7862ad30590c3bd40fd251f9d4bb5c53baa84150197f231a5fa"
+source_dir = "gnome-nibbles-4.5.2"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-nibbles/4.5/"
+version_pattern = "gnome-nibbles-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-nibbles/4.5/gnome-nibbles-{version}.tar.xz"
+source_dir_template = "gnome-nibbles-{version}"

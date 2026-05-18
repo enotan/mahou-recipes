@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://sourceforge.net/projects/acpiclient/files/acpiclient/"
+check_url = "https://sourceforge.net/projects/acpiclient/rss?path=/acpiclient"
 version_pattern = "acpi-([0-9]+\\.[0-9]+)\\.tar\\.gz"
 source_template = "https://downloads.sourceforge.net/project/acpiclient/acpiclient/{version}/acpi-{version}.tar.gz"
 source_dir_template = "acpi-{version}"

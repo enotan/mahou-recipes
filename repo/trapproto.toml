@@ -1,0 +1,15 @@
+name = "trapproto"
+version = "3.4.3"
+description = "X Trap extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/trapproto-3.4.3.tar.gz"
+sha256 = "abfb930b5703b5a6ebafe84d0246bd8c6b099ca4a4eab06d1dc0776a8a9b87c1"
+source_dir = "trapproto-3.4.3"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "trapproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/trapproto-{version}.tar.gz"
+source_dir_template = "trapproto-{version}"

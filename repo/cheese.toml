@@ -1,0 +1,14 @@
+name = "cheese"
+version = "44.1"
+description = "GNOME webcam application"
+source = "https://download.gnome.org/sources/cheese/44/cheese-44.1.tar.xz"
+sha256 = "5f2185c4c99e54ddf2b8baf60c82819950e54952e132e8639875f3edcbf8f68e"
+source_dir = "cheese-44.1"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/cheese/44/"
+version_pattern = "cheese-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/cheese/44/cheese-{version}.tar.xz"
+source_dir_template = "cheese-{version}"

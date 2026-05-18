@@ -1,0 +1,14 @@
+name = "gnu-crypto"
+version = "2.1.0"
+description = "GNU Crypto cryptographic primitives"
+source = "https://ftp.gnu.org/gnu/gnu-crypto/gnu-crypto-2.1.0.tar.gz"
+sha256 = "129f4bb6906d1a871aacab0960c45ab111ad067126d4cab292ce1fdc1f399de6"
+source_dir = "gnu-crypto-2.1.0"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnu-crypto/"
+version_pattern = "gnu-crypto-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnu-crypto/gnu-crypto-{version}.tar.gz"
+source_dir_template = "gnu-crypto-{version}"

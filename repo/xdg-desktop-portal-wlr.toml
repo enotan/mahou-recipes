@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/emersion/xdg-desktop-portal-wlr/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/emersion/xdg-desktop-portal-wlr/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/emersion/xdg-desktop-portal-wlr/releases/download/v{version}/xdg-desktop-portal-wlr-{version}.tar.gz"
 source_dir_template = "xdg-desktop-portal-wlr-{version}"

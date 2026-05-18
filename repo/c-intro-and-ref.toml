@@ -1,0 +1,14 @@
+name = "c-intro-and-ref"
+version = "0.1"
+description = "GNU C language introduction and reference"
+source = "https://ftp.gnu.org/gnu/c-intro-and-ref/c-intro-and-ref-0.1.tar.gz"
+sha256 = "e399ad9e5cb3d91b98524e09cdafa5646181c5ece98914bfbfbd31c7588ac444"
+source_dir = "c-intro-and-ref-0.1"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/c-intro-and-ref/"
+version_pattern = "c-intro-and-ref-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/c-intro-and-ref/c-intro-and-ref-{version}.tar.gz"
+source_dir_template = "c-intro-and-ref-{version}"

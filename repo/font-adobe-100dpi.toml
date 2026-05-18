@@ -1,0 +1,19 @@
+name = "font-adobe-100dpi"
+version = "1.0.4"
+description = "Adobe 100 DPI bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-adobe-100dpi-1.0.4.tar.xz"
+sha256 = "b67aff445e056328d53f9732d39884f55dd8d303fc25af3dbba33a8ba35a9ccf"
+source_dir = "font-adobe-100dpi-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-adobe-100dpi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-adobe-100dpi-{version}.tar.xz"
+source_dir_template = "font-adobe-100dpi-{version}"

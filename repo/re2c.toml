@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/skvadrik/re2c/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/skvadrik/re2c/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/skvadrik/re2c/releases/download/{version}/re2c-{version}.tar.xz"
 source_dir_template = "re2c-{version}"

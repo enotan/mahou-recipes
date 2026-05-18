@@ -1,0 +1,14 @@
+name = "gnuspool"
+version = "1.8"
+description = "GNU spool print management system"
+source = "https://ftp.gnu.org/gnu/gnuspool/gnuspool-1.8.tar.gz"
+sha256 = "3ec91f291d5f49385e126fa26db2e1aefe688fc26570b4da412e470162e7bacb"
+source_dir = "gnuspool-1.8"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnuspool/"
+version_pattern = "gnuspool-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnuspool/gnuspool-{version}.tar.gz"
+source_dir_template = "gnuspool-{version}"

@@ -1,0 +1,14 @@
+name = "eog"
+version = "50.1"
+description = "GNOME image viewer"
+source = "https://download.gnome.org/sources/eog/50/eog-50.1.tar.xz"
+sha256 = "6f5ee6d756548b88e25a987e0d06dabc3c6c32598fb7df49fb08945c1fe94a55"
+source_dir = "eog-50.1"
+deps = ["glib", "gtk4", "gdk-pixbuf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/eog/50/"
+version_pattern = "eog-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/eog/50/eog-{version}.tar.xz"
+source_dir_template = "eog-{version}"

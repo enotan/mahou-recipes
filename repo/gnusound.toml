@@ -1,0 +1,14 @@
+name = "gnusound"
+version = "0.7"
+description = "GNU sound editor"
+source = "https://ftp.gnu.org/gnu/gnusound/gnusound-0.7.tar.bz2"
+sha256 = "09abbd9f70e65d92e884ae455a78a2b4cabbb2b1738e66073c22be5549ed4e94"
+source_dir = "gnusound-0.7"
+deps = ["glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnusound/"
+version_pattern = "gnusound-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/gnusound/gnusound-{version}.tar.bz2"
+source_dir_template = "gnusound-{version}"

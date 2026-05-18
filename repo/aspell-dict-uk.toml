@@ -1,0 +1,14 @@
+name = "aspell-dict-uk"
+version = "1.4.0-0"
+description = "Aspell Ukrainian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/uk/aspell6-uk-1.4.0-0.tar.bz2"
+sha256 = "35f9a7e840c1272706bc6dd172bc9625cbd843d021094da8598a6abba525f18c"
+source_dir = "aspell6-uk-1.4.0-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/uk/"
+version_pattern = "aspell6-uk-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/uk/aspell6-uk-{version}.tar.bz2"
+source_dir_template = "aspell6-uk-{version}"

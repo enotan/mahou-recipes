@@ -1,0 +1,19 @@
+name = "plotutils"
+version = "2.6"
+description = "Plotting utilities and libraries"
+source = "https://ftp.gnu.org/gnu/plotutils/plotutils-2.6.tar.gz"
+sha256 = "4f4222820f97ca08c7ea707e4c53e5a3556af4d8f1ab51e0da6ff1627ff433ab"
+source_dir = "plotutils-2.6"
+deps = ["libpng", "zlib"]
+
+build_steps = [
+  "./configure --prefix=/usr --without-x",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/plotutils/"
+version_pattern = "plotutils-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/plotutils/plotutils-{version}.tar.gz"
+source_dir_template = "plotutils-{version}"

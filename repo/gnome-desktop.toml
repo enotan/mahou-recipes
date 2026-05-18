@@ -1,0 +1,14 @@
+name = "gnome-desktop"
+version = "44"
+description = "GNOME desktop library"
+source = "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.tar.xz"
+sha256 = "ec8168a3ba91cab8772d56cc373a2bd309ca4ea1f00e5087e60faccbdb3cc985"
+source_dir = "gnome-desktop-44"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-desktop/44/"
+version_pattern = "gnome-desktop-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-{version}.tar.xz"
+source_dir_template = "gnome-desktop-{version}"

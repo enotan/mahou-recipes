@@ -1,0 +1,13 @@
+name = "aspell-dict-en"
+version = "2026.02.25-0"
+description = "Aspell English dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2026.02.25-0.tar.bz2"
+sha256 = "77a5cb437c45d1115f3b593802c20651d8c93803ed1073278dc1a1240016f10d"
+source_dir = "aspell6-en-2026.02.25-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/en/"
+version_pattern = "aspell6-en-([0-9]+\\.[0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-{version}.tar.bz2"
+source_dir_template = "aspell6-en-{version}"

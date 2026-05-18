@@ -16,6 +16,6 @@ build_steps = [
 
 [update]
 check_url = "https://sourceforge.net/projects/infozip/files/Zip%203.x%20%28latest%29/"
-version_pattern = "zip30\\.tar\\.gz"
+version_pattern = "Zip%203\\.x%20%28latest%29/([0-9]+\\.[0-9]+)/"
 source_template = "https://downloads.sourceforge.net/infozip/zip30.tar.gz"
 source_dir_template = "zip30"

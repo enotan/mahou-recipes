@@ -1,0 +1,19 @@
+name = "font-arabic-misc"
+version = "1.0.4"
+description = "Miscellaneous Arabic bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-arabic-misc-1.0.4.tar.xz"
+sha256 = "46ffe61b52c78a1d2dca70ff20a9f2d84d69744639cab9a085c7a7ee17663467"
+source_dir = "font-arabic-misc-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-arabic-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-arabic-misc-{version}.tar.xz"
+source_dir_template = "font-arabic-misc-{version}"

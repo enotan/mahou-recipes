@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/sharkdp/hexyl/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/sharkdp/hexyl/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/sharkdp/hexyl/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "hexyl-{version}"

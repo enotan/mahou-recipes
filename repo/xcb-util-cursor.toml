@@ -1,0 +1,19 @@
+name = "xcb-util-cursor"
+version = "0.1.6"
+description = "XCB cursor convenience library"
+source = "https://www.x.org/releases/individual/lib/xcb-util-cursor-0.1.6.tar.xz"
+sha256 = "fdeb8bd127873519be5cc70dcd0d3b5d33b667877200f9925a59fdcad8f7a933"
+source_dir = "xcb-util-cursor-0.1.6"
+deps = ["libxcb", "xcb-util", "xcb-util-image", "xcb-util-renderutil"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "xcb-util-cursor-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/xcb-util-cursor-{version}.tar.xz"
+source_dir_template = "xcb-util-cursor-{version}"

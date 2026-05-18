@@ -1,0 +1,14 @@
+name = "gnuchess"
+version = "6.3.0"
+description = "GNU Chess engine"
+source = "https://ftp.gnu.org/gnu/chess/gnuchess-6.3.0.tar.gz"
+sha256 = "0b37bec2098c2ad695b7443e5d7944dc6dc8284f8d01fcc30bdb94dd033ca23a"
+source_dir = "gnuchess-6.3.0"
+deps = ["readline"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/chess/"
+version_pattern = "gnuchess-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/chess/gnuchess-{version}.tar.gz"
+source_dir_template = "gnuchess-{version}"

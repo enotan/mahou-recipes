@@ -1,0 +1,14 @@
+name = "orgadoc"
+version = "1.3"
+description = "GNU OrgaDoc document organizer"
+source = "https://ftp.gnu.org/gnu/orgadoc/orgadoc-1.3.tar.gz"
+sha256 = "c11ef7c7118df640eb599d0b44c332a8f5ee4a24bc4174fd2cf5c4c70d8fe706"
+source_dir = "orgadoc-1.3"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/orgadoc/"
+version_pattern = "orgadoc-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/orgadoc/orgadoc-{version}.tar.gz"
+source_dir_template = "orgadoc-{version}"

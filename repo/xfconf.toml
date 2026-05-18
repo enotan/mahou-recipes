@@ -1,0 +1,14 @@
+name = "xfconf"
+version = "4.21.2"
+description = "Configuration storage system for Xfce"
+source = "https://archive.xfce.org/src/xfce/xfconf/4.21/xfconf-4.21.2.tar.xz"
+sha256 = "99aa4366e909ba7b9f746aba48b610b9e9d2933aeb283c7fa5f37a7c3dc7a3a6"
+source_dir = "xfconf-4.21.2"
+deps = ["glib", "dbus", "libxfce4util"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/xfconf/4.21/"
+version_pattern = "xfconf-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/xfce/xfconf/4.21/xfconf-{version}.tar.xz"
+source_dir_template = "xfconf-{version}"

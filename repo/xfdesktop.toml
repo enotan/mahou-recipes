@@ -1,0 +1,14 @@
+name = "xfdesktop"
+version = "4.20.2"
+description = "Desktop manager for Xfce"
+source = "https://archive.xfce.org/src/xfce/xfdesktop/4.20/xfdesktop-4.20.2.tar.bz2"
+sha256 = "1d9bd76015fb6e9aca05e73cd998c7c66ed4fc8c10b626e08fc2eb7c39df3f7b"
+source_dir = "xfdesktop-4.20.2"
+deps = ["glib", "gtk+", "libxfce4ui", "xfconf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/xfdesktop/4.20/"
+version_pattern = "xfdesktop-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://archive.xfce.org/src/xfce/xfdesktop/4.20/xfdesktop-{version}.tar.bz2"
+source_dir_template = "xfdesktop-{version}"

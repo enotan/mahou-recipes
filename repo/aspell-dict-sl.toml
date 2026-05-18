@@ -1,0 +1,14 @@
+name = "aspell-dict-sl"
+version = "0.50-0"
+description = "Aspell Slovenian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/sl/aspell-sl-0.50-0.tar.bz2"
+sha256 = "e566d127f7130da2df7b1f4f4cb4bc51932517b0c24299f84498ba325e6133d1"
+source_dir = "aspell-sl-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/sl/"
+version_pattern = "aspell-sl-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/sl/aspell-sl-{version}.tar.bz2"
+source_dir_template = "aspell-sl-{version}"

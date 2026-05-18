@@ -1,0 +1,14 @@
+name = "xfce4-taskmanager"
+version = "1.6.0"
+description = "Task manager for Xfce"
+source = "https://archive.xfce.org/src/apps/xfce4-taskmanager/1.6/xfce4-taskmanager-1.6.0.tar.xz"
+sha256 = "29bdc7840ab8b9025f6c0e456a83a31090d1c9fd9e26b359baa4a4010cfb0b90"
+source_dir = "xfce4-taskmanager-1.6.0"
+deps = ["glib", "gtk+", "libwnck"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/xfce4-taskmanager/1.6/"
+version_pattern = "xfce4-taskmanager-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/xfce4-taskmanager/1.6/xfce4-taskmanager-{version}.tar.xz"
+source_dir_template = "xfce4-taskmanager-{version}"

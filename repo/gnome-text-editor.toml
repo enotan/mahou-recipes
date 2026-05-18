@@ -1,0 +1,14 @@
+name = "gnome-text-editor"
+version = "50.1"
+description = "GNOME text editor application"
+source = "https://download.gnome.org/sources/gnome-text-editor/50/gnome-text-editor-50.1.tar.xz"
+sha256 = "f68036b09d378faa883bfe936e479c6ff37027c2ffed101daf912df70c51d0e6"
+source_dir = "gnome-text-editor-50.1"
+deps = ["glib", "gtk4", "gtksourceview", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-text-editor/50/"
+version_pattern = "gnome-text-editor-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-text-editor/50/gnome-text-editor-{version}.tar.xz"
+source_dir_template = "gnome-text-editor-{version}"

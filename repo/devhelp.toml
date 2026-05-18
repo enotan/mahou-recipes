@@ -1,0 +1,14 @@
+name = "devhelp"
+version = "43.0"
+description = "GNOME API documentation browser"
+source = "https://download.gnome.org/sources/devhelp/43/devhelp-43.0.tar.xz"
+sha256 = "63ceeefd05392e02044881ef1ecd724293553da5735b7efc082b2d13fe85dd04"
+source_dir = "devhelp-43.0"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/devhelp/43/"
+version_pattern = "devhelp-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/devhelp/43/devhelp-{version}.tar.xz"
+source_dir_template = "devhelp-{version}"

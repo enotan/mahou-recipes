@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/AlDanial/cloc/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/AlDanial/cloc/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/AlDanial/cloc/releases/download/v{version}/cloc-{version}.tar.gz"
 source_dir_template = "cloc-{version}"

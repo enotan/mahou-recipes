@@ -1,0 +1,19 @@
+name = "alive"
+version = "2.0.3"
+description = "Autologin and keep-alive daemon"
+source = "https://ftp.gnu.org/gnu/alive/alive-2.0.3.tar.xz"
+sha256 = "8bf41150ade07b86a806ce40ce99509713e2abcc92c4182a8d961aa3cf757014"
+source_dir = "alive-2.0.3"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/alive/"
+version_pattern = "alive-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/alive/alive-{version}.tar.xz"
+source_dir_template = "alive-{version}"

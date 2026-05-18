@@ -1,0 +1,14 @@
+name = "xf86-video-cirrus"
+version = "1.6.0"
+description = "X.Org Cirrus video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-cirrus-1.6.0.tar.xz"
+sha256 = "0ef3fa0083de3d9a040f11b3af38598d8405f1165b908fdd6712c30038326401"
+source_dir = "xf86-video-cirrus-1.6.0"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-cirrus-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-cirrus-{version}.tar.xz"
+source_dir_template = "xf86-video-cirrus-{version}"

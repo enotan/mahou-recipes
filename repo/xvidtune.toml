@@ -1,0 +1,19 @@
+name = "xvidtune"
+version = "1.0.4"
+description = "Video mode tuner for XFree86 VidMode"
+source = "https://www.x.org/releases/individual/app/xvidtune-1.0.4.tar.xz"
+sha256 = "0d4eecd54e440cc11f1bdaaa23180fcf890f003444343f533f639086b05b2cc5"
+source_dir = "xvidtune-1.0.4"
+deps = ["libX11", "libXaw", "libXmu", "libXt", "libXxf86vm", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xvidtune-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xvidtune-{version}.tar.xz"
+source_dir_template = "xvidtune-{version}"

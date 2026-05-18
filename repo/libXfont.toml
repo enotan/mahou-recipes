@@ -1,0 +1,19 @@
+name = "libXfont"
+version = "1.5.4"
+description = "Legacy X11 font rasterization library"
+source = "https://www.x.org/releases/individual/lib/libXfont-1.5.4.tar.gz"
+sha256 = "59be6eab53f7b0feb6b7933c11d67d076ae2c0fd8921229c703fc7a4e9a80d6e"
+source_dir = "libXfont-1.5.4"
+deps = ["freetype", "libfontenc", "xorg-proto", "zlib"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libXfont-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/lib/libXfont-{version}.tar.gz"
+source_dir_template = "libXfont-{version}"

@@ -1,0 +1,13 @@
+name = "aspell-dict-de-alt"
+version = "2.1-1"
+description = "Aspell alternate German dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/de-alt/aspell6-de-alt-2.1-1.tar.bz2"
+sha256 = "36d13c6c743a6b1ff05fb1af79134e118e5a94db06ba40c076636f9d04158c73"
+source_dir = "aspell6-de-alt-2.1-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/de-alt/"
+version_pattern = "aspell6-de-alt-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/de-alt/aspell6-de-alt-{version}.tar.bz2"
+source_dir_template = "aspell6-de-alt-{version}"

@@ -1,0 +1,14 @@
+name = "guile-debbugs"
+version = "0.0.3"
+description = "Guile interface to Debbugs"
+source = "https://ftp.gnu.org/gnu/guile-debbugs/guile-debbugs-0.0.3.tar.gz"
+sha256 = "c9ee7c19f301dd5e9a17c3337c59c1aeb6484b33191586a6cbd2b53eb81d86b1"
+source_dir = "guile-debbugs-0.0.3"
+deps = ["guile"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/guile-debbugs/"
+version_pattern = "guile-debbugs-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/guile-debbugs/guile-debbugs-{version}.tar.gz"
+source_dir_template = "guile-debbugs-{version}"

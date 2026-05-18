@@ -1,0 +1,19 @@
+name = "gslip"
+version = "1.0.2"
+description = "GNU SLIP packet radio software"
+source = "https://ftp.gnu.org/gnu/gslip/gslip-1.0.2.tar.xz"
+sha256 = "e439485688469118e25e9426e734b02c79aafc916e0946aef179309508c013bb"
+source_dir = "gslip-1.0.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gslip/"
+version_pattern = "gslip-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/gslip/gslip-{version}.tar.xz"
+source_dir_template = "gslip-{version}"

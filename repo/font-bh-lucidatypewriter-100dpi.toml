@@ -1,0 +1,19 @@
+name = "font-bh-lucidatypewriter-100dpi"
+version = "1.0.4"
+description = "Bigelow Holmes Lucida Typewriter 100 DPI bitmap fonts"
+source = "https://www.x.org/releases/individual/font/font-bh-lucidatypewriter-100dpi-1.0.4.tar.xz"
+sha256 = "76ec09eda4094a29d47b91cf59c3eba229c8f7d1ca6bae2abbb3f925e33de8f2"
+source_dir = "font-bh-lucidatypewriter-100dpi-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-bh-lucidatypewriter-100dpi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-bh-lucidatypewriter-100dpi-{version}.tar.xz"
+source_dir_template = "font-bh-lucidatypewriter-100dpi-{version}"

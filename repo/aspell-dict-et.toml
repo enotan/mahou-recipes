@@ -1,0 +1,13 @@
+name = "aspell-dict-et"
+version = "0.1.21-1"
+description = "Aspell Estonian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/et/aspell6-et-0.1.21-1.tar.bz2"
+sha256 = "b1e857aa3daaea2a19462b2671e87c26a7eb7337c83b709685394eed8472b249"
+source_dir = "aspell6-et-0.1.21-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/et/"
+version_pattern = "aspell6-et-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/et/aspell6-et-{version}.tar.bz2"
+source_dir_template = "aspell6-et-{version}"

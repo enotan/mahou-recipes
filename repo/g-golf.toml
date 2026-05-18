@@ -1,0 +1,14 @@
+name = "g-golf"
+version = "0.8.7"
+description = "Guile bindings for GObject Introspection"
+source = "https://ftp.gnu.org/gnu/g-golf/g-golf-0.8.7.tar.gz"
+sha256 = "b21bfc9922c641d725bb8299a000a23a8e35537b1cee437e74a405dc76493482"
+source_dir = "g-golf-0.8.7"
+deps = ["guile", "glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/g-golf/"
+version_pattern = "g-golf-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/g-golf/g-golf-{version}.tar.gz"
+source_dir_template = "g-golf-{version}"

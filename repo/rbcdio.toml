@@ -1,0 +1,14 @@
+name = "rbcdio"
+version = "0.04"
+description = "Ruby bindings for GNU libcdio"
+source = "https://ftp.gnu.org/gnu/libcdio/rbcdio-0.04.tgz"
+sha256 = "e1a3dccc5e6ae0d7dd5a1610aba528eca0b00069b4580eb78b337fea9b7d6418"
+source_dir = "rbcdio-0.04"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/libcdio/"
+version_pattern = "rbcdio-([^\"/]+)\\.tgz"
+source_template = "https://ftp.gnu.org/gnu/libcdio/rbcdio-{version}.tgz"
+source_dir_template = "rbcdio-{version}"

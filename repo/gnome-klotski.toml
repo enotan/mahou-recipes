@@ -1,0 +1,14 @@
+name = "gnome-klotski"
+version = "3.38.2"
+description = "GNOME Klotski puzzle game"
+source = "https://download.gnome.org/sources/gnome-klotski/3.38/gnome-klotski-3.38.2.tar.xz"
+sha256 = "91637845649f3ca709d29f71ee775b946d1112087209f32264e8fad21a0ca0e2"
+source_dir = "gnome-klotski-3.38.2"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-klotski/3.38/"
+version_pattern = "gnome-klotski-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-klotski/3.38/gnome-klotski-{version}.tar.xz"
+source_dir_template = "gnome-klotski-{version}"

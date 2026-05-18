@@ -1,0 +1,14 @@
+name = "gnuschool"
+version = "0.2"
+description = "GNU School administration software"
+source = "https://ftp.gnu.org/gnu/gnuschool/gnuschool-0.2.tar.gz"
+sha256 = "40e8613b77fb436c570e0ffbec1a0d8282cd512923d79c9cea1dd0f3fa77b789"
+source_dir = "gnuschool-0.2"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnuschool/"
+version_pattern = "gnuschool-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnuschool/gnuschool-{version}.tar.gz"
+source_dir_template = "gnuschool-{version}"

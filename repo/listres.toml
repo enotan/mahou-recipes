@@ -1,0 +1,19 @@
+name = "listres"
+version = "1.0.7"
+description = "List resources in X widgets"
+source = "https://www.x.org/releases/individual/app/listres-1.0.7.tar.xz"
+sha256 = "d7bdc7354a53f3786487399b6d5ea8169fac9ddac2c751c530383c777d1af139"
+source_dir = "listres-1.0.7"
+deps = ["libX11", "libXaw", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "listres-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/listres-{version}.tar.xz"
+source_dir_template = "listres-{version}"

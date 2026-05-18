@@ -1,0 +1,14 @@
+name = "gnome-online-accounts"
+version = "3.58.1"
+description = "GNOME online account integration"
+source = "https://download.gnome.org/sources/gnome-online-accounts/3.58/gnome-online-accounts-3.58.1.tar.xz"
+sha256 = "9ec1900cc51409c2067c07c828c10be06fe3bf68d2999bb72d7d5ed325ed9bbc"
+source_dir = "gnome-online-accounts-3.58.1"
+deps = ["glib", "gtk4", "json-glib", "libxml2"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-online-accounts/3.58/"
+version_pattern = "gnome-online-accounts-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-online-accounts/3.58/gnome-online-accounts-{version}.tar.xz"
+source_dir_template = "gnome-online-accounts-{version}"

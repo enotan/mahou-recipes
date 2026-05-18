@@ -1,0 +1,13 @@
+name = "aspell-dict-gl"
+version = "0.5a-2"
+description = "Aspell Galician dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/gl/aspell6-gl-0.5a-2.tar.bz2"
+sha256 = "b3cdcf65971e70b8c09fb7f319164c6344a80d260b6e98dc6ecca1e02b7cfc8a"
+source_dir = "aspell6-gl-0.5a-2"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/gl/"
+version_pattern = "aspell6-gl-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/gl/aspell6-gl-{version}.tar.bz2"
+source_dir_template = "aspell6-gl-{version}"

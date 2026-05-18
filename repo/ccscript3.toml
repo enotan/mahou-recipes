@@ -1,0 +1,14 @@
+name = "ccscript3"
+version = "1.1.7"
+description = "GNU ccScript scripting engine"
+source = "https://ftp.gnu.org/gnu/ccscript/ccscript3-1.1.7.tar.gz"
+sha256 = "9c9f3ea371ac62b195911f02fdcddf0683136920f66a80248373e398a74d6ae6"
+source_dir = "ccscript3-1.1.7"
+deps = ["ucommon"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/ccscript/"
+version_pattern = "ccscript3-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/ccscript/ccscript3-{version}.tar.gz"
+source_dir_template = "ccscript3-{version}"

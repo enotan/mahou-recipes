@@ -1,0 +1,19 @@
+name = "rendercheck"
+version = "1.5"
+description = "Test X Render extension implementations"
+source = "https://www.x.org/releases/individual/app/rendercheck-1.5.tar.gz"
+sha256 = "1553fef61c30f2524b597c3758cc8d3f8dc1f52eb8137417fa0667b0adc8a604"
+source_dir = "rendercheck-1.5"
+deps = ["libX11", "libXrender", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "rendercheck-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/rendercheck-{version}.tar.gz"
+source_dir_template = "rendercheck-{version}"

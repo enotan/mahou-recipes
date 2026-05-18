@@ -1,0 +1,14 @@
+name = "xf86-video-opentegra"
+version = "0.7.0"
+description = "X.Org OpenTegra video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-opentegra-0.7.0.tar.xz"
+sha256 = "282eb7fbd985a1bfc60e431dc83c9c2dc94e5c3be444678688002f67cd0fd2af"
+source_dir = "xf86-video-opentegra-0.7.0"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-opentegra-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-opentegra-{version}.tar.xz"
+source_dir_template = "xf86-video-opentegra-{version}"

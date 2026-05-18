@@ -1,0 +1,19 @@
+name = "imake"
+version = "1.0.11"
+description = "C preprocessor interface to the make utility"
+source = "https://www.x.org/releases/individual/util/imake-1.0.11.tar.xz"
+sha256 = "55955527eaebe94633e4083d4fe5f2160a65fe4c6dafdee48b89fea5f1ca8a78"
+source_dir = "imake-1.0.11"
+deps = ["xorg-cf-files"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/util/"
+version_pattern = "imake-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/util/imake-{version}.tar.xz"
+source_dir_template = "imake-{version}"

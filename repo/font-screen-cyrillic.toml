@@ -1,0 +1,19 @@
+name = "font-screen-cyrillic"
+version = "1.0.5"
+description = "Screen Cyrillic bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-screen-cyrillic-1.0.5.tar.xz"
+sha256 = "8f758bb8cd580c7e655487d1d0db69d319acae54d932b295d96d9d9b83fde5c0"
+source_dir = "font-screen-cyrillic-1.0.5"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-screen-cyrillic-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-screen-cyrillic-{version}.tar.xz"
+source_dir_template = "font-screen-cyrillic-{version}"

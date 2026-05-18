@@ -1,0 +1,14 @@
+name = "xfce4-places-plugin"
+version = "1.9.0"
+description = "Places menu panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-places-plugin/1.9/xfce4-places-plugin-1.9.0.tar.xz"
+sha256 = "76d95687e0bea267465e832eea6266563a18d2219192f9e8af6f88e899262e43"
+source_dir = "xfce4-places-plugin-1.9.0"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-places-plugin/1.9/"
+version_pattern = "xfce4-places-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-places-plugin/1.9/xfce4-places-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-places-plugin-{version}"

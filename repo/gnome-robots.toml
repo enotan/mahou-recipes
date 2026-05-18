@@ -1,0 +1,14 @@
+name = "gnome-robots"
+version = "50.0"
+description = "GNOME Robots game"
+source = "https://download.gnome.org/sources/gnome-robots/50/gnome-robots-50.0.tar.xz"
+sha256 = "617e574c15f90618b82493c9939d717596ad2ce1ff1de0aad5c9c3976633d379"
+source_dir = "gnome-robots-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-robots/50/"
+version_pattern = "gnome-robots-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-robots/50/gnome-robots-{version}.tar.xz"
+source_dir_template = "gnome-robots-{version}"

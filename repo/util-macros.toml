@@ -1,0 +1,19 @@
+name = "util-macros"
+version = "1.20.2"
+description = "X.Org autotools macros"
+source = "https://www.x.org/releases/individual/util/util-macros-1.20.2.tar.xz"
+sha256 = "9ac269eba24f672d7d7b3574e4be5f333d13f04a7712303b1821b2a51ac82e8e"
+source_dir = "util-macros-1.20.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/util/"
+version_pattern = "util-macros-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/util/util-macros-{version}.tar.xz"
+source_dir_template = "util-macros-{version}"

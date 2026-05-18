@@ -1,0 +1,14 @@
+name = "aspell-dict-nds"
+version = "0.01-0"
+description = "Aspell Low Saxon dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/nds/aspell6-nds-0.01-0.tar.bz2"
+sha256 = "ce381e869def56e54a31f965df518deca0e6f12238859650fcb115623f8772da"
+source_dir = "aspell6-nds-0.01-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/nds/"
+version_pattern = "aspell6-nds-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/nds/aspell6-nds-{version}.tar.bz2"
+source_dir_template = "aspell6-nds-{version}"

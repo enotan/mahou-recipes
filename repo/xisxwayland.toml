@@ -1,0 +1,19 @@
+name = "xisxwayland"
+version = "2"
+description = "Check whether an X server is Xwayland"
+source = "https://www.x.org/releases/individual/app/xisxwayland-2.tar.xz"
+sha256 = "d24d9cdff3e3a7ee9456384eab8caaa1d71530d9d95131a23a243ebbee5da22d"
+source_dir = "xisxwayland-2"
+deps = ["libX11", "libXrandr", "xorg-proto"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xisxwayland-([0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xisxwayland-{version}.tar.xz"
+source_dir_template = "xisxwayland-{version}"

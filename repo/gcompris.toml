@@ -1,0 +1,14 @@
+name = "gcompris"
+version = "1.1.0"
+description = "GNU GCompris educational software"
+source = "https://ftp.gnu.org/gnu/gcompris/gcompris-1.1.0.tgz"
+sha256 = "b29ed5749c0e034253df2d4651d377527569d5292d3ad2682b866008ebd58648"
+source_dir = "gcompris-1.1.0"
+deps = ["glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gcompris/"
+version_pattern = "gcompris-([^\"/]+)\\.tgz"
+source_template = "https://ftp.gnu.org/gnu/gcompris/gcompris-{version}.tgz"
+source_dir_template = "gcompris-{version}"

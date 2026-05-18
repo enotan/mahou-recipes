@@ -1,0 +1,19 @@
+name = "combine"
+version = "0.4.0"
+description = "Extensible file matching and filtering tool"
+source = "https://ftp.gnu.org/gnu/combine/combine-0.4.0.tar.xz"
+sha256 = "f74bcb3a2b1b778f2f9c7092e0f9f062742c52481fc3c42f0f23953846994e25"
+source_dir = "combine-0.4.0"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/combine/"
+version_pattern = "combine-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/combine/combine-{version}.tar.xz"
+source_dir_template = "combine-{version}"

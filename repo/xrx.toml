@@ -1,0 +1,19 @@
+name = "xrx"
+version = "1.0.4"
+description = "RX helper program for X11"
+source = "https://www.x.org/releases/individual/app/xrx-1.0.4.tar.gz"
+sha256 = "1ffa1c2af28587c6ed7ded3af2e62e93bad8f9900423d09c45b1d59449d15134"
+source_dir = "xrx-1.0.4"
+deps = ["libX11", "libXaw", "libXext", "libXmu", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xrx-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/xrx-{version}.tar.gz"
+source_dir_template = "xrx-{version}"

@@ -1,0 +1,14 @@
+name = "gsettings-desktop-schemas"
+version = "50.1"
+description = "Shared GSettings schemas for desktops"
+source = "https://download.gnome.org/sources/gsettings-desktop-schemas/50/gsettings-desktop-schemas-50.1.tar.xz"
+sha256 = "0a2aa25082672585d16fcdab61c7b0e33f035fb87476505c794f29565afa485b"
+source_dir = "gsettings-desktop-schemas-50.1"
+deps = ["glib"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gsettings-desktop-schemas/50/"
+version_pattern = "gsettings-desktop-schemas-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gsettings-desktop-schemas/50/gsettings-desktop-schemas-{version}.tar.xz"
+source_dir_template = "gsettings-desktop-schemas-{version}"

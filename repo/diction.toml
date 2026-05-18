@@ -1,0 +1,19 @@
+name = "diction"
+version = "1.11"
+description = "Style and diction checkers for prose"
+source = "https://ftp.gnu.org/gnu/diction/diction-1.11.tar.gz"
+sha256 = "35c2f1bf8ddf0d5fa9f737ffc8e55230736e5d850ff40b57fdf5ef1d7aa024f6"
+source_dir = "diction-1.11"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/diction/"
+version_pattern = "diction-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/diction/diction-{version}.tar.gz"
+source_dir_template = "diction-{version}"

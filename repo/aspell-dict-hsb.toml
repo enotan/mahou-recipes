@@ -1,0 +1,13 @@
+name = "aspell-dict-hsb"
+version = "0.02-0"
+description = "Aspell Upper Sorbian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/hsb/aspell6-hsb-0.02-0.tar.bz2"
+sha256 = "8d9f2ae428c7754a922ce6a7ef23401bc65f6f1909aec5077975077b3edc222e"
+source_dir = "aspell6-hsb-0.02-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/hsb/"
+version_pattern = "aspell6-hsb-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/hsb/aspell6-hsb-{version}.tar.bz2"
+source_dir_template = "aspell6-hsb-{version}"

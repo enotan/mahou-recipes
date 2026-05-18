@@ -1,0 +1,14 @@
+name = "nss_lwres"
+version = "0.92"
+description = "GNU libc lwres NSS module"
+source = "https://ftp.gnu.org/gnu/libc/nss_lwres-0.92.tar.gz"
+sha256 = "549c6688a0cc9fbd4766545f41badb53b7528e018015c59c8442587b612835c6"
+source_dir = "nss_lwres-0.92"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/libc/"
+version_pattern = "nss_lwres-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/libc/nss_lwres-{version}.tar.gz"
+source_dir_template = "nss_lwres-{version}"

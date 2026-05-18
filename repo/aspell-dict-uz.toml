@@ -1,0 +1,14 @@
+name = "aspell-dict-uz"
+version = "0.6-0"
+description = "Aspell Uzbek dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/uz/aspell6-uz-0.6-0.tar.bz2"
+sha256 = "2281c1fc7fe2411f02d25887c8a68eaa2965df3cd25f5ff06d31787a3de5e369"
+source_dir = "aspell6-uz-0.6-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/uz/"
+version_pattern = "aspell6-uz-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/uz/aspell6-uz-{version}.tar.bz2"
+source_dir_template = "aspell6-uz-{version}"

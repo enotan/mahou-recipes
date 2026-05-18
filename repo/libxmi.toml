@@ -1,0 +1,19 @@
+name = "libxmi"
+version = "1.2"
+description = "Rasterizing 2D vector graphics library"
+source = "https://ftp.gnu.org/gnu/libxmi/libxmi-1.2.tar.gz"
+sha256 = "9d56af6d6c41468ca658eb6c4ba33ff7967a388b606dc503cd68d024e08ca40d"
+source_dir = "libxmi-1.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/libxmi/"
+version_pattern = "libxmi-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/libxmi/libxmi-{version}.tar.gz"
+source_dir_template = "libxmi-{version}"

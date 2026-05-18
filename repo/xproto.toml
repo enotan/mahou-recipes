@@ -1,0 +1,15 @@
+name = "xproto"
+version = "7.0.31"
+description = "Core X11 protocol headers"
+source = "https://www.x.org/releases/individual/proto/xproto-7.0.31.tar.gz"
+sha256 = "6d755eaae27b45c5cc75529a12855fed5de5969b367ed05003944cf901ed43c7"
+source_dir = "xproto-7.0.31"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "xproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/xproto-{version}.tar.gz"
+source_dir_template = "xproto-{version}"

@@ -1,0 +1,14 @@
+name = "xf86-input-joystick"
+version = "1.6.4"
+description = "X.Org joystick input driver"
+source = "https://www.x.org/releases/individual/driver/xf86-input-joystick-1.6.4.tar.xz"
+sha256 = "905ec485fabc699b1cb21518cbd152246776fa83570e09c5822ca0973733ccd2"
+source_dir = "xf86-input-joystick-1.6.4"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-input-joystick-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-input-joystick-{version}.tar.xz"
+source_dir_template = "xf86-input-joystick-{version}"

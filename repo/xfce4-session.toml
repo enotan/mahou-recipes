@@ -1,0 +1,14 @@
+name = "xfce4-session"
+version = "4.21.1"
+description = "Session manager for Xfce"
+source = "https://archive.xfce.org/src/xfce/xfce4-session/4.21/xfce4-session-4.21.1.tar.xz"
+sha256 = "a8fe873fdb20366a44f1345400bfb29c2ff0cfe89dfefd852e2575464b80567c"
+source_dir = "xfce4-session-4.21.1"
+deps = ["glib", "gtk+", "libxfce4ui", "xfconf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/xfce4-session/4.21/"
+version_pattern = "xfce4-session-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/xfce/xfce4-session/4.21/xfce4-session-{version}.tar.xz"
+source_dir_template = "xfce4-session-{version}"

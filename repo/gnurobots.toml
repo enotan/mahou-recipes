@@ -1,0 +1,19 @@
+name = "gnurobots"
+version = "1.2.0"
+description = "Program a robot to explore a world"
+source = "https://ftp.gnu.org/gnu/gnurobots/gnurobots-1.2.0.tar.gz"
+sha256 = "8b6f4f0d40bef5cfdfb7eb7c82ea1402d2747c37b2c7b7aa92faff55351df11d"
+source_dir = "gnurobots-1.2.0"
+deps = ["guile", "ncurses"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnurobots/"
+version_pattern = "gnurobots-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnurobots/gnurobots-{version}.tar.gz"
+source_dir_template = "gnurobots-{version}"

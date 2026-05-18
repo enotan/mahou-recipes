@@ -1,0 +1,13 @@
+name = "ucommon"
+version = "7.0.0"
+description = "GNU Common C++ runtime library"
+source = "https://ftp.gnu.org/gnu/commoncpp/ucommon-7.0.0.tar.gz"
+sha256 = "6ac9f76c2af010f97e916e4bae1cece341dc64ca28e3881ff4ddc3bc334060d7"
+source_dir = "ucommon-7.0.0"
+deps = ["gnutls"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/commoncpp/"
+version_pattern = "ucommon-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/commoncpp/ucommon-{version}.tar.gz"
+source_dir_template = "ucommon-{version}"

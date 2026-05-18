@@ -1,0 +1,14 @@
+name = "xf86-video-neomagic"
+version = "1.3.1"
+description = "X.Org NeoMagic video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-neomagic-1.3.1.tar.xz"
+sha256 = "b61fac7ec32971e92e34cfd51f88fef169e272a210455e0e1a0faa0d30fc7494"
+source_dir = "xf86-video-neomagic-1.3.1"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-neomagic-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-neomagic-{version}.tar.xz"
+source_dir_template = "xf86-video-neomagic-{version}"

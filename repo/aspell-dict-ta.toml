@@ -1,0 +1,14 @@
+name = "aspell-dict-ta"
+version = "20040424-1"
+description = "Aspell Tamil dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ta/aspell6-ta-20040424-1.tar.bz2"
+sha256 = "52f552f1a2c0fc53ed4eac75990ff75bccf3d5f1440ca3d948d96eafe5f3486a"
+source_dir = "aspell6-ta-20040424-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ta/"
+version_pattern = "aspell6-ta-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ta/aspell6-ta-{version}.tar.bz2"
+source_dir_template = "aspell6-ta-{version}"

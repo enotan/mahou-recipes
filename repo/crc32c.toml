@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/google/crc32c/tags"
-version_pattern = "\"name\"\\s*:\\s*\"([0-9]+\\.[0-9]+\\.[0-9]+)\""
+check_url = "https://github.com/google/crc32c/tags"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/google/crc32c/archive/refs/tags/{version}.tar.gz"
 source_dir_template = "crc32c-{version}"

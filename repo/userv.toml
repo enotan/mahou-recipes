@@ -1,0 +1,14 @@
+name = "userv"
+version = "1.0.5"
+description = "GNU userv service invocation tool"
+source = "https://ftp.gnu.org/gnu/userv/userv-1.0.5.tar.gz"
+sha256 = "70421706c8a4f71ce7bf345f95e713d8d43f482fac7b1e437bbc2a0c46ac9b74"
+source_dir = "userv-1.0.5"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/userv/"
+version_pattern = "userv-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/userv/userv-{version}.tar.gz"
+source_dir_template = "userv-{version}"

@@ -1,0 +1,14 @@
+name = "gnuradio"
+version = "3.3.0"
+description = "GNU Radio signal processing toolkit"
+source = "https://ftp.gnu.org/gnu/gnuradio/gnuradio-3.3.0.tar.gz"
+sha256 = "362c939c3225a759f25f5a46eae4e8e3980f1a6f34e5413f3bca8b8719d7b062"
+source_dir = "gnuradio-3.3.0"
+deps = ["python"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnuradio/"
+version_pattern = "gnuradio-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnuradio/gnuradio-{version}.tar.gz"
+source_dir_template = "gnuradio-{version}"

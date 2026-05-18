@@ -1,0 +1,19 @@
+name = "font-cursor-misc"
+version = "1.0.4"
+description = "Miscellaneous cursor bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-cursor-misc-1.0.4.tar.xz"
+sha256 = "25d9c9595013cb8ca08420509993a6434c917e53ca1fec3f63acd45a19d4f982"
+source_dir = "font-cursor-misc-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-cursor-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-cursor-misc-{version}.tar.xz"
+source_dir_template = "font-cursor-misc-{version}"

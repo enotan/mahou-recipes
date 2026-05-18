@@ -1,0 +1,14 @@
+name = "foliot"
+version = "0.9.8"
+description = "GNU Foliot text-based time tracker"
+source = "https://ftp.gnu.org/gnu/foliot/foliot-0.9.8.tar.gz"
+sha256 = "4e634171f1371eacbf096071ac1c9019d09c914098e53787e8f26bdfa71ac89f"
+source_dir = "foliot-0.9.8"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/foliot/"
+version_pattern = "foliot-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/foliot/foliot-{version}.tar.gz"
+source_dir_template = "foliot-{version}"

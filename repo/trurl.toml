@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/curl/trurl/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"trurl-([^\"]+)\""
+check_url = "https://github.com/curl/trurl/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/curl/trurl/releases/download/trurl-{version}/trurl-{version}.tar.gz"
 source_dir_template = "trurl-{version}"

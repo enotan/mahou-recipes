@@ -1,0 +1,15 @@
+name = "windowswmproto"
+version = "1.0.4"
+description = "WindowsWM extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/windowswmproto-1.0.4.tar.gz"
+sha256 = "2dccf510cf18a1b5cfd3a277c678d88303efc85478b479fec46228a861956eb7"
+source_dir = "windowswmproto-1.0.4"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "windowswmproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/windowswmproto-{version}.tar.gz"
+source_dir_template = "windowswmproto-{version}"

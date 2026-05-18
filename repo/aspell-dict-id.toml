@@ -1,0 +1,13 @@
+name = "aspell-dict-id"
+version = "1.2-0"
+description = "Aspell Indonesian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/id/aspell5-id-1.2-0.tar.bz2"
+sha256 = "523912082848d891746dbb233f2ddb2cdbab6750dc76c38b3f6e000c9eb37308"
+source_dir = "aspell5-id-1.2-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/id/"
+version_pattern = "aspell5-id-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/id/aspell5-id-{version}.tar.bz2"
+source_dir_template = "aspell5-id-{version}"

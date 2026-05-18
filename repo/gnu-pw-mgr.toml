@@ -1,0 +1,14 @@
+name = "gnu-pw-mgr"
+version = "2.7.4"
+description = "GNU password manager"
+source = "https://ftp.gnu.org/gnu/gnu-pw-mgr/gnu-pw-mgr-2.7.4.tar.xz"
+sha256 = "e8cb8b8d6c81ac2b01a226f2d2ce7698bf8be830cf65b5a3dd805facabde1c3a"
+source_dir = "gnu-pw-mgr-2.7.4"
+deps = ["guile"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnu-pw-mgr/"
+version_pattern = "gnu-pw-mgr-([^\"/]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/gnu-pw-mgr/gnu-pw-mgr-{version}.tar.xz"
+source_dir_template = "gnu-pw-mgr-{version}"

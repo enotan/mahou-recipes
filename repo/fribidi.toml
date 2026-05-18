@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/fribidi/fribidi/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/fribidi/fribidi/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/fribidi/fribidi/releases/download/v{version}/fribidi-{version}.tar.xz"
 source_dir_template = "fribidi-{version}"

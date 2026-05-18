@@ -1,0 +1,19 @@
+name = "libXvMC"
+version = "1.0.15"
+description = "X Video Motion Compensation client library"
+source = "https://www.x.org/releases/individual/lib/libXvMC-1.0.15.tar.xz"
+sha256 = "4f518afde3d7fd435346af7b368d2f73517f3d5f82647c962caf3f7bb8ff7078"
+source_dir = "libXvMC-1.0.15"
+deps = ["libX11", "libXext", "libXv", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libXvMC-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/libXvMC-{version}.tar.xz"
+source_dir_template = "libXvMC-{version}"

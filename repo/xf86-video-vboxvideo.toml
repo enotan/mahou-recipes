@@ -1,0 +1,14 @@
+name = "xf86-video-vboxvideo"
+version = "1.0.1"
+description = "X.Org VirtualBox video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-vboxvideo-1.0.1.tar.xz"
+sha256 = "8efc65fc7d2bc56bd883c31170dc367f03b3dba85f8268eff36d55138a7b7f8a"
+source_dir = "xf86-video-vboxvideo-1.0.1"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-vboxvideo-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-vboxvideo-{version}.tar.xz"
+source_dir_template = "xf86-video-vboxvideo-{version}"

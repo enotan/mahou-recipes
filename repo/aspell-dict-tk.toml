@@ -1,0 +1,14 @@
+name = "aspell-dict-tk"
+version = "0.01-0"
+description = "Aspell Turkmen dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/tk/aspell5-tk-0.01-0.tar.bz2"
+sha256 = "86f24209cab61a54ed85ad3020915d8ce1dec13fbfe012f1bf1d648825696a0b"
+source_dir = "aspell5-tk-0.01-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/tk/"
+version_pattern = "aspell5-tk-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/tk/aspell5-tk-{version}.tar.bz2"
+source_dir_template = "aspell5-tk-{version}"

@@ -1,0 +1,14 @@
+name = "xf86-video-qxl"
+version = "0.1.6"
+description = "X.Org QXL video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-qxl-0.1.6.tar.xz"
+sha256 = "2ad39558db47a8fcc036e290e0b084671e58d43344a57b279abd870c4c67965f"
+source_dir = "xf86-video-qxl-0.1.6"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-qxl-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-qxl-{version}.tar.xz"
+source_dir_template = "xf86-video-qxl-{version}"

@@ -1,0 +1,13 @@
+name = "freetalk"
+version = "4.2"
+description = "Console-based Jabber client"
+source = "https://ftp.gnu.org/gnu/freetalk/freetalk-4.2.tar.gz"
+sha256 = "bb5b4f29a706af2f891987802200e26b737bcece44338172419755f1eee1b580"
+source_dir = "freetalk-4.2"
+deps = ["guile", "readline"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/freetalk/"
+version_pattern = "freetalk-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/freetalk/freetalk-{version}.tar.gz"
+source_dir_template = "freetalk-{version}"

@@ -1,0 +1,14 @@
+name = "fontutils"
+version = "0.7"
+description = "GNU font utilities"
+source = "https://ftp.gnu.org/gnu/fontutils/fontutils-0.7.tar.gz"
+sha256 = "75d44bdfc4002238f4ebcba857b913b57ae9e5b356416413f4776f832409939e"
+source_dir = "fontutils-0.7"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/fontutils/"
+version_pattern = "fontutils-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/fontutils/fontutils-{version}.tar.gz"
+source_dir_template = "fontutils-{version}"

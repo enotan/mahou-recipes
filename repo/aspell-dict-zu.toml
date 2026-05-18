@@ -1,0 +1,14 @@
+name = "aspell-dict-zu"
+version = "0.50-0"
+description = "Aspell Zulu dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/zu/aspell-zu-0.50-0.tar.bz2"
+sha256 = "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
+source_dir = "aspell-zu-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/zu/"
+version_pattern = "aspell-zu-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/zu/aspell-zu-{version}.tar.bz2"
+source_dir_template = "aspell-zu-{version}"

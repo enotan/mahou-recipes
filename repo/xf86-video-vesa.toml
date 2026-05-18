@@ -1,0 +1,14 @@
+name = "xf86-video-vesa"
+version = "2.6.0"
+description = "X.Org VESA video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-vesa-2.6.0.tar.xz"
+sha256 = "10082771b1a8f659c60b3d9b70456a4b59948a75b3cade2dfa33b8b05e549bb1"
+source_dir = "xf86-video-vesa-2.6.0"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-vesa-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-vesa-{version}.tar.xz"
+source_dir_template = "xf86-video-vesa-{version}"

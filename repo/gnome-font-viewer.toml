@@ -1,0 +1,14 @@
+name = "gnome-font-viewer"
+version = "50.0"
+description = "GNOME font viewer"
+source = "https://download.gnome.org/sources/gnome-font-viewer/50/gnome-font-viewer-50.0.tar.xz"
+sha256 = "9564b088c5b150c54e2a3a7bc7014deec6ee551261e98488f891b1f1b8dc6b80"
+source_dir = "gnome-font-viewer-50.0"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-font-viewer/50/"
+version_pattern = "gnome-font-viewer-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-font-viewer/50/gnome-font-viewer-{version}.tar.xz"
+source_dir_template = "gnome-font-viewer-{version}"

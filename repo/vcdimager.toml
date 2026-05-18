@@ -1,0 +1,14 @@
+name = "vcdimager"
+version = "2.0.1"
+description = "GNU Video CD authoring tools"
+source = "https://ftp.gnu.org/gnu/vcdimager/vcdimager-2.0.1.tar.gz"
+sha256 = "67515fefb9829d054beae40f3e840309be60cda7d68753cafdd526727758f67a"
+source_dir = "vcdimager-2.0.1"
+deps = ["libxml2", "popt"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/vcdimager/"
+version_pattern = "vcdimager-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/vcdimager/vcdimager-{version}.tar.gz"
+source_dir_template = "vcdimager-{version}"

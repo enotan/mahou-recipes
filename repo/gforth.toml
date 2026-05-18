@@ -1,0 +1,19 @@
+name = "gforth"
+version = "0.7.3"
+description = "GNU Forth implementation"
+source = "https://ftp.gnu.org/gnu/gforth/gforth-0.7.3.tar.gz"
+sha256 = "2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0"
+source_dir = "gforth-0.7.3"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gforth/"
+version_pattern = "gforth-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gforth/gforth-{version}.tar.gz"
+source_dir_template = "gforth-{version}"

@@ -1,0 +1,13 @@
+name = "aspell-dict-af"
+version = "0.50-0"
+description = "Aspell Afrikaans dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/af/aspell-af-0.50-0.tar.bz2"
+sha256 = "9d6000aeca5911343278bd6ed9e21d42c8cb26247dafe94a76ff81d8ac98e602"
+source_dir = "aspell-af-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/af/"
+version_pattern = "aspell-af-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/af/aspell-af-{version}.tar.bz2"
+source_dir_template = "aspell-af-{version}"

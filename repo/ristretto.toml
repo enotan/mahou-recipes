@@ -1,0 +1,14 @@
+name = "ristretto"
+version = "0.14.0"
+description = "Image viewer for Xfce"
+source = "https://archive.xfce.org/src/apps/ristretto/0.14/ristretto-0.14.0.tar.xz"
+sha256 = "502cf1577de14b38132dc89e56884c5e10f86f6a028d8dde379a8839110fda55"
+source_dir = "ristretto-0.14.0"
+deps = ["glib", "gtk+", "libxfce4ui", "gdk-pixbuf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/ristretto/0.14/"
+version_pattern = "ristretto-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/ristretto/0.14/ristretto-{version}.tar.xz"
+source_dir_template = "ristretto-{version}"

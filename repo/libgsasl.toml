@@ -1,0 +1,14 @@
+name = "libgsasl"
+version = "1.10.0"
+description = "GNU SASL library"
+source = "https://ftp.gnu.org/gnu/gsasl/libgsasl-1.10.0.tar.gz"
+sha256 = "f1b553384dedbd87478449775546a358d6f5140c15cccc8fb574136fdc77329f"
+source_dir = "libgsasl-1.10.0"
+deps = ["libidn2", "libunistring"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gsasl/"
+version_pattern = "libgsasl-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gsasl/libgsasl-{version}.tar.gz"
+source_dir_template = "libgsasl-{version}"

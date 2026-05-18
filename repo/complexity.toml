@@ -1,0 +1,19 @@
+name = "complexity"
+version = "1.13"
+description = "Measure complexity of C source code"
+source = "https://ftp.gnu.org/gnu/complexity/complexity-1.13.tar.xz"
+sha256 = "80a625a87ee7c17fed02fb39482a7946fc757f10d8a4ffddc5372b4c4b739e67"
+source_dir = "complexity-1.13"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/complexity/"
+version_pattern = "complexity-([0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/complexity/complexity-{version}.tar.xz"
+source_dir_template = "complexity-{version}"

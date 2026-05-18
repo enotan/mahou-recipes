@@ -1,0 +1,14 @@
+name = "gnome-browser-connector"
+version = "42.1"
+description = "Browser integration helper for GNOME Shell extensions"
+source = "https://download.gnome.org/sources/gnome-browser-connector/42/gnome-browser-connector-42.1.tar.xz"
+sha256 = "bd9702ce1c163606ca32b8c13d1f3ba6e82b247cf87aac60610b411df1556212"
+source_dir = "gnome-browser-connector-42.1"
+deps = ["glib", "gnome-shell"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-browser-connector/42/"
+version_pattern = "gnome-browser-connector-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-browser-connector/42/gnome-browser-connector-{version}.tar.xz"
+source_dir_template = "gnome-browser-connector-{version}"

@@ -1,0 +1,14 @@
+name = "bayonne2"
+version = "2.3.2"
+description = "GNU Bayonne telephony server"
+source = "https://ftp.gnu.org/gnu/bayonne/bayonne2-2.3.2.tar.gz"
+sha256 = "ef59d8d75f8a50720d834b57db05d19af888fa9cf49552c8f0d96fd9d9e4bf48"
+source_dir = "bayonne2-2.3.2"
+deps = ["ucommon", "ccaudio2", "ccscript3"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/bayonne/"
+version_pattern = "bayonne2-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/bayonne/bayonne2-{version}.tar.gz"
+source_dir_template = "bayonne2-{version}"

@@ -1,0 +1,14 @@
+name = "grilo"
+version = "0.3.19"
+description = "GNOME media discovery framework"
+source = "https://download.gnome.org/sources/grilo/0.3/grilo-0.3.19.tar.xz"
+sha256 = "0869c81d19ab139c667d79567c14ddcb6cb5cbfc0108d04cade287eb29536706"
+source_dir = "grilo-0.3.19"
+deps = ["glib", "libxml2"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/grilo/0.3/"
+version_pattern = "grilo-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/grilo/0.3/grilo-{version}.tar.xz"
+source_dir_template = "grilo-{version}"

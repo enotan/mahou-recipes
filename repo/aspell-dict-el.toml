@@ -1,0 +1,13 @@
+name = "aspell-dict-el"
+version = "0.08-0"
+description = "Aspell Greek dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/el/aspell6-el-0.08-0.tar.bz2"
+sha256 = "4af60f1a8adf8b1899680deefdf49288d7406a2c591658f880628bf7c1604cd2"
+source_dir = "aspell6-el-0.08-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/el/"
+version_pattern = "aspell6-el-([0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/el/aspell6-el-{version}.tar.bz2"
+source_dir_template = "aspell6-el-{version}"

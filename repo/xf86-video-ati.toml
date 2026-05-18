@@ -1,0 +1,14 @@
+name = "xf86-video-ati"
+version = "22.0.0"
+description = "X.Org ATI video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-ati-22.0.0.tar.xz"
+sha256 = "c8c8bb56d3f6227c97e59c3a3c85a25133584ceb82ab5bc05a902a743ab7bf6d"
+source_dir = "xf86-video-ati-22.0.0"
+deps = ["xorgproto", "libdrm"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-ati-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-ati-{version}.tar.xz"
+source_dir_template = "xf86-video-ati-{version}"

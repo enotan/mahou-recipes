@@ -1,0 +1,19 @@
+name = "libXp"
+version = "1.0.4"
+description = "X Print Service extension client library"
+source = "https://www.x.org/releases/individual/lib/libXp-1.0.4.tar.xz"
+sha256 = "1f19e3b8e82a34a8fd9889a7d9af0abe8588cb03fb57c37c569634cf3b9df1a4"
+source_dir = "libXp-1.0.4"
+deps = ["libX11", "libXext", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libXp-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/libXp-{version}.tar.xz"
+source_dir_template = "libXp-{version}"

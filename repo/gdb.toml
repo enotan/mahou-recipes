@@ -1,0 +1,14 @@
+name = "gdb"
+version = "17.2"
+description = "GNU Debugger"
+source = "https://ftp.gnu.org/gnu/gdb/gdb-17.2.tar.xz"
+sha256 = "1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c"
+source_dir = "gdb-17.2"
+deps = ["gmp", "readline", "zlib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gdb/"
+version_pattern = "gdb-([^\"/]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/gdb/gdb-{version}.tar.xz"
+source_dir_template = "gdb-{version}"

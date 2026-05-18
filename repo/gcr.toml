@@ -1,0 +1,14 @@
+name = "gcr"
+version = "4.4.0.1"
+description = "GNOME crypto and certificate UI library"
+source = "https://download.gnome.org/sources/gcr/4.4/gcr-4.4.0.1.tar.xz"
+sha256 = "0c3c341e49f9f4f2532a4884509804190a0c2663e6120360bb298c5d174a8098"
+source_dir = "gcr-4.4.0.1"
+deps = ["glib", "libsecret"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gcr/4.4/"
+version_pattern = "gcr-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gcr/4.4/gcr-{version}.tar.xz"
+source_dir_template = "gcr-{version}"

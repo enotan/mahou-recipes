@@ -1,0 +1,19 @@
+name = "xsetmode"
+version = "1.0.0"
+description = "Set X input device mode"
+source = "https://www.x.org/releases/individual/app/xsetmode-1.0.0.tar.gz"
+sha256 = "9ee0d6cf72dfaacb997f9570779dcbc42f5395ae102180cb19382860b4b02ef3"
+source_dir = "xsetmode-1.0.0"
+deps = ["libX11", "libXi", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xsetmode-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/xsetmode-{version}.tar.gz"
+source_dir_template = "xsetmode-{version}"

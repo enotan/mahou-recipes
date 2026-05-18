@@ -1,0 +1,13 @@
+name = "aspell-dict-hi"
+version = "0.02-0"
+description = "Aspell Hindi dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/hi/aspell6-hi-0.02-0.tar.bz2"
+sha256 = "da0778c46716f4209da25195294139c2f5e6031253381afa4f81908fc9193a37"
+source_dir = "aspell6-hi-0.02-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/hi/"
+version_pattern = "aspell6-hi-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/hi/aspell6-hi-{version}.tar.bz2"
+source_dir_template = "aspell6-hi-{version}"

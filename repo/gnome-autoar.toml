@@ -1,0 +1,14 @@
+name = "gnome-autoar"
+version = "0.4.5"
+description = "Automatic archive handling library for GNOME"
+source = "https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.5.tar.xz"
+sha256 = "838c5306fc38bfaa2f23abe24262f4bf15771e3303fb5dcb74f5b9c7a615dabe"
+source_dir = "gnome-autoar-0.4.5"
+deps = ["glib", "gtk4", "gobject-introspection"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-autoar/0.4/"
+version_pattern = "gnome-autoar-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-{version}.tar.xz"
+source_dir_template = "gnome-autoar-{version}"

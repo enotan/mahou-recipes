@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/twaugh/patchutils/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/twaugh/patchutils/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/twaugh/patchutils/releases/download/{version}/patchutils-{version}.tar.xz"
 source_dir_template = "patchutils-{version}"

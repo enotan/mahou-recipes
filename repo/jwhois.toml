@@ -1,0 +1,19 @@
+name = "jwhois"
+version = "4.0"
+description = "WHOIS client with configurable server selection"
+source = "https://ftp.gnu.org/gnu/jwhois/jwhois-4.0.tar.gz"
+sha256 = "fa9bb86782b915c6d730bb723f876dc9b345a617db375aaf3416ec22553cd64e"
+source_dir = "jwhois-4.0"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/jwhois/"
+version_pattern = "jwhois-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/jwhois/jwhois-{version}.tar.gz"
+source_dir_template = "jwhois-{version}"

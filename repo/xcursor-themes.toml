@@ -1,0 +1,19 @@
+name = "xcursor-themes"
+version = "1.0.7"
+description = "Default X.Org cursor themes"
+source = "https://www.x.org/releases/individual/data/xcursor-themes-1.0.7.tar.xz"
+sha256 = "95bae8f48823d894a05bf42dfbf453674ab7dbdeb11e2bc079e8525ad47378c8"
+source_dir = "xcursor-themes-1.0.7"
+deps = ["xcursorgen"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/data/"
+version_pattern = "xcursor-themes-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/data/xcursor-themes-{version}.tar.xz"
+source_dir_template = "xcursor-themes-{version}"

@@ -1,0 +1,19 @@
+name = "font-adobe-utopia-100dpi"
+version = "1.0.5"
+description = "Adobe Utopia 100 DPI bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-adobe-utopia-100dpi-1.0.5.tar.xz"
+sha256 = "fb84ec297a906973548ca59b7c6daeaad21244bec5d3fb1e7c93df5ef43b024b"
+source_dir = "font-adobe-utopia-100dpi-1.0.5"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-adobe-utopia-100dpi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-adobe-utopia-100dpi-{version}.tar.xz"
+source_dir_template = "font-adobe-utopia-100dpi-{version}"

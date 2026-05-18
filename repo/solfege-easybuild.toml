@@ -1,0 +1,14 @@
+name = "solfege-easybuild"
+version = "2.4.0"
+description = "GNU Solfege Easybuild helper"
+source = "https://ftp.gnu.org/gnu/solfege/solfege-easybuild-2.4.0.tar.gz"
+sha256 = "97531c96ed71fb5803ea741a3af92014ec4caf8bbf74995198b91f0872fbc252"
+source_dir = "solfege-easybuild-2.4.0"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/solfege/"
+version_pattern = "solfege-easybuild-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/solfege/solfege-easybuild-{version}.tar.gz"
+source_dir_template = "solfege-easybuild-{version}"

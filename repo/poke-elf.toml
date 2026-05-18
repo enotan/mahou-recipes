@@ -1,0 +1,14 @@
+name = "poke-elf"
+version = "1.0"
+description = "ELF support package for GNU poke"
+source = "https://ftp.gnu.org/gnu/poke/poke-elf-1.0.tar.gz"
+sha256 = "0ab767dafc435454cc98b245fe45aa2178c7c85d7b16308a23434a7d60847a74"
+source_dir = "poke-elf-1.0"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/poke/"
+version_pattern = "poke-elf-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/poke/poke-elf-{version}.tar.gz"
+source_dir_template = "poke-elf-{version}"

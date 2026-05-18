@@ -1,0 +1,13 @@
+name = "aspell-dict-ku"
+version = "0.20-1"
+description = "Aspell Kurdish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ku/aspell5-ku-0.20-1.tar.bz2"
+sha256 = "968f76418c991dc004a1cc3d8cd07b58fb210b6ad506106857ed2d97274a6a27"
+source_dir = "aspell5-ku-0.20-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ku/"
+version_pattern = "aspell5-ku-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ku/aspell5-ku-{version}.tar.bz2"
+source_dir_template = "aspell5-ku-{version}"

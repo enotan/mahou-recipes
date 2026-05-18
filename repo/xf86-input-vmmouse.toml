@@ -1,0 +1,14 @@
+name = "xf86-input-vmmouse"
+version = "13.2.0"
+description = "X.Org VMware mouse input driver"
+source = "https://www.x.org/releases/individual/driver/xf86-input-vmmouse-13.2.0.tar.xz"
+sha256 = "56f077580ab8f02e2f40358c5c46b0ae3e1828fc77744526b24adf1ceea339b8"
+source_dir = "xf86-input-vmmouse-13.2.0"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-input-vmmouse-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-input-vmmouse-{version}.tar.xz"
+source_dir_template = "xf86-input-vmmouse-{version}"

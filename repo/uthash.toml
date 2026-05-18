@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/troydhanson/uthash/tags?per_page=1"
-version_pattern = "\"name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/troydhanson/uthash/tags"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/troydhanson/uthash/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "uthash-{version}"

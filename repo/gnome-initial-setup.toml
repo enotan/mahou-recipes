@@ -1,0 +1,14 @@
+name = "gnome-initial-setup"
+version = "50.0"
+description = "GNOME first-login setup assistant"
+source = "https://download.gnome.org/sources/gnome-initial-setup/50/gnome-initial-setup-50.0.tar.xz"
+sha256 = "2da96b76a3434468a557fe481b8cfe606262f3537b00a4c20d4aa239a44e96e1"
+source_dir = "gnome-initial-setup-50.0"
+deps = ["glib", "gtk4", "libadwaita", "gnome-desktop", "gsettings-desktop-schemas"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-initial-setup/50/"
+version_pattern = "gnome-initial-setup-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-initial-setup/50/gnome-initial-setup-{version}.tar.xz"
+source_dir_template = "gnome-initial-setup-{version}"

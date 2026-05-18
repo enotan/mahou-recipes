@@ -1,0 +1,14 @@
+name = "ccscript"
+version = "5.1.0"
+description = "GNU ccScript scripting engine"
+source = "https://ftp.gnu.org/gnu/ccscript/ccscript-5.1.0.tar.gz"
+sha256 = "bc1157a77fa05a89de3c9c69872ed74a703fd59ef18c7bb1c0ed78d4d2011c6e"
+source_dir = "ccscript-5.1.0"
+deps = ["ucommon"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/ccscript/"
+version_pattern = "ccscript-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/ccscript/ccscript-{version}.tar.gz"
+source_dir_template = "ccscript-{version}"

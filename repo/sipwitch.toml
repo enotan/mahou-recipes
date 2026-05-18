@@ -1,0 +1,13 @@
+name = "sipwitch"
+version = "1.9.15"
+description = "Secure peer-to-peer VoIP server"
+source = "https://ftp.gnu.org/gnu/sipwitch/sipwitch-1.9.15.tar.gz"
+sha256 = "2a7aa86a653f6810b3cd9cce6c37b3f70e937e7d14b09fd5c2a70d70588a9482"
+source_dir = "sipwitch-1.9.15"
+deps = ["gnutls", "libosip2", "ucommon"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/sipwitch/"
+version_pattern = "sipwitch-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/sipwitch/sipwitch-{version}.tar.gz"
+source_dir_template = "sipwitch-{version}"

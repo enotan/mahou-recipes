@@ -1,0 +1,19 @@
+name = "stow"
+version = "2.4.1"
+description = "Symlink farm manager"
+source = "https://ftp.gnu.org/gnu/stow/stow-2.4.1.tar.gz"
+sha256 = "2a671e75fc207303bfe86a9a7223169c7669df0a8108ebdf1a7fe8cd2b88780b"
+source_dir = "stow-2.4.1"
+deps = ["perl"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/stow/"
+version_pattern = "stow-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/stow/stow-{version}.tar.gz"
+source_dir_template = "stow-{version}"

@@ -1,0 +1,19 @@
+name = "xsm"
+version = "1.0.6"
+description = "X Session Manager"
+source = "https://www.x.org/releases/individual/app/xsm-1.0.6.tar.xz"
+sha256 = "b74cc774c6060c37592f68a90dbd31b0f2a62fb14e562769434f79be284a63ce"
+source_dir = "xsm-1.0.6"
+deps = ["libICE", "libSM", "libX11", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xsm-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xsm-{version}.tar.xz"
+source_dir_template = "xsm-{version}"

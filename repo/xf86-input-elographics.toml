@@ -1,0 +1,14 @@
+name = "xf86-input-elographics"
+version = "1.4.4"
+description = "X.Org Elographics input driver"
+source = "https://www.x.org/releases/individual/driver/xf86-input-elographics-1.4.4.tar.xz"
+sha256 = "f544e147e2e574de996a5025efd756df1dd992adc36c250d88594cbb781a648a"
+source_dir = "xf86-input-elographics-1.4.4"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-input-elographics-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-input-elographics-{version}.tar.xz"
+source_dir_template = "xf86-input-elographics-{version}"

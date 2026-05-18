@@ -1,0 +1,19 @@
+name = "font-alias"
+version = "1.0.6"
+description = "X.Org font alias files"
+source = "https://www.x.org/releases/individual/font/font-alias-1.0.6.tar.xz"
+sha256 = "f6a5e968b616e728a981fd1fd9ed5fe2ca0fe18fbe072b1888cb3f71b701e4c0"
+source_dir = "font-alias-1.0.6"
+deps = ["font-util", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-alias-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-alias-{version}.tar.xz"
+source_dir_template = "font-alias-{version}"

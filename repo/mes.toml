@@ -1,0 +1,13 @@
+name = "mes"
+version = "0.27.1"
+description = "Maxwell Equations of Software bootstrap tools"
+source = "https://ftp.gnu.org/gnu/mes/mes-0.27.1.tar.gz"
+sha256 = "183a40ea47ea49f8a1e3bd1b9d12e676374d64d63bc79e7bc1ae7d673dfdf25d"
+source_dir = "mes-0.27.1"
+deps = ["guile"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/mes/"
+version_pattern = "mes-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/mes/mes-{version}.tar.gz"
+source_dir_template = "mes-{version}"

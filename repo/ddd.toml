@@ -1,0 +1,14 @@
+name = "ddd"
+version = "3.4.1"
+description = "GNU DDD graphical debugger"
+source = "https://ftp.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz"
+sha256 = "b87517a6c3f9611566347e283a2cf931fa369919b553536a2235e63402f4ee89"
+source_dir = "ddd-3.4.1"
+deps = ["readline", "ncurses"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/ddd/"
+version_pattern = "ddd-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/ddd/ddd-{version}.tar.gz"
+source_dir_template = "ddd-{version}"

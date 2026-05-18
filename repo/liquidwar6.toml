@@ -1,0 +1,14 @@
+name = "liquidwar6"
+version = "0.6.3902"
+description = "GNU Liquid War 6 multiplayer wargame"
+source = "https://ftp.gnu.org/gnu/liquidwar6/liquidwar6-0.6.3902.tar.gz"
+sha256 = "d605549afae403439524e572322e45ebf5b6db8ea59505e5d51cb581a8b5e6a4"
+source_dir = "liquidwar6-0.6.3902"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/liquidwar6/"
+version_pattern = "liquidwar6-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/liquidwar6/liquidwar6-{version}.tar.gz"
+source_dir_template = "liquidwar6-{version}"

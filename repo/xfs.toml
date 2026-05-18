@@ -1,0 +1,19 @@
+name = "xfs"
+version = "1.2.2"
+description = "X font server"
+source = "https://www.x.org/releases/individual/app/xfs-1.2.2.tar.xz"
+sha256 = "b70bd46331e241b30e5e00dbdc2eabb7f3f8880cd44244acde13d7976d098ecc"
+source_dir = "xfs-1.2.2"
+deps = ["libFS", "libXfont2", "xorg-proto", "xtrans"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xfs-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xfs-{version}.tar.xz"
+source_dir_template = "xfs-{version}"

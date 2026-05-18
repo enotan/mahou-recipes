@@ -1,0 +1,14 @@
+name = "aspell-dict-mr"
+version = "0.10-0"
+description = "Aspell Marathi dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/mr/aspell6-mr-0.10-0.tar.bz2"
+sha256 = "d3a35a40bee0234a5b388375485ab8bf0ba8edbf3b0a82e2c2f76a40a8586f33"
+source_dir = "aspell6-mr-0.10-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/mr/"
+version_pattern = "aspell6-mr-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/mr/aspell6-mr-{version}.tar.bz2"
+source_dir_template = "aspell6-mr-{version}"

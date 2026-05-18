@@ -1,0 +1,13 @@
+name = "aspell-dict-is"
+version = "0.51.1-0"
+description = "Aspell Icelandic dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/is/aspell-is-0.51.1-0.tar.bz2"
+sha256 = "3035bd29dad929ce66e6acdc7c29670df458e0d13fe178241b212f481111e3d6"
+source_dir = "aspell-is-0.51.1-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/is/"
+version_pattern = "aspell-is-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/is/aspell-is-{version}.tar.bz2"
+source_dir_template = "aspell-is-{version}"

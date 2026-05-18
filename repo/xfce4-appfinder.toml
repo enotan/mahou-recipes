@@ -1,0 +1,14 @@
+name = "xfce4-appfinder"
+version = "4.21.1"
+description = "Application finder for Xfce"
+source = "https://archive.xfce.org/src/xfce/xfce4-appfinder/4.21/xfce4-appfinder-4.21.1.tar.xz"
+sha256 = "62fba13ec05066e73200f5a34c2fa1e7a1a7c4dbefffbaf29af9e9e97bb4a7c9"
+source_dir = "xfce4-appfinder-4.21.1"
+deps = ["glib", "gtk+", "libxfce4ui"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/xfce4-appfinder/4.21/"
+version_pattern = "xfce4-appfinder-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/xfce/xfce4-appfinder/4.21/xfce4-appfinder-{version}.tar.xz"
+source_dir_template = "xfce4-appfinder-{version}"

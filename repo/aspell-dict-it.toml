@@ -1,0 +1,13 @@
+name = "aspell-dict-it"
+version = "2.2_20050523-0"
+description = "Aspell Italian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/it/aspell6-it-2.2_20050523-0.tar.bz2"
+sha256 = "3b19dc709924783c8d87111aa9653dc6c000e845183778abee750215d83aaebd"
+source_dir = "aspell6-it-2.2_20050523-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/it/"
+version_pattern = "aspell6-it-([0-9]+\\.[0-9]+_[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/it/aspell6-it-{version}.tar.bz2"
+source_dir_template = "aspell6-it-{version}"

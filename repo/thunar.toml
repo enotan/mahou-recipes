@@ -1,0 +1,14 @@
+name = "thunar"
+version = "4.21.5"
+description = "Xfce file manager"
+source = "https://archive.xfce.org/src/xfce/thunar/4.21/thunar-4.21.5.tar.xz"
+sha256 = "eddbd4bab29c73718734e0bfcf650ceea8b4fcc8cb2cbb0b24fe22b286a2be00"
+source_dir = "thunar-4.21.5"
+deps = ["glib", "gtk+", "libxfce4ui", "exo"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/thunar/4.21/"
+version_pattern = "thunar-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/xfce/thunar/4.21/thunar-{version}.tar.xz"
+source_dir_template = "thunar-{version}"

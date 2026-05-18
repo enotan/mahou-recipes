@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/neovim/libtermkey/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/neovim/libtermkey/tags"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/neovim/libtermkey/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "libtermkey-{version}"

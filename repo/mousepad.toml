@@ -1,0 +1,14 @@
+name = "mousepad"
+version = "0.7.0"
+description = "Text editor for Xfce"
+source = "https://archive.xfce.org/src/apps/mousepad/0.7/mousepad-0.7.0.tar.xz"
+sha256 = "e86c59feb08126d4cace368432c16b2dee8e519aaca8a9d2b409ae1cdd200802"
+source_dir = "mousepad-0.7.0"
+deps = ["glib", "gtk+", "gtksourceview"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/mousepad/0.7/"
+version_pattern = "mousepad-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/mousepad/0.7/mousepad-{version}.tar.xz"
+source_dir_template = "mousepad-{version}"

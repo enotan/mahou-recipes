@@ -1,0 +1,14 @@
+name = "sauce"
+version = "0.7.7"
+description = "GNU SAUCE anti-spam system"
+source = "https://ftp.gnu.org/gnu/sauce/sauce-0.7.7.tar.gz"
+sha256 = "a39a731d48e161db9cf1edec95df307ea2b61163eae13512e6c689f8d222077b"
+source_dir = "sauce-0.7.7"
+deps = []
+build_steps = ["make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/sauce/"
+version_pattern = "sauce-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/sauce/sauce-{version}.tar.gz"
+source_dir_template = "sauce-{version}"

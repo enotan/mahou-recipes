@@ -1,0 +1,19 @@
+name = "font-bitstream-100dpi"
+version = "1.0.4"
+description = "Bitstream 100 DPI bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-bitstream-100dpi-1.0.4.tar.xz"
+sha256 = "2d1cc682efe4f7ebdf5fbd88961d8ca32b2729968728633dea20a1627690c1a7"
+source_dir = "font-bitstream-100dpi-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-bitstream-100dpi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-bitstream-100dpi-{version}.tar.xz"
+source_dir_template = "font-bitstream-100dpi-{version}"

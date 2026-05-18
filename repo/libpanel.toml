@@ -1,0 +1,14 @@
+name = "libpanel"
+version = "1.10.4"
+description = "Dock and panel library for GTK applications"
+source = "https://download.gnome.org/sources/libpanel/1.10/libpanel-1.10.4.tar.xz"
+sha256 = "593888a7691f0af8aaa6e193c9e14afa86a810c0c2f27515c6d813f18733b1cd"
+source_dir = "libpanel-1.10.4"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/libpanel/1.10/"
+version_pattern = "libpanel-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/libpanel/1.10/libpanel-{version}.tar.xz"
+source_dir_template = "libpanel-{version}"

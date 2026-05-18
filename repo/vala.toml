@@ -1,0 +1,14 @@
+name = "vala"
+version = "0.56.19"
+description = "Vala compiler for GObject-based applications"
+source = "https://download.gnome.org/sources/vala/0.56/vala-0.56.19.tar.xz"
+sha256 = "5ad7cbbfcc0de61b403d6797c9ef60455bfbebd8e162aec33b5b0b097adfb9d5"
+source_dir = "vala-0.56.19"
+deps = ["glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/vala/0.56/"
+version_pattern = "vala-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/vala/0.56/vala-{version}.tar.xz"
+source_dir_template = "vala-{version}"

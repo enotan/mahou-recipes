@@ -1,0 +1,14 @@
+name = "pspp"
+version = "2.1.1"
+description = "GNU PSPP statistical analysis program"
+source = "https://ftp.gnu.org/gnu/pspp/pspp-2.1.1.tar.gz"
+sha256 = "b5e550937bdfa66a1e6ca729195272e8e5e66b3e04686b2d83fb2e66d4ef14c3"
+source_dir = "pspp-2.1.1"
+deps = ["gsl", "libxml2"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/pspp/"
+version_pattern = "pspp-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/pspp/pspp-{version}.tar.gz"
+source_dir_template = "pspp-{version}"

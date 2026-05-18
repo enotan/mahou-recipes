@@ -1,0 +1,19 @@
+name = "xpr"
+version = "1.2.0"
+description = "Print an X window dump"
+source = "https://www.x.org/releases/individual/app/xpr-1.2.0.tar.xz"
+sha256 = "8b9402f8331309f0a9d8143d4d6129c4a7479ff9449616849b9f1e2a5835cec3"
+source_dir = "xpr-1.2.0"
+deps = ["libX11", "libXmu", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xpr-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xpr-{version}.tar.xz"
+source_dir_template = "xpr-{version}"

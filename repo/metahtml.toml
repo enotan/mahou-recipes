@@ -1,0 +1,13 @@
+name = "metahtml"
+version = "5.091"
+description = "Web-page authoring language"
+source = "https://ftp.gnu.org/gnu/metahtml/metahtml-5.091.tar.gz"
+sha256 = "c1b39352c4868895087b72fa2beb0c0d36e50ce4b7f4e53686ffe15ae8fbd9c9"
+source_dir = "metahtml-5.091"
+deps = []
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/metahtml/"
+version_pattern = "metahtml-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/metahtml/metahtml-{version}.tar.gz"
+source_dir_template = "metahtml-{version}"

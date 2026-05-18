@@ -1,0 +1,14 @@
+name = "guile-gtk"
+version = "2.1"
+description = "GTK bindings for Guile"
+source = "https://ftp.gnu.org/gnu/guile-gtk/guile-gtk-2.1.tar.gz"
+sha256 = "9ad30cdfcae688837785774b2149f0ec82f464412017aeeb045b4336ef2416cc"
+source_dir = "guile-gtk-2.1"
+deps = ["guile", "glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/guile-gtk/"
+version_pattern = "guile-gtk-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/guile-gtk/guile-gtk-{version}.tar.gz"
+source_dir_template = "guile-gtk-{version}"

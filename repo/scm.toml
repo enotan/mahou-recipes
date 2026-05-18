@@ -1,0 +1,14 @@
+name = "scm"
+version = "5f4"
+description = "GNU SCM Scheme implementation"
+source = "https://ftp.gnu.org/gnu/scm/scm-5f4.tar.gz"
+sha256 = "af8d36c22131e85d40e42fe261a27fe8fcbf02878c86b0adf7859b81281bbbb5"
+source_dir = "scm-5f4"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/scm/"
+version_pattern = "scm-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/scm/scm-{version}.tar.gz"
+source_dir_template = "scm-{version}"

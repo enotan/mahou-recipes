@@ -1,0 +1,14 @@
+name = "lightsoff"
+version = "50.0"
+description = "GNOME Lights Off puzzle game"
+source = "https://download.gnome.org/sources/lightsoff/50/lightsoff-50.0.tar.xz"
+sha256 = "baa0c17431e85eeede5e649f53162f70b4eb1e7c7a6f16a4ecaa3027b6531578"
+source_dir = "lightsoff-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/lightsoff/50/"
+version_pattern = "lightsoff-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/lightsoff/50/lightsoff-{version}.tar.xz"
+source_dir_template = "lightsoff-{version}"

@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/flatpak/xdg-desktop-portal/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/flatpak/xdg-desktop-portal/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/flatpak/xdg-desktop-portal/releases/download/{version}/xdg-desktop-portal-{version}.tar.xz"
 source_dir_template = "xdg-desktop-portal-{version}"

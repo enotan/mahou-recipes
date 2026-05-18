@@ -1,0 +1,19 @@
+name = "xkbprint"
+version = "1.0.7"
+description = "Print an XKB keyboard description"
+source = "https://www.x.org/releases/individual/app/xkbprint-1.0.7.tar.xz"
+sha256 = "1c4f49c030329e0defd8c7bc3739e60f2aa1d2aabe0e2d7e63740ab629aa59cc"
+source_dir = "xkbprint-1.0.7"
+deps = ["libX11", "libXaw", "libxkbfile", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xkbprint-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xkbprint-{version}.tar.xz"
+source_dir_template = "xkbprint-{version}"

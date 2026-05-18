@@ -1,0 +1,14 @@
+name = "gnome-themes-extra"
+version = "3.28"
+description = "Extra GNOME themes"
+source = "https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz"
+sha256 = "7c4ba0bff001f06d8983cfc105adaac42df1d1267a2591798a780bac557a5819"
+source_dir = "gnome-themes-extra-3.28"
+deps = ["glib", "gtk4"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-themes-extra/3.28/"
+version_pattern = "gnome-themes-extra-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-{version}.tar.xz"
+source_dir_template = "gnome-themes-extra-{version}"

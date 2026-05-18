@@ -1,0 +1,14 @@
+name = "libwnck"
+version = "43.3"
+description = "Window Navigator Construction Kit"
+source = "https://download.gnome.org/sources/libwnck/43/libwnck-43.3.tar.xz"
+sha256 = "6af8ac41a8f067ade1d3caaed254a83423b5f61ad3f7a460fcacbac2e192bdf7"
+source_dir = "libwnck-43.3"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/libwnck/43/"
+version_pattern = "libwnck-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/libwnck/43/libwnck-{version}.tar.xz"
+source_dir_template = "libwnck-{version}"

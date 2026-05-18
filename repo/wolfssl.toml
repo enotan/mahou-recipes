@@ -14,7 +14,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/wolfSSL/wolfssl/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([0-9]+\\.[0-9]+\\.[0-9]+)-stable\""
+check_url = "https://github.com/wolfSSL/wolfssl/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/wolfSSL/wolfssl/archive/refs/tags/v{version}-stable.tar.gz"
 source_dir_template = "wolfssl-{version}-stable"

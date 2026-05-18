@@ -1,0 +1,14 @@
+name = "xf86-video-ark"
+version = "0.7.6"
+description = "X.Org Ark video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-ark-0.7.6.tar.xz"
+sha256 = "5acc9e78122ff6f4390787b2d0d44df81379bd613b6245983cc4bf3f325d085d"
+source_dir = "xf86-video-ark-0.7.6"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-ark-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-ark-{version}.tar.xz"
+source_dir_template = "xf86-video-ark-{version}"

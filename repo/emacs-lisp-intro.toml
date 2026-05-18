@@ -1,0 +1,14 @@
+name = "emacs-lisp-intro"
+version = "2.04"
+description = "GNU Emacs Lisp introduction manual"
+source = "https://ftp.gnu.org/gnu/emacs/emacs-lisp-intro-2.04.tar.gz"
+sha256 = "6f5ac38dab45a27811144b134b483c3b14a5b0bf8c7911de9e86143fb5d29b97"
+source_dir = "emacs-lisp-intro-2.04"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/emacs/"
+version_pattern = "emacs-lisp-intro-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/emacs/emacs-lisp-intro-{version}.tar.gz"
+source_dir_template = "emacs-lisp-intro-{version}"

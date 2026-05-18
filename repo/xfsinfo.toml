@@ -1,0 +1,19 @@
+name = "xfsinfo"
+version = "1.0.8"
+description = "Display information about an X font server"
+source = "https://www.x.org/releases/individual/app/xfsinfo-1.0.8.tar.xz"
+sha256 = "ae80592b6063da928e3d0c81023709b2fa29a04fcda49f6c363ac579d97f23a2"
+source_dir = "xfsinfo-1.0.8"
+deps = ["libFS", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xfsinfo-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xfsinfo-{version}.tar.xz"
+source_dir_template = "xfsinfo-{version}"

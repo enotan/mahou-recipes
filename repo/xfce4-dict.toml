@@ -1,0 +1,14 @@
+name = "xfce4-dict"
+version = "0.8.9"
+description = "Dictionary client for Xfce"
+source = "https://archive.xfce.org/src/apps/xfce4-dict/0.8/xfce4-dict-0.8.9.tar.xz"
+sha256 = "f1a81baad1e60496aeffc8f8ef1be6413c732b09e250d52d062d293ade001a8c"
+source_dir = "xfce4-dict-0.8.9"
+deps = ["glib", "gtk+", "libxfce4ui"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/xfce4-dict/0.8/"
+version_pattern = "xfce4-dict-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/xfce4-dict/0.8/xfce4-dict-{version}.tar.xz"
+source_dir_template = "xfce4-dict-{version}"

@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/zeux/pugixml/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/zeux/pugixml/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/zeux/pugixml/releases/download/v{version}/pugixml-{version}.tar.gz"
 source_dir_template = "pugixml-{version}"

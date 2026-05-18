@@ -1,0 +1,19 @@
+name = "unrtf"
+version = "0.21.10"
+description = "Convert RTF documents to other formats"
+source = "https://ftp.gnu.org/gnu/unrtf/unrtf-0.21.10.tar.gz"
+sha256 = "b49f20211fa69fff97d42d6e782a62d7e2da670b064951f14bbff968c93734ae"
+source_dir = "unrtf-0.21.10"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/unrtf/"
+version_pattern = "unrtf-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/unrtf/unrtf-{version}.tar.gz"
+source_dir_template = "unrtf-{version}"

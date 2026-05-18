@@ -1,0 +1,19 @@
+name = "kyotocabinet"
+version = "1.2.80"
+description = "Lightweight database manager library"
+source = "https://dbmx.net/kyotocabinet/pkg/kyotocabinet-1.2.80.tar.gz"
+sha256 = "4c85d736668d82920bfdbdb92ac3d66b7db1108f09581a769dd9160a02def349"
+source_dir = "kyotocabinet-1.2.80"
+deps = ["zlib"]
+
+build_steps = [
+  "./configure --prefix=/usr --disable-static --disable-lzo --disable-lzma",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://dbmx.net/kyotocabinet/pkg/"
+version_pattern = "kyotocabinet-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://dbmx.net/kyotocabinet/pkg/kyotocabinet-{version}.tar.gz"
+source_dir_template = "kyotocabinet-{version}"

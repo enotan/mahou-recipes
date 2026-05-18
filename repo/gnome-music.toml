@@ -1,0 +1,14 @@
+name = "gnome-music"
+version = "49.1"
+description = "GNOME music player"
+source = "https://download.gnome.org/sources/gnome-music/49/gnome-music-49.1.tar.xz"
+sha256 = "ba881ae0b55e34e6269fd2d3df8d8bfa3c5ec7e37bac8945aec78b7ff207bc67"
+source_dir = "gnome-music-49.1"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-music/49/"
+version_pattern = "gnome-music-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-music/49/gnome-music-{version}.tar.xz"
+source_dir_template = "gnome-music-{version}"

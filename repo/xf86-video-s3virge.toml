@@ -1,0 +1,14 @@
+name = "xf86-video-s3virge"
+version = "1.11.1"
+description = "X.Org S3 ViRGE video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-s3virge-1.11.1.tar.xz"
+sha256 = "ced03d9075d6bdbbc38d1d4742bfdf21e0e06fba19a2dfb159cd5d9a0766eee3"
+source_dir = "xf86-video-s3virge-1.11.1"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-s3virge-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-s3virge-{version}.tar.xz"
+source_dir_template = "xf86-video-s3virge-{version}"

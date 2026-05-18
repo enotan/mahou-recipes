@@ -1,0 +1,19 @@
+name = "zile"
+version = "2.6.4"
+description = "Lightweight Emacs clone"
+source = "https://ftp.gnu.org/gnu/zile/zile-2.6.4.tar.gz"
+sha256 = "d5d44b85cb490643d0707e1a2186f3a32998c2f6eabaa9481479b65caeee57c0"
+source_dir = "zile-2.6.4"
+deps = ["gc", "ncurses"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/zile/"
+version_pattern = "zile-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/zile/zile-{version}.tar.gz"
+source_dir_template = "zile-{version}"

@@ -1,0 +1,14 @@
+name = "gnome-online-miners"
+version = "3.34.0"
+description = "GNOME online content miners"
+source = "https://download.gnome.org/sources/gnome-online-miners/3.34/gnome-online-miners-3.34.0.tar.xz"
+sha256 = "845c2260fb12f14315c800d04d60f37e076c7c7b4222587ae75f108562fa52d8"
+source_dir = "gnome-online-miners-3.34.0"
+deps = ["glib", "tracker", "gnome-online-accounts", "gobject-introspection"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-online-miners/3.34/"
+version_pattern = "gnome-online-miners-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-online-miners/3.34/gnome-online-miners-{version}.tar.xz"
+source_dir_template = "gnome-online-miners-{version}"

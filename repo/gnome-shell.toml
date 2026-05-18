@@ -1,0 +1,14 @@
+name = "gnome-shell"
+version = "50.1"
+description = "GNOME desktop shell"
+source = "https://download.gnome.org/sources/gnome-shell/50/gnome-shell-50.1.tar.xz"
+sha256 = "1b47760172c14f3f4edd1c9aff365f4de45583517bf0f80df4d3acbd4e4cb294"
+source_dir = "gnome-shell-50.1"
+deps = ["glib", "gtk4", "gnome-desktop", "gsettings-desktop-schemas", "gobject-introspection"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-shell/50/"
+version_pattern = "gnome-shell-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-shell/50/gnome-shell-{version}.tar.xz"
+source_dir_template = "gnome-shell-{version}"

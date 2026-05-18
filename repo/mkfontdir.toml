@@ -1,0 +1,19 @@
+name = "mkfontdir"
+version = "1.0.7"
+description = "Create X11 font directory files"
+source = "https://www.x.org/releases/individual/app/mkfontdir-1.0.7.tar.gz"
+sha256 = "bccc5fb7af1b614eabe4a22766758c87bfc36d66191d08c19d2fa97674b7b5b7"
+source_dir = "mkfontdir-1.0.7"
+deps = ["mkfontscale"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "mkfontdir-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/mkfontdir-{version}.tar.gz"
+source_dir_template = "mkfontdir-{version}"

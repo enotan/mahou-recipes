@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/npat-efault/picocom/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/npat-efault/picocom/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/npat-efault/picocom/archive/refs/tags/{version}.tar.gz"
 source_dir_template = "picocom-{version}"

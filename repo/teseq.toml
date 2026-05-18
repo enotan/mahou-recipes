@@ -1,0 +1,19 @@
+name = "teseq"
+version = "1.1.1"
+description = "Analyze files that contain terminal control sequences"
+source = "https://ftp.gnu.org/gnu/teseq/teseq-1.1.1.tar.xz"
+sha256 = "230d2b4a587542284c415b33557a27774f5ad1580ed9db272bcd1e2034ea0589"
+source_dir = "teseq-1.1.1"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/teseq/"
+version_pattern = "teseq-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/teseq/teseq-{version}.tar.xz"
+source_dir_template = "teseq-{version}"

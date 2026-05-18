@@ -1,0 +1,19 @@
+name = "ico"
+version = "1.0.7"
+description = "Animate an icosahedron or other polyhedra on X11"
+source = "https://www.x.org/releases/individual/app/ico-1.0.7.tar.xz"
+sha256 = "56a96d6429c387e54aec23b522f548487d5db8296092f21bb289b67845069915"
+source_dir = "ico-1.0.7"
+deps = ["libX11", "libXext", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "ico-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/ico-{version}.tar.xz"
+source_dir_template = "ico-{version}"

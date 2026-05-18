@@ -1,0 +1,19 @@
+name = "damageproto"
+version = "1.2.1"
+description = "Damage extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/damageproto-1.2.1.tar.gz"
+sha256 = "f65ccbf1de9750a527ea6e85694085b179f2d06495cbdb742b3edb2149fef303"
+source_dir = "damageproto-1.2.1"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "damageproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/damageproto-{version}.tar.gz"
+source_dir_template = "damageproto-{version}"

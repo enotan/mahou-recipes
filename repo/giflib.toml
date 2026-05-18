@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://sourceforge.net/projects/giflib/files/"
+check_url = "https://sourceforge.net/projects/giflib/rss?path=/"
 version_pattern = "giflib-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
 source_template = "https://downloads.sourceforge.net/giflib/giflib-{version}.tar.gz"
 source_dir_template = "giflib-{version}"

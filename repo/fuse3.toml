@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/libfuse/libfuse/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"fuse-([^\"]+)\""
+check_url = "https://github.com/libfuse/libfuse/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/libfuse/libfuse/releases/download/fuse-{version}/fuse-{version}.tar.gz"
 source_dir_template = "fuse-{version}"

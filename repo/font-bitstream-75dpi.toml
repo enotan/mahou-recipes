@@ -1,0 +1,19 @@
+name = "font-bitstream-75dpi"
+version = "1.0.4"
+description = "Bitstream 75 DPI bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-bitstream-75dpi-1.0.4.tar.xz"
+sha256 = "aaeb34d87424a9c2b0cf0e8590704c90cb5b42c6a3b6a0ef9e4676ef773bf826"
+source_dir = "font-bitstream-75dpi-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-bitstream-75dpi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-bitstream-75dpi-{version}.tar.xz"
+source_dir_template = "font-bitstream-75dpi-{version}"

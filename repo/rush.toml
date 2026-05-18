@@ -1,0 +1,19 @@
+name = "rush"
+version = "2.4"
+description = "Restricted user shell"
+source = "https://ftp.gnu.org/gnu/rush/rush-2.4.tar.xz"
+sha256 = "fa95af9d2c7b635581841cc27a1d27af611f60dd962113a93d23a8874aa060f4"
+source_dir = "rush-2.4"
+deps = ["gettext"]
+
+build_steps = [
+  "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/rush/"
+version_pattern = "rush-([0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/rush/rush-{version}.tar.xz"
+source_dir_template = "rush-{version}"

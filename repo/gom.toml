@@ -1,0 +1,14 @@
+name = "gom"
+version = "0.5.6"
+description = "GObject Data Mapper"
+source = "https://download.gnome.org/sources/gom/0.5/gom-0.5.6.tar.xz"
+sha256 = "4d7a5e268698c8e7e40603e36e9e3a2b76133931ce1b637c1136301491b54cc3"
+source_dir = "gom-0.5.6"
+deps = ["glib", "sqlite"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gom/0.5/"
+version_pattern = "gom-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gom/0.5/gom-{version}.tar.xz"
+source_dir_template = "gom-{version}"

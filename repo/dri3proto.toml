@@ -1,0 +1,19 @@
+name = "dri3proto"
+version = "1.0"
+description = "DRI3 extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/dri3proto-1.0.tar.gz"
+sha256 = "e1a0dad3009ecde52c0bf44187df5f95cc9a7cc0e76dfc2f2bbf3e909fe03fa9"
+source_dir = "dri3proto-1.0"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "dri3proto-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/dri3proto-{version}.tar.gz"
+source_dir_template = "dri3proto-{version}"

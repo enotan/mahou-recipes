@@ -1,0 +1,13 @@
+name = "aspell-dict-cy"
+version = "0.50-3"
+description = "Aspell Welsh dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/cy/aspell-cy-0.50-3.tar.bz2"
+sha256 = "d5399dcd70061e5ed5af1214eb580f62864dd35ea4fa1ec2882ffc4f03307897"
+source_dir = "aspell-cy-0.50-3"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/cy/"
+version_pattern = "aspell-cy-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/cy/aspell-cy-{version}.tar.bz2"
+source_dir_template = "aspell-cy-{version}"

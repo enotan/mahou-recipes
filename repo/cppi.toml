@@ -1,0 +1,19 @@
+name = "cppi"
+version = "1.18"
+description = "Indent C preprocessor directives"
+source = "https://ftp.gnu.org/gnu/cppi/cppi-1.18.tar.xz"
+sha256 = "12a505b98863f6c5cf1f749f9080be3b42b3eac5a35b59630e67bea7241364ca"
+source_dir = "cppi-1.18"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/cppi/"
+version_pattern = "cppi-([0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/cppi/cppi-{version}.tar.xz"
+source_dir_template = "cppi-{version}"

@@ -1,0 +1,14 @@
+name = "aspell-dict-ml"
+version = "0.03-1"
+description = "Aspell Malayalam dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ml/aspell6-ml-0.03-1.tar.bz2"
+sha256 = "e4cd551e558b6d26e4db58e051eeca3d893fc2c4e7fce90a022af247422096fd"
+source_dir = "aspell6-ml-0.03-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ml/"
+version_pattern = "aspell6-ml-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ml/aspell6-ml-{version}.tar.bz2"
+source_dir_template = "aspell6-ml-{version}"

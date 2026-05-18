@@ -1,0 +1,14 @@
+name = "gnome-tetravex"
+version = "3.38.3"
+description = "GNOME Tetravex puzzle game"
+source = "https://download.gnome.org/sources/gnome-tetravex/3.38/gnome-tetravex-3.38.3.tar.xz"
+sha256 = "83849ac064d456e1dd46b6e201c686152624c3d1ec4b99935985a49aa79172cb"
+source_dir = "gnome-tetravex-3.38.3"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-tetravex/3.38/"
+version_pattern = "gnome-tetravex-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-tetravex/3.38/gnome-tetravex-{version}.tar.xz"
+source_dir_template = "gnome-tetravex-{version}"

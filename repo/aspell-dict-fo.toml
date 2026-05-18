@@ -1,0 +1,13 @@
+name = "aspell-dict-fo"
+version = "0.2.16-1"
+description = "Aspell Faroese dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/fo/aspell5-fo-0.2.16-1.tar.bz2"
+sha256 = "f7e0ddc039bb4f5c142d39dab72d9dfcb951f5e46779f6e3cf1d084a69f95e08"
+source_dir = "aspell5-fo-0.2.16-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/fo/"
+version_pattern = "aspell5-fo-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/fo/aspell5-fo-{version}.tar.bz2"
+source_dir_template = "aspell5-fo-{version}"

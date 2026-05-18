@@ -1,0 +1,15 @@
+name = "xineramaproto"
+version = "1.2.1"
+description = "Xinerama extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/xineramaproto-1.2.1.tar.gz"
+sha256 = "d99e121edf7b310008d7371ac5dbe3aa2810996d476b754dc78477cc26e5e7c1"
+source_dir = "xineramaproto-1.2.1"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "xineramaproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/xineramaproto-{version}.tar.gz"
+source_dir_template = "xineramaproto-{version}"

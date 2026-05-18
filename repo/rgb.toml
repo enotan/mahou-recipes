@@ -1,0 +1,19 @@
+name = "rgb"
+version = "1.1.1"
+description = "X11 color name database"
+source = "https://www.x.org/releases/individual/app/rgb-1.1.1.tar.xz"
+sha256 = "c80ff280a02f56c30fadc2dfa210fc6979c4ab968afa315278cb97768b64ecab"
+source_dir = "rgb-1.1.1"
+deps = ["xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "rgb-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/rgb-{version}.tar.xz"
+source_dir_template = "rgb-{version}"

@@ -1,0 +1,19 @@
+name = "rstart"
+version = "1.0.6"
+description = "Remote start client and server for X11"
+source = "https://www.x.org/releases/individual/app/rstart-1.0.6.tar.xz"
+sha256 = "50273196a005615c9f242f029a92b3aabc01520145f6b2c61eabf9774972b20f"
+source_dir = "rstart-1.0.6"
+deps = ["libX11", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "rstart-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/rstart-{version}.tar.xz"
+source_dir_template = "rstart-{version}"

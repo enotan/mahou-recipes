@@ -1,0 +1,14 @@
+name = "xfce4-netload-plugin"
+version = "1.5.0"
+description = "Network load panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-netload-plugin/1.5/xfce4-netload-plugin-1.5.0.tar.xz"
+sha256 = "a868be8f73e8396c2d61903d46646993c5130d16ded71ddb5da9088abf7cb7ba"
+source_dir = "xfce4-netload-plugin-1.5.0"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-netload-plugin/1.5/"
+version_pattern = "xfce4-netload-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-netload-plugin/1.5/xfce4-netload-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-netload-plugin-{version}"

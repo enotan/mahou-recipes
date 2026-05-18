@@ -1,0 +1,19 @@
+name = "wdiff"
+version = "1.2.2"
+description = "Word-oriented diff frontend"
+source = "https://ftp.gnu.org/gnu/wdiff/wdiff-1.2.2.tar.gz"
+sha256 = "34ff698c870c87e6e47a838eeaaae729fa73349139fc8db12211d2a22b78af6b"
+source_dir = "wdiff-1.2.2"
+deps = ["gettext"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/wdiff/"
+version_pattern = "wdiff-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/wdiff/wdiff-{version}.tar.gz"
+source_dir_template = "wdiff-{version}"

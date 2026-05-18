@@ -1,0 +1,19 @@
+name = "pexec"
+version = "1.0rc8"
+description = "Execute commands in parallel"
+source = "https://ftp.gnu.org/gnu/pexec/pexec-1.0rc8.tar.gz"
+sha256 = "a968e4774eef80b8b1de3c10e6c0ad2ebeeb732b10e438596f110aa6aaf94a64"
+source_dir = "pexec-1.0rc8"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/pexec/"
+version_pattern = "pexec-([0-9]+\\.[0-9]+rc[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/pexec/pexec-{version}.tar.gz"
+source_dir_template = "pexec-{version}"

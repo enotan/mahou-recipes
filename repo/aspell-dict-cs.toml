@@ -1,0 +1,13 @@
+name = "aspell-dict-cs"
+version = "20040614-1"
+description = "Aspell Czech dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/cs/aspell6-cs-20040614-1.tar.bz2"
+sha256 = "01c091f907c2fa4dfa38305c2494bb80009407dfb76ead586ad724ae21913066"
+source_dir = "aspell6-cs-20040614-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/cs/"
+version_pattern = "aspell6-cs-([0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/cs/aspell6-cs-{version}.tar.bz2"
+source_dir_template = "aspell6-cs-{version}"

@@ -1,0 +1,14 @@
+name = "gnumach"
+version = "1.8"
+description = "GNU Mach microkernel"
+source = "https://ftp.gnu.org/gnu/gnumach/gnumach-1.8.tar.gz"
+sha256 = "2e55294c57d27ca8e5c7312ad2ba9729fe78d3937287470b95b489769d7e1e0a"
+source_dir = "gnumach-1.8"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnumach/"
+version_pattern = "gnumach-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnumach/gnumach-{version}.tar.gz"
+source_dir_template = "gnumach-{version}"

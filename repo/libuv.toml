@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/libuv/libuv/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/libuv/libuv/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://dist.libuv.org/dist/v{version}/libuv-v{version}.tar.gz"
 source_dir_template = "libuv-v{version}"

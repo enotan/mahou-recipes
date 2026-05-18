@@ -1,0 +1,14 @@
+name = "gigolo"
+version = "0.6.0"
+description = "Remote filesystem connection manager for Xfce"
+source = "https://archive.xfce.org/src/apps/gigolo/0.6/gigolo-0.6.0.tar.xz"
+sha256 = "f27dbb51abe8144c1b981f2d820ad1b279c1bc4623d7333b7d4f5f4777eb45ed"
+source_dir = "gigolo-0.6.0"
+deps = ["glib", "gtk+"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/gigolo/0.6/"
+version_pattern = "gigolo-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/gigolo/0.6/gigolo-{version}.tar.xz"
+source_dir_template = "gigolo-{version}"

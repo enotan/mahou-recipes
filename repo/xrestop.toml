@@ -1,0 +1,19 @@
+name = "xrestop"
+version = "0.6"
+description = "Top-like monitor for X server resource usage"
+source = "https://www.x.org/releases/individual/app/xrestop-0.6.tar.xz"
+sha256 = "2e2ec111c4b2798b5dc2dc2b3ec7af4f6b261946e903b8e14db046831d203b29"
+source_dir = "xrestop-0.6"
+deps = ["libX11", "libXres", "ncurses", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xrestop-([0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xrestop-{version}.tar.xz"
+source_dir_template = "xrestop-{version}"

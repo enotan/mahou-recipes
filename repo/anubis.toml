@@ -1,0 +1,19 @@
+name = "anubis"
+version = "4.3"
+description = "SMTP message submission daemon"
+source = "https://ftp.gnu.org/gnu/anubis/anubis-4.3.tar.gz"
+sha256 = "ff0af3337c462218e5ee244c7ef90188af9efdf095bc05b6333401cf9882af2c"
+source_dir = "anubis-4.3"
+deps = ["gettext"]
+
+build_steps = [
+  "./configure --prefix=/usr --sysconfdir=/etc --without-guile --without-gsasl --without-gnutls --without-pcre --without-pam --without-tcp-wrappers",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/anubis/"
+version_pattern = "anubis-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/anubis/anubis-{version}.tar.gz"
+source_dir_template = "anubis-{version}"

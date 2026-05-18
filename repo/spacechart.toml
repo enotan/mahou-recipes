@@ -1,0 +1,14 @@
+name = "spacechart"
+version = "0.9.5"
+description = "GNU SpaceChart star chart generator"
+source = "https://ftp.gnu.org/gnu/spacechart/spacechart-0.9.5.tar.gz"
+sha256 = "a5235cb2669ae9e4adb36b401bf803a0a8749539f3f8695ec8d18d362971435f"
+source_dir = "spacechart-0.9.5"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/spacechart/"
+version_pattern = "spacechart-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/spacechart/spacechart-{version}.tar.gz"
+source_dir_template = "spacechart-{version}"

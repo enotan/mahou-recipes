@@ -1,0 +1,14 @@
+name = "cim"
+version = "5.1"
+description = "GNU Simula compiler"
+source = "https://ftp.gnu.org/gnu/cim/cim-5.1.tar.gz"
+sha256 = "b90717b66ec400503bdd69e537e8b7f3e8a9d106c3ba9a08a04ae57369a069a9"
+source_dir = "cim-5.1"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/cim/"
+version_pattern = "cim-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/cim/cim-{version}.tar.gz"
+source_dir_template = "cim-{version}"

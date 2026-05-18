@@ -1,0 +1,19 @@
+name = "font-misc-meltho"
+version = "1.0.4"
+description = "Miscellaneous Meltho fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-misc-meltho-1.0.4.tar.xz"
+sha256 = "63be5ec17078898f263c24096a68b43ae5b06b88852e42549afa03d124d65219"
+source_dir = "font-misc-meltho-1.0.4"
+deps = ["font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-misc-meltho-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-misc-meltho-{version}.tar.xz"
+source_dir_template = "font-misc-meltho-{version}"

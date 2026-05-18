@@ -1,0 +1,14 @@
+name = "git-merge-changelog"
+version = "1.0"
+description = "GNU git-merge-changelog merge driver"
+source = "https://ftp.gnu.org/gnu/vc-changelog/git-merge-changelog-1.0.tar.gz"
+sha256 = "65b7c98eed59f90f51510ff44641ca82e880be8e88f7d7906740a30e105c90c0"
+source_dir = "git-merge-changelog-1.0"
+deps = ["git"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/vc-changelog/"
+version_pattern = "git-merge-changelog-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/vc-changelog/git-merge-changelog-{version}.tar.gz"
+source_dir_template = "git-merge-changelog-{version}"

@@ -1,0 +1,13 @@
+name = "aspell-dict-az"
+version = "0.02-0"
+description = "Aspell Azerbaijani dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/az/aspell6-az-0.02-0.tar.bz2"
+sha256 = "063176ec459d61acd59450ae49b5076e42abb1dcd54c1f934bae5fa6658044c3"
+source_dir = "aspell6-az-0.02-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/az/"
+version_pattern = "aspell6-az-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/az/aspell6-az-{version}.tar.bz2"
+source_dir_template = "aspell6-az-{version}"

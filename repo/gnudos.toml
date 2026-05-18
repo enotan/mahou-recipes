@@ -1,0 +1,19 @@
+name = "gnudos"
+version = "2.0"
+description = "GNU library and utilities for DOS-like interfaces"
+source = "https://ftp.gnu.org/gnu/gnudos/gnudos-2.0.tar.gz"
+sha256 = "887c88f8c94a3c35469dda1b96a3ea46e6b2fbcaba625ca722c5197ea4b1c41a"
+source_dir = "gnudos-2.0"
+deps = ["ncurses"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnudos/"
+version_pattern = "gnudos-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnudos/gnudos-{version}.tar.gz"
+source_dir_template = "gnudos-{version}"

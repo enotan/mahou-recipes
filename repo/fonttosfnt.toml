@@ -1,0 +1,19 @@
+name = "fonttosfnt"
+version = "1.2.5"
+description = "Wrap bitmap fonts in an sfnt container"
+source = "https://www.x.org/releases/individual/app/fonttosfnt-1.2.5.tar.xz"
+sha256 = "2e251e66e8753c08aa280b26fd4a10d0d88e7d9bba5c8aac3d3fb36705e5918e"
+source_dir = "fonttosfnt-1.2.5"
+deps = ["freetype", "libfontenc", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "fonttosfnt-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/fonttosfnt-{version}.tar.xz"
+source_dir_template = "fonttosfnt-{version}"

@@ -1,0 +1,19 @@
+name = "c-graph"
+version = "2.0.1"
+description = "Visualize convolution in the time domain"
+source = "https://ftp.gnu.org/gnu/c-graph/c-graph-2.0.1.tar.gz"
+sha256 = "2d267de3c9d75d8de95e5b51da11e7aa5e981291ee9a34ef6edcf8fea5084424"
+source_dir = "c-graph-2.0.1"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/c-graph/"
+version_pattern = "c-graph-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/c-graph/c-graph-{version}.tar.gz"
+source_dir_template = "c-graph-{version}"

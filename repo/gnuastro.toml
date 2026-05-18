@@ -1,0 +1,19 @@
+name = "gnuastro"
+version = "0.24"
+description = "GNU Astronomy Utilities"
+source = "https://ftp.gnu.org/gnu/gnuastro/gnuastro-0.24.tar.gz"
+sha256 = "c4e6401eee5d81619b82d8d18a6447851b36e0754118ebf5bdfac7a03194f981"
+source_dir = "gnuastro-0.24"
+deps = ["gsl"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnuastro/"
+version_pattern = "gnuastro-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnuastro/gnuastro-{version}.tar.gz"
+source_dir_template = "gnuastro-{version}"

@@ -1,0 +1,13 @@
+name = "aspell-dict-am"
+version = "0.03-1"
+description = "Aspell Amharic dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/am/aspell6-am-0.03-1.tar.bz2"
+sha256 = "bf27dd21f8871e2b3332c211b402cd46604d431a7773e599729c242cdfb9d487"
+source_dir = "aspell6-am-0.03-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/am/"
+version_pattern = "aspell6-am-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/am/aspell6-am-{version}.tar.bz2"
+source_dir_template = "aspell6-am-{version}"

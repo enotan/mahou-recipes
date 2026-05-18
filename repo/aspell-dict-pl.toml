@@ -1,0 +1,13 @@
+name = "aspell-dict-pl"
+version = "6.0_20061121-0"
+description = "Aspell Polish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/pl/aspell6-pl-6.0_20061121-0.tar.bz2"
+sha256 = "017741fcb70a885d718c534160c9de06b03cc72f352879bd106be165e024574d"
+source_dir = "aspell6-pl-6.0_20061121-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/pl/"
+version_pattern = "aspell6-pl-([0-9]+\\.[0-9]+_[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/pl/aspell6-pl-{version}.tar.bz2"
+source_dir_template = "aspell6-pl-{version}"

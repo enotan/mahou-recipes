@@ -1,0 +1,14 @@
+name = "wb"
+version = "2b4"
+description = "GNU WB theorem prover"
+source = "https://ftp.gnu.org/gnu/wb/wb-2b4.tar.gz"
+sha256 = "0ec9b3c93f07ed120aeb8caf3853b213842bc477f31e21588bc7e7842176fa65"
+source_dir = "wb-2b4"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/wb/"
+version_pattern = "wb-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/wb/wb-{version}.tar.gz"
+source_dir_template = "wb-{version}"

@@ -1,0 +1,15 @@
+name = "xf86vidmodeproto"
+version = "2.3.1"
+description = "XFree86-VidMode extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/xf86vidmodeproto-2.3.1.tar.gz"
+sha256 = "c3512b11cefa7558576551f8582c6e7071c8a24d78176059d94b84b48b262979"
+source_dir = "xf86vidmodeproto-2.3.1"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "xf86vidmodeproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/xf86vidmodeproto-{version}.tar.gz"
+source_dir_template = "xf86vidmodeproto-{version}"

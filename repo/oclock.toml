@@ -1,0 +1,19 @@
+name = "oclock"
+version = "1.0.6"
+description = "Round analog clock for X11"
+source = "https://www.x.org/releases/individual/app/oclock-1.0.6.tar.xz"
+sha256 = "3ee85e5e2d211eca7bdb8b2fe0e3baf31998829af48198b5fa9bbee2aa0d24be"
+source_dir = "oclock-1.0.6"
+deps = ["libX11", "libXaw", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "oclock-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/oclock-{version}.tar.xz"
+source_dir_template = "oclock-{version}"

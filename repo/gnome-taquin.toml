@@ -1,0 +1,14 @@
+name = "gnome-taquin"
+version = "3.38.1"
+description = "GNOME sliding tile puzzle game"
+source = "https://download.gnome.org/sources/gnome-taquin/3.38/gnome-taquin-3.38.1.tar.xz"
+sha256 = "96db3d8fad497924a7390ad108a3ef72432a1d62d2456cae5e1934057018814f"
+source_dir = "gnome-taquin-3.38.1"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-taquin/3.38/"
+version_pattern = "gnome-taquin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-taquin/3.38/gnome-taquin-{version}.tar.xz"
+source_dir_template = "gnome-taquin-{version}"

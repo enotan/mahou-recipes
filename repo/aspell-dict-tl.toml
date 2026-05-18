@@ -1,0 +1,14 @@
+name = "aspell-dict-tl"
+version = "0.02-1"
+description = "Aspell Tagalog dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/tl/aspell5-tl-0.02-1.tar.bz2"
+sha256 = "48b65d2c6886f353d1e1756a93bcd4d8ab2b88b021176c25dfdb5d8bcf348acd"
+source_dir = "aspell5-tl-0.02-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/tl/"
+version_pattern = "aspell5-tl-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/tl/aspell5-tl-{version}.tar.bz2"
+source_dir_template = "aspell5-tl-{version}"

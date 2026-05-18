@@ -1,0 +1,19 @@
+name = "libXpresent"
+version = "1.0.2"
+description = "X11 Present extension client library"
+source = "https://www.x.org/releases/individual/lib/libXpresent-1.0.2.tar.xz"
+sha256 = "4e5b21b4812206a4b223013606ae31170502c1043038777a1ef8f70c09d37602"
+source_dir = "libXpresent-1.0.2"
+deps = ["libX11", "libXext", "libXfixes", "libXrandr", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libXpresent-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/libXpresent-{version}.tar.xz"
+source_dir_template = "libXpresent-{version}"

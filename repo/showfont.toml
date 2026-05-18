@@ -1,0 +1,19 @@
+name = "showfont"
+version = "1.0.7"
+description = "Display data from an X font server"
+source = "https://www.x.org/releases/individual/app/showfont-1.0.7.tar.xz"
+sha256 = "8f725d641c12ef07746d16c892240823eccd045444a1ea182eddf229cc178fe7"
+source_dir = "showfont-1.0.7"
+deps = ["libFS", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "showfont-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/showfont-{version}.tar.xz"
+source_dir_template = "showfont-{version}"

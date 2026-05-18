@@ -1,0 +1,14 @@
+name = "easejs"
+version = "0.2.9"
+description = "GNU ease.js classical object framework for JavaScript"
+source = "https://ftp.gnu.org/gnu/easejs/easejs-0.2.9.tar.gz"
+sha256 = "e4b50e41ed6a010ec35284618dc524ae262d2c565a7912b1252c1867e63c9c83"
+source_dir = "easejs-0.2.9"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/easejs/"
+version_pattern = "easejs-([0-9][^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/easejs/easejs-{version}.tar.gz"
+source_dir_template = "easejs-{version}"

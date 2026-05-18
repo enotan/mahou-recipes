@@ -1,0 +1,14 @@
+name = "gnome-weather"
+version = "50.0"
+description = "GNOME weather application"
+source = "https://download.gnome.org/sources/gnome-weather/50/gnome-weather-50.0.tar.xz"
+sha256 = "57de7578605f91f9ab400551ce7738db7505bc88f42a33c70ce7a70167fdb513"
+source_dir = "gnome-weather-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-weather/50/"
+version_pattern = "gnome-weather-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-weather/50/gnome-weather-{version}.tar.xz"
+source_dir_template = "gnome-weather-{version}"

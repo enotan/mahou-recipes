@@ -1,0 +1,13 @@
+name = "archimedes"
+version = "2.0.1"
+description = "Semiconductor device simulator"
+source = "https://ftp.gnu.org/gnu/archimedes/archimedes-2.0.1.tar.gz"
+sha256 = "7facfaa198bd4391445101138d3659a5d6fb74d989f0b83aebbc687b47b3d749"
+source_dir = "archimedes-2.0.1"
+deps = []
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/archimedes/"
+version_pattern = "archimedes-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/archimedes/archimedes-{version}.tar.gz"
+source_dir_template = "archimedes-{version}"

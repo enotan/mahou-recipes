@@ -1,0 +1,14 @@
+name = "kawa"
+version = "3.1"
+description = "Kawa Scheme implementation"
+source = "https://ftp.gnu.org/gnu/kawa/kawa-3.1.tar.gz"
+sha256 = "5b100631e701f32687df702b04539de700768cfaf937418157e81a537b171118"
+source_dir = "kawa-3.1"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/kawa/"
+version_pattern = "kawa-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/kawa/kawa-{version}.tar.gz"
+source_dir_template = "kawa-{version}"

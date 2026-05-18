@@ -1,0 +1,14 @@
+name = "aspell-dict-wa"
+version = "0.50-0"
+description = "Aspell Walloon dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/wa/aspell-wa-0.50-0.tar.bz2"
+sha256 = "5a17aa8aa37afbcc8f52336476670b93cba16462bcb89dd46b80f4d9cfe73fe4"
+source_dir = "aspell-wa-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/wa/"
+version_pattern = "aspell-wa-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/wa/aspell-wa-{version}.tar.bz2"
+source_dir_template = "aspell-wa-{version}"

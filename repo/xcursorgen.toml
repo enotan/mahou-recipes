@@ -1,0 +1,19 @@
+name = "xcursorgen"
+version = "1.0.9"
+description = "Create X cursor files from PNG images"
+source = "https://www.x.org/releases/individual/app/xcursorgen-1.0.9.tar.xz"
+sha256 = "0cc9e156ac84ca16ea902710af35e0faffa51d13797071e3b4b6cc7cbd493bbc"
+source_dir = "xcursorgen-1.0.9"
+deps = ["libXcursor", "libpng", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xcursorgen-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xcursorgen-{version}.tar.xz"
+source_dir_template = "xcursorgen-{version}"

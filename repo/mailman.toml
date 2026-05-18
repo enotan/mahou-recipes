@@ -1,0 +1,14 @@
+name = "mailman"
+version = "2.1"
+description = "GNU Mailman mailing list manager"
+source = "https://ftp.gnu.org/gnu/mailman/mailman-2.1.tgz"
+sha256 = "f93cfcf5cc900ea6a6583cb2ca394530d9e630833581c34a39ae84b6936343d8"
+source_dir = "mailman-2.1"
+deps = ["python"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/mailman/"
+version_pattern = "mailman-([^\"/]+)\\.tgz"
+source_template = "https://ftp.gnu.org/gnu/mailman/mailman-{version}.tgz"
+source_dir_template = "mailman-{version}"

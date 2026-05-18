@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://git.netfilter.org/nftables/refs/tags"
-version_pattern = "v([0-9]+\\.[0-9]+\\.[0-9]+)"
+check_url = "https://www.netfilter.org/projects/nftables/downloads.html"
+version_pattern = "nftables-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
 source_template = "https://www.netfilter.org/pub/nftables/nftables-{version}.tar.xz"
 source_dir_template = "nftables-{version}"

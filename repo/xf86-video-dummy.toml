@@ -1,0 +1,14 @@
+name = "xf86-video-dummy"
+version = "0.4.1"
+description = "X.Org dummy video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-dummy-0.4.1.tar.xz"
+sha256 = "351920a7fd0f759a3ac972a5999b3ffed46f07fb52a99f319bfb5b6a59d3dfaf"
+source_dir = "xf86-video-dummy-0.4.1"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-dummy-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-dummy-{version}.tar.xz"
+source_dir_template = "xf86-video-dummy-{version}"

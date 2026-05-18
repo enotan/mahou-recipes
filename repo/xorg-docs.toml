@@ -1,0 +1,14 @@
+name = "xorg-docs"
+version = "1.7.3"
+description = "X.Org documentation"
+source = "https://www.x.org/releases/individual/doc/xorg-docs-1.7.3.tar.xz"
+sha256 = "28a2f2eeb5d9ff58b85961ff3ed7baaaf1ffa132e2a81f8b2bb97cb499bcddef"
+source_dir = "xorg-docs-1.7.3"
+deps = ["xorg-sgml-doctools"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/doc/"
+version_pattern = "xorg-docs-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/doc/xorg-docs-{version}.tar.xz"
+source_dir_template = "xorg-docs-{version}"

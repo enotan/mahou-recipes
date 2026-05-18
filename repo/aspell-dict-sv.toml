@@ -1,0 +1,13 @@
+name = "aspell-dict-sv"
+version = "0.51-0"
+description = "Aspell Swedish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/sv/aspell-sv-0.51-0.tar.bz2"
+sha256 = "9b70573c9c8cf76f5cdb6abcdfb834a754bbaa1efd7d6f57f47b8a91a19c5c0a"
+source_dir = "aspell-sv-0.51-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/sv/"
+version_pattern = "aspell-sv-([0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/sv/aspell-sv-{version}.tar.bz2"
+source_dir_template = "aspell-sv-{version}"

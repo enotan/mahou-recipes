@@ -1,0 +1,14 @@
+name = "xfburn"
+version = "0.8.0"
+description = "Disc burning application for Xfce"
+source = "https://archive.xfce.org/src/apps/xfburn/0.8/xfburn-0.8.0.tar.bz2"
+sha256 = "13a301aebcef27de18f63f8ca10b43bc42f9c1b9865dff1bfb3e97cfd95dd989"
+source_dir = "xfburn-0.8.0"
+deps = ["glib", "gtk+", "libxfce4ui"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/xfburn/0.8/"
+version_pattern = "xfburn-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://archive.xfce.org/src/apps/xfburn/0.8/xfburn-{version}.tar.bz2"
+source_dir_template = "xfburn-{version}"

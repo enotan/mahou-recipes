@@ -1,0 +1,14 @@
+name = "gnome-terminal"
+version = "3.60.0"
+description = "GNOME terminal application"
+source = "https://download.gnome.org/sources/gnome-terminal/3.60/gnome-terminal-3.60.0.tar.xz"
+sha256 = "b8daf3f08545172c4d2885733f720361ab0349ea669b99245eed4ad16ed3de28"
+source_dir = "gnome-terminal-3.60.0"
+deps = ["glib", "gtk4", "vte"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-terminal/3.60/"
+version_pattern = "gnome-terminal-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-terminal/3.60/gnome-terminal-{version}.tar.xz"
+source_dir_template = "gnome-terminal-{version}"

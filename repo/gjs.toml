@@ -1,0 +1,14 @@
+name = "gjs"
+version = "1.88.0"
+description = "GNOME JavaScript bindings"
+source = "https://download.gnome.org/sources/gjs/1.88/gjs-1.88.0.tar.xz"
+sha256 = "30a0b9f3317e8e60b1896db2903c70e8b0cd33df953c328755803a75191dc453"
+source_dir = "gjs-1.88.0"
+deps = ["glib", "gobject-introspection"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gjs/1.88/"
+version_pattern = "gjs-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gjs/1.88/gjs-{version}.tar.xz"
+source_dir_template = "gjs-{version}"

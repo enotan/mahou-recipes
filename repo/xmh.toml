@@ -1,0 +1,19 @@
+name = "xmh"
+version = "1.0.5"
+description = "X11 interface to the MH mail system"
+source = "https://www.x.org/releases/individual/app/xmh-1.0.5.tar.xz"
+sha256 = "2e8055b065e0492450a2c0bd8842b48ba7b0f0f377736a219b1752d0eec64c70"
+source_dir = "xmh-1.0.5"
+deps = ["libX11", "libXaw", "libXmu", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xmh-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xmh-{version}.tar.xz"
+source_dir_template = "xmh-{version}"

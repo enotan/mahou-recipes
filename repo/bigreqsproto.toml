@@ -1,0 +1,19 @@
+name = "bigreqsproto"
+version = "1.1.2"
+description = "Big Requests extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/bigreqsproto-1.1.2.tar.gz"
+sha256 = "de68a1a9dd1a1219ad73531bff9f662bc62fcd777387549c43cd282399f4a6ea"
+source_dir = "bigreqsproto-1.1.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "bigreqsproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/bigreqsproto-{version}.tar.gz"
+source_dir_template = "bigreqsproto-{version}"

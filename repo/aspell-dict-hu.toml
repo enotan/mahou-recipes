@@ -1,0 +1,13 @@
+name = "aspell-dict-hu"
+version = "0.99.4.2-0"
+description = "Aspell Hungarian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/hu/aspell6-hu-0.99.4.2-0.tar.bz2"
+sha256 = "3335a7b45cf9774bccf03740fbddeb7ec4752dd87178fa93f92d4c71e3f236b5"
+source_dir = "aspell6-hu-0.99.4.2-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/hu/"
+version_pattern = "aspell6-hu-([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/hu/aspell6-hu-{version}.tar.bz2"
+source_dir_template = "aspell6-hu-{version}"

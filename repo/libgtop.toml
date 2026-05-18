@@ -1,0 +1,14 @@
+name = "libgtop"
+version = "2.41.3"
+description = "GNOME system monitoring library"
+source = "https://download.gnome.org/sources/libgtop/2.41/libgtop-2.41.3.tar.xz"
+sha256 = "775676df958e2ea2452f7568f28b2ea581063d312773dd5c0b7624c1b9b2da8c"
+source_dir = "libgtop-2.41.3"
+deps = ["glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/libgtop/2.41/"
+version_pattern = "libgtop-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/libgtop/2.41/libgtop-{version}.tar.xz"
+source_dir_template = "libgtop-{version}"

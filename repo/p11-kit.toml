@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/p11-glue/p11-kit/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/p11-glue/p11-kit/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/p11-glue/p11-kit/releases/download/{version}/p11-kit-{version}.tar.xz"
 source_dir_template = "p11-kit-{version}"

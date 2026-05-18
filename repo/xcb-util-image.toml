@@ -1,0 +1,19 @@
+name = "xcb-util-image"
+version = "0.4.1"
+description = "XCB image convenience library"
+source = "https://www.x.org/releases/individual/lib/xcb-util-image-0.4.1.tar.xz"
+sha256 = "ccad8ee5dadb1271fd4727ad14d9bd77a64e505608766c4e98267d9aede40d3d"
+source_dir = "xcb-util-image-0.4.1"
+deps = ["libxcb", "xcb-util"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "xcb-util-image-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/xcb-util-image-{version}.tar.xz"
+source_dir_template = "xcb-util-image-{version}"

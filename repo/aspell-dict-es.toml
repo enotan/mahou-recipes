@@ -1,0 +1,13 @@
+name = "aspell-dict-es"
+version = "1.11-2"
+description = "Aspell Spanish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/es/aspell6-es-1.11-2.tar.bz2"
+sha256 = "ad367fa1e7069c72eb7ae37e4d39c30a44d32a6aa73cedccbd0d06a69018afcc"
+source_dir = "aspell6-es-1.11-2"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/es/"
+version_pattern = "aspell6-es-([0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/es/aspell6-es-{version}.tar.bz2"
+source_dir_template = "aspell6-es-{version}"

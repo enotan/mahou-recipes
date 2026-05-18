@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/libgme/game-music-emu/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/libgme/game-music-emu/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/libgme/game-music-emu/archive/refs/tags/{version}.tar.gz"
 source_dir_template = "game-music-emu-{version}"

@@ -1,0 +1,19 @@
+name = "xfindproxy"
+version = "1.0.4"
+description = "Locate available X proxy services"
+source = "https://www.x.org/releases/individual/app/xfindproxy-1.0.4.tar.gz"
+sha256 = "fa6152fcf9c16fbb2ef52259731df5df899a39a86894b0508456613f26ff924a"
+source_dir = "xfindproxy-1.0.4"
+deps = ["libICE", "libX11", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xfindproxy-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/xfindproxy-{version}.tar.gz"
+source_dir_template = "xfindproxy-{version}"

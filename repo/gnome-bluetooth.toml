@@ -1,0 +1,14 @@
+name = "gnome-bluetooth"
+version = "47.2"
+description = "GNOME Bluetooth libraries and utilities"
+source = "https://download.gnome.org/sources/gnome-bluetooth/47/gnome-bluetooth-47.2.tar.xz"
+sha256 = "41f20e6d6176b72590af63552b232d83f2fffdd77ecfaa5eaf32c5a4a86fad64"
+source_dir = "gnome-bluetooth-47.2"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-bluetooth/47/"
+version_pattern = "gnome-bluetooth-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-bluetooth/47/gnome-bluetooth-{version}.tar.xz"
+source_dir_template = "gnome-bluetooth-{version}"

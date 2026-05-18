@@ -1,0 +1,13 @@
+name = "sqltutor"
+version = "1.0"
+description = "SQL learning and tutoring system"
+source = "https://ftp.gnu.org/gnu/sqltutor/sqltutor-1.0.tar.gz"
+sha256 = "d11debbd187670688bb82aff84650cec7f3d6fc903a4634c55679046b021aae1"
+source_dir = "sqltutor-1.0"
+deps = []
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/sqltutor/"
+version_pattern = "sqltutor-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/sqltutor/sqltutor-{version}.tar.gz"
+source_dir_template = "sqltutor-{version}"

@@ -1,0 +1,19 @@
+name = "adns"
+version = "1.6.0"
+description = "Asynchronous-capable DNS client library and utilities"
+source = "https://ftp.gnu.org/gnu/adns/adns-1.6.0.tar.gz"
+sha256 = "fb427265a981e033d1548f2b117cc021073dc8be2eaf2c45fd64ab7b00ed20de"
+source_dir = "adns-1.6.0"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/adns/"
+version_pattern = "adns-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/adns/adns-{version}.tar.gz"
+source_dir_template = "adns-{version}"

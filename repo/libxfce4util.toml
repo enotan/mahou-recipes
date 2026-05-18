@@ -1,0 +1,14 @@
+name = "libxfce4util"
+version = "4.20.1"
+description = "Utility library for the Xfce desktop"
+source = "https://archive.xfce.org/src/xfce/libxfce4util/4.20/libxfce4util-4.20.1.tar.bz2"
+sha256 = "84bfc4daab9e466193540c3665eee42b2cf4d24e3f38fc3e8d1e0a2bebe3b8f1"
+source_dir = "libxfce4util-4.20.1"
+deps = ["glib"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/libxfce4util/4.20/"
+version_pattern = "libxfce4util-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://archive.xfce.org/src/xfce/libxfce4util/4.20/libxfce4util-{version}.tar.bz2"
+source_dir_template = "libxfce4util-{version}"

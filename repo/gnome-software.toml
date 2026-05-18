@@ -1,0 +1,14 @@
+name = "gnome-software"
+version = "50.1"
+description = "GNOME software center"
+source = "https://download.gnome.org/sources/gnome-software/50/gnome-software-50.1.tar.xz"
+sha256 = "6967eefec69d51d34d200585c9edfe24f151803e49ed9284a3d74edb0e5340a8"
+source_dir = "gnome-software-50.1"
+deps = ["glib", "gtk4", "libadwaita", "json-glib", "gdk-pixbuf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-software/50/"
+version_pattern = "gnome-software-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-software/50/gnome-software-{version}.tar.xz"
+source_dir_template = "gnome-software-{version}"

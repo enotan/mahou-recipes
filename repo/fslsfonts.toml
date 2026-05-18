@@ -1,0 +1,19 @@
+name = "fslsfonts"
+version = "1.0.7"
+description = "List fonts served by an X font server"
+source = "https://www.x.org/releases/individual/app/fslsfonts-1.0.7.tar.xz"
+sha256 = "67cddb1aa7fccab5d107beef32fa2c143e8a132a2b974a557557b24c6f306b63"
+source_dir = "fslsfonts-1.0.7"
+deps = ["libFS", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "fslsfonts-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/fslsfonts-{version}.tar.xz"
+source_dir_template = "fslsfonts-{version}"

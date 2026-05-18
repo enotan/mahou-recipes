@@ -1,0 +1,14 @@
+name = "xf86-video-trident"
+version = "1.4.0"
+description = "X.Org Trident video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-trident-1.4.0.tar.xz"
+sha256 = "7f76219ca7d7dc6061aa3c2aa59bc2a63895b8e6217e413ce315949f57b0189b"
+source_dir = "xf86-video-trident-1.4.0"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-trident-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-trident-{version}.tar.xz"
+source_dir_template = "xf86-video-trident-{version}"

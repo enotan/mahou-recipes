@@ -1,0 +1,14 @@
+name = "aspell-dict-sw"
+version = "0.50-0"
+description = "Aspell Swahili dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/sw/aspell-sw-0.50-0.tar.bz2"
+sha256 = "7ed51f107dc57a7b3555f20d1cee2903275d63e022b055ea6b6409d9e081f297"
+source_dir = "aspell-sw-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/sw/"
+version_pattern = "aspell-sw-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/sw/aspell-sw-{version}.tar.bz2"
+source_dir_template = "aspell-sw-{version}"

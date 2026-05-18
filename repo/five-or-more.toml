@@ -1,0 +1,14 @@
+name = "five-or-more"
+version = "48.1"
+description = "GNOME five-or-more puzzle game"
+source = "https://download.gnome.org/sources/five-or-more/48/five-or-more-48.1.tar.xz"
+sha256 = "d941ce2e37ea66c0d80f1e81797fbcbbe4e8ef65a790b3cc5e56b9f10b5ea5a3"
+source_dir = "five-or-more-48.1"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/five-or-more/48/"
+version_pattern = "five-or-more-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/five-or-more/48/five-or-more-{version}.tar.xz"
+source_dir_template = "five-or-more-{version}"

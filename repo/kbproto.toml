@@ -1,0 +1,19 @@
+name = "kbproto"
+version = "1.0.7"
+description = "X keyboard protocol headers"
+source = "https://www.x.org/releases/individual/proto/kbproto-1.0.7.tar.gz"
+sha256 = "828cb275b91268b1a3ea950d5c0c5eb076c678fdf005d517411f89cc8c3bb416"
+source_dir = "kbproto-1.0.7"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "kbproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/kbproto-{version}.tar.gz"
+source_dir_template = "kbproto-{version}"

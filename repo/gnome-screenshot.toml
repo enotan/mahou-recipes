@@ -1,0 +1,14 @@
+name = "gnome-screenshot"
+version = "41.0"
+description = "GNOME screenshot utility"
+source = "https://download.gnome.org/sources/gnome-screenshot/41/gnome-screenshot-41.0.tar.xz"
+sha256 = "4adb7dec926428f74263d5796673cf142e4720b6e768f5468a8d0933f98c9597"
+source_dir = "gnome-screenshot-41.0"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-screenshot/41/"
+version_pattern = "gnome-screenshot-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-screenshot/41/gnome-screenshot-{version}.tar.xz"
+source_dir_template = "gnome-screenshot-{version}"

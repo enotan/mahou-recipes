@@ -1,0 +1,13 @@
+name = "aspell-dict-da"
+version = "1.6.36-11-0"
+description = "Aspell Danish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/da/aspell6-da-1.6.36-11-0.tar.bz2"
+sha256 = "dbc6cbceaa7a4528f3756f0b5cce5c3d0615c2103d3899b47e9df2ed9582e2f7"
+source_dir = "aspell6-da-1.6.36-11-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/da/"
+version_pattern = "aspell6-da-([0-9]+\\.[0-9]+\\.[0-9]+-[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/da/aspell6-da-{version}.tar.bz2"
+source_dir_template = "aspell6-da-{version}"

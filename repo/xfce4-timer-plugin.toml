@@ -1,0 +1,14 @@
+name = "xfce4-timer-plugin"
+version = "1.8.0"
+description = "Timer panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-timer-plugin/1.8/xfce4-timer-plugin-1.8.0.tar.xz"
+sha256 = "1d3ac3aa2c4345400c025642778e7643aab41047622baf9cdc00bbac78e89f99"
+source_dir = "xfce4-timer-plugin-1.8.0"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-timer-plugin/1.8/"
+version_pattern = "xfce4-timer-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-timer-plugin/1.8/xfce4-timer-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-timer-plugin-{version}"

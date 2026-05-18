@@ -1,0 +1,19 @@
+name = "gss"
+version = "1.0.4"
+description = "GNU Generic Security Service library"
+source = "https://ftp.gnu.org/gnu/gss/gss-1.0.4.tar.gz"
+sha256 = "ecceabdef4cae3fce7218b2ecb83eb4227dba44b53b61b8c2b2e88ae02419c73"
+source_dir = "gss-1.0.4"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gss/"
+version_pattern = "gss-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gss/gss-{version}.tar.gz"
+source_dir_template = "gss-{version}"

@@ -1,0 +1,19 @@
+name = "glpk"
+version = "5.0"
+description = "GNU Linear Programming Kit"
+source = "https://ftp.gnu.org/gnu/glpk/glpk-5.0.tar.gz"
+sha256 = "4a1013eebb50f728fc601bdd833b0b2870333c3b3e5a816eeba921d95bec6f15"
+source_dir = "glpk-5.0"
+deps = ["gmp"]
+
+build_steps = [
+  "./configure --prefix=/usr --disable-static --with-gmp",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/glpk/"
+version_pattern = "glpk-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/glpk/glpk-{version}.tar.gz"
+source_dir_template = "glpk-{version}"

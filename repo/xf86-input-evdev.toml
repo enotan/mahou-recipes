@@ -1,0 +1,14 @@
+name = "xf86-input-evdev"
+version = "2.11.0"
+description = "X.Org evdev input driver"
+source = "https://www.x.org/releases/individual/driver/xf86-input-evdev-2.11.0.tar.xz"
+sha256 = "730022de934cc366bb12439daf202a7bfff52a028cf4573e457642e25a071315"
+source_dir = "xf86-input-evdev-2.11.0"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-input-evdev-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-input-evdev-{version}.tar.xz"
+source_dir_template = "xf86-input-evdev-{version}"

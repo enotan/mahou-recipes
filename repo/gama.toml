@@ -1,0 +1,19 @@
+name = "gama"
+version = "2.33"
+description = "Adjustment of geodetic networks"
+source = "https://ftp.gnu.org/gnu/gama/gama-2.33.tar.gz"
+sha256 = "a1a8aac402a90c9ac0f59516029f7763bb5f4e82eecd0334ac2e40e0de43fb5d"
+source_dir = "gama-2.33"
+deps = ["expat"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gama/"
+version_pattern = "gama-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gama/gama-{version}.tar.gz"
+source_dir_template = "gama-{version}"

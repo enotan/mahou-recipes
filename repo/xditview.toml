@@ -1,0 +1,19 @@
+name = "xditview"
+version = "1.0.7"
+description = "Display ditroff output on X11"
+source = "https://www.x.org/releases/individual/app/xditview-1.0.7.tar.xz"
+sha256 = "039e2d447fa409d4bb25c4e87cf09b4d4b3eff2d3af5aee8e7e52165a3259fd7"
+source_dir = "xditview-1.0.7"
+deps = ["libX11", "libXaw", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xditview-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xditview-{version}.tar.xz"
+source_dir_template = "xditview-{version}"

@@ -1,0 +1,19 @@
+name = "x11perf"
+version = "1.6.1"
+description = "X11 server performance test program"
+source = "https://www.x.org/releases/individual/app/x11perf-1.6.1.tar.gz"
+sha256 = "a1874618df0e30ae1a9b2470fb50e77a40c4a6f6ddf87a5c154f7a3b913ac0b3"
+source_dir = "x11perf-1.6.1"
+deps = ["libX11", "libXext", "libXmu", "libXrender", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "x11perf-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/x11perf-{version}.tar.gz"
+source_dir_template = "x11perf-{version}"

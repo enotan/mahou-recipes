@@ -1,0 +1,14 @@
+name = "gnutrition"
+version = "0.32"
+description = "GNU Nutrition nutrient analysis software"
+source = "https://ftp.gnu.org/gnu/gnutrition/gnutrition-0.32.tar.gz"
+sha256 = "8c8b552787800efd7c29e9afc8528483fb34a4cc69f6758a2872be6354faf19e"
+source_dir = "gnutrition-0.32"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnutrition/"
+version_pattern = "gnutrition-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnutrition/gnutrition-{version}.tar.gz"
+source_dir_template = "gnutrition-{version}"

@@ -1,0 +1,14 @@
+name = "gnome-system-monitor"
+version = "50.0"
+description = "GNOME system monitor"
+source = "https://download.gnome.org/sources/gnome-system-monitor/50/gnome-system-monitor-50.0.tar.xz"
+sha256 = "a4138aa754b4584c46de91fad1d685e27b12bc2457de761863b6be02d84c4862"
+source_dir = "gnome-system-monitor-50.0"
+deps = ["glib", "gtk4", "libadwaita", "libgtop"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-system-monitor/50/"
+version_pattern = "gnome-system-monitor-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-system-monitor/50/gnome-system-monitor-{version}.tar.xz"
+source_dir_template = "gnome-system-monitor-{version}"

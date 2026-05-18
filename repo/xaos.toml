@@ -1,0 +1,14 @@
+name = "xaos"
+version = "3.0"
+description = "GNU XaoS fractal zoomer"
+source = "https://ftp.gnu.org/gnu/xaos/xaos-3.0.tar.gz"
+sha256 = "c8fa4361d39baed18ecc68fabc19b1480078ef5af7878d7c152963cdd83d7121"
+source_dir = "xaos-3.0"
+deps = ["libX11", "libpng", "zlib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/xaos/"
+version_pattern = "xaos-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/xaos/xaos-{version}.tar.gz"
+source_dir_template = "xaos-{version}"

@@ -1,0 +1,14 @@
+name = "grub"
+version = "2.14"
+description = "GNU GRUB boot loader"
+source = "https://ftp.gnu.org/gnu/grub/grub-2.14.tar.xz"
+sha256 = "bc8d3c73535b8838d8c8e2654d73edc4e6ae8c8acdb45d5df5dc9a1547446d43"
+source_dir = "grub-2.14"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/grub/"
+version_pattern = "grub-([^\"/]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/grub/grub-{version}.tar.xz"
+source_dir_template = "grub-{version}"

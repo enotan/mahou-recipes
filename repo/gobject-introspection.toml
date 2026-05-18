@@ -1,0 +1,14 @@
+name = "gobject-introspection"
+version = "1.86.0"
+description = "GObject introspection tools and libraries"
+source = "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
+sha256 = "920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae"
+source_dir = "gobject-introspection-1.86.0"
+deps = ["glib", "python"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gobject-introspection/1.86/"
+version_pattern = "gobject-introspection-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-{version}.tar.xz"
+source_dir_template = "gobject-introspection-{version}"

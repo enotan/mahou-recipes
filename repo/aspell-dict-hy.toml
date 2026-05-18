@@ -1,0 +1,13 @@
+name = "aspell-dict-hy"
+version = "0.10.0-0"
+description = "Aspell Armenian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/hy/aspell6-hy-0.10.0-0.tar.bz2"
+sha256 = "2dea8d0093a3b8373cc97703dca2979b285f71916181d1a20db70bea28c2bcf0"
+source_dir = "aspell6-hy-0.10.0-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/hy/"
+version_pattern = "aspell6-hy-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/hy/aspell6-hy-{version}.tar.bz2"
+source_dir_template = "aspell6-hy-{version}"

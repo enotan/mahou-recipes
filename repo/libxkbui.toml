@@ -1,0 +1,19 @@
+name = "libxkbui"
+version = "1.0.2"
+description = "XKB user interface utility library"
+source = "https://www.x.org/releases/individual/lib/libxkbui-1.0.2.tar.gz"
+sha256 = "196ab4867f3754caae34e51a663cbce26b4af819db3960f1fc4fb42c6a3c535d"
+source_dir = "libxkbui-1.0.2"
+deps = ["libX11", "libXt", "libxkbfile", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libxkbui-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/lib/libxkbui-{version}.tar.gz"
+source_dir_template = "libxkbui-{version}"

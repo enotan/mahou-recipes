@@ -1,0 +1,19 @@
+name = "font-bitstream-speedo"
+version = "1.0.2"
+description = "Bitstream Speedo fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-bitstream-speedo-1.0.2.tar.gz"
+sha256 = "aeea5f130480a3f05149bde13d240e668d8fb4b32c02b18914fcccd1182abe72"
+source_dir = "font-bitstream-speedo-1.0.2"
+deps = ["font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-bitstream-speedo-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/font/font-bitstream-speedo-{version}.tar.gz"
+source_dir_template = "font-bitstream-speedo-{version}"

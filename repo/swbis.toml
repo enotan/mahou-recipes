@@ -1,0 +1,19 @@
+name = "swbis"
+version = "1.13.3"
+description = "POSIX software packaging tools"
+source = "https://ftp.gnu.org/gnu/swbis/swbis-1.13.3.tar.gz"
+sha256 = "b88930826066d70798f42dad6480ebd89d7f5d6d3209234af520358adcda697a"
+source_dir = "swbis-1.13.3"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/swbis/"
+version_pattern = "swbis-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/swbis/swbis-{version}.tar.gz"
+source_dir_template = "swbis-{version}"

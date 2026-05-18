@@ -1,0 +1,14 @@
+name = "libgnomekbd"
+version = "3.28.1"
+description = "GNOME keyboard configuration library"
+source = "https://download.gnome.org/sources/libgnomekbd/3.28/libgnomekbd-3.28.1.tar.xz"
+sha256 = "22dc59566d73c0065350f5a97340e62ecc7b08c4df19183804bb8be24c8fe870"
+source_dir = "libgnomekbd-3.28.1"
+deps = ["glib", "libX11"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/libgnomekbd/3.28/"
+version_pattern = "libgnomekbd-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/libgnomekbd/3.28/libgnomekbd-{version}.tar.xz"
+source_dir_template = "libgnomekbd-{version}"

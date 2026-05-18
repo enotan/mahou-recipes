@@ -1,0 +1,19 @@
+name = "xscope"
+version = "1.4.5"
+description = "Monitor X11 protocol connections"
+source = "https://www.x.org/releases/individual/app/xscope-1.4.5.tar.xz"
+sha256 = "5f125d4c94e19e4be48edc43691e46df0b82f0b6ead95453dc7ac775a0d70066"
+source_dir = "xscope-1.4.5"
+deps = ["libX11", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xscope-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xscope-{version}.tar.xz"
+source_dir_template = "xscope-{version}"

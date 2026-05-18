@@ -1,0 +1,14 @@
+name = "libpeas"
+version = "2.2.1"
+description = "GObject plugin engine"
+source = "https://download.gnome.org/sources/libpeas/2.2/libpeas-2.2.1.tar.xz"
+sha256 = "589eca89b437006edf3755478df037c740a2a84cfa5d202dbad6095e828e2488"
+source_dir = "libpeas-2.2.1"
+deps = ["glib", "gobject-introspection"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/libpeas/2.2/"
+version_pattern = "libpeas-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/libpeas/2.2/libpeas-{version}.tar.xz"
+source_dir_template = "libpeas-{version}"

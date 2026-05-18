@@ -1,0 +1,14 @@
+name = "xf86-video-vmware"
+version = "13.4.0"
+description = "X.Org VMware video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-vmware-13.4.0.tar.xz"
+sha256 = "aed31ee5ed5ecc6e2226705383e7ad06f7602c1376a295305f376b17af3eb81a"
+source_dir = "xf86-video-vmware-13.4.0"
+deps = ["xorgproto", "libdrm"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-vmware-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-vmware-{version}.tar.xz"
+source_dir_template = "xf86-video-vmware-{version}"

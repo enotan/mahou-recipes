@@ -1,0 +1,19 @@
+name = "font-sony-misc"
+version = "1.0.4"
+description = "Sony miscellaneous bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-sony-misc-1.0.4.tar.xz"
+sha256 = "e6b09f823fccb06e0bd0b2062283b6514153323bd8a7486e9c2e3f55ab84946b"
+source_dir = "font-sony-misc-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-sony-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-sony-misc-{version}.tar.xz"
+source_dir_template = "font-sony-misc-{version}"

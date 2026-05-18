@@ -1,0 +1,13 @@
+name = "aspell-dict-lv"
+version = "0.5.5-1"
+description = "Aspell Latvian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/lv/aspell6-lv-0.5.5-1.tar.bz2"
+sha256 = "3c30e206ea562b2e759fb7467680e1a01d5deec5edbd66653c83184550d1fb8a"
+source_dir = "aspell6-lv-0.5.5-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/lv/"
+version_pattern = "aspell6-lv-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/lv/aspell6-lv-{version}.tar.bz2"
+source_dir_template = "aspell6-lv-{version}"

@@ -1,0 +1,19 @@
+name = "spell"
+version = "1.1"
+description = "GNU spell checking front-end"
+source = "https://ftp.gnu.org/gnu/spell/spell-1.1.tar.gz"
+sha256 = "7cc243547eb31360ff769835dc88b5ba4f2f47385daa230523beecf9e1c29744"
+source_dir = "spell-1.1"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/spell/"
+version_pattern = "spell-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/spell/spell-{version}.tar.gz"
+source_dir_template = "spell-{version}"

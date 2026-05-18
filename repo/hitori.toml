@@ -1,0 +1,14 @@
+name = "hitori"
+version = "44.0"
+description = "GNOME logic puzzle game"
+source = "https://download.gnome.org/sources/hitori/44/hitori-44.0.tar.xz"
+sha256 = "42270bd4f9525d180d3151bd7245335dc5cf248a984e02f68ff930da799e583b"
+source_dir = "hitori-44.0"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/hitori/44/"
+version_pattern = "hitori-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/hitori/44/hitori-{version}.tar.xz"
+source_dir_template = "hitori-{version}"

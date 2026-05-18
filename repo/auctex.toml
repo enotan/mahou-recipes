@@ -1,0 +1,14 @@
+name = "auctex"
+version = "13.3"
+description = "Extensible TeX editing support for Emacs"
+source = "https://ftp.gnu.org/gnu/auctex/auctex-13.3.tar.gz"
+sha256 = "4f7e57e1241a499f34861d59f3c4652fb47e3896c7a2768edbbbec1e54c91252"
+source_dir = "auctex-13.3"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/auctex/"
+version_pattern = "auctex-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/auctex/auctex-{version}.tar.gz"
+source_dir_template = "auctex-{version}"

@@ -1,0 +1,19 @@
+name = "constype"
+version = "1.0.6"
+description = "Print the type of an X11 console"
+source = "https://www.x.org/releases/individual/app/constype-1.0.6.tar.xz"
+sha256 = "4ce58aa9cfec80b0d119b031899a55cd51afc7aa05fa8e56e527e2c02ebad9d7"
+source_dir = "constype-1.0.6"
+deps = ["libX11", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "constype-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/constype-{version}.tar.xz"
+source_dir_template = "constype-{version}"

@@ -1,0 +1,14 @@
+name = "xf86-video-i128"
+version = "1.4.1"
+description = "X.Org Number Nine I128 video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-i128-1.4.1.tar.xz"
+sha256 = "7064b513ffe33efa040577c4d355ce2c76ed218989ab38feb8972750d5acbc46"
+source_dir = "xf86-video-i128-1.4.1"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-i128-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-i128-{version}.tar.xz"
+source_dir_template = "xf86-video-i128-{version}"

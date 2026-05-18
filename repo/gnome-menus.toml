@@ -1,0 +1,14 @@
+name = "gnome-menus"
+version = "3.38.1"
+description = "GNOME menu layout library"
+source = "https://download.gnome.org/sources/gnome-menus/3.38/gnome-menus-3.38.1.tar.xz"
+sha256 = "1198a91cdbdcfb232df94e71ef5427617d26029e327be3f860c3b0921c448118"
+source_dir = "gnome-menus-3.38.1"
+deps = ["glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-menus/3.38/"
+version_pattern = "gnome-menus-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-menus/3.38/gnome-menus-{version}.tar.xz"
+source_dir_template = "gnome-menus-{version}"

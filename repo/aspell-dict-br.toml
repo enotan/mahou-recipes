@@ -1,0 +1,13 @@
+name = "aspell-dict-br"
+version = "0.50-2"
+description = "Aspell Breton dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/br/aspell-br-0.50-2.tar.bz2"
+sha256 = "c2122a6dcca653c082d785f0da4bf267363182a017fea4129e8b0882aa6d2a3b"
+source_dir = "aspell-br-0.50-2"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/br/"
+version_pattern = "aspell-br-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/br/aspell-br-{version}.tar.bz2"
+source_dir_template = "aspell-br-{version}"

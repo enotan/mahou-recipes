@@ -1,0 +1,14 @@
+name = "xf86-video-geode"
+version = "2.18.2"
+description = "X.Org Geode video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-geode-2.18.2.tar.xz"
+sha256 = "bdb0fa8154f06be080c88b59e8f7af6b41597161135152aaac84f8ea41853a1f"
+source_dir = "xf86-video-geode-2.18.2"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-geode-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-geode-{version}.tar.xz"
+source_dir_template = "xf86-video-geode-{version}"

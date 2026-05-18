@@ -1,0 +1,19 @@
+name = "freeipmi"
+version = "1.6.17"
+description = "IPMI system management software"
+source = "https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.6.17.tar.gz"
+sha256 = "16783d10faa28847a795cce0bf86deeaa72b8fbe71d1f0dc1101d13a6b501ec1"
+source_dir = "freeipmi-1.6.17"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/freeipmi/"
+version_pattern = "freeipmi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/freeipmi/freeipmi-{version}.tar.gz"
+source_dir_template = "freeipmi-{version}"

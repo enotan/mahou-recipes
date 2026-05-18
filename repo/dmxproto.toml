@@ -1,0 +1,19 @@
+name = "dmxproto"
+version = "2.3.1"
+description = "Distributed Multihead X extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/dmxproto-2.3.1.tar.gz"
+sha256 = "3262bbf5902211a3ce88f5c6ab4528145ff84f69c52fd386ae0312bc45fb8a40"
+source_dir = "dmxproto-2.3.1"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "dmxproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/dmxproto-{version}.tar.gz"
+source_dir_template = "dmxproto-{version}"

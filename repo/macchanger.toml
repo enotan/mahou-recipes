@@ -1,0 +1,19 @@
+name = "macchanger"
+version = "1.6.0"
+description = "View and change MAC addresses"
+source = "https://ftp.gnu.org/gnu/macchanger/macchanger-1.6.0.tar.gz"
+sha256 = "31534f138f1d21fa247be74ba6bef3fbfa47bbcd5033e99bd10c432fe58e51f7"
+source_dir = "macchanger-1.6.0"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/macchanger/"
+version_pattern = "macchanger-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/macchanger/macchanger-{version}.tar.gz"
+source_dir_template = "macchanger-{version}"

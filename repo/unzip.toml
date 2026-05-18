@@ -15,6 +15,6 @@ build_steps = [
 
 [update]
 check_url = "https://sourceforge.net/projects/infozip/files/UnZip%206.x%20%28latest%29/"
-version_pattern = "unzip60\\.tar\\.gz"
+version_pattern = "UnZip%206\\.x%20%28latest%29/UnZip%20([0-9]+\\.[0-9]+)/"
 source_template = "https://downloads.sourceforge.net/infozip/unzip60.tar.gz"
 source_dir_template = "unzip60"

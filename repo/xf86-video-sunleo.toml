@@ -1,0 +1,14 @@
+name = "xf86-video-sunleo"
+version = "1.2.3"
+description = "X.Org Sun Leo video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-sunleo-1.2.3.tar.xz"
+sha256 = "ecb6719f2446099de3d4cd709ca5ca318d982b0dbd8f6f036ded7b1c1538a6df"
+source_dir = "xf86-video-sunleo-1.2.3"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-sunleo-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-sunleo-{version}.tar.xz"
+source_dir_template = "xf86-video-sunleo-{version}"

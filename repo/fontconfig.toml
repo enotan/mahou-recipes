@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://gitlab.freedesktop.org/api/v4/projects/890/packages/generic/fontconfig/"
-version_pattern = "fontconfig/([0-9]+\\.[0-9]+\\.[0-9]+)"
+check_url = "https://gitlab.freedesktop.org/api/v4/projects/fontconfig%2Ffontconfig/releases"
+version_pattern = "\"tag_name\"\\s*:\\s*\"([0-9]+\\.[0-9]+\\.[0-9]+)\""
 source_template = "https://gitlab.freedesktop.org/api/v4/projects/890/packages/generic/fontconfig/{version}/fontconfig-{version}.tar.xz"
 source_dir_template = "fontconfig-{version}"

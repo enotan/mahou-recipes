@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/memcached/memcached/tags?per_page=10"
-version_pattern = "\"name\"\\s*:\\s*\"([0-9]+\\.[0-9]+\\.[0-9]+)\""
+check_url = "https://github.com/memcached/memcached/tags"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://memcached.org/files/memcached-{version}.tar.gz"
 source_dir_template = "memcached-{version}"

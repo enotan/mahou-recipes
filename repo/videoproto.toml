@@ -1,0 +1,15 @@
+name = "videoproto"
+version = "2.3.3"
+description = "X Video extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/videoproto-2.3.3.tar.gz"
+sha256 = "df8dfeb158767f843054248d020e291a2c40f7f5e0ac6d8706966686fee7c5c0"
+source_dir = "videoproto-2.3.3"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "videoproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/videoproto-{version}.tar.gz"
+source_dir_template = "videoproto-{version}"

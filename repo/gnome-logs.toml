@@ -1,0 +1,14 @@
+name = "gnome-logs"
+version = "50.0"
+description = "GNOME log viewer"
+source = "https://download.gnome.org/sources/gnome-logs/50/gnome-logs-50.0.tar.xz"
+sha256 = "b466c6660155521ba8135339c6df080a0e071a46f9911b99172b21f9e2dfd808"
+source_dir = "gnome-logs-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-logs/50/"
+version_pattern = "gnome-logs-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-logs/50/gnome-logs-{version}.tar.xz"
+source_dir_template = "gnome-logs-{version}"

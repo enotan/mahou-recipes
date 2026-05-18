@@ -1,0 +1,14 @@
+name = "aspell-dict-mt"
+version = "0.50-0"
+description = "Aspell Maltese dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/mt/aspell-mt-0.50-0.tar.bz2"
+sha256 = "e00fcaad60a90cfed687ba02f62be8c27b8650457dd3c5bdcb064b476da059b4"
+source_dir = "aspell-mt-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/mt/"
+version_pattern = "aspell-mt-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/mt/aspell-mt-{version}.tar.bz2"
+source_dir_template = "aspell-mt-{version}"

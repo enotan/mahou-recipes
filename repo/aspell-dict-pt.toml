@@ -1,0 +1,14 @@
+name = "aspell-dict-pt"
+version = "0.50-2"
+description = "Aspell Portuguese dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/pt/aspell-pt-0.50-2.tar.bz2"
+sha256 = "4acbffe03b918cf32b340949d0f167df9073190d347a092f45d4e400a09b2fa6"
+source_dir = "aspell-pt-0.50-2"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/pt/"
+version_pattern = "aspell-pt-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/pt/aspell-pt-{version}.tar.bz2"
+source_dir_template = "aspell-pt-{version}"

@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/xkbcommon/libxkbcommon/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"xkbcommon-([^\"]+)\""
+check_url = "https://github.com/xkbcommon/libxkbcommon/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-{version}.tar.gz"
 source_dir_template = "libxkbcommon-xkbcommon-{version}"

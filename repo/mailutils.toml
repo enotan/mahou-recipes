@@ -1,0 +1,13 @@
+name = "mailutils"
+version = "3.21"
+description = "Utilities and libraries for mail handling"
+source = "https://ftp.gnu.org/gnu/mailutils/mailutils-3.21.tar.xz"
+sha256 = "e47c1edc699b8d6675fdbc77db3a84ae837f18e1f2094fe29d48bb58a97ef5e9"
+source_dir = "mailutils-3.21"
+deps = ["gnutls", "readline"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/mailutils/"
+version_pattern = "mailutils-([0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/mailutils/mailutils-{version}.tar.xz"
+source_dir_template = "mailutils-{version}"

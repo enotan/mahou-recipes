@@ -1,0 +1,19 @@
+name = "resourceproto"
+version = "1.2.0"
+description = "X Resource extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/resourceproto-1.2.0.tar.gz"
+sha256 = "469029d14fdeeaa7eed1be585998ff4cb92cf664f872d1d69c04140815b78734"
+source_dir = "resourceproto-1.2.0"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "resourceproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/resourceproto-{version}.tar.gz"
+source_dir_template = "resourceproto-{version}"

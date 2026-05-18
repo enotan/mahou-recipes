@@ -1,0 +1,14 @@
+name = "marst"
+version = "2.8"
+description = "GNU MARST Algol-to-C translator"
+source = "https://ftp.gnu.org/gnu/marst/marst-2.8.tar.gz"
+sha256 = "d77f4703b0b44b50be57908f9d556ee6c3bedd97d638c42949d6aec84f8070ba"
+source_dir = "marst-2.8"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/marst/"
+version_pattern = "marst-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/marst/marst-{version}.tar.gz"
+source_dir_template = "marst-{version}"

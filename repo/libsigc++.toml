@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/libsigcplusplus/libsigcplusplus/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/libsigcplusplus/libsigcplusplus/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/libsigcplusplus/libsigcplusplus/releases/download/{version}/libsigc++-{version}.tar.xz"
 source_dir_template = "libsigc++-{version}"

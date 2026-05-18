@@ -1,0 +1,19 @@
+name = "inputproto"
+version = "2.3.2"
+description = "X Input extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/inputproto-2.3.2.tar.gz"
+sha256 = "10eaadd531f38f7c92ab59ef0708ca195caf3164a75c4ed99f0c04f2913f6ef3"
+source_dir = "inputproto-2.3.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "inputproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/inputproto-{version}.tar.gz"
+source_dir_template = "inputproto-{version}"

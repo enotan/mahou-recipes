@@ -1,0 +1,14 @@
+name = "source-highlight"
+version = "3.1"
+description = "GNU Source-highlight syntax highlighter"
+source = "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.tar.gz"
+sha256 = "cb591bddb13c811d9ff8daa9565b74639fdb99cf71c50e2d3df6225fc34506a6"
+source_dir = "source-highlight-3.1"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/src-highlite/"
+version_pattern = "source-highlight-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/src-highlite/source-highlight-{version}.tar.gz"
+source_dir_template = "source-highlight-{version}"

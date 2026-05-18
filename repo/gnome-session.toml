@@ -1,0 +1,14 @@
+name = "gnome-session"
+version = "50.0"
+description = "GNOME session manager"
+source = "https://download.gnome.org/sources/gnome-session/50/gnome-session-50.0.tar.xz"
+sha256 = "be7708cd9d260e1ac183815313dbb620b1876ead5ba39ce7ea2e6dc7adbd7246"
+source_dir = "gnome-session-50.0"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-session/50/"
+version_pattern = "gnome-session-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-session/50/gnome-session-{version}.tar.xz"
+source_dir_template = "gnome-session-{version}"

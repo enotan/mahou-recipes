@@ -1,0 +1,18 @@
+name = "tinycdb"
+version = "0.81"
+description = "Tiny constant database library and utilities"
+source = "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.81.tar.gz"
+sha256 = "469de2d445bf54880f652f4b6dc95c7cdf6f5502c35524a45b2122d70d47ebc2"
+source_dir = "tinycdb-0.81"
+deps = []
+
+build_steps = [
+  "make shared",
+  "make DESTDIR=${MAHOU_DESTDIR} prefix=/usr libdir=/usr/lib mandir=/usr/share/man install install-sharedlib",
+]
+
+[update]
+check_url = "https://www.corpit.ru/mjt/tinycdb.html"
+version_pattern = "tinycdb-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.corpit.ru/mjt/tinycdb/tinycdb-{version}.tar.gz"
+source_dir_template = "tinycdb-{version}"

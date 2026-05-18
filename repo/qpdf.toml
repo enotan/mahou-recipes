@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/qpdf/qpdf/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/qpdf/qpdf/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/qpdf/qpdf/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "qpdf-{version}"

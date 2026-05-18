@@ -1,0 +1,14 @@
+name = "gnome-epub-thumbnailer"
+version = "1.8"
+description = "EPUB thumbnailer for GNOME"
+source = "https://download.gnome.org/sources/gnome-epub-thumbnailer/1.8/gnome-epub-thumbnailer-1.8.tar.xz"
+sha256 = "f90619d58c69902f2eff57b9f0042b4737861083f475921a310fecc612fca017"
+source_dir = "gnome-epub-thumbnailer-1.8"
+deps = ["glib", "gdk-pixbuf", "libxml2"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-epub-thumbnailer/1.8/"
+version_pattern = "gnome-epub-thumbnailer-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-epub-thumbnailer/1.8/gnome-epub-thumbnailer-{version}.tar.xz"
+source_dir_template = "gnome-epub-thumbnailer-{version}"

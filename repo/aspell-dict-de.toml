@@ -1,0 +1,13 @@
+name = "aspell-dict-de"
+version = "20161207-7-0"
+description = "Aspell German dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/de/aspell6-de-20161207-7-0.tar.bz2"
+sha256 = "c2125d1fafb1d4effbe6c88d4e9127db59da9ed92639c7cbaeae1b7337655571"
+source_dir = "aspell6-de-20161207-7-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/de/"
+version_pattern = "aspell6-de-([0-9]+-[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/de/aspell6-de-{version}.tar.bz2"
+source_dir_template = "aspell6-de-{version}"

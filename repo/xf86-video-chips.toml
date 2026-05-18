@@ -1,0 +1,14 @@
+name = "xf86-video-chips"
+version = "1.5.0"
+description = "X.Org Chips and Technologies video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-chips-1.5.0.tar.xz"
+sha256 = "84c3d9640ec85a94673ac98e6b546568414c2925ae46dca8205b42014793d4b3"
+source_dir = "xf86-video-chips-1.5.0"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-chips-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-chips-{version}.tar.xz"
+source_dir_template = "xf86-video-chips-{version}"

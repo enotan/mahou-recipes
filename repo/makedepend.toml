@@ -1,0 +1,19 @@
+name = "makedepend"
+version = "1.0.9"
+description = "Create dependencies in makefiles"
+source = "https://www.x.org/releases/individual/util/makedepend-1.0.9.tar.xz"
+sha256 = "92d0deb659fff6d8ddbc1d27fc4ca8ceb2b6dbe15d73f0a04edc09f1c5782dd4"
+source_dir = "makedepend-1.0.9"
+deps = ["xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/util/"
+version_pattern = "makedepend-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/util/makedepend-{version}.tar.xz"
+source_dir_template = "makedepend-{version}"

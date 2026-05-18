@@ -1,0 +1,19 @@
+name = "ccd2cue"
+version = "0.5"
+description = "Convert CloneCD control files to CUE sheets"
+source = "https://ftp.gnu.org/gnu/ccd2cue/ccd2cue-0.5.tar.gz"
+sha256 = "8725cfdbcb963259ff094a878aa0e49ea8284e1071ea36ac7ea47358c49b99c5"
+source_dir = "ccd2cue-0.5"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/ccd2cue/"
+version_pattern = "ccd2cue-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/ccd2cue/ccd2cue-{version}.tar.gz"
+source_dir_template = "ccd2cue-{version}"

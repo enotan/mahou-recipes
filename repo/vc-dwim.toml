@@ -1,0 +1,14 @@
+name = "vc-dwim"
+version = "1.10"
+description = "GNU vc-dwim version-control helper"
+source = "https://ftp.gnu.org/gnu/vc-dwim/vc-dwim-1.10.tar.xz"
+sha256 = "f06662720c1eae023fd82d03b79aa68d6c0f466a593ef01edfa2cedd7a57a62a"
+source_dir = "vc-dwim-1.10"
+deps = ["git"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/vc-dwim/"
+version_pattern = "vc-dwim-([^\"/]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/vc-dwim/vc-dwim-{version}.tar.xz"
+source_dir_template = "vc-dwim-{version}"

@@ -1,0 +1,14 @@
+name = "guile-cv"
+version = "0.4.0"
+description = "Computer vision library for Guile"
+source = "https://ftp.gnu.org/gnu/guile-cv/guile-cv-0.4.0.tar.gz"
+sha256 = "eb4771d2346849efd222cbc8fff5c8c69bc5fe17f707bb8fe6b4e750fb07c200"
+source_dir = "guile-cv-0.4.0"
+deps = ["guile"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/guile-cv/"
+version_pattern = "guile-cv-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/guile-cv/guile-cv-{version}.tar.gz"
+source_dir_template = "guile-cv-{version}"

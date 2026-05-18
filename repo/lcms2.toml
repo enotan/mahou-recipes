@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/mm2/Little-CMS/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"lcms([0-9]+\\.[0-9]+)\""
+check_url = "https://github.com/mm2/Little-CMS/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/mm2/Little-CMS/releases/download/lcms{version}/lcms2-{version}.tar.gz"
 source_dir_template = "lcms2-{version}"

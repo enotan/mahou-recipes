@@ -1,0 +1,13 @@
+name = "aspell-dict-hus"
+version = "0.03-1"
+description = "Aspell Huastec dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/hus/aspell6-hus-0.03-1.tar.bz2"
+sha256 = "6d28f371d1a172439395d56d2d5ce8f27c617de03f847f02643dfd79dd8df425"
+source_dir = "aspell6-hus-0.03-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/hus/"
+version_pattern = "aspell6-hus-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/hus/aspell6-hus-{version}.tar.bz2"
+source_dir_template = "aspell6-hus-{version}"

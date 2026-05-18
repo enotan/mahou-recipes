@@ -1,0 +1,15 @@
+name = "xf86driproto"
+version = "2.1.1"
+description = "XFree86-DRI extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/xf86driproto-2.1.1.tar.gz"
+sha256 = "18ff8de129b89fa24a412a1ec1799f8687f96c186c655b44b1a714a3a5d15d6c"
+source_dir = "xf86driproto-2.1.1"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "xf86driproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/xf86driproto-{version}.tar.gz"
+source_dir_template = "xf86driproto-{version}"

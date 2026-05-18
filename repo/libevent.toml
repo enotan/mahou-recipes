@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/libevent/libevent/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"release-([0-9]+\\.[0-9]+\\.[0-9]+)-alpha\""
+check_url = "https://github.com/libevent/libevent/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/libevent/libevent/releases/download/release-{version}-alpha/libevent-{version}-alpha-dev.tar.gz"
 source_dir_template = "libevent-{version}-alpha-dev"

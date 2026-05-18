@@ -1,0 +1,13 @@
+name = "aspell-dict-gu"
+version = "0.03-0"
+description = "Aspell Gujarati dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/gu/aspell6-gu-0.03-0.tar.bz2"
+sha256 = "432c125acc6a86456061dcd47018df4318a117be9f7c09a590979243ad448311"
+source_dir = "aspell6-gu-0.03-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/gu/"
+version_pattern = "aspell6-gu-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/gu/aspell6-gu-{version}.tar.bz2"
+source_dir_template = "aspell6-gu-{version}"

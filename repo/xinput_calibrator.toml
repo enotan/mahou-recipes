@@ -1,0 +1,14 @@
+name = "xinput_calibrator"
+version = "0.8.0"
+description = "X input device calibration utility"
+source = "https://www.x.org/releases/individual/app/xinput_calibrator-0.8.0.tar.xz"
+sha256 = "0508bf9705c0945f746b8c81bfc8d583a347dd067b58fa76b1aed4225e4b8b40"
+source_dir = "xinput_calibrator-0.8.0"
+deps = ["libX11", "libXi"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xinput_calibrator-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xinput_calibrator-{version}.tar.xz"
+source_dir_template = "xinput_calibrator-{version}"

@@ -1,0 +1,14 @@
+name = "gnome-photos"
+version = "44.0"
+description = "GNOME photo manager"
+source = "https://download.gnome.org/sources/gnome-photos/44/gnome-photos-44.0.tar.xz"
+sha256 = "e78e210397d3c62809c6cd5521da6eccb4a11ddea5bf2af8632a47f4da5c829e"
+source_dir = "gnome-photos-44.0"
+deps = ["glib", "gtk4", "gnome-desktop", "tracker", "gdk-pixbuf", "gegl"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-photos/44/"
+version_pattern = "gnome-photos-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-photos/44/gnome-photos-{version}.tar.xz"
+source_dir_template = "gnome-photos-{version}"

@@ -1,0 +1,15 @@
+name = "xcmiscproto"
+version = "1.2.2"
+description = "XC-MISC extension protocol headers"
+source = "https://www.x.org/releases/individual/proto/xcmiscproto-1.2.2.tar.gz"
+sha256 = "48013cfbe4bd5580925a854a43e2bccbb4c7a5a31128070644617b6dc7f8ef85"
+source_dir = "xcmiscproto-1.2.2"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "xcmiscproto-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/xcmiscproto-{version}.tar.gz"
+source_dir_template = "xcmiscproto-{version}"

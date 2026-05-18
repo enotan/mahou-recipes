@@ -1,0 +1,14 @@
+name = "xf86-video-nv"
+version = "2.1.24"
+description = "X.Org NVIDIA nv video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-nv-2.1.24.tar.xz"
+sha256 = "2fb667de9d10bfa7ecddbb951f93020a2c0e42757b000a3d6f400bd54845df23"
+source_dir = "xf86-video-nv-2.1.24"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-nv-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-nv-{version}.tar.xz"
+source_dir_template = "xf86-video-nv-{version}"

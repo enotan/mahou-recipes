@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://netfilter.org/projects/libmnl/files/"
+check_url = "https://www.netfilter.org/projects/libmnl/downloads.html"
 version_pattern = "libmnl-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.bz2"
 source_template = "https://netfilter.org/projects/libmnl/files/libmnl-{version}.tar.bz2"
 source_dir_template = "libmnl-{version}"

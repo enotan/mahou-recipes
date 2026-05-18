@@ -1,0 +1,14 @@
+name = "guile-rpc"
+version = "0.4"
+description = "ONC RPC implementation for Guile"
+source = "https://ftp.gnu.org/gnu/guile-rpc/guile-rpc-0.4.tar.gz"
+sha256 = "c915952c0b6ea61c037c4954b04982c375815d335cf7e1cb4d2393dd58fb894c"
+source_dir = "guile-rpc-0.4"
+deps = ["guile"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/guile-rpc/"
+version_pattern = "guile-rpc-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/guile-rpc/guile-rpc-{version}.tar.gz"
+source_dir_template = "guile-rpc-{version}"

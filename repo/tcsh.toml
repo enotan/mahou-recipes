@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/tcsh-org/tcsh/tags"
-version_pattern = "\"name\"\\s*:\\s*\"TCSH([0-9]+_[0-9]+_[0-9]+)\""
+check_url = "https://github.com/tcsh-org/tcsh/tags"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/tcsh-org/tcsh/archive/refs/tags/TCSH{version}.tar.gz"
 source_dir_template = "tcsh-TCSH{version}"

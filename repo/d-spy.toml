@@ -1,0 +1,14 @@
+name = "d-spy"
+version = "50.0"
+description = "D-Bus explorer for GNOME"
+source = "https://download.gnome.org/sources/d-spy/50/d-spy-50.0.tar.xz"
+sha256 = "1bddc86d8a2cf67b4f652dc461ccd8353112f088753420037c75f5454deaad10"
+source_dir = "d-spy-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/d-spy/50/"
+version_pattern = "d-spy-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/d-spy/50/d-spy-{version}.tar.xz"
+source_dir_template = "d-spy-{version}"

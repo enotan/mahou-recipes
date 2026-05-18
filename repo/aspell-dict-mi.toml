@@ -1,0 +1,13 @@
+name = "aspell-dict-mi"
+version = "0.50-0"
+description = "Aspell Maori dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/mi/aspell-mi-0.50-0.tar.bz2"
+sha256 = "beee1e33baf6301e3ffc56558c84c3e7d29622541b232c1aea1e91d12ebd7d89"
+source_dir = "aspell-mi-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/mi/"
+version_pattern = "aspell-mi-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/mi/aspell-mi-{version}.tar.bz2"
+source_dir_template = "aspell-mi-{version}"

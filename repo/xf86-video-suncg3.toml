@@ -1,0 +1,14 @@
+name = "xf86-video-suncg3"
+version = "1.1.3"
+description = "X.Org Sun CG3 video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-suncg3-1.1.3.tar.xz"
+sha256 = "9a1e8048f76838095f94447a59825b062357bc7fea74724ee98ef08e280c00dc"
+source_dir = "xf86-video-suncg3-1.1.3"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-suncg3-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-suncg3-{version}.tar.xz"
+source_dir_template = "xf86-video-suncg3-{version}"

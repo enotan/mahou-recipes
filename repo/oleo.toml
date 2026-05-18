@@ -1,0 +1,14 @@
+name = "oleo"
+version = "1.99.16"
+description = "GNU Oleo spreadsheet program"
+source = "https://ftp.gnu.org/gnu/oleo/oleo-1.99.16.tar.gz"
+sha256 = "6598df85d06ff2534ec08ed0657508f17dbbc58dd02d419160989de7c487bc86"
+source_dir = "oleo-1.99.16"
+deps = ["ncurses"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/oleo/"
+version_pattern = "oleo-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/oleo/oleo-{version}.tar.gz"
+source_dir_template = "oleo-{version}"

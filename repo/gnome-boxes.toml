@@ -1,0 +1,14 @@
+name = "gnome-boxes"
+version = "50.0"
+description = "GNOME virtual machine manager"
+source = "https://download.gnome.org/sources/gnome-boxes/50/gnome-boxes-50.0.tar.xz"
+sha256 = "fd6a5de18d1090946ca99f1f5a34aa3e15dc8183f6a72226e8d1504a13672d67"
+source_dir = "gnome-boxes-50.0"
+deps = ["glib", "gtk4", "libadwaita", "gobject-introspection"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-boxes/50/"
+version_pattern = "gnome-boxes-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-boxes/50/gnome-boxes-{version}.tar.xz"
+source_dir_template = "gnome-boxes-{version}"

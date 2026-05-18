@@ -1,0 +1,19 @@
+name = "bool"
+version = "0.2.2"
+description = "Utility for finding files that match boolean expressions"
+source = "https://ftp.gnu.org/gnu/bool/bool-0.2.2.tar.xz"
+sha256 = "dc75d36344c93c49eac3196f7543ed67f3bde9e0bdebdb5677099455f3ab2dbb"
+source_dir = "bool-0.2.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/bool/"
+version_pattern = "bool-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/bool/bool-{version}.tar.xz"
+source_dir_template = "bool-{version}"

@@ -1,0 +1,14 @@
+name = "xfce4-whiskermenu-plugin"
+version = "2.10.1"
+description = "Alternate application menu panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-whiskermenu-plugin/2.10/xfce4-whiskermenu-plugin-2.10.1.tar.xz"
+sha256 = "8b5a777a5d9df1f1c39b109ba8b2d045cb2cc02c41a9a297aa00dcb2a4520530"
+source_dir = "xfce4-whiskermenu-plugin-2.10.1"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-whiskermenu-plugin/2.10/"
+version_pattern = "xfce4-whiskermenu-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-whiskermenu-plugin/2.10/xfce4-whiskermenu-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-whiskermenu-plugin-{version}"

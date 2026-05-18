@@ -1,0 +1,19 @@
+name = "xkbcomp"
+version = "1.5.0"
+description = "Compile XKB keyboard description files"
+source = "https://www.x.org/releases/individual/app/xkbcomp-1.5.0.tar.xz"
+sha256 = "2ac31f26600776db6d9cd79b3fcd272263faebac7eb85fb2f33c7141b8486060"
+source_dir = "xkbcomp-1.5.0"
+deps = ["libxkbfile", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xkbcomp-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xkbcomp-{version}.tar.xz"
+source_dir_template = "xkbcomp-{version}"

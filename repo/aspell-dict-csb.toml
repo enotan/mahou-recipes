@@ -1,0 +1,13 @@
+name = "aspell-dict-csb"
+version = "0.02-0"
+description = "Aspell Kashubian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell-dict-csb/aspell6-csb-0.02-0.tar.bz2"
+sha256 = "c166ad07d50e9e13ac9f87d5a8938b3f675a0f8a01017bd8969c2053e7f52298"
+source_dir = "aspell6-csb-0.02-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell-dict-csb/"
+version_pattern = "aspell6-csb-([0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell-dict-csb/aspell6-csb-{version}.tar.bz2"
+source_dir_template = "aspell6-csb-{version}"

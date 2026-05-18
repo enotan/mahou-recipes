@@ -1,0 +1,19 @@
+name = "font-misc-misc"
+version = "1.1.3"
+description = "Miscellaneous bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-misc-misc-1.1.3.tar.xz"
+sha256 = "79abe361f58bb21ade9f565898e486300ce1cc621d5285bec26e14b6a8618fed"
+source_dir = "font-misc-misc-1.1.3"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-misc-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-misc-misc-{version}.tar.xz"
+source_dir_template = "font-misc-misc-{version}"

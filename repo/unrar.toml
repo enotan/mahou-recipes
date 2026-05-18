@@ -1,8 +1,8 @@
 name = "unrar"
-version = "7.2.4"
+version = "7.2.6"
 description = "RAR archive extractor"
-source = "https://www.rarlab.com/rar/unrarsrc-7.2.4.tar.gz"
-sha256 = "b02e571a33af7711cd803080500370dc1d28eea82b2032480819d27462ad8b31"
+source = "https://www.rarlab.com/rar/unrarsrc-7.2.6.tar.gz"
+sha256 = "d1afa67ef4121ebc5986815699e05db0ce8648499e5dca854f282a4c3f72c003"
 source_dir = "unrar"
 deps = []
 
@@ -14,7 +14,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://www.rarlab.com/rar/"
+check_url = "https://www.rarlab.com/rar_add.htm"
 version_pattern = "unrarsrc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
 source_template = "https://www.rarlab.com/rar/unrarsrc-{version}.tar.gz"
 source_dir_template = "unrar"

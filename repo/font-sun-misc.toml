@@ -1,0 +1,19 @@
+name = "font-sun-misc"
+version = "1.0.4"
+description = "Sun miscellaneous bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-sun-misc-1.0.4.tar.xz"
+sha256 = "dd84dd116d927affa4fa0fa29727b3ecfc0f064238817c0a1e552a0ac384db9f"
+source_dir = "font-sun-misc-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-sun-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-sun-misc-{version}.tar.xz"
+source_dir_template = "font-sun-misc-{version}"

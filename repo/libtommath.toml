@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/libtom/libtommath/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/libtom/libtommath/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/libtom/libtommath/releases/download/v{version}/ltm-{version}.tar.xz"
 source_dir_template = "libtommath-{version}"

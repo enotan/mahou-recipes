@@ -1,0 +1,19 @@
+name = "libFS"
+version = "1.0.10"
+description = "X11 Font Service client library"
+source = "https://www.x.org/releases/individual/lib/libFS-1.0.10.tar.xz"
+sha256 = "9babbd3c86069c98563da044045fdc0ece4ec0c93dcdd2c68aa74eb34b4f3b77"
+source_dir = "libFS-1.0.10"
+deps = ["xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libFS-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/libFS-{version}.tar.xz"
+source_dir_template = "libFS-{version}"

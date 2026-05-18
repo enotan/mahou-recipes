@@ -1,0 +1,14 @@
+name = "rpge"
+version = "0.0.3"
+description = "GNU Role Playing Game Engine"
+source = "https://ftp.gnu.org/gnu/rpge/rpge-0.0.3.tar.gz"
+sha256 = "65599e466a00c1632274c6ef0bf0ba43b60be173bd11fd3d64b70b20d9d50d72"
+source_dir = "rpge-0.0.3"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/rpge/"
+version_pattern = "rpge-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/rpge/rpge-{version}.tar.gz"
+source_dir_template = "rpge-{version}"

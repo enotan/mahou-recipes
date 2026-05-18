@@ -1,0 +1,19 @@
+name = "micron"
+version = "1.4"
+description = "Minimal cron implementation"
+source = "https://ftp.gnu.org/gnu/micron/micron-1.4.tar.gz"
+sha256 = "036e662f5a60cf98bb6a4b0e6ad39f9d5c213ea07efe9f586b567f192573cda4"
+source_dir = "micron-1.4"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/micron/"
+version_pattern = "micron-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/micron/micron-{version}.tar.gz"
+source_dir_template = "micron-{version}"

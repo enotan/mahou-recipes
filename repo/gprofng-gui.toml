@@ -1,0 +1,14 @@
+name = "gprofng-gui"
+version = "2.2"
+description = "GNU gprofng graphical interface"
+source = "https://ftp.gnu.org/gnu/gprofng-gui/gprofng-gui-2.2.tar.gz"
+sha256 = "4a974d82f9e360bc442a4b548f170f92f4845b28e17e831007542b7dddfd1d95"
+source_dir = "gprofng-gui-2.2"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gprofng-gui/"
+version_pattern = "gprofng-gui-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gprofng-gui/gprofng-gui-{version}.tar.gz"
+source_dir_template = "gprofng-gui-{version}"

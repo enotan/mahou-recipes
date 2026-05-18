@@ -1,0 +1,19 @@
+name = "font-xfree86-type1"
+version = "1.0.5"
+description = "XFree86 Type1 fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-xfree86-type1-1.0.5.tar.xz"
+sha256 = "a93c2c788a5ea1c002af7c8662cf9d9821fb1df51b8d2b2c5e0026dfdfea4837"
+source_dir = "font-xfree86-type1-1.0.5"
+deps = ["font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-xfree86-type1-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-xfree86-type1-{version}.tar.xz"
+source_dir_template = "font-xfree86-type1-{version}"

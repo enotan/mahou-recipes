@@ -1,0 +1,14 @@
+name = "gtranslator"
+version = "50.0"
+description = "GNOME translation editor"
+source = "https://download.gnome.org/sources/gtranslator/50/gtranslator-50.0.tar.xz"
+sha256 = "857b51c78f54df42418ff6fa9e62b8554df7f021cb12338c1fc0d85b99c918ef"
+source_dir = "gtranslator-50.0"
+deps = ["glib", "gtk4", "libadwaita", "gtksourceview"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gtranslator/50/"
+version_pattern = "gtranslator-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gtranslator/50/gtranslator-{version}.tar.xz"
+source_dir_template = "gtranslator-{version}"

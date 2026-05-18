@@ -1,0 +1,14 @@
+name = "xlogmaster"
+version = "1.6.2"
+description = "GNU Xlogmaster log monitoring utility"
+source = "https://ftp.gnu.org/gnu/xlogmaster/xlogmaster-1.6.2.tar.gz"
+sha256 = "9de31a89cf589b3ab510b746da65bd64091860c6d1f08959d36d52721f35cf11"
+source_dir = "xlogmaster-1.6.2"
+deps = ["libX11"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/xlogmaster/"
+version_pattern = "xlogmaster-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/xlogmaster/xlogmaster-{version}.tar.gz"
+source_dir_template = "xlogmaster-{version}"

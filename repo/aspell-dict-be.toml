@@ -1,0 +1,13 @@
+name = "aspell-dict-be"
+version = "0.01"
+description = "Aspell Belarusian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/be/aspell5-be-0.01.tar.bz2"
+sha256 = "550bad0c03a142241ffe5ecc183659d80020b566003a05341cd1e97c6ed274eb"
+source_dir = "aspell5-be-0.01"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/be/"
+version_pattern = "aspell5-be-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/be/aspell5-be-{version}.tar.bz2"
+source_dir_template = "aspell5-be-{version}"

@@ -1,0 +1,14 @@
+name = "xorg-sgml-doctools"
+version = "1.12.1"
+description = "X.Org SGML documentation tools"
+source = "https://www.x.org/releases/individual/doc/xorg-sgml-doctools-1.12.1.tar.xz"
+sha256 = "0a5d54c0706b4e89d5acd4d455db3745ab4ad26be627cce015b90ad403b56d6f"
+source_dir = "xorg-sgml-doctools-1.12.1"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/doc/"
+version_pattern = "xorg-sgml-doctools-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/doc/xorg-sgml-doctools-{version}.tar.xz"
+source_dir_template = "xorg-sgml-doctools-{version}"

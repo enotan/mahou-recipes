@@ -1,0 +1,14 @@
+name = "sather"
+version = "1.3-beta-7"
+description = "GNU Sather compiler"
+source = "https://ftp.gnu.org/gnu/sather/sather-1.3-beta-7.tar.bz2"
+sha256 = "40257ec7e3a1916861b03fb58823aabdcb93168a4616613cd562c9cdaf2392e6"
+source_dir = "sather-1.3-beta-7"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/sather/"
+version_pattern = "sather-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/sather/sather-{version}.tar.bz2"
+source_dir_template = "sather-{version}"

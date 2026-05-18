@@ -1,0 +1,14 @@
+name = "xfce4-screensaver"
+version = "4.20.2"
+description = "Screensaver and locker for Xfce"
+source = "https://archive.xfce.org/src/apps/xfce4-screensaver/4.20/xfce4-screensaver-4.20.2.tar.xz"
+sha256 = "5032f60a31df5e50a80512e301b595be5ea6a6bd762cdd95cacc24cbd29a01d7"
+source_dir = "xfce4-screensaver-4.20.2"
+deps = ["glib", "gtk+", "libxfce4ui", "xfconf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/xfce4-screensaver/4.20/"
+version_pattern = "xfce4-screensaver-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/xfce4-screensaver/4.20/xfce4-screensaver-{version}.tar.xz"
+source_dir_template = "xfce4-screensaver-{version}"

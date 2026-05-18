@@ -1,0 +1,14 @@
+name = "tramp"
+version = "2.8.1"
+description = "Transparent remote file access package for Emacs"
+source = "https://ftp.gnu.org/gnu/tramp/tramp-2.8.1.tar.gz"
+sha256 = "d20fcd12806567d52c47bcc0d41d68230a0c3a58b54ba64c7c674d0d29fd1269"
+source_dir = "tramp-2.8.1"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/tramp/"
+version_pattern = "tramp-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/tramp/tramp-{version}.tar.gz"
+source_dir_template = "tramp-{version}"

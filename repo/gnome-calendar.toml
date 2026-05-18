@@ -1,0 +1,14 @@
+name = "gnome-calendar"
+version = "50.0"
+description = "GNOME calendar application"
+source = "https://download.gnome.org/sources/gnome-calendar/50/gnome-calendar-50.0.tar.xz"
+sha256 = "4b75df071a52d98fb35e647d018030129d24d9007790d02457746c98617aeab0"
+source_dir = "gnome-calendar-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-calendar/50/"
+version_pattern = "gnome-calendar-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-calendar/50/gnome-calendar-{version}.tar.xz"
+source_dir_template = "gnome-calendar-{version}"

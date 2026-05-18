@@ -1,0 +1,14 @@
+name = "psychosynth"
+version = "0.3.0"
+description = "GNU Psychosynth modular synthesizer"
+source = "https://ftp.gnu.org/gnu/psychosynth/psychosynth-0.3.0.tar.gz"
+sha256 = "5993fa4a8c0b793456f43b18932684eab45ca708db270b9508ca300c6d85197e"
+source_dir = "psychosynth-0.3.0"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/psychosynth/"
+version_pattern = "psychosynth-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/psychosynth/psychosynth-{version}.tar.gz"
+source_dir_template = "psychosynth-{version}"

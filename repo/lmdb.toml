@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/LMDB/lmdb/tags"
-version_pattern = "\"name\"\\s*:\\s*\"LMDB_([^\"]+)\""
+check_url = "https://github.com/LMDB/lmdb/tags"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/LMDB/lmdb/archive/refs/tags/LMDB_{version}.tar.gz"
 source_dir_template = "lmdb-LMDB_{version}"

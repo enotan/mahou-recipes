@@ -1,0 +1,13 @@
+name = "aspell-dict-mg"
+version = "0.03-0"
+description = "Aspell Malagasy dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/mg/aspell5-mg-0.03-0.tar.bz2"
+sha256 = "5182f832e1630ceef5711a83b530fb583ffe04f28cc042d195b5c6b2d25cb041"
+source_dir = "aspell5-mg-0.03-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/mg/"
+version_pattern = "aspell5-mg-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/mg/aspell5-mg-{version}.tar.bz2"
+source_dir_template = "aspell5-mg-{version}"

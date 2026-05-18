@@ -1,0 +1,19 @@
+name = "twm"
+version = "1.0.13"
+description = "Tab Window Manager for X11"
+source = "https://www.x.org/releases/individual/app/twm-1.0.13.tar.xz"
+sha256 = "966c4df15757645943a916c1beee4ff4065b44fde00cf01f8477d8c1d0cba2b6"
+source_dir = "twm-1.0.13"
+deps = ["libX11", "libXaw", "libXext", "libXmu", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "twm-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/twm-{version}.tar.xz"
+source_dir_template = "twm-{version}"

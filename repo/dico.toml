@@ -1,0 +1,19 @@
+name = "dico"
+version = "2.12"
+description = "Dictionary server and client implementation"
+source = "https://ftp.gnu.org/gnu/dico/dico-2.12.tar.xz"
+sha256 = "728b89c50e090bff839e8f7b3043b5c7023f861a9211c93048b42ab455866af7"
+source_dir = "dico-2.12"
+deps = ["readline"]
+
+build_steps = [
+  "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --with-included-ltdl --without-gsasl --without-guile --without-ldap --without-pcre --without-tk --with-libreadline-prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/dico/"
+version_pattern = "dico-([0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/dico/dico-{version}.tar.xz"
+source_dir_template = "dico-{version}"

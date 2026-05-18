@@ -1,0 +1,15 @@
+name = "xproxymanagementprotocol"
+version = "1.0.3"
+description = "X proxy management protocol headers"
+source = "https://www.x.org/releases/individual/proto/xproxymanagementprotocol-1.0.3.tar.gz"
+sha256 = "c1501045ec781f36b6f867611ab2b4e81be542f5c669b2fd0cc4ec1340c42bcf"
+source_dir = "xproxymanagementprotocol-1.0.3"
+deps = []
+
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/proto/"
+version_pattern = "xproxymanagementprotocol-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/proto/xproxymanagementprotocol-{version}.tar.gz"
+source_dir_template = "xproxymanagementprotocol-{version}"

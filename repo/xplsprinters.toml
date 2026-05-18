@@ -1,0 +1,19 @@
+name = "xplsprinters"
+version = "1.0.1"
+description = "List Xprint printers"
+source = "https://www.x.org/releases/individual/app/xplsprinters-1.0.1.tar.gz"
+sha256 = "33377e499429ce3e100fbd7b59153c87ad79bf55872561db08419f69cac4fbfd"
+source_dir = "xplsprinters-1.0.1"
+deps = ["libX11", "libXp", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xplsprinters-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/xplsprinters-{version}.tar.gz"
+source_dir_template = "xplsprinters-{version}"

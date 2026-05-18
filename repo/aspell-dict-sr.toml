@@ -1,0 +1,14 @@
+name = "aspell-dict-sr"
+version = "0.02"
+description = "Aspell Serbian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/sr/aspell6-sr-0.02.tar.bz2"
+sha256 = "705e58fb390633c89c4cb224a1cfb34e67e09496448f7adc6500494b6e009289"
+source_dir = "aspell6-sr-0.02"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/sr/"
+version_pattern = "aspell6-sr-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/sr/aspell6-sr-{version}.tar.bz2"
+source_dir_template = "aspell6-sr-{version}"

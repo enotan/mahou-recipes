@@ -1,0 +1,14 @@
+name = "hurd"
+version = "0.9"
+description = "GNU Hurd servers and libraries"
+source = "https://ftp.gnu.org/gnu/hurd/hurd-0.9.tar.gz"
+sha256 = "fcbd75a511346e31f7683b7b0a1ee999314f7caf955477d9d8fe1e0b3c7d89db"
+source_dir = "hurd-0.9"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/hurd/"
+version_pattern = "hurd-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/hurd/hurd-{version}.tar.gz"
+source_dir_template = "hurd-{version}"

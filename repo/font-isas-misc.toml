@@ -1,0 +1,19 @@
+name = "font-isas-misc"
+version = "1.0.4"
+description = "ISAS miscellaneous bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-isas-misc-1.0.4.tar.xz"
+sha256 = "47e595bbe6da444b9f6fcaa26539abc7ba1989e23afa6cdc49e22e484cc438fc"
+source_dir = "font-isas-misc-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-isas-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-isas-misc-{version}.tar.xz"
+source_dir_template = "font-isas-misc-{version}"

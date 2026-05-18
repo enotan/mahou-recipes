@@ -1,0 +1,19 @@
+name = "libXaw3d"
+version = "1.6.6"
+description = "Three-dimensional Athena widget set"
+source = "https://www.x.org/releases/individual/lib/libXaw3d-1.6.6.tar.xz"
+sha256 = "a41c3e37135ad616b1f28bbde70002afbf3cb59a30df34141f829d32eadc8646"
+source_dir = "libXaw3d-1.6.6"
+deps = ["libX11", "libXext", "libXmu", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libXaw3d-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/libXaw3d-{version}.tar.xz"
+source_dir_template = "libXaw3d-{version}"

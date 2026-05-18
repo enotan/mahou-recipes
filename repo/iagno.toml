@@ -1,0 +1,14 @@
+name = "iagno"
+version = "50.0"
+description = "GNOME Reversi game"
+source = "https://download.gnome.org/sources/iagno/50/iagno-50.0.tar.xz"
+sha256 = "fdfd62d187441aea1f1d6a0ecbbd4e27707f5c8ddc0797141ca750dd305dc882"
+source_dir = "iagno-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/iagno/50/"
+version_pattern = "iagno-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/iagno/50/iagno-{version}.tar.xz"
+source_dir_template = "iagno-{version}"

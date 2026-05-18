@@ -1,0 +1,14 @@
+name = "gtksourceview"
+version = "5.20.0"
+description = "GTK source code editing widget"
+source = "https://download.gnome.org/sources/gtksourceview/5.20/gtksourceview-5.20.0.tar.xz"
+sha256 = "e38bcd23f52b86eadf0fe4d8bde698e3a8ca102322b8b4cf1a51ac294a448c1b"
+source_dir = "gtksourceview-5.20.0"
+deps = ["glib", "gtk4", "libxml2"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gtksourceview/5.20/"
+version_pattern = "gtksourceview-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gtksourceview/5.20/gtksourceview-{version}.tar.xz"
+source_dir_template = "gtksourceview-{version}"

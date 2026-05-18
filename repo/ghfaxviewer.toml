@@ -1,0 +1,14 @@
+name = "ghfaxviewer"
+version = "0.22.0"
+description = "GNU HaliFAX fax viewer"
+source = "https://ftp.gnu.org/gnu/halifax/ghfaxviewer-0.22.0.tar.gz"
+sha256 = "66acdb920a2baa8199360634943f09bf16cf82796db688a1dda7ecbedfc863ce"
+source_dir = "ghfaxviewer-0.22.0"
+deps = ["glib"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/halifax/"
+version_pattern = "ghfaxviewer-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/halifax/ghfaxviewer-{version}.tar.gz"
+source_dir_template = "ghfaxviewer-{version}"

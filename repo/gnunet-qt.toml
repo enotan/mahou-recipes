@@ -1,0 +1,14 @@
+name = "gnunet-qt"
+version = "0.8.1"
+description = "Qt interface for GNUnet"
+source = "https://ftp.gnu.org/gnu/gnunet/gnunet-qt-0.8.1.tar.gz"
+sha256 = "e646be6837efee4b701d86f15331e35cec20fe4ad4e0be9065b3043b9db579da"
+source_dir = "gnunet-qt-0.8.1"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnunet/"
+version_pattern = "gnunet-qt-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnunet/gnunet-qt-{version}.tar.gz"
+source_dir_template = "gnunet-qt-{version}"

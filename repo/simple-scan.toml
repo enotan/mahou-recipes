@@ -1,0 +1,14 @@
+name = "simple-scan"
+version = "50.0"
+description = "GNOME document scanning application"
+source = "https://download.gnome.org/sources/simple-scan/50/simple-scan-50.0.tar.xz"
+sha256 = "cc32b561ae227182d31a94466632e311723756e3ac90538c3c7e2a2c9aaa4a09"
+source_dir = "simple-scan-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/simple-scan/50/"
+version_pattern = "simple-scan-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/simple-scan/50/simple-scan-{version}.tar.xz"
+source_dir_template = "simple-scan-{version}"

@@ -1,0 +1,19 @@
+name = "shepherd"
+version = "1.0.9"
+description = "GNU service manager"
+source = "https://ftp.gnu.org/gnu/shepherd/shepherd-1.0.9.tar.gz"
+sha256 = "e488c585c8418df6e8f476dca81b72910f337c9cd3608fb467de5260004000d6"
+source_dir = "shepherd-1.0.9"
+deps = ["gettext", "guile"]
+
+build_steps = [
+  "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/shepherd/"
+version_pattern = "shepherd-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/shepherd/shepherd-{version}.tar.gz"
+source_dir_template = "shepherd-{version}"

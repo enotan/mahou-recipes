@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://gitlab.freedesktop.org/emersion/kanshi/-/releases"
-version_pattern = "kanshi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+check_url = "https://gitlab.freedesktop.org/api/v4/projects/emersion%2Fkanshi/releases"
+version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
 source_template = "https://gitlab.freedesktop.org/emersion/kanshi/-/releases/v{version}/downloads/kanshi-{version}.tar.gz"
 source_dir_template = "kanshi-{version}"

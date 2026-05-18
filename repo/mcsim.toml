@@ -1,0 +1,19 @@
+name = "mcsim"
+version = "6.2.0"
+description = "Monte Carlo simulation and statistical inference tool"
+source = "https://ftp.gnu.org/gnu/mcsim/mcsim-6.2.0.tar.gz"
+sha256 = "c6a3a685dfb9a6f0e99760f2628a91cf40798f6f05d4577e49fade9d80664f7e"
+source_dir = "mcsim-6.2.0"
+deps = ["gsl"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/mcsim/"
+version_pattern = "mcsim-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/mcsim/mcsim-{version}.tar.gz"
+source_dir_template = "mcsim-{version}"

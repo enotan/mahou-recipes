@@ -1,0 +1,14 @@
+name = "aspell-dict-tr"
+version = "0.50-0"
+description = "Aspell Turkish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/tr/aspell-tr-0.50-0.tar.bz2"
+sha256 = "0bc6530e5eebf8b2b53f1e8add596c62099173f62b9baa6b3efaa86752bdfb4a"
+source_dir = "aspell-tr-0.50-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/tr/"
+version_pattern = "aspell-tr-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/tr/aspell-tr-{version}.tar.bz2"
+source_dir_template = "aspell-tr-{version}"

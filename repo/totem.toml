@@ -1,0 +1,14 @@
+name = "totem"
+version = "43.2"
+description = "GNOME video player"
+source = "https://download.gnome.org/sources/totem/43/totem-43.2.tar.xz"
+sha256 = "0b007d30fbb93b95a604f14848a497f57fc333a75c2e638a249972e99c01e6a4"
+source_dir = "totem-43.2"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/totem/43/"
+version_pattern = "totem-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/totem/43/totem-{version}.tar.xz"
+source_dir_template = "totem-{version}"

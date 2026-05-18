@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/nghttp2/nghttp2/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/nghttp2/nghttp2/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/nghttp2/nghttp2/releases/download/v{version}/nghttp2-{version}.tar.xz"
 source_dir_template = "nghttp2-{version}"

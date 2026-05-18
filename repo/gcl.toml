@@ -1,0 +1,14 @@
+name = "gcl"
+version = "2.7.1"
+description = "GNU Common Lisp compiler"
+source = "https://ftp.gnu.org/gnu/gcl/gcl-2.7.1.tar.gz"
+sha256 = "79d0bb65b82df81c078bc55c4cda3fe4d766d87e3bfe10fde0b2f728204e1015"
+source_dir = "gcl-2.7.1"
+deps = ["gmp", "readline"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gcl/"
+version_pattern = "gcl-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gcl/gcl-{version}.tar.gz"
+source_dir_template = "gcl-{version}"

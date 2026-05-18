@@ -1,0 +1,19 @@
+name = "uucp"
+version = "1.07"
+description = "Unix-to-Unix Copy protocol implementation"
+source = "https://ftp.gnu.org/gnu/uucp/uucp-1.07.tar.gz"
+sha256 = "060c15bfba6cfd1171ad81f782789032113e199a5aded8f8e0c1c5bd1385b62c"
+source_dir = "uucp-1.07"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/uucp/"
+version_pattern = "uucp-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/uucp/uucp-{version}.tar.gz"
+source_dir_template = "uucp-{version}"

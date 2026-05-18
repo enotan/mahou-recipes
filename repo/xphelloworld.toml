@@ -1,0 +1,19 @@
+name = "xphelloworld"
+version = "1.0.1"
+description = "Xprint hello world sample"
+source = "https://www.x.org/releases/individual/app/xphelloworld-1.0.1.tar.gz"
+sha256 = "ead6437c4dc9540698a41e174c9d1ac792de07baeead81935d72cb123196f866"
+source_dir = "xphelloworld-1.0.1"
+deps = ["libX11", "libXp", "libXprintUtil", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xphelloworld-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/xphelloworld-{version}.tar.gz"
+source_dir_template = "xphelloworld-{version}"

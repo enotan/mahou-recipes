@@ -1,0 +1,19 @@
+name = "xbacklight"
+version = "1.2.4"
+description = "Adjust backlight brightness using RandR"
+source = "https://www.x.org/releases/individual/app/xbacklight-1.2.4.tar.xz"
+sha256 = "d4c30b0e6f18c82f387585a737ee3b72d468c927892b08a898c41bc12248e8ee"
+source_dir = "xbacklight-1.2.4"
+deps = ["libxcb", "xcb-util", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xbacklight-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xbacklight-{version}.tar.xz"
+source_dir_template = "xbacklight-{version}"

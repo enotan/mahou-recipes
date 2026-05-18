@@ -1,0 +1,14 @@
+name = "gnome-tour"
+version = "50.0"
+description = "GNOME welcome tour"
+source = "https://download.gnome.org/sources/gnome-tour/50/gnome-tour-50.0.tar.xz"
+sha256 = "6ce1187031a365bf226a0cd146f17b4773e7ed450883f7cd502f5ecf432b5325"
+source_dir = "gnome-tour-50.0"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-tour/50/"
+version_pattern = "gnome-tour-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-tour/50/gnome-tour-{version}.tar.xz"
+source_dir_template = "gnome-tour-{version}"

@@ -1,0 +1,14 @@
+name = "evince"
+version = "48.1"
+description = "GNOME document viewer"
+source = "https://download.gnome.org/sources/evince/48/evince-48.1.tar.xz"
+sha256 = "7d8b9a6fa3a05d3f5b9048859027688c73a788ff6e923bc3945126884943fa10"
+source_dir = "evince-48.1"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/evince/48/"
+version_pattern = "evince-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/evince/48/evince-{version}.tar.xz"
+source_dir_template = "evince-{version}"

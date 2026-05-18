@@ -1,0 +1,14 @@
+name = "aspell-dict-mn"
+version = "0.06-2"
+description = "Aspell Mongolian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/mn/aspell6-mn-0.06-2.tar.bz2"
+sha256 = "2f1b6edd48b82cd9b99b9262d5635f72271c062ef4e772b90388dfc48a4f1294"
+source_dir = "aspell6-mn-0.06-2"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/mn/"
+version_pattern = "aspell6-mn-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/mn/aspell6-mn-{version}.tar.bz2"
+source_dir_template = "aspell6-mn-{version}"

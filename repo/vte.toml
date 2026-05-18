@@ -1,0 +1,14 @@
+name = "vte"
+version = "0.84.0"
+description = "GTK terminal emulator widget"
+source = "https://download.gnome.org/sources/vte/0.84/vte-0.84.0.tar.xz"
+sha256 = "0414e31583836aeb7878da25f67c515f7e8879917ecc37c92e26b83e8d8fc3e3"
+source_dir = "vte-0.84.0"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/vte/0.84/"
+version_pattern = "vte-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/vte/0.84/vte-{version}.tar.xz"
+source_dir_template = "vte-{version}"

@@ -1,0 +1,13 @@
+name = "gnubik"
+version = "2.4.3"
+description = "Interactive cube puzzle"
+source = "https://ftp.gnu.org/gnu/gnubik/gnubik-2.4.3.tar.gz"
+sha256 = "2b3ed36fb5ba9eec80fd86f94eabbe866506f4fe1948a9d7480f225c89488eee"
+source_dir = "gnubik-2.4.3"
+deps = ["gtk+", "guile"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnubik/"
+version_pattern = "gnubik-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnubik/gnubik-{version}.tar.gz"
+source_dir_template = "gnubik-{version}"

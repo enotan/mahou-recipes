@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/lsof-org/lsof/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/lsof-org/lsof/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/lsof-org/lsof/releases/download/{version}/lsof-{version}.tar.gz"
 source_dir_template = "lsof-{version}"

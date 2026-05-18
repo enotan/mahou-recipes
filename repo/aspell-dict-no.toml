@@ -1,0 +1,13 @@
+name = "aspell-dict-no"
+version = "0.50-2"
+description = "Aspell Norwegian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/no/aspell-no-0.50-2.tar.bz2"
+sha256 = "ecae2b7fcf5edb9d699ff6b6f1f208c908023614f9c84675054c8bcedbd176f7"
+source_dir = "aspell-no-0.50-2"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/no/"
+version_pattern = "aspell-no-([0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/no/aspell-no-{version}.tar.bz2"
+source_dir_template = "aspell-no-{version}"

@@ -1,0 +1,14 @@
+name = "ocrad"
+version = "0.21"
+description = "GNU Ocrad optical character recognition program"
+source = "https://ftp.gnu.org/gnu/ocrad/ocrad-0.21.tar.gz"
+sha256 = "4ec711239d6b667bac015ef9908cab3ea9f8fd73f098ae355498810c8e82a8cc"
+source_dir = "ocrad-0.21"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/ocrad/"
+version_pattern = "ocrad-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/ocrad/ocrad-{version}.tar.gz"
+source_dir_template = "ocrad-{version}"

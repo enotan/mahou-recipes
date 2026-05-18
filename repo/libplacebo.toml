@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/haasn/libplacebo/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/haasn/libplacebo/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/haasn/libplacebo/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "libplacebo-{version}"

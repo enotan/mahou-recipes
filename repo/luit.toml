@@ -1,0 +1,19 @@
+name = "luit"
+version = "1.1.1"
+description = "Locale and ISO 2022 support for Unicode terminals"
+source = "https://www.x.org/releases/individual/app/luit-1.1.1.tar.gz"
+sha256 = "87b0be0bd01f3b857a53e6625bdd31cef18418c95394b7f4387f8ecef78e45da"
+source_dir = "luit-1.1.1"
+deps = ["libfontenc", "xorg-proto", "zlib"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "luit-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/app/luit-{version}.tar.gz"
+source_dir_template = "luit-{version}"

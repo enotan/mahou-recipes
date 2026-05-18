@@ -1,0 +1,14 @@
+name = "pygobject"
+version = "3.56.3"
+description = "Python bindings for GObject"
+source = "https://download.gnome.org/sources/pygobject/3.56/pygobject-3.56.3.tar.gz"
+sha256 = "12760e4a0e3d04b6eb95e06f7a27e362c826d567ea613373a92c003b6c70d2d6"
+source_dir = "pygobject-3.56.3"
+deps = ["gobject-introspection", "python"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/pygobject/3.56/"
+version_pattern = "pygobject-([^\"/]+)\\.tar\\.gz"
+source_template = "https://download.gnome.org/sources/pygobject/3.56/pygobject-{version}.tar.gz"
+source_dir_template = "pygobject-{version}"

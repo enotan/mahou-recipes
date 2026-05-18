@@ -1,0 +1,14 @@
+name = "gnome-mahjongg"
+version = "49.1"
+description = "GNOME Mahjongg solitaire game"
+source = "https://download.gnome.org/sources/gnome-mahjongg/49/gnome-mahjongg-49.1.tar.xz"
+sha256 = "4c8aa6d45ec767266f14852f5b0ad401c0fbf9aa76231abfcc6cb57a6739d069"
+source_dir = "gnome-mahjongg-49.1"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-mahjongg/49/"
+version_pattern = "gnome-mahjongg-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-mahjongg/49/gnome-mahjongg-{version}.tar.xz"
+source_dir_template = "gnome-mahjongg-{version}"

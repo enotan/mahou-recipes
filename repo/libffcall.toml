@@ -1,0 +1,19 @@
+name = "libffcall"
+version = "2.5"
+description = "Foreign function call libraries"
+source = "https://ftp.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
+sha256 = "7f422096b40498b1389093955825f141bb67ed6014249d884009463dc7846879"
+source_dir = "libffcall-2.5"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/libffcall/"
+version_pattern = "libffcall-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/libffcall/libffcall-{version}.tar.gz"
+source_dir_template = "libffcall-{version}"

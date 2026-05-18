@@ -1,0 +1,13 @@
+name = "aspell-dict-ar"
+version = "1.2-0"
+description = "Aspell Arabic dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ar/aspell6-ar-1.2-0.tar.bz2"
+sha256 = "041ea24a82cdd6957040e2fb84262583bf46b3a8301283a75d257a7417207cab"
+source_dir = "aspell6-ar-1.2-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ar/"
+version_pattern = "aspell6-ar-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ar/aspell6-ar-{version}.tar.bz2"
+source_dir_template = "aspell6-ar-{version}"

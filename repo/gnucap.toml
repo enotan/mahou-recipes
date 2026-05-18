@@ -1,0 +1,19 @@
+name = "gnucap"
+version = "0.31"
+description = "GNU Circuit Analysis Package"
+source = "https://ftp.gnu.org/gnu/gnucap/gnucap-0.31.tar.gz"
+sha256 = "d8a6f170e1c748cfe6a4cd72cadd1bd3c9b86a5ded9a8fc88ef01153678458a5"
+source_dir = "gnucap-0.31"
+deps = ["readline"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnucap/"
+version_pattern = "gnucap-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnucap/gnucap-{version}.tar.gz"
+source_dir_template = "gnucap-{version}"

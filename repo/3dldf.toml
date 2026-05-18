@@ -1,0 +1,14 @@
+name = "3dldf"
+version = "2.0"
+description = "GNU 3DLDF three-dimensional drawing package"
+source = "https://ftp.gnu.org/gnu/3dldf/3DLDF-2.0.tar.gz"
+sha256 = "a85dd65ad7bfee90ca8f17bbfc9a942ae3b0072a92f70c54a203320cde0f55a0"
+source_dir = "3DLDF-2.0"
+deps = ["gsl"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/3dldf/"
+version_pattern = "3DLDF-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/3dldf/3DLDF-{version}.tar.gz"
+source_dir_template = "3DLDF-{version}"

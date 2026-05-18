@@ -1,0 +1,14 @@
+name = "gnulib-l10n"
+version = "20241231"
+description = "Localization files for GNU gnulib"
+source = "https://ftp.gnu.org/gnu/gnulib/gnulib-l10n-20241231.tar.gz"
+sha256 = "155752ba6796aa294cde87c2bf0e771a5891eeeacb131345be0e080a3ec0ceea"
+source_dir = "gnulib-l10n-20241231"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnulib/"
+version_pattern = "gnulib-l10n-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnulib/gnulib-l10n-{version}.tar.gz"
+source_dir_template = "gnulib-l10n-{version}"

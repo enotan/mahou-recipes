@@ -1,0 +1,14 @@
+name = "tracker"
+version = "3.7.3"
+description = "Metadata database and search framework"
+source = "https://download.gnome.org/sources/tracker/3.7/tracker-3.7.3.tar.xz"
+sha256 = "ab3d4a50937e04c5ed7846f6dbb999e2909819402f389ca592ee6b77dd28d1f9"
+source_dir = "tracker-3.7.3"
+deps = ["glib", "sqlite", "libxml2", "gobject-introspection"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/tracker/3.7/"
+version_pattern = "tracker-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/tracker/3.7/tracker-{version}.tar.xz"
+source_dir_template = "tracker-{version}"

@@ -1,0 +1,14 @@
+name = "gnuedma"
+version = "0.18.6"
+description = "GNU EDMA compiler construction toolkit"
+source = "https://ftp.gnu.org/gnu/edma/gnuedma-0.18.6.tar.gz"
+sha256 = "6718b82a688980e2287c3c065d7c5391c3639299a494a9147bfc6cb6899b79a7"
+source_dir = "gnuedma-0.18.6"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/edma/"
+version_pattern = "gnuedma-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/edma/gnuedma-{version}.tar.gz"
+source_dir_template = "gnuedma-{version}"

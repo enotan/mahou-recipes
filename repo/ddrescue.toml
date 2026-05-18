@@ -1,0 +1,19 @@
+name = "ddrescue"
+version = "1.16"
+description = "Data recovery tool for block devices and files"
+source = "https://ftp.gnu.org/gnu/ddrescue/ddrescue-1.16.tar.gz"
+sha256 = "76b3f2e5fb0306d24f2632c3e168cccb73dc0a348e3a7089cd9230748ff23de6"
+source_dir = "ddrescue-1.16"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/ddrescue/"
+version_pattern = "ddrescue-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/ddrescue/ddrescue-{version}.tar.gz"
+source_dir_template = "ddrescue-{version}"

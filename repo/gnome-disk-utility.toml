@@ -1,0 +1,14 @@
+name = "gnome-disk-utility"
+version = "46.1"
+description = "GNOME disk management utility"
+source = "https://download.gnome.org/sources/gnome-disk-utility/46/gnome-disk-utility-46.1.tar.xz"
+sha256 = "c24e9439a04d70bcfae349ca134c7005435fe2b6f452114df878bff0b89bbffe"
+source_dir = "gnome-disk-utility-46.1"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-disk-utility/46/"
+version_pattern = "gnome-disk-utility-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-disk-utility/46/gnome-disk-utility-{version}.tar.xz"
+source_dir_template = "gnome-disk-utility-{version}"

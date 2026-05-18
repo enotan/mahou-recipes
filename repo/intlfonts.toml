@@ -1,0 +1,14 @@
+name = "intlfonts"
+version = "1.4.2"
+description = "GNU international fonts"
+source = "https://ftp.gnu.org/gnu/intlfonts/intlfonts-1.4.2.tar.gz"
+sha256 = "cd3b3f186a1468de04593ca61a85d6f07782dcde87e1fd3ac1e31b4ce6f32b9d"
+source_dir = "intlfonts-1.4.2"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/intlfonts/"
+version_pattern = "intlfonts-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/intlfonts/intlfonts-{version}.tar.gz"
+source_dir_template = "intlfonts-{version}"

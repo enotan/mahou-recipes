@@ -1,0 +1,13 @@
+name = "aspell-dict-ca"
+version = "20040130-1"
+description = "Aspell Catalan dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ca/aspell6-ca-20040130-1.tar.bz2"
+sha256 = "a531b7764ebdb91655e2c5dac8a3625480b675579f16e64d1fd4409f6c6c672f"
+source_dir = "aspell6-ca-20040130-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ca/"
+version_pattern = "aspell6-ca-([0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ca/aspell6-ca-{version}.tar.bz2"
+source_dir_template = "aspell6-ca-{version}"

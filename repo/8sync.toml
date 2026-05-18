@@ -1,0 +1,13 @@
+name = "8sync"
+version = "0.4.2"
+description = "Asynchronous programming library for Guile"
+source = "https://ftp.gnu.org/gnu/8sync/8sync-0.4.2.tar.gz"
+sha256 = "1c0361ef31c5faa45b38ab714d2abbe12511d7aa421e4aade663aaac47a83c0c"
+source_dir = "8sync-0.4.2"
+deps = ["guile"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/8sync/"
+version_pattern = "8sync-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/8sync/8sync-{version}.tar.gz"
+source_dir_template = "8sync-{version}"

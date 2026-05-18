@@ -1,0 +1,19 @@
+name = "cssc"
+version = "1.4.1"
+description = "GNU clone of the Unix SCCS tools"
+source = "https://ftp.gnu.org/gnu/cssc/CSSC-1.4.1.tar.gz"
+sha256 = "d1bed0c80246ee4cd49d0aa45307c075d0876fe531057bb1c8b28f5330d651ef"
+source_dir = "CSSC-1.4.1"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/cssc/"
+version_pattern = "CSSC-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/cssc/CSSC-{version}.tar.gz"
+source_dir_template = "CSSC-{version}"

@@ -1,0 +1,19 @@
+name = "gnubatch"
+version = "1.11"
+description = "Batch scheduling system"
+source = "https://ftp.gnu.org/gnu/gnubatch/gnubatch-1.11.tar.gz"
+sha256 = "f69129ecfab1e1d8f5b6ef802388b3adb842f5195a025eea16e955d0b5094ba9"
+source_dir = "gnubatch-1.11"
+deps = ["ncurses"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnubatch/"
+version_pattern = "gnubatch-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnubatch/gnubatch-{version}.tar.gz"
+source_dir_template = "gnubatch-{version}"

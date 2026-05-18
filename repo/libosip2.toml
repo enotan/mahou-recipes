@@ -1,0 +1,19 @@
+name = "libosip2"
+version = "5.3.1"
+description = "SIP protocol implementation library"
+source = "https://ftp.gnu.org/gnu/osip/libosip2-5.3.1.tar.gz"
+sha256 = "fe82fe841608266ac15a5c1118216da00c554d5006e2875a8ac3752b1e6adc79"
+source_dir = "libosip2-5.3.1"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/osip/"
+version_pattern = "libosip2-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/osip/libosip2-{version}.tar.gz"
+source_dir_template = "libosip2-{version}"

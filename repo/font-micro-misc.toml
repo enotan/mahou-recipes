@@ -1,0 +1,19 @@
+name = "font-micro-misc"
+version = "1.0.4"
+description = "Micro miscellaneous bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-micro-misc-1.0.4.tar.xz"
+sha256 = "2ee0b9d6bd7ae849aff1bd82efab44a1b6b368fbb5e11d12ff7f015a3df6f943"
+source_dir = "font-micro-misc-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-micro-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-micro-misc-{version}.tar.xz"
+source_dir_template = "font-micro-misc-{version}"

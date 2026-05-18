@@ -1,0 +1,14 @@
+name = "aspell-dict-yi"
+version = "0.01.1-1"
+description = "Aspell Yiddish dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/yi/aspell6-yi-0.01.1-1.tar.bz2"
+sha256 = "9879d35a5b0b86f8e217601568480f2f634bc8b7a97341e9e80b0d40a8202856"
+source_dir = "aspell6-yi-0.01.1-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/yi/"
+version_pattern = "aspell6-yi-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/yi/aspell6-yi-{version}.tar.bz2"
+source_dir_template = "aspell6-yi-{version}"

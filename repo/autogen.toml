@@ -1,0 +1,19 @@
+name = "autogen"
+version = "5.18.7"
+description = "Automated text and program generation tool"
+source = "https://ftp.gnu.org/gnu/autogen/autogen-5.18.7.tar.xz"
+sha256 = "a7a580a5e18931cb341b255cec2fee2dfd81bea5ddbf0d8ad722703e19aaa405"
+source_dir = "autogen-5.18.7"
+deps = ["guile", "libxml2", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr --disable-static --with-libxml2=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/autogen/"
+version_pattern = "autogen-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/autogen/autogen-{version}.tar.xz"
+source_dir_template = "autogen-{version}"

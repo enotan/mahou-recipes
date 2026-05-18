@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://oligarchy.co.uk/xapian/"
+check_url = "https://oligarchy.co.uk/xapian/2.0.0/"
 version_pattern = "xapian-core-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
 source_template = "https://oligarchy.co.uk/xapian/{version}/xapian-core-{version}.tar.xz"
 source_dir_template = "xapian-core-{version}"

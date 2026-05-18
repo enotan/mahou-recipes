@@ -1,0 +1,14 @@
+name = "gnome-color-manager"
+version = "3.36.2"
+description = "GNOME color profile manager"
+source = "https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-manager-3.36.2.tar.xz"
+sha256 = "3904d42abb4ea566df0b880e82bf0b9f86386c692f15b318469a4c7be33a887f"
+source_dir = "gnome-color-manager-3.36.2"
+deps = ["glib", "gtk4", "gdk-pixbuf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-color-manager/3.36/"
+version_pattern = "gnome-color-manager-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-manager-{version}.tar.xz"
+source_dir_template = "gnome-color-manager-{version}"

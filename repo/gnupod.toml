@@ -1,0 +1,13 @@
+name = "gnupod"
+version = "0.28"
+description = "Manage portable music players"
+source = "https://ftp.gnu.org/gnu/gnupod/gnupod-0.28.tar.gz"
+sha256 = "faa922b98d9ca99ebec5686773ad084ea6a49126e18a2d523cb6036f86466a40"
+source_dir = "gnupod-0.28"
+deps = ["perl"]
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/gnupod/"
+version_pattern = "gnupod-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gnupod/gnupod-{version}.tar.gz"
+source_dir_template = "gnupod-{version}"

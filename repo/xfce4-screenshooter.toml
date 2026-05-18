@@ -1,0 +1,14 @@
+name = "xfce4-screenshooter"
+version = "1.11.3"
+description = "Screenshot utility for Xfce"
+source = "https://archive.xfce.org/src/apps/xfce4-screenshooter/1.11/xfce4-screenshooter-1.11.3.tar.xz"
+sha256 = "1f6a14f7d1b0c440f31e24a8cc4fe2996185357fa786f0c2cdfe564ef673a710"
+source_dir = "xfce4-screenshooter-1.11.3"
+deps = ["glib", "gtk+", "libxfce4ui"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/xfce4-screenshooter/1.11/"
+version_pattern = "xfce4-screenshooter-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/xfce4-screenshooter/1.11/xfce4-screenshooter-{version}.tar.xz"
+source_dir_template = "xfce4-screenshooter-{version}"

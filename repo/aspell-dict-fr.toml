@@ -1,0 +1,13 @@
+name = "aspell-dict-fr"
+version = "0.50-3"
+description = "Aspell French dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/fr/aspell-fr-0.50-3.tar.bz2"
+sha256 = "f9421047519d2af9a7a466e4336f6e6ea55206b356cd33c8bd18cb626bf2ce91"
+source_dir = "aspell-fr-0.50-3"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/fr/"
+version_pattern = "aspell-fr-([0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/fr/aspell-fr-{version}.tar.bz2"
+source_dir_template = "aspell-fr-{version}"

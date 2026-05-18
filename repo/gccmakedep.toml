@@ -1,0 +1,19 @@
+name = "gccmakedep"
+version = "1.0.4"
+description = "Create dependencies in makefiles using gcc"
+source = "https://www.x.org/releases/individual/util/gccmakedep-1.0.4.tar.xz"
+sha256 = "5088f98769fb63c326e9b9d2cb7c9f4a630a2801dd1da06971d0829176cf25b6"
+source_dir = "gccmakedep-1.0.4"
+deps = ["xorg-cf-files"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/util/"
+version_pattern = "gccmakedep-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/util/gccmakedep-{version}.tar.xz"
+source_dir_template = "gccmakedep-{version}"

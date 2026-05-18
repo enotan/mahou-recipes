@@ -1,0 +1,13 @@
+name = "aspell-dict-ro"
+version = "3.3-2"
+description = "Aspell Romanian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/ro/aspell5-ro-3.3-2.tar.bz2"
+sha256 = "53c38b7668a540cf90ddca11c007ce812d2ad86bd11c2c43a08da9e06392683d"
+source_dir = "aspell5-ro-3.3-2"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/ro/"
+version_pattern = "aspell5-ro-([0-9]+\\.[0-9]+-[0-9]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/ro/aspell5-ro-{version}.tar.bz2"
+source_dir_template = "aspell5-ro-{version}"

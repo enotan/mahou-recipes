@@ -1,0 +1,19 @@
+name = "libXprintUtil"
+version = "1.0.1"
+description = "Xprint utility library"
+source = "https://www.x.org/releases/individual/lib/libXprintUtil-1.0.1.tar.gz"
+sha256 = "220924216f98ef8f7aa4cff33629edb1171ad10f8ea302a1eb85055545d4d195"
+source_dir = "libXprintUtil-1.0.1"
+deps = ["libX11", "libXp", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libXprintUtil-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.x.org/releases/individual/lib/libXprintUtil-{version}.tar.gz"
+source_dir_template = "libXprintUtil-{version}"

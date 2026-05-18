@@ -1,0 +1,19 @@
+name = "dap"
+version = "3.10"
+description = "Statistics and graphics package"
+source = "https://ftp.gnu.org/gnu/dap/dap-3.10.tar.gz"
+sha256 = "064e6cb72ff8dfc8cb6f53e9bab310e4ea8c6ebe89a94bae423720d9b7a38766"
+source_dir = "dap-3.10"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/dap/"
+version_pattern = "dap-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/dap/dap-{version}.tar.gz"
+source_dir_template = "dap-{version}"

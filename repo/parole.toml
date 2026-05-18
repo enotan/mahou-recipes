@@ -1,0 +1,14 @@
+name = "parole"
+version = "4.20.0"
+description = "Media player for Xfce"
+source = "https://archive.xfce.org/src/apps/parole/4.20/parole-4.20.0.tar.xz"
+sha256 = "5cf753e670d6518701133eb860d8bceb3a08a496af6a2b7cc67b93320230c983"
+source_dir = "parole-4.20.0"
+deps = ["glib", "gtk+", "libxfce4ui", "gstreamer", "gst-plugins-base", "taglib"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/parole/4.20/"
+version_pattern = "parole-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/parole/4.20/parole-{version}.tar.xz"
+source_dir_template = "parole-{version}"

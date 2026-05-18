@@ -1,0 +1,14 @@
+name = "quadrapassel"
+version = "50.1"
+description = "GNOME falling-block puzzle game"
+source = "https://download.gnome.org/sources/quadrapassel/50/quadrapassel-50.1.tar.xz"
+sha256 = "51e43d059f06b89c105d53d71def0bd97ce944470ee139fc7e743fce4a6c3994"
+source_dir = "quadrapassel-50.1"
+deps = ["glib", "gtk4", "libadwaita"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/quadrapassel/50/"
+version_pattern = "quadrapassel-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/quadrapassel/50/quadrapassel-{version}.tar.xz"
+source_dir_template = "quadrapassel-{version}"

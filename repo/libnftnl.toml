@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://git.netfilter.org/libnftnl/refs/tags"
-version_pattern = "libnftnl-([0-9]+\\.[0-9]+\\.[0-9]+)"
+check_url = "https://www.netfilter.org/projects/libnftnl/downloads.html"
+version_pattern = "libnftnl-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
 source_template = "https://www.netfilter.org/pub/libnftnl/libnftnl-{version}.tar.xz"
 source_dir_template = "libnftnl-{version}"

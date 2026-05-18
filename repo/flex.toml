@@ -17,7 +17,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/westes/flex/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/westes/flex/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/westes/flex/releases/download/v{version}/flex-{version}.tar.gz"
 source_dir_template = "flex-{version}"

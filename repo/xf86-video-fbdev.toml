@@ -1,0 +1,14 @@
+name = "xf86-video-fbdev"
+version = "0.5.1"
+description = "X.Org framebuffer video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-fbdev-0.5.1.tar.xz"
+sha256 = "9c2bc0fb9af092804138e8d5cb5627cabf2919ef60f0d1544a95c4ac2047f387"
+source_dir = "xf86-video-fbdev-0.5.1"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-fbdev-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-fbdev-{version}.tar.xz"
+source_dir_template = "xf86-video-fbdev-{version}"

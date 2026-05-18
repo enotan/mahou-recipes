@@ -1,0 +1,14 @@
+name = "mig"
+version = "1.8"
+description = "GNU Mach interface generator"
+source = "https://ftp.gnu.org/gnu/mig/mig-1.8.tar.gz"
+sha256 = "069c883a8b2cbe61f2e26989bf5b8e697c5a505b77c200ba4d672c833552cdbf"
+source_dir = "mig-1.8"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/mig/"
+version_pattern = "mig-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/mig/mig-{version}.tar.gz"
+source_dir_template = "mig-{version}"

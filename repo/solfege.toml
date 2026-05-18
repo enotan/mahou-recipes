@@ -1,0 +1,14 @@
+name = "solfege"
+version = "3.22.2"
+description = "GNU Solfege ear training program"
+source = "https://ftp.gnu.org/gnu/solfege/solfege-3.22.2.tar.gz"
+sha256 = "e46a0960c83e4998d9dcf7bb07b8269e03fc81fab6c4485f8112c5a3e6488fe4"
+source_dir = "solfege-3.22.2"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/solfege/"
+version_pattern = "solfege-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/solfege/solfege-{version}.tar.gz"
+source_dir_template = "solfege-{version}"

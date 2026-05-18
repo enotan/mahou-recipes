@@ -1,0 +1,14 @@
+name = "xfce4-genmon-plugin"
+version = "4.3.0"
+description = "Generic monitor panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/4.3/xfce4-genmon-plugin-4.3.0.tar.xz"
+sha256 = "077197911d84e5ba22e7bb895ce6c038dbbd8e8e0067ed6f4e48502b7167a282"
+source_dir = "xfce4-genmon-plugin-4.3.0"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/4.3/"
+version_pattern = "xfce4-genmon-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/4.3/xfce4-genmon-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-genmon-plugin-{version}"

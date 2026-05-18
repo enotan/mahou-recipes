@@ -1,0 +1,19 @@
+name = "a2ps"
+version = "4.15.8"
+description = "Any-to-PostScript filter"
+source = "https://ftp.gnu.org/gnu/a2ps/a2ps-4.15.8.tar.gz"
+sha256 = "8d13915a36ebbfa8e7b236b350cc81adc714acb217a18e8d8c60747c0ad353f9"
+source_dir = "a2ps-4.15.8"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/a2ps/"
+version_pattern = "a2ps-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/a2ps/a2ps-{version}.tar.gz"
+source_dir_template = "a2ps-{version}"

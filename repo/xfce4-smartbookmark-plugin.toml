@@ -1,0 +1,14 @@
+name = "xfce4-smartbookmark-plugin"
+version = "0.6.0"
+description = "Smart bookmark panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-smartbookmark-plugin/0.6/xfce4-smartbookmark-plugin-0.6.0.tar.xz"
+sha256 = "d8a619dcad703071f7fcda538cc34154f9952cf4ec0816df23a56e98e3cc05d8"
+source_dir = "xfce4-smartbookmark-plugin-0.6.0"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-smartbookmark-plugin/0.6/"
+version_pattern = "xfce4-smartbookmark-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-smartbookmark-plugin/0.6/xfce4-smartbookmark-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-smartbookmark-plugin-{version}"

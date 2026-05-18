@@ -1,0 +1,14 @@
+name = "yelp-tools"
+version = "42.1"
+description = "Build utilities for GNOME help files"
+source = "https://download.gnome.org/sources/yelp-tools/42/yelp-tools-42.1.tar.xz"
+sha256 = "3e496a4020d4145b99fd508a25fa09336a503a4e8900028421e72c6a4b11f905"
+source_dir = "yelp-tools-42.1"
+deps = ["yelp-xsl"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/yelp-tools/42/"
+version_pattern = "yelp-tools-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/yelp-tools/42/yelp-tools-{version}.tar.xz"
+source_dir_template = "yelp-tools-{version}"

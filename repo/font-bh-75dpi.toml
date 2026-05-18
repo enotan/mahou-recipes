@@ -1,0 +1,19 @@
+name = "font-bh-75dpi"
+version = "1.0.4"
+description = "Bigelow Holmes 75 DPI bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-bh-75dpi-1.0.4.tar.xz"
+sha256 = "6026d8c073563dd3cbb4878d0076eed970debabd21423b3b61dd90441b9e7cda"
+source_dir = "font-bh-75dpi-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-bh-75dpi-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-bh-75dpi-{version}.tar.xz"
+source_dir_template = "font-bh-75dpi-{version}"

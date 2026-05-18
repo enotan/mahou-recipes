@@ -1,0 +1,13 @@
+name = "aspell-dict-kn"
+version = "0.01-1"
+description = "Aspell Kannada dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/kn/aspell6-kn-0.01-1.tar.bz2"
+sha256 = "cb010b34a712f853fa53c4618cb801704b9f76c72db9390009ba914e3a075383"
+source_dir = "aspell6-kn-0.01-1"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/kn/"
+version_pattern = "aspell6-kn-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/kn/aspell6-kn-{version}.tar.bz2"
+source_dir_template = "aspell6-kn-{version}"

@@ -1,0 +1,14 @@
+name = "tracker-miners"
+version = "3.7.4"
+description = "Filesystem miners for Tracker"
+source = "https://download.gnome.org/sources/tracker-miners/3.7/tracker-miners-3.7.4.tar.xz"
+sha256 = "486ae8ed4ae4f2fb15b4146fdd38d46b374ba58a39de98d3809df07422fa9043"
+source_dir = "tracker-miners-3.7.4"
+deps = ["glib", "tracker", "gstreamer", "gdk-pixbuf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/tracker-miners/3.7/"
+version_pattern = "tracker-miners-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/tracker-miners/3.7/tracker-miners-{version}.tar.xz"
+source_dir_template = "tracker-miners-{version}"

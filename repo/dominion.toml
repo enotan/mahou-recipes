@@ -1,0 +1,14 @@
+name = "dominion"
+version = "2.8.2"
+description = "GNU Dominion world simulation game"
+source = "https://ftp.gnu.org/gnu/dominion/dominion-2.8.2.tar.gz"
+sha256 = "93ef0a44776b65b513a664e77b160349bd17917a364300913ab0d6e2d312aab8"
+source_dir = "dominion-2.8.2"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/dominion/"
+version_pattern = "dominion-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/dominion/dominion-{version}.tar.gz"
+source_dir_template = "dominion-{version}"

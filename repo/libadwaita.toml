@@ -1,0 +1,14 @@
+name = "libadwaita"
+version = "1.9.0"
+description = "GTK widgets for GNOME applications"
+source = "https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.0.tar.xz"
+sha256 = "817837bf06363db5bbfce66085136eff1436af6625dfabff3ca08b87bfca1b6b"
+source_dir = "libadwaita-1.9.0"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/libadwaita/1.9/"
+version_pattern = "libadwaita-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/libadwaita/1.9/libadwaita-{version}.tar.xz"
+source_dir_template = "libadwaita-{version}"

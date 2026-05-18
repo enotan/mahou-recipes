@@ -1,0 +1,14 @@
+name = "xfce4-terminal"
+version = "1.2.0"
+description = "Terminal emulator for Xfce"
+source = "https://archive.xfce.org/src/apps/xfce4-terminal/1.2/xfce4-terminal-1.2.0.tar.xz"
+sha256 = "6874c7b975cc3dc3bd636d57ffec723de7458202defe65377593d3a7e0734b94"
+source_dir = "xfce4-terminal-1.2.0"
+deps = ["glib", "gtk+", "libxfce4ui", "vte"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/apps/xfce4-terminal/1.2/"
+version_pattern = "xfce4-terminal-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/apps/xfce4-terminal/1.2/xfce4-terminal-{version}.tar.xz"
+source_dir_template = "xfce4-terminal-{version}"

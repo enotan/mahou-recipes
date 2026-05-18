@@ -1,0 +1,19 @@
+name = "electric"
+version = "7.00"
+description = "Electrical CAD system"
+source = "https://ftp.gnu.org/gnu/electric/electric-7.00.tar.gz"
+sha256 = "75aedee93b6bb7200abdd04098480d0a2c2408cc8574148459b93e5c56d64273"
+source_dir = "electric-7.00"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/electric/"
+version_pattern = "electric-([0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/electric/electric-{version}.tar.gz"
+source_dir_template = "electric-{version}"

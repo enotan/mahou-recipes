@@ -1,0 +1,19 @@
+name = "serveez"
+version = "0.2.2"
+description = "Server framework and example servers"
+source = "https://ftp.gnu.org/gnu/serveez/serveez-0.2.2.tar.xz"
+sha256 = "4c77feabc00b9d68d9c2a7296d076536093feea76d9f47770c475f610e944525"
+source_dir = "serveez-0.2.2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr --disable-static --disable-guile-server --disable-debug --disable-heap-count",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/serveez/"
+version_pattern = "serveez-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/serveez/serveez-{version}.tar.xz"
+source_dir_template = "serveez-{version}"

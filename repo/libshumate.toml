@@ -1,0 +1,14 @@
+name = "libshumate"
+version = "1.6.1"
+description = "GTK map widget library"
+source = "https://download.gnome.org/sources/libshumate/1.6/libshumate-1.6.1.tar.xz"
+sha256 = "b36aad34500791785f546684d0f2ed644e4819ff4e85ae67a2245f159eccb2d4"
+source_dir = "libshumate-1.6.1"
+deps = ["glib", "gtk4"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/libshumate/1.6/"
+version_pattern = "libshumate-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/libshumate/1.6/libshumate-{version}.tar.xz"
+source_dir_template = "libshumate-{version}"

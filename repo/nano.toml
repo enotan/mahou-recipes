@@ -1,7 +1,7 @@
 name = "nano"
 version = "9.0"
 description = "GNU GPL'd Pico clone with more functionality"
-source = "https://www.nano-editor.org/dist/v9/nano-9.0.tar.xz"
+source = "https://ftp.gnu.org/gnu/nano/nano-9.0.tar.xz"
 sha256 = "9f384374b496110a25b73ad5a5febb384783c6e3188b37063f677ac908013fde"
 source_dir = "nano-9.0"
 deps = ["ncurses"]
@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://www.nano-editor.org/dist/v9/"
+check_url = "https://ftp.gnu.org/gnu/nano/"
 version_pattern = "nano-([0-9]+\\.[0-9]+)\\.tar\\.xz"
-source_template = "https://www.nano-editor.org/dist/v9/nano-{version}.tar.xz"
+source_template = "https://ftp.gnu.org/gnu/nano/nano-{version}.tar.xz"
 source_dir_template = "nano-{version}"

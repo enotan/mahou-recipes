@@ -1,0 +1,14 @@
+name = "taler-wallet-webex"
+version = "0.5.0"
+description = "GNU Taler wallet web extension"
+source = "https://ftp.gnu.org/gnu/taler/taler-wallet-webex-0.5.0-src.tar.gz"
+sha256 = "a28bf8409f4138a4d0f85457952ea27d2f9c68c2f47364abba284fc3e7b1daae"
+source_dir = "taler-wallet-webex-0.5.0"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/taler/"
+version_pattern = "taler-wallet-webex-([^\"/]+)-src\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/taler/taler-wallet-webex-{version}-src.tar.gz"
+source_dir_template = "taler-wallet-webex-{version}"

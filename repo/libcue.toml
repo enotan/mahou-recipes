@@ -12,7 +12,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/lipnitsk/libcue/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+check_url = "https://github.com/lipnitsk/libcue/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/lipnitsk/libcue/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "libcue-{version}"

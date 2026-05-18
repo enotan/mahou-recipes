@@ -1,0 +1,19 @@
+name = "font-daewoo-misc"
+version = "1.0.4"
+description = "Daewoo miscellaneous bitmap fonts for X.Org"
+source = "https://www.x.org/releases/individual/font/font-daewoo-misc-1.0.4.tar.xz"
+sha256 = "f63c8b3dc8f30098cb868b7db2c2c0c8b5b3fd2cefd044035697a43d4c7a4f31"
+source_dir = "font-daewoo-misc-1.0.4"
+deps = ["bdftopcf", "font-util", "mkfontscale", "pkgconf"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/font/"
+version_pattern = "font-daewoo-misc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/font/font-daewoo-misc-{version}.tar.xz"
+source_dir_template = "font-daewoo-misc-{version}"

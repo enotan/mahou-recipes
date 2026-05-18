@@ -1,0 +1,14 @@
+name = "xfce4-fsguard-plugin"
+version = "1.2.0"
+description = "Filesystem guard panel plugin for Xfce"
+source = "https://archive.xfce.org/src/panel-plugins/xfce4-fsguard-plugin/1.2/xfce4-fsguard-plugin-1.2.0.tar.xz"
+sha256 = "9e40cf3ce7b34e1c27d6b442f3a067886c35154b5d0c4d644a239038611da64f"
+source_dir = "xfce4-fsguard-plugin-1.2.0"
+deps = ["glib", "gtk+", "libxfce4ui", "xfce4-panel"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/panel-plugins/xfce4-fsguard-plugin/1.2/"
+version_pattern = "xfce4-fsguard-plugin-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/panel-plugins/xfce4-fsguard-plugin/1.2/xfce4-fsguard-plugin-{version}.tar.xz"
+source_dir_template = "xfce4-fsguard-plugin-{version}"

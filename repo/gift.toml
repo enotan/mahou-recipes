@@ -1,0 +1,13 @@
+name = "gift"
+version = "0.1.14"
+description = "GNU Image Finding Tool"
+source = "https://ftp.gnu.org/gnu/gift/gift-0.1.14.tar.gz"
+sha256 = "6a59422f98d8b2fff207263e4d147188a81e88a1ad343b9682df455ecd3f6c38"
+source_dir = "gift-0.1.14"
+deps = []
+build_steps = ["./configure --prefix=/usr", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/gift/"
+version_pattern = "gift-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/gift/gift-{version}.tar.gz"
+source_dir_template = "gift-{version}"

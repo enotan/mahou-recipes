@@ -1,0 +1,19 @@
+name = "idutils"
+version = "4.6"
+description = "Tools for creating and querying identifier databases"
+source = "https://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz"
+sha256 = "8181f43a4fb62f6f0ccf3b84dbe9bec71ecabd6dfdcf49c6b5584521c888aac2"
+source_dir = "idutils-4.6"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/idutils/"
+version_pattern = "idutils-([0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://ftp.gnu.org/gnu/idutils/idutils-{version}.tar.xz"
+source_dir_template = "idutils-{version}"

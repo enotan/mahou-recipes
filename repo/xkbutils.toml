@@ -1,0 +1,19 @@
+name = "xkbutils"
+version = "1.0.6"
+description = "XKB utility programs"
+source = "https://www.x.org/releases/individual/app/xkbutils-1.0.6.tar.xz"
+sha256 = "31a2bbee1e09ccba01de92897b8f540b545de812f318d31de07bd3a5a75ee25e"
+source_dir = "xkbutils-1.0.6"
+deps = ["libX11", "libXt", "libxkbfile", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/app/"
+version_pattern = "xkbutils-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/app/xkbutils-{version}.tar.xz"
+source_dir_template = "xkbutils-{version}"

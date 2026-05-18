@@ -1,0 +1,14 @@
+name = "xf86-video-siliconmotion"
+version = "1.7.10"
+description = "X.Org Silicon Motion video driver"
+source = "https://www.x.org/releases/individual/driver/xf86-video-siliconmotion-1.7.10.tar.xz"
+sha256 = "16059c7833a288da43b1d179f5edd2b633e3b102bc5113488c5d41dd71158fc0"
+source_dir = "xf86-video-siliconmotion-1.7.10"
+deps = ["xorgproto"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://www.x.org/releases/individual/driver/"
+version_pattern = "xf86-video-siliconmotion-([^\"/]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/driver/xf86-video-siliconmotion-{version}.tar.xz"
+source_dir_template = "xf86-video-siliconmotion-{version}"

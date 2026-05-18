@@ -1,0 +1,13 @@
+name = "aspell-dict-fa"
+version = "0.11-0"
+description = "Aspell Persian dictionary"
+source = "https://ftp.gnu.org/gnu/aspell/dict/fa/aspell6-fa-0.11-0.tar.bz2"
+sha256 = "482d26ea879a8ea02d9373952205f67e07c85a7550841b13b5079bb2f9f2e15b"
+source_dir = "aspell6-fa-0.11-0"
+deps = ["aspell"]
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+[update]
+check_url = "https://ftp.gnu.org/gnu/aspell/dict/fa/"
+version_pattern = "aspell6-fa-([^\"/]+)\\.tar\\.bz2"
+source_template = "https://ftp.gnu.org/gnu/aspell/dict/fa/aspell6-fa-{version}.tar.bz2"
+source_dir_template = "aspell6-fa-{version}"

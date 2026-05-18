@@ -1,0 +1,19 @@
+name = "xboard"
+version = "4.9.1"
+description = "Graphical chessboard for X11"
+source = "https://ftp.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
+sha256 = "2b2e53e8428ad9b6e8dc8a55b3a5183381911a4dae2c0072fa96296bbb1970d6"
+source_dir = "xboard-4.9.1"
+deps = ["libX11", "libXaw", "libXmu", "libXt", "xorg-proto"]
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/xboard/"
+version_pattern = "xboard-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/xboard/xboard-{version}.tar.gz"
+source_dir_template = "xboard-{version}"

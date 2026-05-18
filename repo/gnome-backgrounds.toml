@@ -1,0 +1,14 @@
+name = "gnome-backgrounds"
+version = "50.0"
+description = "GNOME desktop backgrounds"
+source = "https://download.gnome.org/sources/gnome-backgrounds/50/gnome-backgrounds-50.0.tar.xz"
+sha256 = "1acdba7acb4f34c7321febc6273444344fd55fd593611d446de70860183b52b8"
+source_dir = "gnome-backgrounds-50.0"
+deps = []
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://download.gnome.org/sources/gnome-backgrounds/50/"
+version_pattern = "gnome-backgrounds-([^\"/]+)\\.tar\\.xz"
+source_template = "https://download.gnome.org/sources/gnome-backgrounds/50/gnome-backgrounds-{version}.tar.xz"
+source_dir_template = "gnome-backgrounds-{version}"

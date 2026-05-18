@@ -1,0 +1,19 @@
+name = "cgicc"
+version = "3.2.20"
+description = "C++ CGI library"
+source = "https://ftp.gnu.org/gnu/cgicc/cgicc-3.2.20.tar.gz"
+sha256 = "0f91c5ce8adf406ad35a46152ffb2b9c8d6079604b796d81f48b66d1f068ad4e"
+source_dir = "cgicc-3.2.20"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/cgicc/"
+version_pattern = "cgicc-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/cgicc/cgicc-{version}.tar.gz"
+source_dir_template = "cgicc-{version}"

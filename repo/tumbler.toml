@@ -1,0 +1,14 @@
+name = "tumbler"
+version = "4.21.1"
+description = "Thumbnail service for Xfce"
+source = "https://archive.xfce.org/src/xfce/tumbler/4.21/tumbler-4.21.1.tar.xz"
+sha256 = "0f499f79a2a7ee49726a433584dd8a680d514101b72bd1b003360611ce1dc244"
+source_dir = "tumbler-4.21.1"
+deps = ["glib", "gdk-pixbuf"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+
+[update]
+check_url = "https://archive.xfce.org/src/xfce/tumbler/4.21/"
+version_pattern = "tumbler-([^\"/]+)\\.tar\\.xz"
+source_template = "https://archive.xfce.org/src/xfce/tumbler/4.21/tumbler-{version}.tar.xz"
+source_dir_template = "tumbler-{version}"

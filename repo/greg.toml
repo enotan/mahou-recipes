@@ -1,0 +1,14 @@
+name = "greg"
+version = "1.4"
+description = "GNU greg testing framework"
+source = "https://ftp.gnu.org/gnu/greg/greg-1.4.tar.gz"
+sha256 = "af7f3abef1546e74f6a72ecd845f24e8aa03866d5889587243ec230a01796cc3"
+source_dir = "greg-1.4"
+deps = []
+build_steps = ["./configure", "make", "make DESTDIR=${MAHOU_DESTDIR} install"]
+
+[update]
+check_url = "https://ftp.gnu.org/gnu/greg/"
+version_pattern = "greg-([^\"/]+)\\.tar\\.gz"
+source_template = "https://ftp.gnu.org/gnu/greg/greg-{version}.tar.gz"
+source_dir_template = "greg-{version}"

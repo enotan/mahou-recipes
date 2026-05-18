@@ -1,9 +1,9 @@
 name = "libisofs"
-version = "1.5.6"
+version = "1.5.8"
 description = "Library for creating ISO-9660 filesystems"
-source = "https://files.libburnia-project.org/releases/libisofs-1.5.6.tar.gz"
-sha256 = "0152d66a9d340b659fe9c880eb9190f3570fb477ac07cf52e8bcd134a1d30d70"
-source_dir = "libisofs-1.5.6"
+source = "https://files.libburnia-project.org/releases/libisofs-1.5.8.pl01.tar.gz"
+sha256 = "ccbc3e7f43a0929691973539cef45f6468a3f3d72612af0b001a659957a045c7"
+source_dir = "libisofs-1.5.8"
 deps = ["acl", "zlib"]
 
 build_steps = [
@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://files.libburnia-project.org/releases/"
-version_pattern = "libisofs-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
-source_template = "https://files.libburnia-project.org/releases/libisofs-{version}.tar.gz"
+version_pattern = "libisofs-([0-9]+\\.[0-9]+\\.[0-9]+)(?:\\.pl[0-9]+)?\\.tar\\.gz"
+source_template = "https://files.libburnia-project.org/releases/libisofs-{version}.pl01.tar.gz"
 source_dir_template = "libisofs-{version}"

@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://api.github.com/repos/axboe/liburing/releases/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"liburing-([^\"]+)\""
+check_url = "https://github.com/axboe/liburing/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
 source_template = "https://github.com/axboe/liburing/archive/refs/tags/liburing-{version}.tar.gz"
 source_dir_template = "liburing-liburing-{version}"
