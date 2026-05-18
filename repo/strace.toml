@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/strace/strace/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/strace/strace/releases/download/v{version}/strace-{version}.tar.xz"
 source_dir_template = "strace-{version}"

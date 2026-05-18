@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/taglib/taglib/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/taglib/taglib/releases/download/v{version}/taglib-{version}.tar.gz"
 source_dir_template = "taglib-{version}"

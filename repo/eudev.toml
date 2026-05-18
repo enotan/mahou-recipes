@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/eudev-project/eudev/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/eudev-project/eudev/releases/download/v{version}/eudev-{version}.tar.gz"
 source_dir_template = "eudev-{version}"

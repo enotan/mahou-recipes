@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/Airblader/xcb-util-xrm/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/Airblader/xcb-util-xrm/releases/download/v{version}/xcb-util-xrm-{version}.tar.bz2"
 source_dir_template = "xcb-util-xrm-{version}"

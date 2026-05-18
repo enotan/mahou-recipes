@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/universal-ctags/ctags/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/universal-ctags/ctags/releases/download/v{version}/universal-ctags-{version}.tar.gz"
 source_dir_template = "universal-ctags-{version}"

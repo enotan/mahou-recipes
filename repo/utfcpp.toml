@@ -13,6 +13,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/nemtrif/utfcpp/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/nemtrif/utfcpp/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "utfcpp-{version}"

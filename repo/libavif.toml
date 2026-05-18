@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/AOMediaCodec/libavif/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "libavif-{version}"

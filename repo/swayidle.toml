@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/swaywm/swayidle/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/swaywm/swayidle/releases/download/v{version}/swayidle-{version}.tar.gz"
 source_dir_template = "swayidle-{version}"

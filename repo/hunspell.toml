@@ -15,6 +15,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/hunspell/hunspell/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/hunspell/hunspell/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "hunspell-{version}"

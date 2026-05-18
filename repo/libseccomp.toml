@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/seccomp/libseccomp/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/seccomp/libseccomp/releases/download/v{version}/libseccomp-{version}.tar.gz"
 source_dir_template = "libseccomp-{version}"

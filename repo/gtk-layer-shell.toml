@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/wmww/gtk-layer-shell/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/wmww/gtk-layer-shell/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "gtk-layer-shell-{version}"

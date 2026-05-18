@@ -13,6 +13,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/ivmai/libatomic_ops/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
 source_template = "https://github.com/ivmai/libatomic_ops/releases/download/v{version}/libatomic_ops-{version}.tar.gz"
 source_dir_template = "libatomic_ops-{version}"
