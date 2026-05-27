@@ -1,19 +1,19 @@
 name = "cairomm"
-version = "1.18.0"
+version = "1.14.5"
 description = "C++ bindings for the Cairo vector graphics library"
-source = "https://www.cairographics.org/releases/cairomm-1.18.0.tar.xz"
-sha256 = "b81255394e3ea8e8aa887276d22afa8985fc8daef60692eb2407d23049f03cfb"
-source_dir = "cairomm-1.18.0"
-deps = ["cairo", "libsigc++"]
+source = "https://www.cairographics.org/releases/cairomm-1.14.5.tar.xz"
+sha256 = "70136203540c884e89ce1c9edfb6369b9953937f6cd596d97c78c9758a5d48db"
+source_dir = "cairomm-1.14.5"
+deps = ["cairo", "libsigc++", "mm-common"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dmaintainer-mode=false -Dbuild-documentation=false -Dbuild-examples=false -Dbuild-tests=false",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
 
 [update]
 check_url = "https://www.cairographics.org/releases/"
-version_pattern = "cairomm-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+version_pattern = "cairomm-(1\\.14\\.[0-9]+)\\.tar\\.xz"
 source_template = "https://www.cairographics.org/releases/cairomm-{version}.tar.xz"
 source_dir_template = "cairomm-{version}"

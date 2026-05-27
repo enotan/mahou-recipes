@@ -7,7 +7,7 @@ source_dir = "wayland-1.25.0"
 deps = ["libffi", "expat"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release",
+  "meson setup build --prefix=/usr --buildtype=release -Ddocumentation=false -Dtests=false",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
