@@ -7,9 +7,9 @@ source_dir = "harfbuzz-12.3.2"
 deps = ["freetype", "glib"]
 
 build_steps = [
-  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
-  "cmake --build build",
-  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dglib=enabled -Dgobject=enabled -Dfreetype=enabled -Ddocs=disabled -Dtests=disabled",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
 
 [update]
