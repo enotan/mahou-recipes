@@ -7,10 +7,20 @@ source_dir = "gtk-4.20.4"
 deps = ["cairo", "fribidi", "gdk-pixbuf", "glib", "graphene", "harfbuzz", "libdrm", "libepoxy", "libjpeg-turbo", "libpng", "libxkbcommon", "pango", "tiff", "wayland", "wayland-protocols"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Dx11-backend=false -Dmedia-gstreamer=disabled -Dvulkan=disabled -Dprint-cups=disabled -Dintrospection=disabled -Dbuild-demos=false -Dbuild-tests=false -Dbuild-testsuite=false -Dbuild-examples=false",
+  "meson setup build --prefix=/usr --buildtype=release -Dx11-backend=false -Dvulkan=disabled -Dprint-cups=disabled -Dbuild-demos=false -Dbuild-tests=false -Dbuild-testsuite=false -Dbuild-examples=false {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.gstreamer]
+deps = ["gst-plugins-base"]
+build_flags = ["-Dmedia-gstreamer=enabled"]
+disabled_build_flags = ["-Dmedia-gstreamer=disabled"]
+
+[features.introspection]
+deps = ["gobject-introspection"]
+build_flags = ["-Dintrospection=enabled"]
+disabled_build_flags = ["-Dintrospection=disabled"]
 
 [update]
 check_url = "https://download.gnome.org/sources/gtk/4.20/"

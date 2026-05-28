@@ -7,10 +7,15 @@ source_dir = "json-glib-1.10.8"
 deps = ["glib"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Dintrospection=disabled -Ddocumentation=disabled -Dtests=false -Dconformance=false -Dinstalled_tests=false",
+  "meson setup build --prefix=/usr --buildtype=release -Ddocumentation=disabled -Dtests=false -Dconformance=false -Dinstalled_tests=false {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.introspection]
+deps = ["gobject-introspection"]
+build_flags = ["-Dintrospection=enabled"]
+disabled_build_flags = ["-Dintrospection=disabled"]
 
 [update]
 check_url = "https://download.gnome.org/sources/json-glib/1.10/"

@@ -7,10 +7,15 @@ source_dir = "gstreamer-1.28.3"
 deps = ["glib"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Dexamples=disabled -Dtests=disabled -Dbenchmarks=disabled -Dintrospection=disabled -Ddoc=disabled -Dcheck=disabled -Dlibunwind=disabled -Dlibdw=disabled",
+  "meson setup build --prefix=/usr --buildtype=release -Dexamples=disabled -Dtests=disabled -Dbenchmarks=disabled -Ddoc=disabled -Dcheck=disabled -Dlibunwind=disabled -Dlibdw=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.introspection]
+deps = ["gobject-introspection"]
+build_flags = ["-Dintrospection=enabled"]
+disabled_build_flags = ["-Dintrospection=disabled"]
 
 [update]
 check_url = "https://gstreamer.freedesktop.org/src/gstreamer/"

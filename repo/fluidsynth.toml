@@ -4,13 +4,38 @@ description = "Software synthesizer based on SoundFont 2 specifications"
 source = "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.5.4.tar.gz"
 sha256 = "72f5720328fe44e2e5c67813885f0a6b4b004d048bd2eeeb0c0064074ebff530"
 source_dir = "fluidsynth-2.5.4"
-deps = ["alsa-lib", "cmake", "glib", "libsndfile", "readline"]
+deps = ["cmake", "glib", "libsndfile"]
 
 build_steps = [
-  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -Denable-alsa=ON -Denable-aufile=ON -Denable-dbus=OFF -Denable-jack=OFF -Denable-libinstpatch=OFF -Denable-libsndfile=ON -Denable-openmp=OFF -Denable-pipewire=OFF -Denable-pulseaudio=OFF -Denable-readline=ON -Denable-sdl3=OFF -Denable-systemd=OFF",
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -Denable-aufile=ON -Denable-jack=OFF -Denable-libinstpatch=OFF -Denable-libsndfile=ON -Denable-openmp=OFF -Denable-sdl3=OFF -Denable-systemd=OFF {feature_flags}",
   "cmake --build build",
   "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
 ]
+
+[features.alsa]
+deps = ["alsa-lib"]
+build_flags = ["-Denable-alsa=ON"]
+disabled_build_flags = ["-Denable-alsa=OFF"]
+
+[features.dbus]
+deps = ["dbus"]
+build_flags = ["-Denable-dbus=ON"]
+disabled_build_flags = ["-Denable-dbus=OFF"]
+
+[features.pipewire]
+deps = ["pipewire"]
+build_flags = ["-Denable-pipewire=ON"]
+disabled_build_flags = ["-Denable-pipewire=OFF"]
+
+[features.pulseaudio]
+deps = ["pulseaudio"]
+build_flags = ["-Denable-pulseaudio=ON"]
+disabled_build_flags = ["-Denable-pulseaudio=OFF"]
+
+[features.readline]
+deps = ["readline"]
+build_flags = ["-Denable-readline=ON"]
+disabled_build_flags = ["-Denable-readline=OFF"]
 
 [update]
 check_url = "https://github.com/FluidSynth/fluidsynth/releases"

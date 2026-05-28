@@ -7,10 +7,15 @@ source_dir = "libnotify-0.8.8"
 deps = ["gdk-pixbuf", "glib"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Dtests=false -Dintrospection=disabled -Dman=false -Dgtk_doc=false -Ddocbook_docs=disabled",
+  "meson setup build --prefix=/usr --buildtype=release -Dtests=false -Dman=false -Dgtk_doc=false -Ddocbook_docs=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.introspection]
+deps = ["gobject-introspection"]
+build_flags = ["-Dintrospection=enabled"]
+disabled_build_flags = ["-Dintrospection=disabled"]
 
 [update]
 check_url = "https://download.gnome.org/sources/libnotify/0.8/"
