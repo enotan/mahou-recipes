@@ -4,13 +4,49 @@ description = "Highly customizable Wayland bar"
 source = "https://github.com/Alexays/Waybar/archive/refs/tags/0.15.0.tar.gz"
 sha256 = "21c2bbef88c40473c355003582f9331d2f9b8a01efdcce0935edfc5f6b023a3e"
 source_dir = "Waybar-0.15.0"
-deps = ["date", "eudev", "fmt", "gtk-layer-shell", "gtkmm", "jsoncpp", "libxkbcommon", "spdlog", "wayland", "wayland-protocols"]
+deps = [
+  "date",
+  "eudev",
+  "fmt",
+  "gtk-layer-shell",
+  "gtkmm",
+  "jsoncpp",
+  "libxkbcommon",
+  "spdlog",
+  "wayland",
+  "wayland-protocols",
+]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Dman-pages=disabled -Ddbusmenu-gtk=disabled -Dlibinput=disabled -Dlibnl=disabled -Dlibudev=enabled -Dlibevdev=disabled -Dlogind=disabled -Dmpd=disabled -Dmpris=disabled -Dpulseaudio=disabled -Dpipewire=disabled -Dsndio=disabled -Dsystemd=disabled -Dupower_glib=disabled -Drfkill=disabled -Djack=disabled -Dwireplumber=disabled -Dcava=disabled -Dgps=disabled -Dtests=disabled",
+  "meson setup build --prefix=/usr --buildtype=release -Dman-pages=disabled -Ddbusmenu-gtk=disabled -Dlibudev=enabled -Dlogind=disabled -Dmpd=disabled -Dmpris=disabled -Dsndio=disabled -Dsystemd=disabled -Dupower_glib=disabled -Drfkill=disabled -Djack=disabled -Dcava=disabled -Dgps=disabled -Dtests=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.pulseaudio]
+deps = ["pulseaudio"]
+build_flags = ["-Dpulseaudio=enabled"]
+disabled_build_flags = ["-Dpulseaudio=disabled"]
+
+[features.pipewire]
+deps = ["pipewire"]
+build_flags = ["-Dpipewire=enabled"]
+disabled_build_flags = ["-Dpipewire=disabled"]
+
+[features.wireplumber]
+deps = ["wireplumber"]
+build_flags = ["-Dwireplumber=enabled"]
+disabled_build_flags = ["-Dwireplumber=disabled"]
+
+[features.network]
+deps = ["libnl"]
+build_flags = ["-Dlibnl=enabled"]
+disabled_build_flags = ["-Dlibnl=disabled"]
+
+[features.input]
+deps = ["libinput", "libevdev"]
+build_flags = ["-Dlibinput=enabled", "-Dlibevdev=enabled"]
+disabled_build_flags = ["-Dlibinput=disabled", "-Dlibevdev=disabled"]
 
 [update]
 check_url = "https://github.com/Alexays/Waybar/releases"
