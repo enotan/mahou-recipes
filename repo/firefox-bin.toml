@@ -1,0 +1,19 @@
+name = "firefox-bin"
+version = "151.0.2"
+description = "Firefox web browser binary build"
+source = "https://ftp.mozilla.org/pub/firefox/releases/151.0.2/linux-x86_64/en-US/firefox-151.0.2.tar.xz"
+sha256 = "1f77a1aacc2a0ccbb36998875f04a9c22229103dc35cb4bbb89784f0809161e0"
+source_dir = "firefox"
+deps = ["dbus", "gtk+", "libX11", "libxcb", "pango"]
+
+build_steps = [
+  "mkdir -p ${MAHOU_DESTDIR}/opt/firefox-bin ${MAHOU_DESTDIR}/usr/bin",
+  "cp -a . ${MAHOU_DESTDIR}/opt/firefox-bin/",
+  "ln -sf /opt/firefox-bin/firefox ${MAHOU_DESTDIR}/usr/bin/firefox-bin",
+]
+
+[update]
+check_url = "https://product-details.mozilla.org/1.0/firefox_versions.json"
+version_pattern = "\"LATEST_FIREFOX_VERSION\": \"([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)\""
+source_template = "https://ftp.mozilla.org/pub/firefox/releases/{version}/linux-x86_64/en-US/firefox-{version}.tar.xz"
+source_dir_template = "firefox"

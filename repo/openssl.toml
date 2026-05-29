@@ -1,9 +1,9 @@
 name = "openssl"
-version = "4.0.0"
+version = "3.6.2"
 description = "Robust, full-featured Open Source Toolkit for the Transport Layer Security (TLS)"
-source = "https://github.com/openssl/openssl/releases/download/openssl-4.0.0/openssl-4.0.0.tar.gz"
-sha256 = "c32cf49a959c4f345f9606982dd36e7d28f7c58b19c2e25d75624d2b3d2f79ac"
-source_dir = "openssl-4.0.0"
+source = "https://github.com/openssl/openssl/releases/download/openssl-3.6.2/openssl-3.6.2.tar.gz"
+sha256 = "aaf51a1fe064384f811daeaeb4ec4dce7340ec8bd893027eee676af31e83a04f"
+source_dir = "openssl-3.6.2"
 deps = ["zlib"]
 
 build_steps = [
@@ -13,7 +13,7 @@ build_steps = [
 ]
 
 [update]
-check_url = "https://github.com/openssl/openssl/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+check_url = "https://openssl-library.org/source/index.html"
+version_pattern = "openssl-(3\\.6\\.[0-9]+)\\.tar\\.gz"
 source_template = "https://github.com/openssl/openssl/releases/download/openssl-{version}/openssl-{version}.tar.gz"
 source_dir_template = "openssl-{version}"

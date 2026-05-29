@@ -1,0 +1,20 @@
+name = "go-bin"
+version = "1.26.3"
+description = "Go programming language binary distribution"
+source = "https://go.dev/dl/go1.26.3.linux-amd64.tar.gz"
+sha256 = "2b2cfc7148493da5e73981bffbf3353af381d5f93e789c82c79aff64962eb556"
+source_dir = "go"
+deps = []
+
+build_steps = [
+  "mkdir -p ${MAHOU_DESTDIR}/opt/go ${MAHOU_DESTDIR}/usr/bin",
+  "cp -a . ${MAHOU_DESTDIR}/opt/go/",
+  "ln -sf /opt/go/bin/go ${MAHOU_DESTDIR}/usr/bin/go",
+  "ln -sf /opt/go/bin/gofmt ${MAHOU_DESTDIR}/usr/bin/gofmt",
+]
+
+[update]
+check_url = "https://go.dev/dl/?mode=json"
+version_pattern = "\"version\"\\s*:\\s*\"go([0-9]+\\.[0-9]+\\.[0-9]+)\""
+source_template = "https://go.dev/dl/go{version}.linux-amd64.tar.gz"
+source_dir_template = "go"

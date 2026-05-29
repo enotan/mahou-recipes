@@ -7,7 +7,7 @@ source_dir = "kmod-34"
 deps = ["openssl", "xz", "zlib", "zstd"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release -Dmanpages=false -Ddocs=false -Dbuild-tests=false",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]

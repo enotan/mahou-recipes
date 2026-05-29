@@ -1,0 +1,17 @@
+name = "rust-bin"
+version = "1.96.0"
+description = "Rust compiler and Cargo binary distribution"
+source = "https://static.rust-lang.org/dist/rust-1.96.0-x86_64-unknown-linux-gnu.tar.xz"
+sha256 = "c295047583a56238ea06b43f849f4b877fa12bfd4c7103f8d9a74c94c9c4e108"
+source_dir = "rust-1.96.0-x86_64-unknown-linux-gnu"
+deps = []
+
+build_steps = [
+  "./install.sh --prefix=/usr --destdir=${MAHOU_DESTDIR} --disable-ldconfig",
+]
+
+[update]
+check_url = "https://static.rust-lang.org/dist/channel-rust-stable.toml"
+version_pattern = "\\[pkg\\.rust\\]\\s*version = \"([0-9]+\\.[0-9]+\\.[0-9]+) "
+source_template = "https://static.rust-lang.org/dist/rust-{version}-x86_64-unknown-linux-gnu.tar.xz"
+source_dir_template = "rust-{version}-x86_64-unknown-linux-gnu"
