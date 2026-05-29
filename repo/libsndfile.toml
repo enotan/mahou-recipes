@@ -7,6 +7,7 @@ source_dir = "libsndfile-1.2.2"
 deps = ["flac", "libogg", "libvorbis"]
 
 build_steps = [
+  "sed '/typedef enum/,/bool ;/d' -i src/ALAC/alac_{en,de}coder.c",
   "./configure --prefix=/usr",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
