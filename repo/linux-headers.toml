@@ -1,0 +1,18 @@
+name = "linux-headers"
+version = "7.0.10"
+description = "Sanitized Linux kernel headers for userspace"
+source = "https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.0.10.tar.xz"
+sha256 = "094977eb62c20e3d1939fe81a92958a1f987f339446e532fa86963b2804e32dc"
+source_dir = "linux-7.0.10"
+deps = ["rsync"]
+
+build_steps = [
+  "make mrproper",
+  "make headers_install INSTALL_HDR_PATH=${MAHOU_DESTDIR}/usr",
+]
+
+[update]
+check_url = "https://www.kernel.org/"
+version_pattern = "stable: ([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-{version}.tar.xz"
+source_dir_template = "linux-{version}"
