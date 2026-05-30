@@ -1,0 +1,19 @@
+name = "tdb"
+version = "1.4.15"
+description = "Trivial database library from the Samba project"
+source = "https://samba.org/ftp/tdb/tdb-1.4.15.tar.gz"
+sha256 = "fba09d8df1f1b9072aeae8e78b2bd43c5afef20b2f6deefa633aa14a377a8dd2"
+source_dir = "tdb-1.4.15"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr --libdir=/usr/lib --disable-python",
+  "./buildtools/bin/waf build",
+  "./buildtools/bin/waf install --destdir=${MAHOU_DESTDIR}",
+]
+
+[update]
+check_url = "https://download.samba.org/pub/tdb/"
+version_pattern = "tdb-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://samba.org/ftp/tdb/tdb-{version}.tar.gz"
+source_dir_template = "tdb-{version}"
