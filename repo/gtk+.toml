@@ -4,13 +4,28 @@ description = "GIMP Toolkit"
 source = "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.52.tar.xz"
 sha256 = "80931fa472a77b9a164f6740e3c0b444fac6770054632d35a7ff9d679e5e7b9f"
 source_dir = "gtk-3.24.52"
-deps = ["cairo", "gdk-pixbuf", "glib", "pango"]
+deps = ["at-spi2-core", "cairo", "gdk-pixbuf", "glib", "libepoxy", "pango"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release --wrap-mode=nofallback",
+  "meson setup build --prefix=/usr --buildtype=release --wrap-mode=nofallback -Dbroadway_backend=false -Dgtk_doc=false -Dman=false -Ddemos=false -Dexamples=false -Dtests=false -Dinstalled_tests=false -Dprint_backends=file -Dcolord=no -Dcloudproviders=false {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.introspection]
+deps = ["gobject-introspection"]
+build_flags = ["-Dintrospection=true"]
+disabled_build_flags = ["-Dintrospection=false"]
+
+[features.wayland]
+deps = ["wayland", "wayland-protocols", "libxkbcommon"]
+build_flags = ["-Dwayland_backend=true"]
+disabled_build_flags = ["-Dwayland_backend=false"]
+
+[features.x11]
+deps = ["libX11", "libXcomposite", "libXcursor", "libXdamage", "libXext", "libXfixes", "libXi", "libXinerama", "libXrandr", "libXrender"]
+build_flags = ["-Dx11_backend=true"]
+disabled_build_flags = ["-Dx11_backend=false"]
 
 [update]
 check_url = "https://download.gnome.org/sources/gtk/3.24/"

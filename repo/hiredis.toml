@@ -7,10 +7,15 @@ source_dir = "hiredis-1.3.0"
 deps = ["cmake"]
 
 build_steps = [
-  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DENABLE_SSL=OFF -DENABLE_EXAMPLES=OFF -DENABLE_SSL_TESTS=OFF -DENABLE_ASYNC_TESTS=OFF -DENABLE_NUGET=OFF",
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DENABLE_EXAMPLES=OFF -DENABLE_SSL_TESTS=OFF -DENABLE_ASYNC_TESTS=OFF -DENABLE_NUGET=OFF {feature_flags}",
   "cmake --build build",
   "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
 ]
+
+[features.ssl]
+deps = ["openssl"]
+build_flags = ["-DENABLE_SSL=ON"]
+disabled_build_flags = ["-DENABLE_SSL=OFF"]
 
 [update]
 check_url = "https://github.com/redis/hiredis/releases"

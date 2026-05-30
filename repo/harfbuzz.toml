@@ -7,10 +7,15 @@ source_dir = "harfbuzz-12.3.2"
 deps = ["freetype", "glib"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dglib=enabled -Dgobject=enabled -Dfreetype=enabled -Ddocs=disabled -Dtests=disabled",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dglib=enabled -Dgobject=enabled -Dfreetype=enabled -Ddocs=disabled -Dtests=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.introspection]
+deps = ["gobject-introspection"]
+build_flags = ["-Dintrospection=enabled"]
+disabled_build_flags = ["-Dintrospection=disabled"]
 
 [update]
 check_url = "https://github.com/harfbuzz/harfbuzz/releases"

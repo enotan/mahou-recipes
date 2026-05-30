@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://www.cpan.org/src/5.0/"
-version_pattern = "perl-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+version_pattern = "perl-([0-9]+\\.(?:[0-9]*[02468])\\.[0-9]+)\\.tar\\.xz"
 source_template = "https://www.cpan.org/src/5.0/perl-{version}.tar.xz"
 source_dir_template = "perl-{version}"

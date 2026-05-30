@@ -4,12 +4,22 @@ description = "Cross-platform audio output library"
 source = "https://downloads.xiph.org/releases/ao/libao-1.2.0.tar.gz"
 sha256 = "03ad231ad1f9d64b52474392d63c31197b0bc7bd416e58b1c10a329a5ed89caf"
 source_dir = "libao-1.2.0"
-deps = ["alsa-lib", "pulseaudio"]
+deps = []
 build_steps = [
-    "./configure --prefix=/usr --disable-static --enable-alsa --enable-pulse --disable-esd --disable-arts --disable-nas --disable-wmm",
+    "./configure --prefix=/usr --disable-static --disable-esd --disable-arts --disable-nas --disable-wmm {feature_flags}",
     "make",
     "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
+
+[features.alsa]
+deps = ["alsa-lib"]
+build_flags = ["--enable-alsa"]
+disabled_build_flags = ["--disable-alsa"]
+
+[features.pulseaudio]
+deps = ["pulseaudio"]
+build_flags = ["--enable-pulse"]
+disabled_build_flags = ["--disable-pulse"]
 
 [update]
 check_url = "https://downloads.xiph.org/releases/ao/"

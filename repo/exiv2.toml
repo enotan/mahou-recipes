@@ -7,10 +7,15 @@ source_dir = "exiv2-0.28.8"
 deps = ["brotli", "expat", "inih", "zlib"]
 
 build_steps = [
-  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DEXIV2_BUILD_UNIT_TESTS=OFF -DEXIV2_BUILD_FUZZ_TESTS=OFF -DEXIV2_BUILD_DOC=OFF -DEXIV2_ENABLE_CURL=OFF",
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DEXIV2_BUILD_UNIT_TESTS=OFF -DEXIV2_BUILD_FUZZ_TESTS=OFF -DEXIV2_BUILD_DOC=OFF {feature_flags}",
   "cmake --build build",
   "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
 ]
+
+[features.network]
+deps = ["curl"]
+build_flags = ["-DEXIV2_ENABLE_CURL=ON"]
+disabled_build_flags = ["-DEXIV2_ENABLE_CURL=OFF"]
 
 [update]
 check_url = "https://github.com/Exiv2/exiv2/releases"

@@ -6,10 +6,30 @@ sha256 = "03121ca28d210ac8014021c2f2deda4a181f215b1638c493c40a4c7e6056495f"
 source_dir = "cpp-httplib-0.45.0"
 deps = ["cmake"]
 build_steps = [
-    "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DHTTPLIB_TEST=OFF -DHTTPLIB_USE_OPENSSL_IF_AVAILABLE=OFF -DHTTPLIB_USE_ZLIB_IF_AVAILABLE=OFF -DHTTPLIB_USE_BROTLI_IF_AVAILABLE=OFF -DHTTPLIB_USE_ZSTD_IF_AVAILABLE=OFF",
+    "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DHTTPLIB_TEST=OFF {feature_flags}",
     "cmake --build build",
     "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
 ]
+
+[features.brotli]
+deps = ["brotli"]
+build_flags = ["-DHTTPLIB_USE_BROTLI_IF_AVAILABLE=ON"]
+disabled_build_flags = ["-DHTTPLIB_USE_BROTLI_IF_AVAILABLE=OFF"]
+
+[features.ssl]
+deps = ["openssl"]
+build_flags = ["-DHTTPLIB_USE_OPENSSL_IF_AVAILABLE=ON"]
+disabled_build_flags = ["-DHTTPLIB_USE_OPENSSL_IF_AVAILABLE=OFF"]
+
+[features.zlib]
+deps = ["zlib"]
+build_flags = ["-DHTTPLIB_USE_ZLIB_IF_AVAILABLE=ON"]
+disabled_build_flags = ["-DHTTPLIB_USE_ZLIB_IF_AVAILABLE=OFF"]
+
+[features.zstd]
+deps = ["zstd"]
+build_flags = ["-DHTTPLIB_USE_ZSTD_IF_AVAILABLE=ON"]
+disabled_build_flags = ["-DHTTPLIB_USE_ZSTD_IF_AVAILABLE=OFF"]
 
 [update]
 check_url = "https://github.com/yhirose/cpp-httplib/releases"

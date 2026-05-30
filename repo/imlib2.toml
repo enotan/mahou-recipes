@@ -4,13 +4,43 @@ description = "Image loading, saving, rendering, and manipulation library"
 source = "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.12.6/imlib2-1.12.6.tar.xz"
 sha256 = "250f9752f69dc522e529a81aaa9395705f7fc312ff2453e5de59ac2ba1f2858f"
 source_dir = "imlib2-1.12.6"
-deps = ["bzip2", "freetype", "giflib", "libjxl", "libraw", "libwebp", "libX11", "libXext", "libjpeg-turbo", "libpng", "tiff", "xz", "zlib"]
+deps = ["bzip2", "freetype", "giflib", "libjpeg-turbo", "libpng", "tiff", "xz", "zlib"]
 
 build_steps = [
-  "./configure --prefix=/usr --mandir=/usr/share/man --with-x --without-avif --without-heif --without-j2k --without-ps --without-svg --without-y4m --without-id3 --without-x-shm-fd",
+  "./configure --prefix=/usr --mandir=/usr/share/man --without-j2k --without-ps --without-svg --without-y4m --without-id3 --without-x-shm-fd {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
+
+[features.avif]
+deps = ["libavif"]
+build_flags = ["--with-avif"]
+disabled_build_flags = ["--without-avif"]
+
+[features.heif]
+deps = ["libheif"]
+build_flags = ["--with-heif"]
+disabled_build_flags = ["--without-heif"]
+
+[features.jxl]
+deps = ["libjxl"]
+build_flags = ["--with-jxl"]
+disabled_build_flags = ["--without-jxl"]
+
+[features.raw]
+deps = ["libraw"]
+build_flags = ["--with-raw"]
+disabled_build_flags = ["--without-raw"]
+
+[features.webp]
+deps = ["libwebp"]
+build_flags = ["--with-webp"]
+disabled_build_flags = ["--without-webp"]
+
+[features.x11]
+deps = ["libX11", "libXext"]
+build_flags = ["--with-x"]
+disabled_build_flags = ["--without-x"]
 
 [update]
 check_url = "https://sourceforge.net/projects/enlightenment/files/imlib2-src/"
