@@ -7,7 +7,7 @@ source_dir = "pango-1.57.1"
 deps = ["cairo", "fontconfig", "freetype", "glib", "harfbuzz"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release --wrap-mode=nofallback -Dfontconfig=enabled -Dfreetype=enabled -Dcairo=enabled -Ddocumentation=false -Dgtk_doc=false {feature_flags}",
+  "meson setup build --prefix=/usr --buildtype=release --wrap-mode=nofallback -Dfontconfig=enabled -Dfreetype=enabled -Dcairo=enabled -Ddocumentation=false -Dgtk_doc=false -Dman-pages=false -Dbuild-testsuite=false -Dbuild-examples=false -Dlibthai=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
@@ -16,6 +16,11 @@ build_steps = [
 deps = ["gobject-introspection"]
 build_flags = ["-Dintrospection=enabled"]
 disabled_build_flags = ["-Dintrospection=disabled"]
+
+[features.xft]
+deps = ["libXft"]
+build_flags = ["-Dxft=enabled"]
+disabled_build_flags = ["-Dxft=disabled"]
 
 [update]
 check_url = "https://download.gnome.org/sources/pango/1.57/"

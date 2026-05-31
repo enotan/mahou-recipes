@@ -7,10 +7,20 @@ source_dir = "gtkmm-3.24.10"
 deps = ["atkmm", "cairomm", "glibmm", "gtk+", "mm-common", "pangomm"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dmaintainer-mode=false -Dbuild-documentation=false -Dbuild-demos=false -Dbuild-tests=false",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dmaintainer-mode=false -Dbuild-documentation=false {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.demos]
+enabled = false
+build_flags = ["-Dbuild-demos=true"]
+disabled_build_flags = ["-Dbuild-demos=false"]
+
+[features.tests]
+enabled = false
+build_flags = ["-Dbuild-tests=true"]
+disabled_build_flags = ["-Dbuild-tests=false"]
 
 [update]
 check_url = "https://download.gnome.org/sources/gtkmm/3.24/"

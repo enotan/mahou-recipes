@@ -1,0 +1,19 @@
+name = "plocate"
+version = "1.1.24"
+description = "Fast locate implementation based on posting lists"
+source = "https://plocate.sesse.net/download/plocate-1.1.24.tar.gz"
+sha256 = "e55a757af1d7efb15ea674993224da4f0258479f8f720bd3dae0925d27dc04a2"
+source_dir = "plocate-1.1.24"
+deps = ["liburing", "meson", "ninja", "zstd"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Dinstall_systemd=false -Dinstall_cron=false -Dlocategroup=root",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://plocate.sesse.net/download/"
+version_pattern = "plocate-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://plocate.sesse.net/download/plocate-{version}.tar.gz"
+source_dir_template = "plocate-{version}"

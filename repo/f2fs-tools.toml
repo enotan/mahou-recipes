@@ -4,14 +4,24 @@ description = "Tools for Flash-Friendly File System"
 source = "https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/f2fs-tools-1.16.0.tar.gz"
 sha256 = "208c7a07e95383fbd7b466b5681590789dcb41f41bf197369c41a95383b57c5e"
 source_dir = "f2fs-tools-1.16.0"
-deps = ["autoconf", "automake", "libtool", "lz4", "lzo", "util-linux"]
+deps = ["autoconf", "automake", "libtool", "util-linux"]
 
 build_steps = [
   "./autogen.sh",
-  "./configure --prefix=/usr --without-selinux --with-blkid --with-lzo2 --with-lz4",
+  "./configure --prefix=/usr --without-selinux --with-blkid {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
+
+[features.lz4]
+deps = ["lz4"]
+build_flags = ["--with-lz4"]
+disabled_build_flags = ["--without-lz4"]
+
+[features.lzo]
+deps = ["lzo"]
+build_flags = ["--with-lzo2"]
+disabled_build_flags = ["--without-lzo2"]
 
 [update]
 check_url = "https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/refs/tags"

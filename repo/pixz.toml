@@ -1,0 +1,20 @@
+name = "pixz"
+version = "1.0.7"
+description = "Parallel indexed xz compressor"
+source = "https://github.com/vasi/pixz/archive/refs/tags/v1.0.7.tar.gz"
+sha256 = "e29fba74ae399e5d27c21a6009002705ebcc20947b283ed0aa721df6a409680a"
+source_dir = "pixz-1.0.7"
+deps = ["libarchive", "xz"]
+
+build_steps = [
+  "./autogen.sh",
+  "./configure --prefix=/usr",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/vasi/pixz/tags"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/vasi/pixz/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "pixz-{version}"

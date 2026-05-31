@@ -1,0 +1,54 @@
+name = "libvncserver"
+version = "0.9.15"
+description = "C libraries for implementing VNC servers and clients"
+source = "https://github.com/LibVNC/libvncserver/archive/refs/tags/LibVNCServer-0.9.15.tar.gz"
+sha256 = "62352c7795e231dfce044beb96156065a05a05c974e5de9e023d688d8ff675d7"
+source_dir = "libvncserver-LibVNCServer-0.9.15"
+deps = ["cmake", "zlib"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DWITH_EXAMPLES=OFF -DWITH_TESTS=OFF -DWITH_SYSTEMD=OFF -DWITH_SDL=OFF -DWITH_GTK=OFF -DWITH_QT=OFF -DWITH_FFMPEG=OFF -DWITH_GCRYPT=OFF -DWITH_LIBSSHTUNNEL=OFF {feature_flags}",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[features.gnutls]
+deps = ["gnutls"]
+build_flags = ["-DWITH_GNUTLS=ON"]
+disabled_build_flags = ["-DWITH_GNUTLS=OFF"]
+
+[features.jpeg]
+deps = ["libjpeg-turbo"]
+build_flags = ["-DWITH_JPEG=ON"]
+disabled_build_flags = ["-DWITH_JPEG=OFF"]
+
+[features.lzo]
+deps = ["lzo"]
+build_flags = ["-DWITH_LZO=ON"]
+disabled_build_flags = ["-DWITH_LZO=OFF"]
+
+[features.openssl]
+deps = ["openssl"]
+build_flags = ["-DWITH_OPENSSL=ON"]
+disabled_build_flags = ["-DWITH_OPENSSL=OFF"]
+
+[features.png]
+deps = ["libpng"]
+build_flags = ["-DWITH_PNG=ON"]
+disabled_build_flags = ["-DWITH_PNG=OFF"]
+
+[features.sasl]
+deps = ["cyrus-sasl"]
+build_flags = ["-DWITH_SASL=ON"]
+disabled_build_flags = ["-DWITH_SASL=OFF"]
+
+[features.xcb]
+deps = ["libxcb"]
+build_flags = ["-DWITH_XCB=ON"]
+disabled_build_flags = ["-DWITH_XCB=OFF"]
+
+[update]
+check_url = "https://github.com/LibVNC/libvncserver/releases"
+version_pattern = "/releases/tag/LibVNCServer-([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/LibVNC/libvncserver/archive/refs/tags/LibVNCServer-{version}.tar.gz"
+source_dir_template = "libvncserver-LibVNCServer-{version}"

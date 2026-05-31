@@ -1,0 +1,29 @@
+name = "ntfs-3g"
+version = "2026.2.25"
+description = "NTFS driver and utilities"
+source = "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2026.2.25.tgz"
+sha256 = "7754f3b32e8baf9c472459b4e9c981e3ae0f5039107cdd8d8201aed0a949008a"
+source_dir = "ntfs-3g-2026.2.25"
+deps = ["util-linux"]
+
+build_steps = [
+  "./configure --prefix=/usr --with-fuse=internal {feature_flags}",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[features.acl]
+deps = ["acl"]
+build_flags = ["--enable-posix-acls"]
+disabled_build_flags = ["--disable-posix-acls"]
+
+[features.xattr]
+deps = ["attr"]
+build_flags = ["--enable-xattr-mappings"]
+disabled_build_flags = ["--disable-xattr-mappings"]
+
+[update]
+check_url = "https://github.com/tuxera/ntfs-3g/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-{version}.tgz"
+source_dir_template = "ntfs-3g-{version}"

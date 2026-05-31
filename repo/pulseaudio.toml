@@ -4,13 +4,63 @@ description = "Sound server for POSIX systems"
 source = "https://freedesktop.org/software/pulseaudio/releases/pulseaudio-17.0.tar.xz"
 sha256 = "053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5"
 source_dir = "pulseaudio-17.0"
-deps = ["alsa-lib", "dbus", "eudev", "libsndfile", "libtool", "openssl", "speexdsp", "tdb"]
+deps = ["libsndfile", "libtool", "tdb"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Ddoxygen=false -Dman=false -Dtests=false -Ddatabase=tdb -Dalsa=enabled -Ddbus=enabled -Dopenssl=enabled -Dspeex=enabled -Dudev=enabled",
+  "meson setup build --prefix=/usr --buildtype=release -Ddoxygen=false -Dman=false -Dtests=false -Ddatabase=tdb -Dasyncns=disabled -Davahi=disabled -Dbluez5=disabled -Dbluez5-gstreamer=disabled -Dconsolekit=disabled -Delogind=disabled -Djack=disabled -Dlirc=disabled -Dorc=disabled -Dsamplerate=disabled -Dsoxr=disabled -Dsystemd=disabled -Dtcpwrap=disabled -Dvalgrind=disabled -Dwebrtc-aec=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.alsa]
+deps = ["alsa-lib"]
+build_flags = ["-Dalsa=enabled"]
+disabled_build_flags = ["-Dalsa=disabled"]
+
+[features.dbus]
+deps = ["dbus"]
+build_flags = ["-Ddbus=enabled"]
+disabled_build_flags = ["-Ddbus=disabled"]
+
+[features.fftw]
+deps = ["fftw"]
+build_flags = ["-Dfftw=enabled"]
+disabled_build_flags = ["-Dfftw=disabled"]
+
+[features.glib]
+deps = ["glib"]
+build_flags = ["-Dglib=enabled", "-Dgsettings=enabled"]
+disabled_build_flags = ["-Dglib=disabled", "-Dgsettings=disabled"]
+
+[features.gstreamer]
+deps = ["gst-plugins-base"]
+build_flags = ["-Dgstreamer=enabled"]
+disabled_build_flags = ["-Dgstreamer=disabled"]
+
+[features.gtk]
+deps = ["gtk+"]
+build_flags = ["-Dgtk=enabled"]
+disabled_build_flags = ["-Dgtk=disabled"]
+
+[features.openssl]
+deps = ["openssl"]
+build_flags = ["-Dopenssl=enabled"]
+disabled_build_flags = ["-Dopenssl=disabled"]
+
+[features.speex]
+deps = ["speexdsp"]
+build_flags = ["-Dspeex=enabled"]
+disabled_build_flags = ["-Dspeex=disabled"]
+
+[features.udev]
+deps = ["eudev"]
+build_flags = ["-Dudev=enabled"]
+disabled_build_flags = ["-Dudev=disabled"]
+
+[features.x11]
+deps = ["libICE", "libSM", "libX11", "libXtst", "libxcb"]
+build_flags = ["-Dx11=enabled"]
+disabled_build_flags = ["-Dx11=disabled"]
 
 [update]
 check_url = "https://freedesktop.org/software/pulseaudio/releases/"

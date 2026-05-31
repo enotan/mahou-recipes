@@ -1,0 +1,18 @@
+name = "lshw"
+version = "B.02.20"
+description = "Hardware lister"
+source = "https://www.ezix.org/software/files/lshw-B.02.20.tar.gz"
+sha256 = "06d9cf122422220e5dc94e8ea5b01816a69bb6b59368f63d7f21fff31fc6922a"
+source_dir = "lshw-B.02.20"
+deps = ["sqlite", "zlib"]
+
+build_steps = [
+  "make PREFIX=/usr SQLITE=1 ZLIB=1",
+  "make DESTDIR=${MAHOU_DESTDIR} PREFIX=/usr SQLITE=1 ZLIB=1 install",
+]
+
+[update]
+check_url = "https://www.ezix.org/software/files/"
+version_pattern = "lshw-(B\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://www.ezix.org/software/files/lshw-{version}.tar.gz"
+source_dir_template = "lshw-{version}"

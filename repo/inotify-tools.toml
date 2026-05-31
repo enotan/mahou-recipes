@@ -1,0 +1,20 @@
+name = "inotify-tools"
+version = "4.25.9.0"
+description = "Command-line utilities for Linux inotify"
+source = "https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.25.9.0.tar.gz"
+sha256 = "d33a4fd24c72c2d08893f129d724adf725b93dae96c359e4f4e9f32573cc853b"
+source_dir = "inotify-tools-4.25.9.0"
+deps = ["autoconf", "automake", "libtool"]
+
+build_steps = [
+  "./autogen.sh",
+  "./configure --prefix=/usr --disable-doxygen",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/inotify-tools/inotify-tools/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/inotify-tools/inotify-tools/archive/refs/tags/{version}.tar.gz"
+source_dir_template = "inotify-tools-{version}"

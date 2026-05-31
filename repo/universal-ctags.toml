@@ -7,13 +7,38 @@ source_dir = "universal-ctags-6.2.1"
 deps = []
 
 build_steps = [
-  "./configure --prefix=/usr --disable-json --disable-yaml --disable-xml --disable-seccomp --disable-pcre2",
+  "./configure --prefix=/usr {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
 
+[features.json]
+deps = ["jansson"]
+build_flags = ["--enable-json"]
+disabled_build_flags = ["--disable-json"]
+
+[features.pcre2]
+deps = ["pcre2"]
+build_flags = ["--enable-pcre2"]
+disabled_build_flags = ["--disable-pcre2"]
+
+[features.seccomp]
+deps = ["libseccomp"]
+build_flags = ["--enable-seccomp"]
+disabled_build_flags = ["--disable-seccomp"]
+
+[features.xml]
+deps = ["libxml2"]
+build_flags = ["--enable-xml"]
+disabled_build_flags = ["--disable-xml"]
+
+[features.yaml]
+deps = ["libyaml"]
+build_flags = ["--enable-yaml"]
+disabled_build_flags = ["--disable-yaml"]
+
 [update]
 check_url = "https://github.com/universal-ctags/ctags/releases"
-version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/universal-ctags/ctags/releases/download/v{version}/universal-ctags-{version}.tar.gz"
 source_dir_template = "universal-ctags-{version}"

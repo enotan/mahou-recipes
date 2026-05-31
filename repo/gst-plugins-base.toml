@@ -39,6 +39,6 @@ disabled_build_flags = ["-Dogg=disabled", "-Dvorbis=disabled"]
 
 [update]
 check_url = "https://gstreamer.freedesktop.org/src/gst-plugins-base/"
-version_pattern = "gst-plugins-base-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+version_pattern = "gst-plugins-base-([0-9]+\\.(?:[0-9]*[02468])\\.[0-9]+)\\.tar\\.xz"
 source_template = "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-{version}.tar.xz"
 source_dir_template = "gst-plugins-base-{version}"

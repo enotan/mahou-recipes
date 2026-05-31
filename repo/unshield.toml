@@ -1,0 +1,19 @@
+name = "unshield"
+version = "1.6.2"
+description = "Extract files from InstallShield cabinet archives"
+source = "https://github.com/twogood/unshield/archive/refs/tags/1.6.2.tar.gz"
+sha256 = "a937ef596ad94d16e7ed2c8553ad7be305798dcdcfd65ae60210b1e54ab51a2f"
+source_dir = "unshield-1.6.2"
+deps = ["cmake", "zlib"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/twogood/unshield/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/twogood/unshield/archive/refs/tags/{version}.tar.gz"
+source_dir_template = "unshield-{version}"

@@ -1,0 +1,19 @@
+name = "openh264"
+version = "2.6.0"
+description = "OpenH264 video codec"
+source = "https://github.com/cisco/openh264/archive/refs/tags/v2.6.0.tar.gz"
+sha256 = "558544ad358283a7ab2930d69a9ceddf913f4a51ee9bf1bfb9e377322af81a69"
+source_dir = "openh264-2.6.0"
+deps = ["meson", "nasm", "ninja"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Dtests=disabled",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://github.com/cisco/openh264/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/cisco/openh264/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "openh264-{version}"

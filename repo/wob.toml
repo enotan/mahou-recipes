@@ -1,0 +1,29 @@
+name = "wob"
+version = "0.16"
+description = "Wayland overlay bar for status values"
+source = "https://github.com/francma/wob/releases/download/0.16/wob-0.16.tar.gz"
+sha256 = "14ef5159b146647bba8f27dab499375e219cc4d2a11c5dd1e656aa5908a0e5a2"
+source_dir = "wob-0.16"
+deps = ["inih", "meson", "ninja", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Dtests=disabled -Dsystemd-unit-files=disabled {feature_flags}",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[features.man-pages]
+deps = ["scdoc"]
+build_flags = ["-Dman-pages=enabled"]
+disabled_build_flags = ["-Dman-pages=disabled"]
+
+[features.seccomp]
+deps = ["libseccomp"]
+build_flags = ["-Dseccomp=enabled"]
+disabled_build_flags = ["-Dseccomp=disabled"]
+
+[update]
+check_url = "https://github.com/francma/wob/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)"
+source_template = "https://github.com/francma/wob/releases/download/{version}/wob-{version}.tar.gz"
+source_dir_template = "wob-{version}"

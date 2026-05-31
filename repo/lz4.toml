@@ -13,6 +13,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/lz4/lz4/releases"
-version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/lz4/lz4/archive/v{version}.tar.gz"
 source_dir_template = "lz4-{version}"

@@ -7,10 +7,20 @@ source_dir = "unbound-1.25.0"
 deps = ["expat", "libevent", "openssl"]
 
 build_steps = [
-  "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --with-libevent=/usr --with-libexpat=/usr --without-pyunbound --without-pythonmodule --without-libhiredis --without-libnghttp2 --disable-subnet",
+  "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --with-libevent=/usr --with-libexpat=/usr --without-pyunbound --without-pythonmodule --disable-subnet {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
+
+[features.cachedb]
+deps = ["hiredis"]
+build_flags = ["--with-libhiredis=/usr"]
+disabled_build_flags = ["--without-libhiredis"]
+
+[features.http2]
+deps = ["nghttp2"]
+build_flags = ["--with-libnghttp2=/usr"]
+disabled_build_flags = ["--without-libnghttp2"]
 
 [update]
 check_url = "https://nlnetlabs.nl/downloads/unbound/"

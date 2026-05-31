@@ -1,0 +1,24 @@
+name = "dunst"
+version = "1.13.2"
+description = "Lightweight notification daemon"
+source = "https://github.com/dunst-project/dunst/archive/refs/tags/v1.13.2.tar.gz"
+sha256 = "c68645cecef4a45840cd67c19a18a3a21ecae6b331e9864c2b745c31aee5fc85"
+source_dir = "dunst-1.13.2"
+deps = ["cairo", "gdk-pixbuf", "glib", "meson", "ninja", "pango", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Ddocs=disabled -Dsystemd=disabled -Dx11=disabled -Dwayland=enabled {feature_flags}",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[features.dunstify]
+deps = ["libnotify"]
+build_flags = ["-Ddunstify=enabled"]
+disabled_build_flags = ["-Ddunstify=disabled"]
+
+[update]
+check_url = "https://github.com/dunst-project/dunst/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/dunst-project/dunst/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "dunst-{version}"

@@ -1,0 +1,19 @@
+name = "rdfind"
+version = "1.8.0"
+description = "Find duplicate files"
+source = "https://rdfind.pauldreik.se/rdfind-1.8.0.tar.gz"
+sha256 = "0a2d0d32002cc2dc0134ee7b649bcc811ecfb2f8d9f672aa476a851152e7af35"
+source_dir = "rdfind-1.8.0"
+deps = ["nettle", "xxhash"]
+
+build_steps = [
+  "./configure --prefix=/usr --with-xxhash",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://rdfind.pauldreik.se/"
+version_pattern = "rdfind-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://rdfind.pauldreik.se/rdfind-{version}.tar.gz"
+source_dir_template = "rdfind-{version}"

@@ -1,0 +1,19 @@
+name = "wtype"
+version = "0.4"
+description = "Wayland xdotool-style keyboard input tool"
+source = "https://github.com/atx/wtype/archive/refs/tags/v0.4.tar.gz"
+sha256 = "da91786d828b6a6e29b884bc510473939eda052658ebef87d7bdeafa6a8746f9"
+source_dir = "wtype-0.4"
+deps = ["libxkbcommon", "meson", "ninja", "wayland"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://github.com/atx/wtype/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)"
+source_template = "https://github.com/atx/wtype/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "wtype-{version}"

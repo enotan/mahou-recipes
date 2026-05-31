@@ -4,12 +4,22 @@ description = "Library for communicating with Icecast streaming servers"
 source = "https://downloads.xiph.org/releases/libshout/libshout-2.4.6.tar.gz"
 sha256 = "39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910"
 source_dir = "libshout-2.4.6"
-deps = ["libogg", "libvorbis", "speex"]
+deps = ["libogg"]
 build_steps = [
-    "./configure --prefix=/usr --disable-static --disable-examples --disable-tools --disable-theora",
+    "./configure --prefix=/usr --disable-static --disable-examples --disable-tools --disable-theora {feature_flags}",
     "make",
     "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
+
+[features.speex]
+deps = ["speex"]
+build_flags = ["--enable-speex", "--with-speex=/usr"]
+disabled_build_flags = ["--disable-speex"]
+
+[features.vorbis]
+deps = ["libvorbis"]
+build_flags = ["--enable-vorbis", "--with-vorbis=/usr"]
+disabled_build_flags = ["--disable-vorbis"]
 
 [update]
 check_url = "https://downloads.xiph.org/releases/libshout/"

@@ -1,0 +1,18 @@
+name = "progress"
+version = "0.17"
+description = "Monitor progress of coreutils file operations"
+source = "https://github.com/Xfennec/progress/archive/refs/tags/v0.17.tar.gz"
+sha256 = "ee9538fce98895dcf0d108087d3ee2e13f5c08ed94c983f0218a7a3d153b725d"
+source_dir = "progress-0.17"
+deps = ["ncurses"]
+
+build_steps = [
+  "make PREFIX=/usr",
+  "make PREFIX=/usr DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/Xfennec/progress/tags"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)"
+source_template = "https://github.com/Xfennec/progress/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "progress-{version}"

@@ -19,6 +19,6 @@ disabled_build_flags = ["-DENABLE_SSL=OFF"]
 
 [update]
 check_url = "https://github.com/redis/hiredis/releases"
-version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/redis/hiredis/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "hiredis-{version}"

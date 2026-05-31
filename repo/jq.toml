@@ -8,13 +8,18 @@ deps = ["autoconf", "automake", "libtool"]
 
 build_steps = [
   "autoreconf -fi",
-  "./configure --prefix=/usr --disable-docs --without-oniguruma",
+  "./configure --prefix=/usr --disable-docs {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
 
+[features.oniguruma]
+deps = ["oniguruma"]
+build_flags = ["--with-oniguruma=/usr"]
+disabled_build_flags = ["--without-oniguruma"]
+
 [update]
 check_url = "https://github.com/jqlang/jq/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/jq-([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/jqlang/jq/archive/refs/tags/jq-{version}.tar.gz"
 source_dir_template = "jq-jq-{version}"

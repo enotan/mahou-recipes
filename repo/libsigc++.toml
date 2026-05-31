@@ -7,10 +7,15 @@ source_dir = "libsigc++-2.12.1"
 deps = ["mm-common"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dmaintainer-mode=false -Dbuild-documentation=false -Dbuild-examples=false -Dbuild-tests=false",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dmaintainer-mode=false -Dbuild-documentation=false {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.tests]
+enabled = false
+build_flags = ["-Dbuild-tests=true"]
+disabled_build_flags = ["-Dbuild-tests=false"]
 
 [update]
 check_url = "https://download.gnome.org/sources/libsigc++/2.12/"

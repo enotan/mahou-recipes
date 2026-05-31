@@ -8,13 +8,23 @@ deps = ["autoconf", "automake", "libtool", "lz4", "pkgconf", "util-linux", "xxha
 
 build_steps = [
   "./autogen.sh",
-  "./configure --prefix=/usr --disable-static --disable-fuse --enable-lz4 --with-zlib --with-libzstd --with-xxhash --without-libcurl --without-openssl --without-libxml2 --without-json-c --without-libnl3 --without-selinux",
+  "./configure --prefix=/usr --disable-static --enable-lz4 --with-zlib --with-libzstd --with-xxhash --without-selinux {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
 
+[features.fuse]
+deps = ["fuse3"]
+build_flags = ["--enable-fuse"]
+disabled_build_flags = ["--disable-fuse"]
+
+[features.network]
+deps = ["curl", "json-c", "libnl", "libxml2", "openssl"]
+build_flags = ["--with-libcurl", "--with-json-c", "--with-libnl3", "--with-libxml2", "--with-openssl"]
+disabled_build_flags = ["--without-libcurl", "--without-json-c", "--without-libnl3", "--without-libxml2", "--without-openssl"]
+
 [update]
 check_url = "https://github.com/erofs/erofs-utils/tags"
-version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/erofs/erofs-utils/archive/refs/tags/v{version}.tar.gz"
 source_dir_template = "erofs-utils-{version}"

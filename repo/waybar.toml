@@ -18,7 +18,7 @@ deps = [
 ]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Dman-pages=disabled -Ddbusmenu-gtk=disabled -Dlibudev=enabled -Dlogind=disabled -Dmpd=disabled -Dmpris=disabled -Dsndio=disabled -Dsystemd=disabled -Dupower_glib=disabled -Drfkill=disabled -Djack=disabled -Dcava=disabled -Dgps=disabled -Dtests=disabled {feature_flags}",
+  "meson setup build --prefix=/usr --buildtype=release -Dman-pages=disabled -Ddbusmenu-gtk=disabled -Dlibudev=enabled -Dlogind=disabled -Dmpris=disabled -Dsndio=disabled -Dsystemd=disabled -Dupower_glib=disabled -Drfkill=disabled -Djack=disabled -Dcava=disabled -Dgps=disabled -Dtests=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
@@ -48,8 +48,13 @@ deps = ["libinput", "libevdev"]
 build_flags = ["-Dlibinput=enabled", "-Dlibevdev=enabled"]
 disabled_build_flags = ["-Dlibinput=disabled", "-Dlibevdev=disabled"]
 
+[features.mpd]
+deps = ["libmpdclient"]
+build_flags = ["-Dmpd=enabled"]
+disabled_build_flags = ["-Dmpd=disabled"]
+
 [update]
 check_url = "https://github.com/Alexays/Waybar/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/Alexays/Waybar/archive/refs/tags/{version}.tar.gz"
 source_dir_template = "Waybar-{version}"

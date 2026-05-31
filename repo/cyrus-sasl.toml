@@ -7,13 +7,23 @@ source_dir = "cyrus-sasl-2.1.28"
 deps = ["krb5", "openssl"]
 
 build_steps = [
-  "./configure --prefix=/usr --sysconfdir=/etc --disable-static --enable-shared --with-openssl=/usr --without-pam --without-ldap --disable-sql --disable-sample",
+  "./configure --prefix=/usr --sysconfdir=/etc --disable-static --enable-shared --with-openssl=/usr --disable-sql --disable-sample {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
 
+[features.ldap]
+deps = ["openldap"]
+build_flags = ["--with-ldap=/usr"]
+disabled_build_flags = ["--without-ldap"]
+
+[features.pam]
+deps = ["pam"]
+build_flags = ["--with-pam=/usr"]
+disabled_build_flags = ["--without-pam"]
+
 [update]
 check_url = "https://github.com/cyrusimap/cyrus-sasl/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/cyrus-sasl-([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-{version}/cyrus-sasl-{version}.tar.gz"
 source_dir_template = "cyrus-sasl-{version}"

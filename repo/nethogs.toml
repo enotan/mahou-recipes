@@ -1,0 +1,18 @@
+name = "nethogs"
+version = "0.8.8"
+description = "Per-process network bandwidth monitor"
+source = "https://github.com/raboof/nethogs/archive/refs/tags/v0.8.8.tar.gz"
+sha256 = "111ade20cc545e8dfd7ce4e293bd6b31cd1678a989b6a730bd2fa2acc6254818"
+source_dir = "nethogs-0.8.8"
+deps = ["libpcap", "ncurses"]
+
+build_steps = [
+  "make PREFIX=/usr",
+  "make PREFIX=/usr DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/raboof/nethogs/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/raboof/nethogs/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "nethogs-{version}"

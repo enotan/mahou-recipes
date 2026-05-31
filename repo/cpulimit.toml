@@ -1,0 +1,18 @@
+name = "cpulimit"
+version = "0.2"
+description = "Limit CPU usage of a process"
+source = "https://github.com/opsengine/cpulimit/archive/refs/tags/v0.2.tar.gz"
+sha256 = "64312f9ac569ddcadb615593cd002c94b76e93a0d4625d3ce1abb49e08e2c2da"
+source_dir = "cpulimit-0.2"
+deps = []
+
+build_steps = [
+  "make -C src",
+  "install -Dm755 src/cpulimit ${MAHOU_DESTDIR}/usr/bin/cpulimit",
+]
+
+[update]
+check_url = "https://github.com/opsengine/cpulimit/tags"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)"
+source_template = "https://github.com/opsengine/cpulimit/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "cpulimit-{version}"

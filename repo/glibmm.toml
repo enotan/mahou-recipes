@@ -7,10 +7,15 @@ source_dir = "glibmm-2.66.8"
 deps = ["glib", "libsigc++", "mm-common"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dmaintainer-mode=false -Dbuild-documentation=false -Dbuild-examples=false",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dmaintainer-mode=false -Dbuild-documentation=false {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.examples]
+enabled = false
+build_flags = ["-Dbuild-examples=true"]
+disabled_build_flags = ["-Dbuild-examples=false"]
 
 [update]
 check_url = "https://download.gnome.org/sources/glibmm/2.66/"

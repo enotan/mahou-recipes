@@ -4,16 +4,21 @@ description = "DWARF debugging information access library"
 source = "https://github.com/davea42/libdwarf-code/releases/download/v2.3.1/libdwarf-2.3.1.tar.xz"
 sha256 = "28cf9a5d27aceff5c1f906244a4fe7ae208e41d20a6d8fc7e091c633a40b6e97"
 source_dir = "libdwarf-2.3.1"
-deps = ["zlib", "zstd"]
+deps = []
 
 build_steps = [
-  "./configure --prefix=/usr --enable-shared --disable-static --enable-decompression --disable-doc",
+  "./configure --prefix=/usr --enable-shared --disable-static --disable-doc {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
 
+[features.decompression]
+deps = ["zlib", "zstd"]
+build_flags = ["--enable-decompression"]
+disabled_build_flags = ["--disable-decompression"]
+
 [update]
 check_url = "https://github.com/davea42/libdwarf-code/releases"
-version_pattern = "/releases/tag/v?([0-9][^\"/-]*)"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/davea42/libdwarf-code/releases/download/v{version}/libdwarf-{version}.tar.xz"
 source_dir_template = "libdwarf-{version}"

@@ -5,10 +5,10 @@ source = "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.7.tar.x
 sha256 = "494abfce781418259b1e9d8888c73af4de4b6f3be36cc75d9baa8baa0f2a7a39"
 source_dir = "mm-common-1.0.7"
 deps = []
-build_steps = ["meson setup build --prefix=/usr --buildtype=release", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
+build_steps = ["meson setup build --prefix=/usr --buildtype=release -Duse-network=false", "ninja -C build", "DESTDIR=${MAHOU_DESTDIR} ninja -C build install"]
 
 [update]
 check_url = "https://download.gnome.org/sources/mm-common/1.0/"
-version_pattern = "mm-common-([^\"/]+)\\.tar\\.xz"
+version_pattern = "mm-common-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
 source_template = "https://download.gnome.org/sources/mm-common/1.0/mm-common-{version}.tar.xz"
 source_dir_template = "mm-common-{version}"

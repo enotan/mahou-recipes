@@ -1,0 +1,18 @@
+name = "bemenu"
+version = "0.6.23"
+description = "Dynamic menu library and client program"
+source = "https://github.com/Cloudef/bemenu/releases/download/0.6.23/bemenu-0.6.23.tar.gz"
+sha256 = "7cd336fb827b50a12c398a5daf6d2e6a07e291217116e725e7f1e021d9e0cdd9"
+source_dir = "bemenu-0.6.23"
+deps = ["cairo", "libX11", "libXinerama", "libxkbcommon", "ncurses", "pango", "scdoc", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "make PREFIX=/usr",
+  "make PREFIX=/usr DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/Cloudef/bemenu/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/Cloudef/bemenu/releases/download/{version}/bemenu-{version}.tar.gz"
+source_dir_template = "bemenu-{version}"

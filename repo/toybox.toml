@@ -1,0 +1,19 @@
+name = "toybox"
+version = "0.8.12"
+description = "BSD-licensed Linux command line utilities"
+source = "https://landley.net/toybox/downloads/toybox-0.8.12.tar.gz"
+sha256 = "ad88a921133ae2231d9f2df875ec0bd42af4429145caea7d7db9e02208a6fd2e"
+source_dir = "toybox-0.8.12"
+deps = []
+
+build_steps = [
+  "make defconfig",
+  "make",
+  "make PREFIX=${MAHOU_DESTDIR}/usr install",
+]
+
+[update]
+check_url = "https://landley.net/toybox/downloads/"
+version_pattern = "toybox-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://landley.net/toybox/downloads/toybox-{version}.tar.gz"
+source_dir_template = "toybox-{version}"

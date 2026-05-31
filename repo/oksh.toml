@@ -1,0 +1,19 @@
+name = "oksh"
+version = "7.8"
+description = "Portable OpenBSD Korn shell"
+source = "https://github.com/ibara/oksh/releases/download/oksh-7.8/oksh-7.8.tar.gz"
+sha256 = "3b30d5a1183b829590cc020d8ab87f22d288e98dc3fdf12feb7159536beaa950"
+source_dir = "oksh-7.8"
+deps = ["ncurses"]
+
+build_steps = [
+  "./configure --prefix=/usr --mandir=/usr/share/man --no-strip",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/ibara/oksh/releases"
+version_pattern = "/releases/tag/oksh-([0-9]+\\.[0-9]+)"
+source_template = "https://github.com/ibara/oksh/releases/download/oksh-{version}/oksh-{version}.tar.gz"
+source_dir_template = "oksh-{version}"

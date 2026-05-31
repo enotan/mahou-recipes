@@ -7,10 +7,30 @@ source_dir = "anubis-4.3"
 deps = ["gettext"]
 
 build_steps = [
-  "./configure --prefix=/usr --sysconfdir=/etc --without-guile --without-gsasl --without-gnutls --without-pcre --without-pam --without-tcp-wrappers",
+  "./configure --prefix=/usr --sysconfdir=/etc --without-pcre --without-tcp-wrappers {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
+
+[features.guile]
+deps = ["guile"]
+build_flags = ["--with-guile"]
+disabled_build_flags = ["--without-guile"]
+
+[features.sasl]
+deps = ["libgsasl"]
+build_flags = []
+disabled_build_flags = ["--without-gsasl"]
+
+[features.tls]
+deps = ["gnutls"]
+build_flags = ["--with-gnutls"]
+disabled_build_flags = ["--without-gnutls"]
+
+[features.pam]
+deps = ["pam"]
+build_flags = ["--with-pam"]
+disabled_build_flags = ["--without-pam"]
 
 [update]
 check_url = "https://ftp.gnu.org/gnu/anubis/"

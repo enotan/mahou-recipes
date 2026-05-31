@@ -1,9 +1,9 @@
 name = "wireplumber"
 version = "0.5.14"
 description = "Replacement for pipewire-media-session"
-source = "https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/83d08dfa437095373f9e4e156b6ca4f9e0567585/wireplumber-83d08dfa437095373f9e4e156b6ca4f9e0567585.tar.bz2"
-sha256 = "d5d45721325389e8fb06dd3622cd59560be4a027742e6d610219cd2aba37b5df"
-source_dir = "wireplumber-83d08dfa437095373f9e4e156b6ca4f9e0567585"
+source = "https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.14/wireplumber-0.5.14.tar.bz2"
+sha256 = "2807a9d1e97075ba10f8b7b8156e31175817d620fa7fc84442b5474123eff5db"
+source_dir = "wireplumber-0.5.14"
 deps = ["glib", "pipewire"]
 
 build_steps = [
@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://gitlab.freedesktop.org/api/v4/projects/pipewire%2Fwireplumber/releases/permalink/latest"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+version_pattern = "\"tag_name\"\\s*:\\s*\"v?([0-9]+\\.[0-9]+\\.[0-9]+)\""
 source_template = "https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/{version}/wireplumber-{version}.tar.bz2"
 source_dir_template = "wireplumber-{version}"

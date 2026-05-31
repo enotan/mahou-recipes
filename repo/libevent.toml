@@ -1,19 +1,24 @@
 name = "libevent"
-version = "2.2.1"
+version = "2.1.12-stable"
 description = "Library to execute a function when a specific event occurs on a file descriptor"
-source = "https://github.com/libevent/libevent/releases/download/release-2.2.1-alpha/libevent-2.2.1-alpha-dev.tar.gz"
-sha256 = "36d0726e570fc2ee61a0a27cfb6bf2799e14a28d030a7473a7a2411f7533d359"
-source_dir = "libevent-2.2.1-alpha-dev"
-deps = ["openssl"]
+source = "https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz"
+sha256 = "92e6de1be9ec176428fd2367677e61ceffc2ee1cb119035037a27d346b0403bb"
+source_dir = "libevent-2.1.12-stable"
+deps = []
 
 build_steps = [
-  "./configure --prefix=/usr",
+  "./configure --prefix=/usr --disable-samples {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
 
+[features.openssl]
+deps = ["openssl"]
+build_flags = []
+disabled_build_flags = ["--disable-openssl"]
+
 [update]
 check_url = "https://github.com/libevent/libevent/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
-source_template = "https://github.com/libevent/libevent/releases/download/release-{version}-alpha/libevent-{version}-alpha-dev.tar.gz"
-source_dir_template = "libevent-{version}-alpha-dev"
+version_pattern = "/releases/tag/release-([0-9]+\\.[0-9]+\\.[0-9]+-stable)"
+source_template = "https://github.com/libevent/libevent/releases/download/release-{version}/libevent-{version}.tar.gz"
+source_dir_template = "libevent-{version}"

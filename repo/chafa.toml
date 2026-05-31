@@ -1,0 +1,39 @@
+name = "chafa"
+version = "1.18.2"
+description = "Terminal graphics renderer"
+source = "https://github.com/hpjansson/chafa/releases/download/1.18.2/chafa-1.18.2.tar.xz"
+sha256 = "0b8d9ba9f347e8b6c0c71878217c9b0e478b4a42aa4babea0bf20840567239c2"
+source_dir = "chafa-1.18.2"
+deps = ["glib"]
+
+build_steps = [
+  "./configure --prefix=/usr --without-svg --without-tiff --without-jxl --without-coregraphics {feature_flags}",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[features.avif]
+deps = ["libavif"]
+build_flags = ["--with-avif"]
+disabled_build_flags = ["--without-avif"]
+
+[features.heif]
+deps = ["libheif"]
+build_flags = ["--with-heif"]
+disabled_build_flags = ["--without-heif"]
+
+[features.jpeg]
+deps = ["libjpeg-turbo"]
+build_flags = ["--with-jpeg"]
+disabled_build_flags = ["--without-jpeg"]
+
+[features.webp]
+deps = ["libwebp"]
+build_flags = ["--with-webp"]
+disabled_build_flags = ["--without-webp"]
+
+[update]
+check_url = "https://github.com/hpjansson/chafa/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hpjansson/chafa/releases/download/{version}/chafa-{version}.tar.xz"
+source_dir_template = "chafa-{version}"

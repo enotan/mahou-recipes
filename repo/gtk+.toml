@@ -24,8 +24,8 @@ disabled_build_flags = ["-Dwayland_backend=false"]
 
 [features.x11]
 deps = ["libX11", "libXcomposite", "libXcursor", "libXdamage", "libXext", "libXfixes", "libXi", "libXinerama", "libXrandr", "libXrender"]
-build_flags = ["-Dx11_backend=true"]
-disabled_build_flags = ["-Dx11_backend=false"]
+build_flags = ["-Dx11_backend=true", "-Dxinerama=yes"]
+disabled_build_flags = ["-Dx11_backend=false", "-Dxinerama=no"]
 
 [update]
 check_url = "https://download.gnome.org/sources/gtk/3.24/"

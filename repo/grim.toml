@@ -14,6 +14,6 @@ build_steps = [
 
 [update]
 check_url = "https://gitlab.freedesktop.org/api/v4/projects/emersion%2Fgrim/releases"
-version_pattern = "\"tag_name\"\\s*:\\s*\"v?([^\"]+)\""
+version_pattern = "\"tag_name\"\\s*:\\s*\"v?([0-9]+\\.[0-9]+\\.[0-9]+)\""
 source_template = "https://gitlab.freedesktop.org/emersion/grim/-/releases/v{version}/downloads/grim-{version}.tar.gz"
 source_dir_template = "grim-{version}"

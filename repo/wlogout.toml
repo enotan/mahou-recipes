@@ -1,0 +1,24 @@
+name = "wlogout"
+version = "1.2.2"
+description = "Wayland logout menu"
+source = "https://github.com/ArtsyMacaw/wlogout/archive/refs/tags/1.2.2.tar.gz"
+sha256 = "4c9204bfa19c73f51176c94c67711f54f3e393301c0809c61ae379054060fa46"
+source_dir = "wlogout-1.2.2"
+deps = ["gtk+", "gtk-layer-shell", "meson", "ninja"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release {feature_flags}",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[features.man-pages]
+deps = ["scdoc"]
+build_flags = ["-Dman-pages=enabled"]
+disabled_build_flags = ["-Dman-pages=disabled"]
+
+[update]
+check_url = "https://github.com/ArtsyMacaw/wlogout/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/ArtsyMacaw/wlogout/archive/refs/tags/{version}.tar.gz"
+source_dir_template = "wlogout-{version}"

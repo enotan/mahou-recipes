@@ -1,0 +1,34 @@
+name = "libsixel"
+version = "1.8.7-r2"
+description = "SIXEL encoder and decoder library"
+source = "https://github.com/saitoha/libsixel/releases/download/v1.8.7-r2/sixel-1.8.7-r2.tar.gz"
+sha256 = "9088475e5a1332f84b92ad46fd3c199ac56500c67f8a4054efccbc0db644bdba"
+source_dir = "sixel-1.8.7-r2"
+deps = []
+
+build_steps = [
+  "./configure --prefix=/usr --disable-tests {feature_flags}",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[features.curl]
+deps = ["curl"]
+build_flags = ["--with-libcurl"]
+disabled_build_flags = ["--without-libcurl"]
+
+[features.jpeg]
+deps = ["libjpeg-turbo"]
+build_flags = ["--with-jpeg"]
+disabled_build_flags = ["--without-jpeg"]
+
+[features.png]
+deps = ["libpng"]
+build_flags = ["--with-png"]
+disabled_build_flags = ["--without-png"]
+
+[update]
+check_url = "https://github.com/saitoha/libsixel/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+-r[0-9]+)"
+source_template = "https://github.com/saitoha/libsixel/releases/download/v{version}/sixel-{version}.tar.gz"
+source_dir_template = "sixel-{version}"

@@ -1,0 +1,19 @@
+name = "yash"
+version = "2.61"
+description = "Yet another shell"
+source = "https://github.com/magicant/yash/releases/download/2.61/yash-2.61.tar.xz"
+sha256 = "a214966f4ff8b293aa5521a4d3ef6e87d707579eee616aa2f8218edaa920d447"
+source_dir = "yash-2.61"
+deps = ["ncurses"]
+
+build_steps = [
+  "./configure --prefix=/usr --enable-lineedit --disable-nls",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/magicant/yash/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+)"
+source_template = "https://github.com/magicant/yash/releases/download/{version}/yash-{version}.tar.xz"
+source_dir_template = "yash-{version}"

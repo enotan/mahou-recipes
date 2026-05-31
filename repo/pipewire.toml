@@ -1,16 +1,66 @@
 name = "pipewire"
-version = "1.6.4"
+version = "1.6.6"
 description = "Low-latency multimedia processing"
-source = "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.4/pipewire-1.6.4.tar.bz2"
-sha256 = "2fce3abd2c8bc89bffc9435fb9e4e286a509abcf4479eafc45d2d81275baaa61"
-source_dir = "pipewire-1.6.4"
-deps = ["dbus", "libcap", "openssl"]
+source = "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.6/pipewire-1.6.6.tar.bz2"
+sha256 = "2fdf073869bd171d29a92dc6857979864b53e3dc1a79ac76c15db78e5b12d9f8"
+source_dir = "pipewire-1.6.6"
+deps = []
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release",
+  "meson setup build --prefix=/usr --buildtype=release -Ddocs=disabled -Dman=disabled -Dexamples=disabled -Dtests=disabled -Dinstalled_tests=disabled -Dlibsystemd=disabled -Dlogind=disabled -Dsystemd-system-service=disabled -Dsystemd-user-service=disabled -Dselinux=disabled -Dbluez5=disabled -Djack=disabled -Dlibcamera=disabled -Dvulkan=disabled -Dsdl2=disabled -Dlibmysofa=disabled -Droc=disabled -Davahi=disabled -Decho-cancel-webrtc=disabled -Dlibcanberra=disabled -Davb=disabled -Dsnap=disabled -Debur128=disabled -Donnxruntime=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.alsa]
+deps = ["alsa-lib"]
+build_flags = ["-Dalsa=enabled", "-Dpipewire-alsa=enabled"]
+disabled_build_flags = ["-Dalsa=disabled", "-Dpipewire-alsa=disabled"]
+
+[features.dbus]
+deps = ["dbus"]
+build_flags = ["-Ddbus=enabled"]
+disabled_build_flags = ["-Ddbus=disabled"]
+
+[features.gstreamer]
+deps = ["gst-plugins-base"]
+build_flags = ["-Dgstreamer=enabled", "-Dgstreamer-device-provider=enabled"]
+disabled_build_flags = ["-Dgstreamer=disabled", "-Dgstreamer-device-provider=disabled"]
+
+[features.libusb]
+deps = ["libusb"]
+build_flags = ["-Dlibusb=enabled"]
+disabled_build_flags = ["-Dlibusb=disabled"]
+
+[features.lv2]
+deps = ["lv2"]
+build_flags = ["-Dlv2=enabled"]
+disabled_build_flags = ["-Dlv2=disabled"]
+
+[features.opus]
+deps = ["opus"]
+build_flags = ["-Dopus=enabled"]
+disabled_build_flags = ["-Dopus=disabled"]
+
+[features.pulse]
+deps = ["pulseaudio"]
+build_flags = ["-Dlibpulse=enabled"]
+disabled_build_flags = ["-Dlibpulse=disabled"]
+
+[features.raop]
+deps = ["openssl"]
+build_flags = ["-Draop=enabled"]
+disabled_build_flags = ["-Draop=disabled"]
+
+[features.readline]
+deps = ["readline"]
+build_flags = ["-Dreadline=enabled"]
+disabled_build_flags = ["-Dreadline=disabled"]
+
+[features.sndfile]
+deps = ["libsndfile"]
+build_flags = ["-Dsndfile=enabled"]
+disabled_build_flags = ["-Dsndfile=disabled"]
 
 [update]
 check_url = "https://gitlab.freedesktop.org/pipewire/pipewire/-/tags"

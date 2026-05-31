@@ -1,16 +1,31 @@
 name = "harfbuzz"
-version = "12.3.2"
+version = "14.2.0"
 description = "An OpenType text shaping engine"
-source = "https://github.com/harfbuzz/harfbuzz/releases/download/12.3.2/harfbuzz-12.3.2.tar.xz"
-sha256 = "6f6db164359a2da5a84ef826615b448b33e6306067ad829d85d5b0bf936f1bb8"
-source_dir = "harfbuzz-12.3.2"
+source = "https://github.com/harfbuzz/harfbuzz/releases/download/14.2.0/harfbuzz-14.2.0.tar.xz"
+sha256 = "94017020f96d025bb66ae91574e4cf334bcad23e8175a8a40565b3721bc2eaff"
+source_dir = "harfbuzz-14.2.0"
 deps = ["freetype", "glib"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dglib=enabled -Dgobject=enabled -Dfreetype=enabled -Ddocs=disabled -Dtests=disabled {feature_flags}",
+  "meson setup build --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nofallback -Dglib=enabled -Dgobject=enabled -Dfreetype=enabled -Ddocs=disabled -Dtests=disabled -Dchafa=disabled -Dfontations=disabled -Dharfrust=disabled -Dkbts=disabled -Dwasm=disabled -Dgpu_demo=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.cairo]
+deps = ["cairo"]
+build_flags = ["-Dcairo=enabled"]
+disabled_build_flags = ["-Dcairo=disabled"]
+
+[features.graphite2]
+deps = ["graphite2"]
+build_flags = ["-Dgraphite2=enabled"]
+disabled_build_flags = ["-Dgraphite2=disabled"]
+
+[features.icu]
+deps = ["icu"]
+build_flags = ["-Dicu=enabled"]
+disabled_build_flags = ["-Dicu=disabled"]
 
 [features.introspection]
 deps = ["gobject-introspection"]
@@ -19,6 +34,6 @@ disabled_build_flags = ["-Dintrospection=disabled"]
 
 [update]
 check_url = "https://github.com/harfbuzz/harfbuzz/releases"
-version_pattern = "/releases/tag/([^\"/]+)"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
 source_template = "https://github.com/harfbuzz/harfbuzz/releases/download/{version}/harfbuzz-{version}.tar.xz"
 source_dir_template = "harfbuzz-{version}"
