@@ -7,7 +7,7 @@ source_dir = "mesa-26.0.7"
 deps = ["libdrm", "libxkbcommon", "libglvnd", "wayland"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release",
+  "meson setup build --prefix=/usr --buildtype=release -Dgallium-drivers=radeonsi,r600,nouveau,zink,llvmpipe,softpipe -Dvulkan-drivers=amd,swrast -Dgallium-rusticl=false '-Dtools=[]'",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
