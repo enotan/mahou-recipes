@@ -1,0 +1,19 @@
+name = "hyprutils"
+version = "0.13.1"
+description = "Hyprland utility library"
+source = "https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.13.1.tar.gz"
+sha256 = "480ee026105deea64a24eb96d80cabe54b357594ce36cb05c021ea226c69aede"
+source_dir = "hyprutils-0.13.1"
+deps = ["cmake", "pixman", "pkgconf"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprutils/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprutils/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprutils-{version}"

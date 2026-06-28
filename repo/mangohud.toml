@@ -1,0 +1,19 @@
+name = "mangohud"
+version = "0.8.4"
+description = "Vulkan and OpenGL performance overlay"
+source = "https://github.com/flightlessmango/MangoHud/releases/download/v0.8.4/MangoHud-v0.8.4-Source.tar.xz"
+sha256 = "bbe5a2b976313c53f21dc24b98bbed03226589460a0cce20d923cb2c36c9d8b0"
+source_dir = "MangoHud-v0.8.4"
+deps = ["dbus", "libX11", "libxkbcommon", "meson", "ninja", "pkgconf", "python-mako", "vulkan-loader", "wayland"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Dinclude_doc=false -Dwith_nvml=disabled -Dwith_xnvctrl=disabled -Dwith_x11=enabled -Dwith_wayland=enabled -Dwith_dbus=enabled -Dtests=disabled -Dmangoplot=disabled",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://github.com/flightlessmango/MangoHud/releases"
+version_pattern = "/releases/tag/v([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/flightlessmango/MangoHud/releases/download/v{version}/MangoHud-v{version}-Source.tar.xz"
+source_dir_template = "MangoHud-v{version}"

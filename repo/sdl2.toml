@@ -1,0 +1,19 @@
+name = "sdl2"
+version = "2.32.10"
+description = "Cross-platform multimedia library"
+source = "https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-2.32.10.tar.gz"
+sha256 = "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+source_dir = "SDL2-2.32.10"
+deps = ["alsa-lib", "cmake", "dbus", "eudev", "libXScrnSaver", "libX11", "libXcursor", "libXext", "libXfixes", "libXi", "libXrandr", "libdecor", "libdrm", "libsamplerate", "libxkbcommon", "mesa", "ninja", "pipewire", "pkgconf", "pulseaudio", "vulkan-loader", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "cmake -S . -B build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DSDL_SHARED=ON -DSDL_STATIC=OFF -DSDL_TEST=OFF -DSDL_TESTS=OFF -DSDL_INSTALL_TESTS=OFF -DSDL_WERROR=OFF -DSDL_X11=ON -DSDL_WAYLAND=ON -DSDL_WAYLAND_LIBDECOR=ON -DSDL_KMSDRM=ON -DSDL_VULKAN=ON",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://github.com/libsdl-org/SDL/tags"
+version_pattern = "release-(2\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/libsdl-org/SDL/releases/download/release-{version}/SDL2-{version}.tar.gz"
+source_dir_template = "SDL2-{version}"

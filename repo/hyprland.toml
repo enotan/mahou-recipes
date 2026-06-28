@@ -1,0 +1,19 @@
+name = "hyprland"
+version = "0.55.4"
+description = "Dynamic tiling Wayland compositor"
+source = "https://github.com/hyprwm/Hyprland/releases/download/v0.55.4/source-v0.55.4.tar.gz"
+sha256 = "10cdda47e6a42e603a646ffda89c9fca0628c3a8211e2fbbee02f6282effe30b"
+source_dir = "hyprland-source"
+deps = ["aquamarine", "cairo", "cmake", "glslang", "hyprcursor", "hyprgraphics", "hyprland-protocols", "hyprlang", "hyprutils", "hyprwayland-scanner", "libXcursor", "libdrm", "libinput", "libxkbcommon", "mesa", "pango", "pixman", "pkgconf", "re2", "wayland", "wayland-protocols", "xcb-util-errors", "xcb-util-wm"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DNO_HYPRPM=ON -DBUILD_TESTING=OFF",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/Hyprland/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/Hyprland/releases/download/v{version}/source-v{version}.tar.gz"
+source_dir_template = "hyprland-source"

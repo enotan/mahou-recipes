@@ -1,0 +1,19 @@
+name = "hyprpicker"
+version = "0.4.7"
+description = "Wayland color picker for wlroots compositors"
+source = "https://github.com/hyprwm/hyprpicker/archive/refs/tags/v0.4.7.tar.gz"
+sha256 = "cde02b92abe372187c9d59a7cb2ca07ede5c3e1a8c81ed8b209dc0d3ac5f0339"
+source_dir = "hyprpicker-0.4.7"
+deps = ["cairo", "cmake", "hyprutils", "hyprwayland-scanner", "libjpeg-turbo", "libxkbcommon", "pango", "pkgconf", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprpicker/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprpicker/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprpicker-{version}"

@@ -1,0 +1,19 @@
+name = "aquamarine"
+version = "0.12.1"
+description = "Hyprland's Wayland compositor backend library"
+source = "https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.12.1.tar.gz"
+sha256 = "80120257c983e18dec78c4df03246931b1bca1e44e50fb41ca21bad772479bd9"
+source_dir = "aquamarine-0.12.1"
+deps = ["cmake", "hyprutils", "hyprwayland-scanner", "libdrm", "libinput", "mesa", "pixman", "pkgconf", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/aquamarine/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/aquamarine/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "aquamarine-{version}"

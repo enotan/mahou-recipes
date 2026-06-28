@@ -1,0 +1,19 @@
+name = "hyprlock"
+version = "0.9.5"
+description = "Hyprland screen locker"
+source = "https://github.com/hyprwm/hyprlock/archive/refs/tags/v0.9.5.tar.gz"
+sha256 = "cbc49fc5553c550131e1a15089847501de42579944814229bfa9f8ea18519f89"
+source_dir = "hyprlock-0.9.5"
+deps = ["cairo", "cmake", "hyprgraphics", "hyprlang", "hyprutils", "hyprwayland-scanner", "libdrm", "libxkbcommon", "mesa", "pam", "pango", "pkgconf", "sdbus-cpp", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_SYSCONFDIR=/etc",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprlock/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprlock/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprlock-{version}"

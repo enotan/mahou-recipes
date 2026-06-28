@@ -1,0 +1,19 @@
+name = "gamemode"
+version = "1.8.2"
+description = "Library and helper tools for requesting temporary game performance tweaks"
+source = "https://github.com/FeralInteractive/gamemode/releases/download/1.8.2/gamemode-1.8.2.tar.xz"
+sha256 = "98cd1bcf6101c92fe87f974c7776af23c7e18f29ce6ecfe572b1c39dcde5c181"
+source_dir = "gamemode-1.8.2"
+deps = ["dbus", "meson", "ninja", "pkgconf"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Dwith-sd-bus-provider=no-daemon -Dwith-examples=false -Dwith-pam-renicing=false",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://github.com/FeralInteractive/gamemode/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/FeralInteractive/gamemode/releases/download/{version}/gamemode-{version}.tar.xz"
+source_dir_template = "gamemode-{version}"

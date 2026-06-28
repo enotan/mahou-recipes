@@ -1,0 +1,19 @@
+name = "hyprsunset"
+version = "0.3.3"
+description = "Blue-light filter utility for Hyprland"
+source = "https://github.com/hyprwm/hyprsunset/archive/refs/tags/v0.3.3.tar.gz"
+sha256 = "cf2b3cc836bdeb7ac3ae78cf98e8cc4a06093e8d8215ff4da2380843dcf1a5dc"
+source_dir = "hyprsunset-0.3.3"
+deps = ["cmake", "hyprland-protocols", "hyprlang", "hyprutils", "hyprwayland-scanner", "pkgconf", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprsunset/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprsunset/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprsunset-{version}"

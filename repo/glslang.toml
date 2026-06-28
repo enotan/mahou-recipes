@@ -1,0 +1,19 @@
+name = "glslang"
+version = "16.3.0"
+description = "Khronos reference front end for GLSL and ESSL"
+source = "https://github.com/KhronosGroup/glslang/archive/refs/tags/16.3.0.tar.gz"
+sha256 = "efff5a15258dce1ca2d323bf64c974f5fca03778174615dbc30c8d36db645bf5"
+source_dir = "glslang-16.3.0"
+deps = ["cmake"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DGLSLANG_TESTS=OFF -DENABLE_OPT=OFF -DBUILD_EXTERNAL=OFF",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/KhronosGroup/glslang/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/KhronosGroup/glslang/archive/refs/tags/{version}.tar.gz"
+source_dir_template = "glslang-{version}"

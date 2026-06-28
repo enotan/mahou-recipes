@@ -1,0 +1,19 @@
+name = "openvr"
+version = "2.15.6"
+description = "Valve OpenVR SDK"
+source = "https://github.com/ValveSoftware/openvr/archive/refs/tags/v2.15.6.tar.gz"
+sha256 = "e184cb625010fab7043a9d5e1e000fdeb3067a152bb3169ef53f64dfac37164c"
+source_dir = "openvr-2.15.6"
+deps = ["cmake"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED=ON -DUSE_LIBCXX=OFF",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/ValveSoftware/openvr/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/ValveSoftware/openvr/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "openvr-{version}"

@@ -1,0 +1,24 @@
+name = "libdecor"
+version = "0.2.5"
+description = "Client-side decorations library for Wayland clients"
+source = "https://gitlab.freedesktop.org/libdecor/libdecor/-/releases/0.2.5/downloads/libdecor-0.2.5.tar.xz"
+sha256 = "7fd50f780a4fee90a03f7b2c09055033e488654cbaff4a0c4bbae616bac9cd1c"
+source_dir = "libdecor-0.2.5"
+deps = ["cairo", "dbus", "meson", "ninja", "pango", "pkgconf", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Ddemo=false -Dinstall_demo=false -Ddbus=enabled {feature_flags}",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[features.gtk]
+deps = ["gtk+"]
+build_flags = ["-Dgtk=enabled"]
+disabled_build_flags = ["-Dgtk=disabled"]
+
+[update]
+check_url = "https://gitlab.freedesktop.org/libdecor/libdecor/-/tags"
+version_pattern = "/-/tags/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://gitlab.freedesktop.org/libdecor/libdecor/-/releases/{version}/downloads/libdecor-{version}.tar.xz"
+source_dir_template = "libdecor-{version}"

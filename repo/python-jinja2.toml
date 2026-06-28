@@ -1,0 +1,18 @@
+name = "python-jinja2"
+version = "3.1.6"
+description = "Fast and expressive Python template engine"
+source = "https://files.pythonhosted.org/packages/source/J/Jinja2/jinja2-3.1.6.tar.gz"
+sha256 = "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
+source_dir = "jinja2-3.1.6"
+deps = ["python", "python-flit-core", "python-markupsafe"]
+
+build_steps = [
+  "python3 -m flit_core.wheel --outdir dist .",
+  "python3 -c \"import glob, pathlib, sysconfig, zipfile; dest = pathlib.Path('${MAHOU_DESTDIR}') / pathlib.Path(sysconfig.get_path('purelib')).relative_to('/'); dest.mkdir(parents=True, exist_ok=True); [zipfile.ZipFile(path).extractall(dest) for path in glob.glob('dist/*.whl')]\"",
+]
+
+[update]
+check_url = "https://pypi.org/pypi/Jinja2/json"
+version_pattern = "\"version\"\\s*:\\s*\"([0-9]+\\.[0-9]+\\.[0-9]+)\""
+source_template = "https://files.pythonhosted.org/packages/source/J/Jinja2/jinja2-{version}.tar.gz"
+source_dir_template = "jinja2-{version}"

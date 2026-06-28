@@ -1,0 +1,17 @@
+name = "python-setuptools"
+version = "82.0.1"
+description = "Python package build backend and distutils extensions"
+source = "https://files.pythonhosted.org/packages/source/s/setuptools/setuptools-82.0.1.tar.gz"
+sha256 = "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+source_dir = "setuptools-82.0.1"
+deps = ["python"]
+
+build_steps = [
+  "python3 setup.py install --root=${MAHOU_DESTDIR} --prefix=/usr --optimize=1",
+]
+
+[update]
+check_url = "https://pypi.org/pypi/setuptools/json"
+version_pattern = "\"version\"\\s*:\\s*\"([0-9]+\\.[0-9]+\\.[0-9]+)\""
+source_template = "https://files.pythonhosted.org/packages/source/s/setuptools/setuptools-{version}.tar.gz"
+source_dir_template = "setuptools-{version}"

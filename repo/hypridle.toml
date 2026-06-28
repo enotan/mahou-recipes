@@ -1,0 +1,19 @@
+name = "hypridle"
+version = "0.1.7"
+description = "Hyprland idle daemon"
+source = "https://github.com/hyprwm/hypridle/archive/refs/tags/v0.1.7.tar.gz"
+sha256 = "c4ef2e2894fc2082cfdabe7db086b1f246e3f0de571f7f2c6b26d7c0d9a5f8f3"
+source_dir = "hypridle-0.1.7"
+deps = ["cmake", "hyprland-protocols", "hyprlang", "hyprutils", "hyprwayland-scanner", "pkgconf", "sdbus-cpp", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hypridle/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hypridle/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hypridle-{version}"

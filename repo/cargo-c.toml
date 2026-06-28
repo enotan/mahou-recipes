@@ -1,0 +1,18 @@
+name = "cargo-c"
+version = "0.10.23"
+description = "cargo applet to build and install C-compatible Rust libraries"
+source = "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.23.tar.gz"
+sha256 = "17679af6c00a70ce1d70668023e993045539afdc7ab0ca1a081aa8ef6993a595"
+source_dir = "cargo-c-0.10.23"
+deps = ["rust-bin"]
+
+build_steps = [
+  "cargo install --path . --root ${MAHOU_DESTDIR}/usr",
+  "rm -f ${MAHOU_DESTDIR}/usr/.crates.toml ${MAHOU_DESTDIR}/usr/.crates2.json",
+]
+
+[update]
+check_url = "https://github.com/lu-zero/cargo-c/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/lu-zero/cargo-c/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "cargo-c-{version}"

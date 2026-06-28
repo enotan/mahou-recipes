@@ -1,0 +1,18 @@
+name = "python-markupsafe"
+version = "3.0.3"
+description = "Python HTML and XML escaping library"
+source = "https://files.pythonhosted.org/packages/source/M/MarkupSafe/markupsafe-3.0.3.tar.gz"
+sha256 = "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+source_dir = "markupsafe-3.0.3"
+deps = ["python", "python-setuptools"]
+
+build_steps = [
+  "python3 setup.py build",
+  "python3 setup.py install --root=${MAHOU_DESTDIR} --prefix=/usr --optimize=1",
+]
+
+[update]
+check_url = "https://pypi.org/pypi/MarkupSafe/json"
+version_pattern = "\"version\"\\s*:\\s*\"([0-9]+\\.[0-9]+\\.[0-9]+)\""
+source_template = "https://files.pythonhosted.org/packages/source/M/MarkupSafe/markupsafe-{version}.tar.gz"
+source_dir_template = "markupsafe-{version}"

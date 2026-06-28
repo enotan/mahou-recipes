@@ -1,0 +1,20 @@
+name = "libliftoff"
+version = "0.1.0"
+description = "KMS plane composition library"
+source = "https://github.com/emersion/libliftoff/releases/download/v0.1.0/libliftoff-0.1.0.tar.gz"
+sha256 = "7a88e565b560e2c714a3606e9e03edbdc4dba3255d7fa4a0db4f5ab4975c5a9f"
+source_dir = "libliftoff-0.1.0"
+deps = ["libdrm", "meson", "ninja", "pkgconf"]
+
+build_steps = [
+  "sed -i \"/subdir('example')/d; /subdir('test')/d\" meson.build",
+  "meson setup build --prefix=/usr --buildtype=release -Dwerror=false",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[update]
+check_url = "https://github.com/emersion/libliftoff/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/emersion/libliftoff/releases/download/v{version}/libliftoff-{version}.tar.gz"
+source_dir_template = "libliftoff-{version}"

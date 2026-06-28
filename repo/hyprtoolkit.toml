@@ -1,0 +1,19 @@
+name = "hyprtoolkit"
+version = "0.5.4"
+description = "Hyprland UI toolkit"
+source = "https://github.com/hyprwm/hyprtoolkit/archive/refs/tags/v0.5.4.tar.gz"
+sha256 = "2fb59789f231c1c4e9154ceffc1e7524c0cae154807c0d57e6166806255b570f"
+source_dir = "hyprtoolkit-0.5.4"
+deps = ["cairo", "cmake", "hyprgraphics", "hyprlang", "hyprutils", "hyprwayland-scanner", "libdrm", "libxkbcommon", "mesa", "pango", "pixman", "pkgconf", "wayland", "wayland-protocols"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprtoolkit/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprtoolkit/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprtoolkit-{version}"

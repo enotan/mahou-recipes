@@ -1,0 +1,19 @@
+name = "hyprwire"
+version = "0.3.1"
+description = "Hyprland IPC protocol library and scanner"
+source = "https://github.com/hyprwm/hyprwire/archive/refs/tags/v0.3.1.tar.gz"
+sha256 = "92a673d40ae6a7d66fbcd0a34ec071e026e17eaeeb0040c3375e4b2a80dba737"
+source_dir = "hyprwire-0.3.1"
+deps = ["cmake", "hyprutils", "pkgconf", "pugixml"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprwire/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprwire/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprwire-{version}"

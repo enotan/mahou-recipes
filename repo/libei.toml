@@ -1,0 +1,24 @@
+name = "libei"
+version = "1.6.0"
+description = "Emulated input protocol libraries"
+source = "https://gitlab.freedesktop.org/libinput/libei/-/archive/1.6.0/libei-1.6.0.tar.gz"
+sha256 = "81b4b967f0e5938492434a04f7ea2e6c6d96d3e6c44700bc691821f82281e602"
+source_dir = "libei-1.6.0"
+deps = ["libevdev", "libxkbcommon", "meson", "ninja", "pkgconf", "python", "python-jinja2"]
+
+build_steps = [
+  "meson setup build --prefix=/usr --buildtype=release -Ddocumentation=[] -Dtests=disabled -Dlibei=enabled -Dlibeis=enabled {feature_flags}",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
+
+[features.oeffis]
+deps = ["basu"]
+build_flags = ["-Dliboeffis=enabled", "-Dsd-bus-provider=basu"]
+disabled_build_flags = ["-Dliboeffis=disabled"]
+
+[update]
+check_url = "https://gitlab.freedesktop.org/libinput/libei/-/tags"
+version_pattern = "/-/tags/([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://gitlab.freedesktop.org/libinput/libei/-/archive/{version}/libei-{version}.tar.gz"
+source_dir_template = "libei-{version}"

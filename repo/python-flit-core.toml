@@ -1,0 +1,18 @@
+name = "python-flit-core"
+version = "3.12.0"
+description = "PEP 517 build backend used by Flit packages"
+source = "https://files.pythonhosted.org/packages/source/f/flit-core/flit_core-3.12.0.tar.gz"
+sha256 = "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
+source_dir = "flit_core-3.12.0"
+deps = ["python"]
+
+build_steps = [
+  "python3 -m flit_core.wheel --outdir dist .",
+  "python3 bootstrap_install.py dist/flit_core-3.12.0-py3-none-any.whl --install-root ${MAHOU_DESTDIR}",
+]
+
+[update]
+check_url = "https://pypi.org/pypi/flit_core/json"
+version_pattern = "\"version\"\\s*:\\s*\"([0-9]+\\.[0-9]+\\.[0-9]+)\""
+source_template = "https://files.pythonhosted.org/packages/source/f/flit-core/flit_core-{version}.tar.gz"
+source_dir_template = "flit_core-{version}"

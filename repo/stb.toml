@@ -1,0 +1,13 @@
+name = "stb"
+version = "2024.07.29-5736b15"
+description = "Single-file public domain libraries for C/C++"
+source = "https://github.com/nothings/stb/archive/5736b15f7ea0ffb08dd38af21067c314d6a3aae9.tar.gz"
+sha256 = "d00921d49b06af62aa6bfb97c1b136bec661dd11dd4eecbcb0da1f6da7cedb4c"
+source_dir = "stb-5736b15f7ea0ffb08dd38af21067c314d6a3aae9"
+deps = []
+
+build_steps = [
+  "install -d ${MAHOU_DESTDIR}/usr/include/stb",
+  "install -m644 *.h ${MAHOU_DESTDIR}/usr/include/stb/",
+  "install -m644 stb_vorbis.c ${MAHOU_DESTDIR}/usr/include/stb/",
+]

@@ -1,0 +1,19 @@
+name = "sdbus-cpp"
+version = "2.3.1"
+description = "High-level C++ D-Bus library"
+source = "https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v2.3.1.tar.gz"
+sha256 = "3a289eded586c26d06c1387de72c7bf7c809527a70d51ba6401fe61059b19626"
+source_dir = "sdbus-cpp-2.3.1"
+deps = ["basu", "cmake", "pkgconf"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DSDBUSCPP_SDBUS_LIB=basu -DSDBUSCPP_BUILD_TESTS=OFF -DSDBUSCPP_BUILD_CODEGEN=OFF -DSDBUSCPP_BUILD_EXAMPLES=OFF -DSDBUSCPP_BUILD_DOCS=OFF",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/Kistler-Group/sdbus-cpp/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "sdbus-cpp-{version}"

@@ -1,0 +1,19 @@
+name = "hyprgraphics"
+version = "0.5.1"
+description = "Hyprland graphics and image utility library"
+source = "https://github.com/hyprwm/hyprgraphics/archive/refs/tags/v0.5.1.tar.gz"
+sha256 = "861ecaad872835922dd5745a612d7a4cc7bfc4babb1d06bc92bc63c2ac013b74"
+source_dir = "hyprgraphics-0.5.1"
+deps = ["cairo", "cmake", "file", "hyprutils", "libdrm", "libjpeg-turbo", "libpng", "librsvg", "libwebp", "mesa", "pango", "pixman", "pkgconf"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprgraphics/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprgraphics/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprgraphics-{version}"

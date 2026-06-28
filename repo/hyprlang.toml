@@ -1,0 +1,19 @@
+name = "hyprlang"
+version = "0.6.8"
+description = "Hyprland configuration language parser"
+source = "https://github.com/hyprwm/hyprlang/archive/refs/tags/v0.6.8.tar.gz"
+sha256 = "d10a0778b646e04d83e8b90cc0f764fb96958c01a15c3c0678d95a40fc647ed5"
+source_dir = "hyprlang-0.6.8"
+deps = ["cmake", "hyprutils", "pkgconf"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/hyprwm/hyprlang/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/hyprwm/hyprlang/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "hyprlang-{version}"
