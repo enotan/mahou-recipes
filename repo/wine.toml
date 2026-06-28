@@ -1,0 +1,42 @@
+name = "wine"
+version = "11.11"
+description = "Portable Wine Staging WOW64 binary build"
+source = "https://github.com/Kron4ek/Wine-Builds/releases/download/11.11/wine-11.11-staging-amd64-wow64.tar.xz"
+sha256 = "bf9ba91bccd3129bd8dee31dcff76e94b38898cee70b9ecf4dda4c0d8d9df25a"
+source_dir = "wine-11.11-staging-amd64-wow64"
+deps = [
+  "alsa-lib",
+  "fontconfig",
+  "freetype",
+  "giflib",
+  "gnutls",
+  "gst-plugins-base",
+  "gstreamer",
+  "lcms2",
+  "libX11",
+  "libXcursor",
+  "libXext",
+  "libXfixes",
+  "libXi",
+  "libXrandr",
+  "libXrender",
+  "libjpeg-turbo",
+  "libxcb",
+  "libxkbcommon",
+  "mesa",
+  "mpg123",
+  "openal-soft",
+  "pulseaudio",
+  "vulkan-loader",
+]
+
+build_steps = [
+  "install -d ${MAHOU_DESTDIR}/usr",
+  "cp -a bin lib share ${MAHOU_DESTDIR}/usr/",
+]
+
+[update]
+check_url = "https://github.com/Kron4ek/Wine-Builds/releases"
+version_pattern = "/releases/tag/([0-9]+\\.[0-9]+)"
+source_template = "https://github.com/Kron4ek/Wine-Builds/releases/download/{version}/wine-{version}-staging-amd64-wow64.tar.xz"
+source_dir_template = "wine-{version}-staging-amd64-wow64"

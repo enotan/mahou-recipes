@@ -8,6 +8,7 @@ deps = []
 
 build_steps = [
   "./configure --prefix=/usr",
+  "sed -i 's/__GNUC__ >= 15/__GNUC__ >= 99/g' lib/stdlib.in.h lib/string.in.h lib/wchar.in.h lib/config.h",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]

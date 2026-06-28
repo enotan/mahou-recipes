@@ -8,7 +8,21 @@ deps = []
 
 build_steps = [
   "make",
-  "make PREFIX=/usr DESTDIR=${MAHOU_DESTDIR} install",
+  "install -d ${MAHOU_DESTDIR}/usr/bin ${MAHOU_DESTDIR}/usr/include ${MAHOU_DESTDIR}/usr/lib ${MAHOU_DESTDIR}/usr/share/man/man1",
+  "install -m755 bzip2 bzip2recover bzgrep bzmore bzdiff ${MAHOU_DESTDIR}/usr/bin/",
+  "ln -sf bzip2 ${MAHOU_DESTDIR}/usr/bin/bunzip2",
+  "ln -sf bzip2 ${MAHOU_DESTDIR}/usr/bin/bzcat",
+  "ln -sf bzgrep ${MAHOU_DESTDIR}/usr/bin/bzegrep",
+  "ln -sf bzgrep ${MAHOU_DESTDIR}/usr/bin/bzfgrep",
+  "ln -sf bzmore ${MAHOU_DESTDIR}/usr/bin/bzless",
+  "ln -sf bzdiff ${MAHOU_DESTDIR}/usr/bin/bzcmp",
+  "install -m644 bzlib.h ${MAHOU_DESTDIR}/usr/include/",
+  "install -m644 libbz2.a ${MAHOU_DESTDIR}/usr/lib/",
+  "install -m644 bzip2.1 bzgrep.1 bzmore.1 bzdiff.1 ${MAHOU_DESTDIR}/usr/share/man/man1/",
+  "printf '.so man1/bzgrep.1\\n' > ${MAHOU_DESTDIR}/usr/share/man/man1/bzegrep.1",
+  "printf '.so man1/bzgrep.1\\n' > ${MAHOU_DESTDIR}/usr/share/man/man1/bzfgrep.1",
+  "printf '.so man1/bzmore.1\\n' > ${MAHOU_DESTDIR}/usr/share/man/man1/bzless.1",
+  "printf '.so man1/bzdiff.1\\n' > ${MAHOU_DESTDIR}/usr/share/man/man1/bzcmp.1",
 ]
 
 [update]

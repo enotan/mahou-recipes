@@ -1,0 +1,22 @@
+name = "winetricks"
+version = "20260125"
+description = "Helper script for installing redistributable runtime libraries in Wine prefixes"
+source = "https://github.com/Winetricks/winetricks/archive/refs/tags/20260125.tar.gz"
+sha256 = "2890bd9fbbade4638e58b4999a237273192df03b58516ae7b8771e09c22d2f56"
+source_dir = "winetricks-20260125"
+deps = ["cabextract", "curl", "unzip", "wine", "xdg-utils", "xterm"]
+
+build_steps = [
+  "install -Dm755 src/winetricks ${MAHOU_DESTDIR}/usr/bin/winetricks",
+  "install -Dm644 src/winetricks.1 ${MAHOU_DESTDIR}/usr/share/man/man1/winetricks.1",
+  "install -Dm644 src/winetricks.bash-completion ${MAHOU_DESTDIR}/usr/share/bash-completion/completions/winetricks",
+  "install -Dm644 src/winetricks.desktop ${MAHOU_DESTDIR}/usr/share/applications/winetricks.desktop",
+  "install -Dm644 src/io.github.winetricks.Winetricks.metainfo.xml ${MAHOU_DESTDIR}/usr/share/metainfo/io.github.winetricks.Winetricks.metainfo.xml",
+  "install -Dm644 src/winetricks.svg ${MAHOU_DESTDIR}/usr/share/icons/hicolor/scalable/apps/winetricks.svg",
+]
+
+[update]
+check_url = "https://github.com/Winetricks/winetricks/releases"
+version_pattern = "/releases/tag/([0-9]{8})"
+source_template = "https://github.com/Winetricks/winetricks/archive/refs/tags/{version}.tar.gz"
+source_dir_template = "winetricks-{version}"
