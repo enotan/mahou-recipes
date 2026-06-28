@@ -7,7 +7,7 @@ source_dir = "hyprcursor-0.1.13"
 deps = ["cairo", "cmake", "hyprlang", "libzip", "pkgconf", "tomlplusplus"]
 
 build_steps = [
-  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
+  "STAGE_ROOT=$(dirname \"${MAHOU_DESTDIR}\"); CMAKE_PREFIX_PATH=\"${STAGE_ROOT}/tomlplusplus/usr:${STAGE_ROOT}/libzip/usr:${CMAKE_PREFIX_PATH:-/usr}\" PKG_CONFIG_PATH=\"${STAGE_ROOT}/tomlplusplus/usr/lib/pkgconfig:${STAGE_ROOT}/tomlplusplus/usr/lib64/pkgconfig:${STAGE_ROOT}/tomlplusplus/usr/share/pkgconfig:${STAGE_ROOT}/libzip/usr/lib/pkgconfig:${STAGE_ROOT}/libzip/usr/lib64/pkgconfig:${STAGE_ROOT}/libzip/usr/share/pkgconfig:${PKG_CONFIG_PATH:-/usr/lib/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig}\" cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
   "cmake --build build",
   "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
 ]
