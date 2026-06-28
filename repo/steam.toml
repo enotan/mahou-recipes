@@ -1,0 +1,17 @@
+name = "steam"
+version = "1.0.0.85"
+description = "Valve Steam launcher bootstrapper for Linux"
+source = "https://repo.steampowered.com/steam/archive/stable/steam_1.0.0.85.tar.gz"
+sha256 = "7f2d374a2fb413ced5b8125151456219d918a255872b4bb77016cbccf38bb7f1"
+source_dir = "steam-launcher"
+deps = ["python"]
+
+build_steps = [
+  "make PREFIX=/usr DESTDIR=${MAHOU_DESTDIR} install-bin install-docs install-icons install-bootstrap install-desktop install-appdata",
+]
+
+[update]
+check_url = "https://repo.steampowered.com/steam/archive/stable/"
+version_pattern = "steam_([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.gz"
+source_template = "https://repo.steampowered.com/steam/archive/stable/steam_{version}.tar.gz"
+source_dir_template = "steam-launcher"

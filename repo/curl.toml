@@ -1,13 +1,13 @@
 name = "curl"
-version = "8.20.0"
+version = "8.21.0"
 description = "A Client that groks URLs"
-source = "https://curl.se/download/curl-8.20.0.tar.xz"
-sha256 = "63fe2dc148ba0ceae89922ef838f7e5c946272c2e78b7c59fab4b79d3ce2b896"
-source_dir = "curl-8.20.0"
+source = "https://curl.se/download/curl-8.21.0.tar.xz"
+sha256 = "aa1b66a70eace83dc624508745646c08ae561de512ab403adffb93ac87fc72e6"
+source_dir = "curl-8.21.0"
 deps = []
 
 build_steps = [
-  "./configure --prefix=/usr --disable-docs --disable-manual --without-brotli --without-gnutls --without-libgsasl --without-libssh --without-ldap --without-librtmp --without-ngtcp2 --without-nghttp3 --without-quiche --without-libuv {feature_flags}",
+  "./configure --prefix=/usr --disable-docs --disable-manual --disable-ldap --disable-ldaps --without-brotli --without-gnutls --without-libgsasl --without-libssh --without-ldap --without-ngtcp2 --without-nghttp3 --without-quiche --without-libuv {feature_flags}",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]

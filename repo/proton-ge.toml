@@ -1,0 +1,18 @@
+name = "proton-ge"
+version = "GE-Proton11-1"
+description = "Prebuilt GE-Proton compatibility tool for Steam Play"
+source = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton11-1/GE-Proton11-1.tar.gz"
+sha256 = "ce6dd663ea01725a31805ed5c165723a253cdf0945a6642907330742ae2de5e4"
+source_dir = "GE-Proton11-1"
+deps = []
+
+build_steps = [
+  "install -d ${MAHOU_DESTDIR}/usr/share/steam/compatibilitytools.d/GE-Proton11-1",
+  "cp -a ./. ${MAHOU_DESTDIR}/usr/share/steam/compatibilitytools.d/GE-Proton11-1/",
+]
+
+[update]
+check_url = "https://github.com/GloriousEggroll/proton-ge-custom/releases"
+version_pattern = "/releases/tag/(GE-Proton[0-9]+-[0-9]+)"
+source_template = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/{version}/{version}.tar.gz"
+source_dir_template = "{version}"
