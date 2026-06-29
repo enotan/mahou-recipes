@@ -1,0 +1,19 @@
+name = "muparser"
+version = "2.3.5"
+description = "Fast math expression parser library"
+source = "https://github.com/beltoforion/muparser/archive/refs/tags/v2.3.5.tar.gz"
+sha256 = "20b43cc68c655665db83711906f01b20c51909368973116dfc8d7b3c4ddb5dd4"
+source_dir = "muparser-2.3.5"
+deps = ["cmake"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DENABLE_SAMPLES=OFF -DENABLE_OPENMP=OFF -DBUILD_TESTING=OFF",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/beltoforion/muparser/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/beltoforion/muparser/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "muparser-{version}"
