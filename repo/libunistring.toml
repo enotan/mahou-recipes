@@ -7,9 +7,10 @@ source_dir = "libunistring-1.4.2"
 deps = []
 
 build_steps = [
-  "./configure --prefix=/usr",
+  "./configure --prefix=/usr --disable-static",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
+  "rm -f ${MAHOU_DESTDIR}/usr/lib/libunistring.la ${MAHOU_DESTDIR}/usr/lib64/libunistring.la",
 ]
 
 [update]
