@@ -7,8 +7,9 @@ source_dir = "lua-5.5.0"
 deps = ["readline"]
 
 build_steps = [
-  "make linux-readline",
+  "make linux MYCFLAGS=\"-DLUA_USE_READLINE\" MYLIBS=\"-lreadline\"",
   "make INSTALL_TOP=${MAHOU_DESTDIR}/usr INSTALL_MAN=${MAHOU_DESTDIR}/usr/share/man/man1 install",
+  "mkdir -p ${MAHOU_DESTDIR}/usr/lib/pkgconfig; printf 'prefix=/usr\\nexec_prefix=${prefix}\\nlibdir=${prefix}/lib\\nincludedir=${prefix}/include\\n\\nName: Lua\\nDescription: Lightweight embeddable scripting language\\nVersion: 5.5.0\\nLibs: -L${libdir} -llua -lm -ldl -lreadline\\nCflags: -I${includedir}\\n' > ${MAHOU_DESTDIR}/usr/lib/pkgconfig/lua.pc",
 ]
 
 [update]
