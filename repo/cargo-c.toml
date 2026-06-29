@@ -7,7 +7,7 @@ source_dir = "cargo-c-0.10.23"
 deps = ["rust-bin"]
 
 build_steps = [
-  "cargo install --path . --root ${MAHOU_DESTDIR}/usr",
+  "STAGE_ROOT=$(dirname \"${MAHOU_DESTDIR}\"); PATH=\"${STAGE_ROOT}/rust-bin/usr/bin:${PATH}\"; export PATH; cargo install --path . --root ${MAHOU_DESTDIR}/usr",
   "rm -f ${MAHOU_DESTDIR}/usr/.crates.toml ${MAHOU_DESTDIR}/usr/.crates2.json",
 ]
 
