@@ -1,0 +1,19 @@
+name = "glaze"
+version = "7.2.0"
+description = "Header-only JSON and interface library for modern C++"
+source = "https://github.com/stephenberry/glaze/archive/refs/tags/v7.2.0.tar.gz"
+sha256 = "17dba19ae63ae48f94994f00d49d5cb3c8f1306db1046c534c4828662490b7d4"
+source_dir = "glaze-7.2.0"
+deps = ["cmake"]
+
+build_steps = [
+  "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -Dglaze_BUILD_EXAMPLES=OFF -Dglaze_ENABLE_SSL=OFF",
+  "cmake --build build",
+  "DESTDIR=${MAHOU_DESTDIR} cmake --install build",
+]
+
+[update]
+check_url = "https://github.com/stephenberry/glaze/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/stephenberry/glaze/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "glaze-{version}"
