@@ -4,7 +4,7 @@ description = "OpenGL-like graphic library for Linux"
 source = "https://archive.mesa3d.org/mesa-26.0.7.tar.xz"
 sha256 = "0c56bbcf1947e1a6a90ac09b129b0ca0cb52cc31145b94595e57c8804cf02496"
 source_dir = "mesa-26.0.7"
-deps = ["libdrm", "libxkbcommon", "libglvnd", "wayland"]
+deps = ["libclc", "libdrm", "libxkbcommon", "libglvnd", "llvm", "spirv-tools", "wayland"]
 
 build_steps = [
   "meson setup build --prefix=/usr --buildtype=release -Dgallium-drivers=iris,crocus,i915,radeonsi,r600,nouveau,zink,llvmpipe,softpipe -Dvulkan-drivers=intel,amd,swrast -Dgallium-rusticl=false '-Dtools=[]'",

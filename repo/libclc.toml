@@ -1,0 +1,19 @@
+name = "libclc"
+version = "22.1.8"
+description = "OpenCL C library implementation for Mesa shader compilation"
+source = "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.8/llvm-project-22.1.8.src.tar.xz"
+sha256 = "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
+source_dir = "llvm-project-22.1.8.src"
+deps = ["cmake", "llvm", "ninja"]
+
+build_steps = [
+  "STAGE_ROOT=$(dirname \"${MAHOU_DESTDIR}\"); LLVM_PREFIX=\"${STAGE_ROOT}/llvm/usr\"; PATH=\"${LLVM_PREFIX}/bin:${PATH}\"; CMAKE_PREFIX_PATH=\"${LLVM_PREFIX}:${CMAKE_PREFIX_PATH:-/usr}\"; export PATH CMAKE_PREFIX_PATH; cmake -S libclc -B build-libclc -G Ninja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DLLVM_DIR=\"${LLVM_PREFIX}/lib/cmake/llvm\" -DLIBCLC_TARGETS_TO_BUILD='spirv-mesa3d-;spirv64-mesa3d-' -DLIBCLC_USE_SPIRV_BACKEND=ON",
+  "ninja -C build-libclc",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build-libclc install",
+]
+
+[update]
+check_url = "https://github.com/llvm/llvm-project/releases"
+version_pattern = "llvm-project-([0-9]+\\.[0-9]+\\.[0-9]+)\\.src\\.tar\\.xz"
+source_template = "https://github.com/llvm/llvm-project/releases/download/llvmorg-{version}/llvm-project-{version}.src.tar.xz"
+source_dir_template = "llvm-project-{version}.src"

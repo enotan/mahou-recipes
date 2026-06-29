@@ -1,0 +1,19 @@
+name = "llvm"
+version = "22.1.8"
+description = "LLVM compiler infrastructure with Clang"
+source = "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.8/llvm-project-22.1.8.src.tar.xz"
+sha256 = "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
+source_dir = "llvm-project-22.1.8.src"
+deps = ["cmake", "libffi", "ninja", "python", "zlib", "zstd"]
+
+build_steps = [
+  "cmake -S llvm -B build-llvm -G Ninja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS=clang -DLLVM_TARGETS_TO_BUILD='X86;AMDGPU;NVPTX;SPIRV' -DLLVM_ENABLE_RTTI=ON -DLLVM_BUILD_LLVM_DYLIB=ON -DLLVM_LINK_LLVM_DYLIB=ON -DLLVM_ENABLE_BINDINGS=OFF -DLLVM_INCLUDE_BENCHMARKS=OFF -DLLVM_INCLUDE_DOCS=OFF -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF -DLLVM_ENABLE_TERMINFO=OFF -DLLVM_ENABLE_LIBXML2=OFF -DLLVM_ENABLE_ZLIB=ON -DLLVM_ENABLE_ZSTD=ON -DLLVM_ENABLE_FFI=ON",
+  "ninja -C build-llvm",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build-llvm install",
+]
+
+[update]
+check_url = "https://github.com/llvm/llvm-project/releases"
+version_pattern = "llvm-project-([0-9]+\\.[0-9]+\\.[0-9]+)\\.src\\.tar\\.xz"
+source_template = "https://github.com/llvm/llvm-project/releases/download/llvmorg-{version}/llvm-project-{version}.src.tar.xz"
+source_dir_template = "llvm-project-{version}.src"
