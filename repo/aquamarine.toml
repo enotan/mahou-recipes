@@ -4,7 +4,7 @@ description = "Hyprland's Wayland compositor backend library"
 source = "https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.12.1.tar.gz"
 sha256 = "80120257c983e18dec78c4df03246931b1bca1e44e50fb41ca21bad772479bd9"
 source_dir = "aquamarine-0.12.1"
-deps = ["cmake", "hyprutils", "hyprwayland-scanner", "libdrm", "libinput", "mesa", "pixman", "pkgconf", "wayland", "wayland-protocols"]
+deps = ["cmake", "hyprutils", "hyprwayland-scanner", "libdrm", "libinput", "mesa", "pixman", "pkgconf", "seatd", "wayland", "wayland-protocols"]
 
 build_steps = [
   "cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release",
