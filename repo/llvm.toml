@@ -1,9 +1,9 @@
 name = "llvm"
-version = "22.1.8"
+version = "21.1.6"
 description = "LLVM compiler infrastructure with Clang"
-source = "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.8/llvm-project-22.1.8.src.tar.xz"
-sha256 = "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
-source_dir = "llvm-project-22.1.8.src"
+source = "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.6/llvm-project-21.1.6.src.tar.xz"
+sha256 = "ae67086eb04bed7ca11ab880349b5f1ab6f50e1b88cda376eaf8a845b935762b"
+source_dir = "llvm-project-21.1.6.src"
 deps = ["cmake", "libffi", "ninja", "python", "zlib", "zstd"]
 
 build_steps = [
@@ -11,9 +11,3 @@ build_steps = [
   "ninja -C build-llvm",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build-llvm install",
 ]
-
-[update]
-check_url = "https://github.com/llvm/llvm-project/releases"
-version_pattern = "llvm-project-([0-9]+\\.[0-9]+\\.[0-9]+)\\.src\\.tar\\.xz"
-source_template = "https://github.com/llvm/llvm-project/releases/download/llvmorg-{version}/llvm-project-{version}.src.tar.xz"
-source_dir_template = "llvm-project-{version}.src"
