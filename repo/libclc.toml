@@ -8,7 +8,7 @@ deps = ["cmake", "llvm", "ninja"]
 
 build_steps = [
   "STAGE_ROOT=$(dirname \"${MAHOU_DESTDIR}\"); LLVM_PREFIX=\"${STAGE_ROOT}/llvm/usr\"; PATH=\"${LLVM_PREFIX}/bin:${PATH}\"; CMAKE_PREFIX_PATH=\"${LLVM_PREFIX}:${CMAKE_PREFIX_PATH:-/usr}\"; export PATH CMAKE_PREFIX_PATH; cmake -S libclc -B build-libclc -G Ninja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DLLVM_DIR=\"${LLVM_PREFIX}/lib/cmake/llvm\" -DLIBCLC_TARGETS_TO_BUILD='spirv-mesa3d-;spirv64-mesa3d-' -DLIBCLC_USE_SPIRV_BACKEND=ON",
-  "ninja -C build-libclc",
+  "ninja -C build-libclc -j1",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build-libclc install",
 ]
 
