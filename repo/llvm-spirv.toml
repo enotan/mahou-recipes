@@ -1,0 +1,13 @@
+name = "llvm-spirv"
+version = "21.1.6"
+description = "LLVM/SPIR-V translator tool"
+source = "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v21.1.6.tar.gz"
+sha256 = "63b0def85f17f7cfe2958efe24220c53c89a8680a82224da318de85f55424e01"
+source_dir = "SPIRV-LLVM-Translator-21.1.6"
+deps = ["cmake", "llvm", "ninja", "spirv-headers", "spirv-tools"]
+
+build_steps = [
+  "STAGE_ROOT=$(dirname \"${MAHOU_DESTDIR}\"); LLVM_PREFIX=\"${STAGE_ROOT}/llvm/usr\"; SPIRV_HEADERS_SOURCE=\"${STAGE_ROOT}/spirv-headers/usr/include/spirv/unified1\"; CMAKE_PREFIX_PATH=\"${LLVM_PREFIX}:${STAGE_ROOT}/spirv-tools/usr:${CMAKE_PREFIX_PATH:-/usr}\"; PATH=\"${LLVM_PREFIX}/bin:${STAGE_ROOT}/spirv-tools/usr/bin:${PATH}\"; export CMAKE_PREFIX_PATH PATH; cmake -S . -B build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DLLVM_DIR=\"${LLVM_PREFIX}/lib/cmake/llvm\" -DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=\"${SPIRV_HEADERS_SOURCE}\" -DLLVM_SPIRV_INCLUDE_TESTS=OFF -DLLVM_SPIRV_ENABLE_LIBSPIRV_DIS=ON",
+  "ninja -C build",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
+]
