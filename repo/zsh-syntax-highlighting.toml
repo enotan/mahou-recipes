@@ -1,0 +1,18 @@
+name = "zsh-syntax-highlighting"
+version = "0.8.0"
+description = "Fish shell-like syntax highlighting for zsh"
+source = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/0.8.0.tar.gz"
+sha256 = "5981c19ebaab027e356fe1ee5284f7a021b89d4405cc53dc84b476c3aee9cc32"
+source_dir = "zsh-syntax-highlighting-0.8.0"
+deps = ["oh-my-zsh"]
+
+build_steps = [
+  "mkdir -p ${MAHOU_DESTDIR}/usr/share/oh-my-zsh/custom/plugins/zsh-syntax-highlighting",
+  "cp -a . ${MAHOU_DESTDIR}/usr/share/oh-my-zsh/custom/plugins/zsh-syntax-highlighting/",
+]
+
+[update]
+check_url = "https://github.com/zsh-users/zsh-syntax-highlighting/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/{version}.tar.gz"
+source_dir_template = "zsh-syntax-highlighting-{version}"

@@ -1,0 +1,18 @@
+name = "zsh-autosuggestions"
+version = "0.7.1"
+description = "Fish-like autosuggestions for zsh"
+source = "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/tags/v0.7.1.tar.gz"
+sha256 = "0df7affff21cd87ed298e6a3970ed08a1dd66a6efa676454ee5b091ad503badf"
+source_dir = "zsh-autosuggestions-0.7.1"
+deps = ["oh-my-zsh"]
+
+build_steps = [
+  "mkdir -p ${MAHOU_DESTDIR}/usr/share/oh-my-zsh/custom/plugins/zsh-autosuggestions",
+  "cp -a . ${MAHOU_DESTDIR}/usr/share/oh-my-zsh/custom/plugins/zsh-autosuggestions/",
+]
+
+[update]
+check_url = "https://github.com/zsh-users/zsh-autosuggestions/releases"
+version_pattern = "/releases/tag/v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+source_template = "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/tags/v{version}.tar.gz"
+source_dir_template = "zsh-autosuggestions-{version}"
