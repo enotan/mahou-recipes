@@ -1,7 +1,7 @@
 name = "spirv-headers"
 version = "1.4.350.1"
 description = "Machine-readable SPIR-V registry and headers"
-source = "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.350.1.tar.gz"
+source = "https://codeload.github.com/KhronosGroup/SPIRV-Headers/tar.gz/refs/tags/vulkan-sdk-1.4.350.1"
 sha256 = "9e6d5c78878172d2b810e97f3a74ecbbb14b4ad52b07384ce915fbbeb226d610"
 source_dir = "SPIRV-Headers-vulkan-sdk-1.4.350.1"
 deps = ["cmake"]
@@ -15,5 +15,5 @@ build_steps = [
 [update]
 check_url = "https://github.com/KhronosGroup/SPIRV-Headers/tags"
 version_pattern = "vulkan-sdk-([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)"
-source_template = "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-{version}.tar.gz"
+source_template = "https://codeload.github.com/KhronosGroup/SPIRV-Headers/tar.gz/refs/tags/vulkan-sdk-{version}"
 source_dir_template = "SPIRV-Headers-vulkan-sdk-{version}"

@@ -1,7 +1,7 @@
 name = "vulkan-headers"
 version = "1.4.350.1"
 description = "Vulkan header files and API registry"
-source = "https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.4.350.1.tar.gz"
+source = "https://codeload.github.com/KhronosGroup/Vulkan-Headers/tar.gz/refs/tags/vulkan-sdk-1.4.350.1"
 sha256 = "6d1bb65e49520344cc0a48af3dc02e993781efff14c7ebdcb8ae9fa23ddf7e83"
 source_dir = "Vulkan-Headers-vulkan-sdk-1.4.350.1"
 deps = ["cmake"]
@@ -15,5 +15,5 @@ build_steps = [
 [update]
 check_url = "https://github.com/KhronosGroup/Vulkan-Headers/tags"
 version_pattern = "vulkan-sdk-([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)"
-source_template = "https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-{version}.tar.gz"
+source_template = "https://codeload.github.com/KhronosGroup/Vulkan-Headers/tar.gz/refs/tags/vulkan-sdk-{version}"
 source_dir_template = "Vulkan-Headers-vulkan-sdk-{version}"

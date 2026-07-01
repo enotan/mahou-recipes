@@ -1,7 +1,7 @@
 name = "vulkan-loader"
 version = "1.4.350.1"
 description = "Vulkan Installable Client Driver loader"
-source = "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/vulkan-sdk-1.4.350.1.tar.gz"
+source = "https://codeload.github.com/KhronosGroup/Vulkan-Loader/tar.gz/refs/tags/vulkan-sdk-1.4.350.1"
 sha256 = "602984a71000981e25e4feb419e6cdd70b18ffe2b8004f60f591706027bca468"
 source_dir = "Vulkan-Loader-vulkan-sdk-1.4.350.1"
 deps = ["cmake", "libX11", "libXrandr", "libxcb", "pkgconf", "vulkan-headers", "wayland"]
@@ -15,5 +15,5 @@ build_steps = [
 [update]
 check_url = "https://github.com/KhronosGroup/Vulkan-Loader/tags"
 version_pattern = "vulkan-sdk-([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)"
-source_template = "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/vulkan-sdk-{version}.tar.gz"
+source_template = "https://codeload.github.com/KhronosGroup/Vulkan-Loader/tar.gz/refs/tags/vulkan-sdk-{version}"
 source_dir_template = "Vulkan-Loader-vulkan-sdk-{version}"

@@ -1,7 +1,7 @@
 name = "vulkan-tools"
 version = "1.4.350.1"
 description = "Vulkan command-line tools including vulkaninfo and cube"
-source = "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/vulkan-sdk-1.4.350.1.tar.gz"
+source = "https://codeload.github.com/KhronosGroup/Vulkan-Tools/tar.gz/refs/tags/vulkan-sdk-1.4.350.1"
 sha256 = "502b53a585f49036e45372724f652bacc1fad2c62396e321bc8f5fbc031c14d5"
 source_dir = "Vulkan-Tools-vulkan-sdk-1.4.350.1"
 deps = ["cmake", "libX11", "libxcb", "pkgconf", "vulkan-headers", "vulkan-loader", "wayland", "wayland-protocols"]
@@ -15,5 +15,5 @@ build_steps = [
 [update]
 check_url = "https://github.com/KhronosGroup/Vulkan-Tools/tags"
 version_pattern = "vulkan-sdk-([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)"
-source_template = "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/vulkan-sdk-{version}.tar.gz"
+source_template = "https://codeload.github.com/KhronosGroup/Vulkan-Tools/tar.gz/refs/tags/vulkan-sdk-{version}"
 source_dir_template = "Vulkan-Tools-vulkan-sdk-{version}"

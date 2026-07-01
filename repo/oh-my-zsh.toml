@@ -1,0 +1,12 @@
+name = "oh-my-zsh"
+version = "2026.07.01"
+description = "Community-driven framework for managing zsh configuration"
+source = "https://github.com/ohmyzsh/ohmyzsh/archive/ff2f16e8df7386d7198009566aef09cbbc0c8212.tar.gz"
+sha256 = "1509198b83450f5d3f5066d9d6d8774502a113f7fd1a3c5510b926b40cc2811b"
+source_dir = "ohmyzsh-ff2f16e8df7386d7198009566aef09cbbc0c8212"
+deps = ["zsh"]
+
+build_steps = [
+  "mkdir -p ${MAHOU_DESTDIR}/usr/share/oh-my-zsh",
+  "cp -a . ${MAHOU_DESTDIR}/usr/share/oh-my-zsh/",
+]
