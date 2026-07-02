@@ -8,7 +8,7 @@ deps = ["lib32-expat", "lib32-libdrm", "lib32-libffi", "lib32-libglvnd", "lib32-
 
 build_steps = [
   "rm -rf build-32",
-  "CFLAGS='-m32 -O2' CXXFLAGS='-m32 -O2' LDFLAGS='-m32' PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/share/pkgconfig meson setup build-32 --prefix=/usr --libdir=lib --buildtype=release -Dgallium-drivers=iris,crocus,i915,llvmpipe,softpipe '-Dvulkan-drivers=[]' -Dgallium-rusticl=false '-Dtools=[]'",
+  "CFLAGS='-m32 -O2' CXXFLAGS='-m32 -O2' LDFLAGS='-m32' PKG_CONFIG_LIBDIR=/usr/lib32/pkgconfig:/usr/share/pkgconfig meson setup build-32 --prefix=/usr --libdir=lib32 --buildtype=release -Dgallium-drivers=iris,crocus,i915,llvmpipe,softpipe '-Dvulkan-drivers=[]' -Dgallium-rusticl=false '-Dtools=[]'",
   "ninja -C build-32",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build-32 install",
 ]

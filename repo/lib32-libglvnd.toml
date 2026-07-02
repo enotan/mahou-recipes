@@ -8,7 +8,7 @@ deps = ["lib32-libX11", "lib32-libXext"]
 
 build_steps = [
   "rm -rf build-32",
-  "CFLAGS='-m32 -O2' LDFLAGS='-m32' PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/share/pkgconfig meson setup build-32 --prefix=/usr --libdir=lib --buildtype=release",
+  "CFLAGS='-m32 -O2' LDFLAGS='-m32' PKG_CONFIG_LIBDIR=/usr/lib32/pkgconfig:/usr/share/pkgconfig meson setup build-32 --prefix=/usr --libdir=lib32 --buildtype=release",
   "ninja -C build-32",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build-32 install",
 ]

@@ -8,7 +8,7 @@ deps = []
 
 build_steps = [
   "make distclean || true",
-  "CFLAGS='-m32 -O2' LDFLAGS='-m32' ./configure --prefix=/usr --libdir=/usr/lib",
+  "CFLAGS='-m32 -O2' LDFLAGS='-m32' ./configure --prefix=/usr --libdir=/usr/lib32",
   "make",
   "make DESTDIR=${MAHOU_DESTDIR} install",
 ]
