@@ -1,0 +1,20 @@
+name = "lib32-libX11"
+version = "1.8.13"
+description = "X11 client-side library (32-bit)"
+source = "https://www.x.org/releases/individual/lib/libX11-1.8.13.tar.xz"
+sha256 = "69606f485c2c07c14ef64f75b7bb326d48587af33795d9ab3e607c0b5f94f11c"
+source_dir = "libX11-1.8.13"
+deps = ["lib32-libxcb", "xorg-proto"]
+
+build_steps = [
+  "make distclean || true",
+  "CFLAGS='-m32 -O2' LDFLAGS='-m32' PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/share/pkgconfig ./configure --prefix=/usr --libdir=/usr/lib --host=i686-pc-linux-gnu",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://www.x.org/releases/individual/lib/"
+version_pattern = "libX11-([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.xz"
+source_template = "https://www.x.org/releases/individual/lib/libX11-{version}.tar.xz"
+source_dir_template = "libX11-{version}"

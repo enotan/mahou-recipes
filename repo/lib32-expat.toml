@@ -1,0 +1,20 @@
+name = "lib32-expat"
+version = "2.8.1"
+description = "Stream-oriented XML parser library (32-bit)"
+source = "https://github.com/libexpat/libexpat/releases/download/R_2_8_1/expat-2.8.1.tar.xz"
+sha256 = "10b195ee78160a908388180a8fe3603d4e9a12f4755fbf5f3816b23a9d750da0"
+source_dir = "expat-2.8.1"
+deps = []
+
+build_steps = [
+  "make distclean || true",
+  "CFLAGS='-m32 -O2' LDFLAGS='-m32' PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/share/pkgconfig ./configure --prefix=/usr --libdir=/usr/lib --host=i686-pc-linux-gnu",
+  "make",
+  "make DESTDIR=${MAHOU_DESTDIR} install",
+]
+
+[update]
+check_url = "https://github.com/libexpat/libexpat/releases"
+version_pattern = "/releases/tag/([^\"/]+)"
+source_template = "https://github.com/libexpat/libexpat/releases/latest/download/expat-{version}.tar.xz"
+source_dir_template = "expat-{version}"

@@ -1,0 +1,20 @@
+name = "lib32-libglvnd"
+version = "1.7.0"
+description = "The GL Vendor-Neutral Dispatch library (32-bit)"
+source = "https://gitlab.freedesktop.org/glvnd/libglvnd/-/archive/v1.7.0/libglvnd-v1.7.0.tar.bz2"
+sha256 = "d0e1925a3c9aee0143b8c181ac31d5637c8faa081759c277b8e16c7075612c11"
+source_dir = "libglvnd-v1.7.0"
+deps = ["lib32-libX11", "lib32-libXext"]
+
+build_steps = [
+  "rm -rf build-32",
+  "CFLAGS='-m32 -O2' LDFLAGS='-m32' PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/share/pkgconfig meson setup build-32 --prefix=/usr --libdir=lib --buildtype=release",
+  "ninja -C build-32",
+  "DESTDIR=${MAHOU_DESTDIR} ninja -C build-32 install",
+]
+
+[update]
+check_url = "https://gitlab.freedesktop.org/glvnd/libglvnd/-/tags"
+version_pattern = "libglvnd-v([0-9]+\\.[0-9]+\\.[0-9]+)\\.tar\\.bz2"
+source_template = "https://gitlab.freedesktop.org/glvnd/libglvnd/-/archive/v{version}/libglvnd-v{version}.tar.bz2"
+source_dir_template = "libglvnd-v{version}"
