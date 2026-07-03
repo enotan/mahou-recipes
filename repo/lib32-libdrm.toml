@@ -4,7 +4,7 @@ description = "X.Org libdrm library (32-bit)"
 source = "https://dri.freedesktop.org/libdrm/libdrm-2.4.133.tar.xz"
 sha256 = "fc68f9d0ba2ea63c9432a299e14fea09fad7a8a66e8039fcd7802ca59f77b4f5"
 source_dir = "libdrm-2.4.133"
-deps = []
+deps = ["lib32-libpciaccess"]
 
 build_steps = [
   "rm -rf build-32",
