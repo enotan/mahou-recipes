@@ -7,7 +7,7 @@ source_dir = "gstreamer-1.28.3"
 deps = ["glib"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release -Dexamples=disabled -Dtests=disabled -Dbenchmarks=disabled -Ddoc=disabled -Dcheck=disabled -Dlibunwind=disabled -Dlibdw=disabled {feature_flags}",
+  "meson setup build --prefix=/usr --buildtype=release --wrap-mode=nofallback -Dexamples=disabled -Dtests=disabled -Dbenchmarks=disabled -Ddoc=disabled -Dcheck=disabled -Dlibunwind=disabled -Dlibdw=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]

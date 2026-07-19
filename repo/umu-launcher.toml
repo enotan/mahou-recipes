@@ -1,8 +1,8 @@
 name = "umu-launcher"
-version = "1.4.0"
+version = "1.4.1"
 description = "Prebuilt umu launcher zipapp for running games with Proton outside Steam"
-source = "https://github.com/Open-Wine-Components/umu-launcher/releases/download/1.4.0/umu-launcher-1.4.0-zipapp.tar"
-sha256 = "138ce4b8843608a257d4bee88191ca78a989778bcefd8abb3c1d1aaac3ac6fb8"
+source = "https://github.com/Open-Wine-Components/umu-launcher/releases/download/1.4.1/umu-launcher-1.4.1-zipapp.tar"
+sha256 = "97b6ff2981912a6b9cd223ec4fb5c4e0a819e5c166811e0f82ae60fad0801c21"
 source_dir = "umu"
 deps = ["curl", "proton-ge", "python"]
 
@@ -12,6 +12,6 @@ build_steps = [
 
 [update]
 check_url = "https://github.com/Open-Wine-Components/umu-launcher/releases"
-version_pattern = "/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)"
+version_pattern = "/Open-Wine-Components/umu-launcher/releases/tag/([0-9]+\\.[0-9]+\\.[0-9]+)\""
 source_template = "https://github.com/Open-Wine-Components/umu-launcher/releases/download/{version}/umu-launcher-{version}-zipapp.tar"
 source_dir_template = "umu"

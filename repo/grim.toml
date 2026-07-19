@@ -4,13 +4,18 @@ description = "Grab images from a Wayland compositor"
 source = "https://gitlab.freedesktop.org/emersion/grim/-/releases/v1.5.0/downloads/grim-1.5.0.tar.gz"
 sha256 = "99708950205d5bfd2e769519fcb6423a9f545175a29c46c7c1cf7965afc4b8eb"
 source_dir = "grim-1.5.0"
-deps = ["libpng", "wayland", "wayland-protocols"]
+deps = ["libpng", "pixman", "wayland", "wayland-protocols"]
 
 build_steps = [
-  "meson setup build --prefix=/usr --buildtype=release",
+  "meson setup build --prefix=/usr --buildtype=release -Dman-pages=disabled {feature_flags}",
   "ninja -C build",
   "DESTDIR=${MAHOU_DESTDIR} ninja -C build install",
 ]
+
+[features.jpeg]
+deps = ["libjpeg-turbo"]
+build_flags = ["-Djpeg=enabled"]
+disabled_build_flags = ["-Djpeg=disabled"]
 
 [update]
 check_url = "https://gitlab.freedesktop.org/api/v4/projects/emersion%2Fgrim/releases"
