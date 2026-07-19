@@ -7,7 +7,8 @@ source_dir = "setuptools-82.0.1"
 deps = ["python"]
 
 build_steps = [
-  "python3 setup.py install --root=${MAHOU_DESTDIR} --prefix=/usr --optimize=1",
+  "python3 -c \"import os, pathlib, shutil, sysconfig; purelib = pathlib.Path(sysconfig.get_path('purelib', vars={'base': '/usr', 'platbase': '/usr'})); dest = pathlib.Path(os.environ['MAHOU_DESTDIR']) / purelib.relative_to('/'); dest.mkdir(parents=True, exist_ok=True); [shutil.copytree(src, dest / src, dirs_exist_ok=True) for src in ('setuptools', '_distutils_hack', 'setuptools.egg-info')]\"",
+  "python3 -c \"import os, pathlib, sysconfig; purelib = pathlib.Path(sysconfig.get_path('purelib', vars={'base': '/usr', 'platbase': '/usr'})); dest = pathlib.Path(os.environ['MAHOU_DESTDIR']) / purelib.relative_to('/'); (dest / 'distutils-precedence.pth').write_text(\\\"import os; var = 'SETUPTOOLS_USE_DISTUTILS'; enabled = os.environ.get(var, 'local') == 'local'; enabled and __import__('_distutils_hack').add_shim()\\n\\\")\"",
 ]
 
 [update]
